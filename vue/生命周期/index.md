@@ -51,7 +51,7 @@
 
 - **beforeMount（载入前）** 此阶段，依然得不到具体的DOM元素，但vue挂载的根节点已经创建，下面vue对DOM的操作将围绕这个根元素继续进行。
 
-  <img src="images\beforeMountToMounted.png" alt="beforeMountToMounted" style="zoom:50%;" />
+  <img src="images/beforeMountToMounted.png" alt="beforeMountToMounted" style="zoom:50%;" />
 
   ​		在 **beforeMount** 和 **mounted** 生命周期之间，可以看到此时是给vue实例对象添加 **$el成员** ，并且替换掉挂载的DOM元素。
 
