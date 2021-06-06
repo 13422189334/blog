@@ -1,14 +1,17 @@
+---
+title: 生命周期
+lang: zh-CN
+---
 # 前言
 
 ​		每个Vue实例再被创建之前，都会经过一系列的初始化过程，这个过程被称之为vue的生命周期。
 
 ​		下面这张官网的图，想必大家都熟悉，那让我们一步一步的分析，并最后验证一下。
-
-<img src="images/lifecycle.png" alt="Vue 实例生命周期" style="zoom: 50%;" />
+<img src="./images/lifecycle.png" alt="Vue 实例生命周期" style="zoom: 50%;" />
 
 ​		图中可以看到在一整个生命周期中会有很多的钩子函数，不同的钩子函数提供给我们在vue生命周期不同的时刻进行的操作, 那么我们先列出所有的钩子函数，然后我们再一一详解：
 
-> 结合 [生命周期案例](demo.html) ，F12看控制台更容易理解。
+> 结合 [生命周期案例](./demo.html) ，F12看控制台更容易理解。
 
 
 
@@ -23,7 +26,7 @@
 
   ​		在 **created** 和 **beforeMount** 生命周期之间，发生的事情相对比较多，结合官网给出的生命周期图可以分析下：
 
-  <img src="images/createdToBeforeMount.png" alt="createdToBeforeMount" style="zoom:50%;" />
+  <img src="./images/createdToBeforeMount.png" alt="createdToBeforeMount" style="zoom:50%;" />
 
   
 
@@ -51,7 +54,7 @@
 
 - **beforeMount（载入前）** 此阶段，依然得不到具体的DOM元素，但vue挂载的根节点已经创建，下面vue对DOM的操作将围绕这个根元素继续进行。
 
-  <img src="images/beforeMountToMounted.png" alt="beforeMountToMounted" style="zoom:50%;" />
+  <img src="./images/beforeMountToMounted.png" alt="beforeMountToMounted" style="zoom:50%;" />
 
   ​		在 **beforeMount** 和 **mounted** 生命周期之间，可以看到此时是给vue实例对象添加 **$el成员** ，并且替换掉挂载的DOM元素。
 

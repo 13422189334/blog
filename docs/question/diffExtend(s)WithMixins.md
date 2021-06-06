@@ -1,3 +1,7 @@
+---
+title: extend(s)与mixins差异
+lang: zh-CN
+---
 - **Mixins 的使用方法：**
 
   首先，我们先定义一个Mixins混入类对象。
