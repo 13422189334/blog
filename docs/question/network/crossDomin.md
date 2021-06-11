@@ -125,12 +125,12 @@ if (!org.springframework.util.StringUtils.isEmpty(origin)) {
 ```nginx
 server {
   listen 80;
-  server_name: demo.com; // 请求域名是demo.com，端口是80的，都会被nginx做代理
-  // http://demo.com/api/test 就会跳转到http://localhost:8080/test/
+  server_name: demo.com; # 请求域名是demo.com，端口是80的，都会被nginx做代理
+  # http://demo.com/api/test 就会跳转到http://localhost:8080/test/
   location /api {
     proxy_pass http://localhost:8080/test/;
   }
-  // http://demo.com/test 就会跳转到http://localhost:8080/
+  # http://demo.com/test 就会跳转到http://localhost:8080/
   location / {
     proxy_pass http://localhost:8080; 
   }
