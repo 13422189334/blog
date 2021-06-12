@@ -145,7 +145,7 @@ name: "Home",
     
     ```javascript
     - // hello.js
-      import Vue from 'vue';
+      import Vue from 'docs/question/vue';
       import HelloTemplate from './hello.vue';
     
     // 使用extend方法创建vue的子类

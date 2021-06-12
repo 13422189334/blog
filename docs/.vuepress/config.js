@@ -1,15 +1,13 @@
 let nav = [
     { text: 'home', link: '/' },
-    { text: 'question', link: '/question/diffExtend(s)WithMixins' },
+    { text: 'question', link: '/question/logic' },
     { text: 'vue', link: '/vue/render/' }
 ]
 
 let sidebar = {
-    '/question/': ['diffExtend(s)WithMixins'],
+    '/question/': ['logic', 'network', 'vue'],
     '/vue/': ['render/', 'template/', 'lifeCycle/']
 }
-
-
 
 module.exports = {
     title: '冰冰全栈MD', // 网站的标题
