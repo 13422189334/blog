@@ -7,12 +7,15 @@ function resolve(dir) {
 }
 
 module.exports = {
-    publicPath: '/vuepress-starter',
-    configureWebpack: config => {
-        config.resolve.alias = {
-            '@src': resolve('/src'),
-            '@vue': resolve('/src/vue'),
-            '@question': resolve('/src/question')
+    // publicPath: '/vuepress-starter',
+    context: path.resolve(__dirname, './'),
+    configureWebpack: (config, isServer) => {
+        if (!isServer) {
+            config.resolve.alias = {
+                '@': resolve('docs'),
+                '@vue': resolve('/docs/vue'),
+                '@question': resolve('/docs/question')
+            }
         }
     }
 }
