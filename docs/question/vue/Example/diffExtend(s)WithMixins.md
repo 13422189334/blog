@@ -47,7 +47,9 @@ lang: zh-CN
   1. 应用场景：在项目中，如果我们需要提取公用的数据或者通用的方法，并且这些数据与方法不需要组件间进行维护，就可以使用Mixins
   
   2. 特点：方法和参数在各组件中不共享
+  
      当值为对象的选项，如 **methods,components** 等，选项会被合并，键冲突的时候组件会覆盖混入对象
+     
      当值为函数的选项，如 **created,mounted** 等，就会被合并调用，混入对象钩子函数会比组件里的钩子函数先调用
      
   3. 与vuex的区别
@@ -182,7 +184,10 @@ name: "Home",
   - **extend,extends, Mixins 区别**
 
 Vue.extend创建组件的构造函数，为了复用
+
 Mixins 可以混入多个Mixin ，extends只能继承一个
+
 Mixins 类似于面向切面的编程（AOP），extends类似于面向对象的编程
+
 优先级Vue.extend>extends>Mixins 
       
