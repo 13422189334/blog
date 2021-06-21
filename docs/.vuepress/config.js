@@ -1,12 +1,14 @@
 let nav = [
     { text: 'home', link: '/' },
-    { text: 'question', link: '/question/logic' },
-    { text: 'vue', link: '/vue/render/' }
+    { text: 'question', link: '/question/vue' },
+    { text: 'vue', link: '/vue/render/' },
+    { text: 'tool', link: '/tool/git/' }
 ]
 
 let sidebar = {
-    '/question/': ['logic', 'network', 'vue'],
-    '/vue/': ['render/', 'template/', 'lifeCycle/']
+    '/question/': ['vue', 'js', 'algorithm', 'network', 'logic' ],
+    '/vue/': ['render/', 'template/', 'lifeCycle/'],
+    '/tool/': ['git/']
 }
 
 module.exports = {
