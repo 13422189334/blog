@@ -4,7 +4,7 @@ heroImage: /logo.jpg
 heroText: 冰冰全栈MD
 tagline: 冰冰 是我的
 actionText: 快速入口 →
-actionLink: /question/diffExtend(s)WithMixins
+actionLink: /question/vue
 features:
 - title: MD快速记录
   details: 以 Markdown 为中心的项目结构，专注于写作。
