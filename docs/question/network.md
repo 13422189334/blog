@@ -10,4 +10,4 @@ lang: zh-CN
 
 - **笔试题**
 1. [手写jsonp](./network/jsonp.md)
-2. 使用promise和Ajax封装一个get请求
+2. [使用promise和Ajax封装请求](./network/promiseAjax.md)
