@@ -37,16 +37,17 @@ lang: zh-CN
             const callbackFunctionName = 'jsonp_' + random
             paramList.push(`callback=${callbackFunctionName}`)
             const urlStr = url + '?' + paramList.join('&')
+            // 定义全局函数，为后续拿到js文件调用准备
+            global[callbackFunctionName] = function (param) {
+                callback(param)
+            }
             // 生成element
             const script = document.createElement('script')
             script.src = urlStr
-            // 放入body
+            // 放入body, 立即调用全局函数 callbackFunctionName
             document.body.appendChild(script)
-            // js拿到后，注册函数用于 js文件中的函数调用
-            global[callbackFunctionName] = function (param) {
-                callback(param)
-                document.body.removeChild(script)
-            }
+            // js拿到后，移除文件
+            document.body.removeChild(script)
         }
     })(window)
 ```
