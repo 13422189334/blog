@@ -9,6 +9,7 @@ lang: zh-CN
 3. [v-if 和 v-for优先级](./vue/FAQs/priorityVifWithVfor.md)
 4. [vue渐进式](./vue/FAQs/progressive.md)
 5. [性能优化](./vue/FAQs/optimizationPerformance.md)
+5. [优雅降级和渐进增强](./vue/FAQs/gracefulDegradationAndGradualEnhancement.md)
 
 
 - **实例选项**
