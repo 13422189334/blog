@@ -17,4 +17,5 @@ lang: zh-CN
 
 - **笔试题**
 1. [文档碎片减少dom操作](./js/fragment.md)
+2. [封装绑定事件处理函数](./js/event.md)
 
