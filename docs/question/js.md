@@ -13,7 +13,8 @@ lang: zh-CN
 
 
 - **同步异步问题**
-1. await 一个promise，promise里的执行reject的话会怎么样
+1. [异步加载图片](./js/promiseImage.md)
+2. await 一个promise，promise里的执行reject的话会怎么样
 
 - **笔试题**
 1. [文档碎片减少dom操作](./js/fragment.md)
