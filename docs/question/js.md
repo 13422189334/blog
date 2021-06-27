@@ -16,6 +16,5 @@ lang: zh-CN
 1. await 一个promise，promise里的执行reject的话会怎么样
 
 - **笔试题**
-
-
+1. [文档碎片减少dom操作](./js/fragment.md)
 
