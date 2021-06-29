@@ -1,5 +1,5 @@
 ---
-title: git
+title: Git
 lang: zh-CN
 ---
 
