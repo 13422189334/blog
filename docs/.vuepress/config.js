@@ -1,13 +1,13 @@
 let nav = [
-    { text: 'home', link: '/' },
-    { text: 'Question', link: '/Question/vue' },
-    { text: 'FrontEnd', link: '/FrontEnd/JavaScriptMechanism/' },
-    { text: 'Tools', link: '/Tools/Git/' }
+    {text: 'home', link: '/'},
+    {text: 'Question', link: '/Question/vue'},
+    {text: 'FrontEnd', link: '/FrontEnd/JavaScriptMechanism/'},
+    {text: 'Tools', link: '/Tools/Git/'}
 ]
 
 let sidebar = {
-    '/Question/': ['vue', 'javaScript', 'algorithm', 'network', 'logic' ],
-    '/FrontEnd/': ['JavaScriptMechanism/','Render/', 'Template/', 'LifeCycle/'],
+    '/Question/': ['vue', 'javaScript', 'algorithm', 'network', 'logic'],
+    '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
     '/Tools/': ['Git/']
 }
 
@@ -19,7 +19,7 @@ module.exports = {
     port: 1111, // dev server 的端口
     // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
     dest: '.vuepress/dist', // vuepress build 的输出目录
-    themeConfig:  {
+    themeConfig: {
         logo: '/logo.jpg',
         selectText: '选择语言', // 多语言下拉菜单的标题
         label: '简体中文', // 该语言在下拉菜单中的标签
