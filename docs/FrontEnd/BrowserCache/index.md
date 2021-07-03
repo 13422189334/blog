@@ -8,8 +8,8 @@ lang: zh-CN
 **我们把浏览器缓存问题拆分下，可以从以下几个方面来回答这个问题:**
 - 缓存的类型 (强缓存or协商缓存)
 - 缓存位置 (Service Worker、Memory Cache...)
-- 缓存过程分析缓
-- 存策略的实际场景应用
+- 缓存过程分析
+- 缓存策略的实际场景应用
 
 ## 缓存的类型
 
@@ -234,8 +234,8 @@ Push Cache(推送缓存)，它是浏览器缓存的最后一段防线，当以�
 
 1. 浏览器第一次发起HTTP请求，在浏览器缓存中没有发现请求的缓存结果和缓存标识
 2. 因此向服务器发起HTTP请求，获得该请求的结果还有缓存规则(也就是Last-Modified 或者ETag)
-3. 浏览器把响应内容存入Disk Cache，把响应内容的引用存入Memory Cache把
-4. 响应内容存入 Service Worker 的 Cache Storage (如果 Service Worker 的脚本调用了 cache.put())
+3. 浏览器把响应内容存入Disk Cache，把响应内容的引用存入Memory Cache
+4. 把响应内容存入 Service Worker 的 Cache Storage (如果 Service Worker 的脚本调用了 cache.put())
 
 下一次请求相同资源的时候:
 
