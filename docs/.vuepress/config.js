@@ -2,12 +2,14 @@ let nav = [
     {text: 'home', link: '/'},
     {text: 'Question', link: '/Question/vue'},
     {text: 'FrontEnd', link: '/FrontEnd/JavaScriptMechanism/'},
+    {text: 'Skill', link: '/Skill/ObserverModel/'},
     {text: 'Tools', link: '/Tools/Git/'}
 ]
 
 let sidebar = {
     '/Question/': ['vue', 'javaScript', 'algorithm', 'network', 'logic'],
     '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
+    '/Skill/': ['ObserverModel/'],
     '/Tools/': ['Git/']
 }
 
