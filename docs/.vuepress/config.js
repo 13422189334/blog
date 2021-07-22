@@ -1,14 +1,16 @@
 let nav = [
-    {text: 'home', link: '/'},
-    {text: 'Question', link: '/Question/vue'},
-    {text: 'FrontEnd', link: '/FrontEnd/JavaScriptMechanism/'},
-    {text: 'Skill', link: '/Skill/ObserverModel/'},
-    {text: 'Tools', link: '/Tools/Git/'}
+    {text: '首页', link: '/'},
+    {text: '问答', link: '/Question/vue'},
+    {text: '前端', link: '/FrontEnd/JavaScriptMechanism/'},
+    {text: '样式', link: '/Css/@Media/'},
+    {text: '小技巧', link: '/Skill/ObserverModel/'},
+    {text: '工具', link: '/Tools/Git/'}
 ]
 
 let sidebar = {
     '/Question/': ['vue', 'javaScript', 'algorithm', 'network', 'logic'],
     '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
+    '/Css/': ['@Media/'],
     '/Skill/': ['ObserverModel/'],
     '/Tools/': ['Git/']
 }
