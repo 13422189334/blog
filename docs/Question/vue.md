@@ -20,7 +20,6 @@ lang: zh-CN
 
 - **组件模块**
 1. [组件数据通信方式](./VUE/Component/introduction.md)
-2. [组件封装过程](./VUE/Component/package.md)
 
 - **webpack模块**
 1. webpack中 bundle chunk module 有什么区别
