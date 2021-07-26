@@ -1,5 +1,5 @@
 ---
-title: then、catch如何改变promise状态
+title: Promise状态
 lang: zh-CN
 ---
 

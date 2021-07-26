@@ -1,5 +1,5 @@
 ---
-title: promise解决回调地狱
+title: Promise解决回调地狱
 lang: zh-CN
 ---
 

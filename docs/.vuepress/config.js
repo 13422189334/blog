@@ -2,15 +2,17 @@ let nav = [
     {text: '首页', link: '/'},
     {text: '问答', link: '/Question/vue'},
     {text: '前端', link: '/FrontEnd/JavaScriptMechanism/'},
-    {text: '样式', link: '/Css/@Media/'},
+    {text: 'JS', link: '/JavaScript/Event/'},
+    {text: 'CSS', link: '/Css/@Media/'},
     {text: '网络', link: '/Network/CrossDomain/'},
     {text: '小技巧', link: '/Skill/ObserverModel/'},
     {text: '工具', link: '/Tools/Git/'}
 ]
 
 let sidebar = {
-    '/Question/': ['vue', 'javaScript', 'algorithm', 'logic'],
+    '/Question/': ['vue', 'algorithm', 'logic'],
     '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
+    '/JavaScript/': ['Event/', 'AsyncHell/', 'Closure/', 'Fragment/', 'PromiseImage/', 'PromiseStatus/'],
     '/Css/': ['@Media/'],
     '/Network/': ['CrossDomain/', 'Jsonp/',  'PromiseAjax/'],
     '/Skill/': ['ObserverModel/'],
