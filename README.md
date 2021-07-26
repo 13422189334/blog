@@ -2,7 +2,8 @@
 本项目是由 vuePress 搭建用于。
 
 #### 介绍
-记录面试题、遇到的问题、知识点等等
+1. vuepress 快速搭建博客
+2. valine + vuepress-plugin-comment 快速搭建评论功能
 
 
 #### 运行教程
