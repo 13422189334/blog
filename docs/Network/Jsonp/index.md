@@ -1,13 +1,13 @@
 ---
-title: jsonp
+title: Jsonp
 lang: zh-CN
 ---
 
 > 文章链接跳转：
-> 1. [跨域](./crossDomin.md)
+> 1. [跨域](../CrossDomain)
 >
 
-- 众所周知
+## 为啥有JSONP？
 
 我们都知道，Ajax请求是不能跨域的，无论是静态页面、动态网页、web服务等，只要是跨域请求，一律都不允许通过浏览器跨域的检测和阻拦。
 但是，我们可以发现，web页面上调用js是不受跨域的影响，同时拥有src属性的标签也具有相同的能力，比如 <**script**>、<**img**>、<**iframe**>

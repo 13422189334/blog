@@ -3,14 +3,16 @@ let nav = [
     {text: '问答', link: '/Question/vue'},
     {text: '前端', link: '/FrontEnd/JavaScriptMechanism/'},
     {text: '样式', link: '/Css/@Media/'},
+    {text: '网络', link: '/Network/CrossDomain/'},
     {text: '小技巧', link: '/Skill/ObserverModel/'},
     {text: '工具', link: '/Tools/Git/'}
 ]
 
 let sidebar = {
-    '/Question/': ['vue', 'javaScript', 'algorithm', 'network', 'logic'],
+    '/Question/': ['vue', 'javaScript', 'algorithm', 'logic'],
     '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
     '/Css/': ['@Media/'],
+    '/Network/': ['CrossDomain/', 'Jsonp/',  'PromiseAjax/'],
     '/Skill/': ['ObserverModel/'],
     '/Tools/': ['Git/']
 }

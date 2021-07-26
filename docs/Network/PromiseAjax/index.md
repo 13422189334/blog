@@ -1,11 +1,11 @@
 ---
-title: promise和Ajax封装请求
+title: Promise和Ajax封装请求
 lang: zh-CN
 ---
 
 **注意事项：**
 
-为防止跨域问题，post请求采用简单请求，内容详见[跨域问题](./crossDomin.md)
+为防止跨域问题，post请求采用简单请求，内容详见[跨域问题](../CrossDomain)
 
 XMLHttpRequest的 **readyState** 状态码内容如下：
 - 0 - 代表未初始化。 还没有调用 open 方法
