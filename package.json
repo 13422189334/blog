@@ -14,5 +14,8 @@
     "url": "https://gitee.com/jin-shaohui/vuepress.git"
   },
   "author": "jinshaohui",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vuepress-plugin-comment": "^0.7.3"
+  }
 }

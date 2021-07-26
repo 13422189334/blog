@@ -40,5 +40,23 @@ module.exports = {
         navbar: true, // 禁用导航栏，单页面禁用 则需要在相应md YAML front matter 配置 navbar: false
         nav: nav,
         sidebar: sidebar
-    }
+    },
+    plugins: [
+        [
+            'vuepress-plugin-comment',
+            {
+                choosen: 'valine',
+                // options选项中的所有参数，会传给Valine的配置
+                options: {
+                    el: '#valine',
+                    appId: '95aw4m784F9xbEVyrGUupt2v-9Nh9j0Va',
+                    appKey: 'dKalMVCST7hmiW7NA2PktxXI',
+                    avater: 'c',
+                    visitor: true,
+                    placeholder: '留下你想说的话吧^_^',
+                    path: '<%- frontmatter.commentid || frontmatter.permalink %>'
+                }
+            }
+        ]
+    ]
 }

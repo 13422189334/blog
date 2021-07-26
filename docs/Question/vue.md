@@ -1,5 +1,6 @@
 ---
 title: Vue问题
+comment: false 
 lang: zh-CN
 ---
 
@@ -8,7 +9,7 @@ lang: zh-CN
 2. vue项目想要改变element-ui的组件内部的样式，默认情况下style加了scope无法修改，需怎么做
 3. [v-if 和 v-for优先级](./VUE/FAQs/priorityVifWithVfor.md)
 4. [vue渐进式](./VUE/FAQs/progressive.md)
-5. [性能优化](./VUE/FAQs/optimizationPerformance.md)
+5. 性能优化
 5. [优雅降级和渐进增强](./VUE/FAQs/gracefulDegradationAndGradualEnhancement.md)
 
 
