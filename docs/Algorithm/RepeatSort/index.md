@@ -3,8 +3,6 @@ title: 去重排序
 lang: zh-CN
 ---
 
-## 解析：
-
 1. array.indexOf去重
 
 2. sort函数排序

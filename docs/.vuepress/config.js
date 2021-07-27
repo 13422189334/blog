@@ -4,23 +4,25 @@ let nav = [
     {text: '前端', link: '/FrontEnd/JavaScriptMechanism/'},
     {text: 'JS', link: '/JavaScript/Event/'},
     {text: 'CSS', link: '/Css/@Media/'},
+    {text: '算法', link: '/Algorithm/BubbleSort/'},
     {text: '网络', link: '/Network/CrossDomain/'},
     {text: '小技巧', link: '/Skill/ObserverModel/'},
     {text: '工具', link: '/Tools/Git/'}
 ]
 
 let sidebar = {
-    '/Question/': ['vue', 'algorithm', 'logic'],
+    '/Question/': ['vue', 'logic'],
     '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
     '/JavaScript/': ['Event/', 'AsyncHell/', 'Closure/', 'Fragment/', 'PromiseImage/', 'PromiseStatus/'],
     '/Css/': ['@Media/'],
+    '/Algorithm/': ['BubbleSort/', 'RepeatSort/'],
     '/Network/': ['CrossDomain/', 'Jsonp/',  'PromiseAjax/'],
     '/Skill/': ['ObserverModel/'],
     '/Tools/': ['Git/']
 }
 
 module.exports = {
-    title: '冰冰全栈MD', // 网站的标题
+    title: '倩倩有话说', // 网站的标题
     description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
     base: '/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
     host: '0.0.0.0', // 用于 dev server 的主机名
@@ -28,7 +30,7 @@ module.exports = {
     // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
     dest: '.vuepress/dist', // vuepress build 的输出目录
     themeConfig: {
-        logo: '/logo.jpg',
+        logo: '/xiaojiejie.jpg',
         selectText: '选择语言', // 多语言下拉菜单的标题
         label: '简体中文', // 该语言在下拉菜单中的标签
         editLinkText: '在 GitHub 上编辑此页', // 编辑链接文字
@@ -55,7 +57,7 @@ module.exports = {
                     el: '#valine',
                     appId: '95aw4m784F9xbEVyrGUupt2v-9Nh9j0Va',
                     appKey: 'dKalMVCST7hmiW7NA2PktxXI',
-                    avater: 'c',
+                    // avater: 'c',
                     visitor: true,
                     placeholder: '留下你想说的话吧^_^',
                     path: '<%- frontmatter.commentid || frontmatter.permalink %>'
