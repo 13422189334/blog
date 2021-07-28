@@ -14,7 +14,7 @@ let sidebar = {
     '/Question/': ['vue', 'logic'],
     '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
     '/JavaScript/': ['Event/', 'AsyncHell/', 'Closure/', 'Fragment/', 'PromiseImage/', 'PromiseStatus/'],
-    '/Css/': ['@Media/'],
+    '/Css/': ['@Media/', 'StreamerButton/'],
     '/Algorithm/': ['BubbleSort/', 'RepeatSort/'],
     '/Network/': ['CrossDomain/', 'Jsonp/',  'PromiseAjax/'],
     '/Skill/': ['ObserverModel/'],
