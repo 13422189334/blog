@@ -17,26 +17,26 @@
     justify-content: center;
     align-items: center;
     /* 让页面占据屏幕总高 */
-    height: 200px;
+    height: 100px;
     /*background-color: #000;*/
   }
 
   #button {
     /*相对定位*/
     position: relative;
-    width: 400px;
-    height: 100px;
-    line-height: 100px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
     text-align: center;
     /*去除下划线*/
     text-decoration: none;
     /*文字大写*/
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 12px;
     color: #fff;
     cursor: pointer;
     /*圆角*/
-    border-radius: 50px;
+    border-radius: 25px;
     /*背景渐变色*/
     background-image: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
     /*背景渐变色大小*/
@@ -52,14 +52,14 @@
     left: -5px;
     right: -5px;
     /*圆角*/
-    border-radius: 50px;
+    border-radius: 25px;
     /*背景渐变色*/
     background-image: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
     /*背景渐变色大小*/
     background-size: 400%;
     z-index: -1;
     /*模糊 产生发光效果*/
-    filter: blur(20px);
+    filter: blur(10px);
   }
 
   #button:hover {
