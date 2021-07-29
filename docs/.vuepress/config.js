@@ -52,6 +52,7 @@ module.exports = {
     searchMaxSuggestions: 10, // 搜索信息最大数量
     algolia: {}, // 当前 locale 的 algolia docsearch 选项
     displayAllHeaders: true, // 默认值：false
+    lastUpdated: '最近更新时间', // 文件最后更新时间 string = 'Last Updated' | boolean 若为字符串则拼接在前
     navbar: true, // 禁用导航栏，单页面禁用 则需要在相应md YAML front matter 配置 navbar: false
     nav: nav,
     sidebar: sidebar
