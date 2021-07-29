@@ -48,6 +48,8 @@ module.exports = {
         buttonText: "刷新"
       }
     },
+    search: true,
+    searchMaxSuggestions: 10, // 搜索信息最大数量
     algolia: {}, // 当前 locale 的 algolia docsearch 选项
     displayAllHeaders: true, // 默认值：false
     navbar: true, // 禁用导航栏，单页面禁用 则需要在相应md YAML front matter 配置 navbar: false
