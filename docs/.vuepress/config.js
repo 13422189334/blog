@@ -1,4 +1,4 @@
-let nav = [
+const nav  = [
   {text: '首页', link: '/'},
   {text: '问答', link: '/Question/vue'},
   {text: '前端', link: '/FrontEnd/JavaScriptMechanism/'},
@@ -10,21 +10,28 @@ let nav = [
       { text: '小案例', link: '/CssComponents/StreamerButton/'}
     ]
   },
+  {
+    text: '后端',
+    items: [
+      { text: '工具类', link: '/BackEnd/Utils/'}
+    ]
+  },
   {text: '算法', link: '/Algorithm/BubbleSort/'},
   {text: '网络', link: '/Network/CrossDomain/'},
   {text: '小技巧', link: '/Skill/ObserverModel/'},
   {text: '工具', link: '/Tools/Git/'}
 ]
 
-let sidebar = {
+const sidebar = {
   '/Question/': ['vue', 'logic'],
   '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
   '/JavaScript/': ['Event/', 'AsyncHell/', 'Closure/', 'Fragment/', 'PromiseImage/', 'PromiseStatus/'],
   '/Css/': ['@Media/'],
   '/CssComponents/': ['StreamerButton/', 'Login/'],
-  '/Algorithm/': ['BubbleSort/', 'RepeatSort/'],
+  '/BackEnd/': ['Utils/'],
+  '/Algorithm/': ['BubbleSort/', 'RepeatSort/', 'Dichotomy/'],
   '/Network/': ['CrossDomain/', 'Jsonp/', 'PromiseAjax/'],
-  '/Skill/': ['ObserverModel/'],
+  '/Skill/': ['ObserverModel/', 'SingletonModel/'],
   '/Tools/': ['Git/']
 }
 
