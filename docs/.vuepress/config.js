@@ -18,8 +18,9 @@ const nav  = [
   },
   {text: '算法', link: '/Algorithm/BubbleSort/'},
   {text: '网络', link: '/Network/CrossDomain/'},
-  {text: '小技巧', link: '/Skill/ObserverModel/'},
-  {text: '工具', link: '/Tools/Git/'}
+  {text: 'RESTful', link: '/RESTful/'},
+  {text: 'Git', link: '/Git/'},
+  {text: '小技巧', link: '/Skill/ObserverModel/'}
 ]
 
 const sidebar = {
@@ -31,8 +32,9 @@ const sidebar = {
   '/BackEnd/': ['Utils/'],
   '/Algorithm/': ['BubbleSort/', 'RepeatSort/', 'Dichotomy/'],
   '/Network/': ['CrossDomain/', 'Jsonp/', 'PromiseAjax/'],
+  '/RESTful/': [''],
+  '/Git/': [''],
   '/Skill/': ['ObserverModel/', 'SingletonModel/'],
-  '/Tools/': ['Git/']
 }
 
 module.exports = {
