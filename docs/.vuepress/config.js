@@ -29,7 +29,7 @@ const sidebar = {
   '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
   '/JavaScript/': ['Event/', 'AsyncHell/', 'Closure/', 'Fragment/', 'PromiseImage/', 'PromiseStatus/'],
   '/Css/': ['@Media/'],
-  '/CssComponents/': ['StreamerButton/', 'Login/'],
+  '/CssComponents/': ['StreamerButton/', 'Login/', 'Shutters/'],
   '/BackEnd/': ['Utils/'],
   '/Algorithm/': ['BubbleSort/', 'RepeatSort/', 'Dichotomy/'],
   '/Network/': ['CrossDomain/', 'Jsonp/', 'PromiseAjax/'],
