@@ -10,7 +10,7 @@ lang: zh-CN
 ## 类型转换
 1. [对象转换](./components/objectConvert.md)
 2. [xml转对象](./components/xmlToObject.md)
-3. [pojo、xml、javaBean类型转换](./components/pojo、xml、javaBean.md)
+3. [pojo、xml、javaBean类型转换](./components/pojoXmlJavaBean.md)
 4. [驼峰转换](./components/hump.md)
 
 ## 类型处理

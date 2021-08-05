@@ -20,7 +20,8 @@ const nav  = [
   {text: '网络', link: '/Network/CrossDomain/'},
   {text: 'RESTful', link: '/RESTful/'},
   {text: 'Git', link: '/Git/'},
-  {text: '小技巧', link: '/Skill/ObserverModel/'}
+  {text: '小技巧', link: '/Skill/ObserverModel/'},
+  {text: '推荐', link: '/Recommend/'}
 ]
 
 const sidebar = {
@@ -35,6 +36,7 @@ const sidebar = {
   '/RESTful/': [''],
   '/Git/': [''],
   '/Skill/': ['ObserverModel/', 'SingletonModel/'],
+  '/Recommend/': ['']
 }
 
 module.exports = {
