@@ -1,20 +1,25 @@
 <template>
-  <div class="accordion">
-    <input type="radio" name="select" class="accordion-select" checked />
-    <div class="accordion-title"><span>Title</span></div>
-    <div class="accordion-content">Content</div>
-    <input type="radio" name="select" class="accordion-select" />
-    <div class="accordion-title"><span>Title</span></div>
-    <div class="accordion-content">Content</div>
-    <input type="radio" name="select" class="accordion-select" />
-    <div class="accordion-title"><span>Title</span></div>
-    <div class="accordion-content">Content</div>
+  <div id="accordion" class="accordion">
+    <div class="accordion-box" v-for="(item, index) in list">
+      <input type="checkbox" name="select" class="accordion-select" />
+      <div class="accordion-title"><span>{{ item.title }}</span></div>
+      <div class="accordion-content">{{ item.content }}</div>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "Shutters"
+    name: "Shutters",
+    data() {
+      return {
+        list: [
+          { title: 'Title1', content: 'Content1' },
+          { title: 'Title2', content: 'Content2' },
+          { title: 'Title3', content: 'Content3' }
+        ]
+      }
+    }
   }
 </script>
 
@@ -22,17 +27,21 @@
   /* 整体布局 */
   .accordion {
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
     width: 100%;
     /*border-color: #dedede;*/
     /*border-style: solid;*/
     /*border-width: 1px;*/
     border: 1px solid #dedede;
     border-radius: 8px;
-    height: auto;
+    /*height: auto;*/
+  }
+
+  .accordion-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
   /* select 和 title 是放在同一行，先设置公用，在单独设置 */
@@ -53,6 +62,7 @@
     /* 推上去，select不需要高度 */
     margin-bottom: -65px;
     margin-right: 0;
+    margin-top: 0;
   }
 
   accordion-select:hover + .accordion-title,
@@ -62,15 +72,6 @@
 
   .accordion-title {
     position: relative;
-  }
-
-  .accordion-title:not(:nth-last-child(2))::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
     border: 1px solid transparent;
     border-bottom-color: rgb(234, 234, 234);
   }
