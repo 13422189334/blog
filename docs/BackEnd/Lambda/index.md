@@ -3,10 +3,6 @@ title: Lambda
 lang: zh-CN
 ---
 
-## 前言
-
-本篇主要讲述是Java中JDK1.8的一些新语法特性使用，主要是Lambda的一些使用讲解。
-
 ## 介绍
 
 Lambda 表达式(lambda expression)是一个匿名函数，Lambda表达式基于数学中的λ演算得名，直接对应于其中的lambda抽象(lambda abstraction)，是一个匿名函数，即没有函数名的函数。
