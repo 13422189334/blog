@@ -13,7 +13,8 @@ const nav  = [
   {
     text: '后端',
     items: [
-      { text: '工具类', link: '/BackEnd/Utils/'}
+      { text: '工具类', link: '/BackEnd/Utils/'},
+      { text: 'Lambda', link: '/BackEnd/Lambda/'}
     ]
   },
   {text: '算法', link: '/Algorithm/BubbleSort/'},
@@ -30,7 +31,7 @@ const sidebar = {
   '/JavaScript/': ['Event/', 'AsyncHell/', 'Closure/', 'Fragment/', 'PromiseImage/', 'PromiseStatus/'],
   '/Css/': ['@Media/'],
   '/CssComponents/': ['StreamerButton/', 'Login/', 'Shutters/', 'Checked/'],
-  '/BackEnd/': ['Utils/'],
+  '/BackEnd/': ['Utils/', 'Lambda/'],
   '/Algorithm/': ['BubbleSort/', 'RepeatSort/', 'Dichotomy/'],
   '/Network/': ['CrossDomain/', 'Jsonp/', 'PromiseAjax/'],
   '/RESTful/': [''],
