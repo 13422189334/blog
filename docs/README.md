@@ -7,7 +7,7 @@ actionText: 快速入口 →
 actionLink: /question/vue
 features:
 - title: 前端技术栈
-  details: Vue、React等
+  details: Vue、React、微前端、Uniapp、Taro、Flutter等
 - title: 后端技术栈
   details: SpringBoot、SpringCloud、Nacos、Zookeper、Gateway等
 - title: 大数据技术栈
