@@ -1,8 +1,8 @@
 const nav  = [
   {text: '首页', link: '/'},
   {text: '问答', link: '/Question/vue'},
-  {text: '前端', link: '/FrontEnd/JavaScriptMechanism/'},
-  {text: 'JS', link: '/JavaScript/Event/'},
+  {text: '前端', link: '/FrontEnd/LifeCycle/'},
+  {text: 'JS', link: '/JavaScript/JavaScriptMechanism/'},
   {
     text: 'CSS',
     items: [
@@ -19,8 +19,8 @@ const nav  = [
     ]
   },
   {text: '算法', link: '/Algorithm/BubbleSort/'},
-  {text: '网络', link: '/Network/CrossDomain/'},
-  {text: 'RESTful', link: '/RESTful/'},
+  {text: '网络请求', link: '/NetworkRequest/BrowserCache/'},
+  {text: '网络', link: '/Network/'},
   {text: 'Git', link: '/Git/'},
   {text: '小技巧', link: '/Skill/ObserverModel/'},
   {text: '推荐', link: '/Recommend/'}
@@ -28,21 +28,21 @@ const nav  = [
 
 const sidebar = {
   '/Question/': ['vue', 'logic'],
-  '/FrontEnd/': ['JavaScriptMechanism/', 'BrowserCache/', 'LifeCycle/', 'Render/', 'Template/'],
-  '/JavaScript/': ['Event/', 'AsyncHell/', 'Closure/', 'Fragment/', 'PromiseImage/', 'PromiseStatus/'],
+  '/FrontEnd/': [ 'LifeCycle/', 'Render/', 'Template/'],
+  '/JavaScript/': ['JavaScriptMechanism/', 'AsyncHell/', 'Closure/', 'PromiseStatus/', 'Event/', 'Fragment/', 'PromiseImage/'],
   '/Css/': ['@Media/'],
   '/CssComponents/': ['StreamerButton/', 'Login/', 'Shutters/', 'Checked/'],
   '/BackEnd/': ['Lambda/', 'Stream/', 'Utils/'],
   '/Algorithm/': ['BubbleSort/', 'RepeatSort/', 'Dichotomy/'],
-  '/Network/': ['CrossDomain/', 'Jsonp/', 'PromiseAjax/'],
-  '/RESTful/': [''],
+  '/NetworkRequest/': ['BrowserCache/','CrossDomain/', 'Jsonp/', 'PromiseAjax/', 'RESTful/'],
+  '/Network/': [''],
   '/Git/': [''],
   '/Skill/': ['ObserverModel/', 'SingletonModel/'],
   '/Recommend/': ['']
 }
 
 module.exports = {
-  title: '倩倩有话说', // 网站的标题
+  title: '如何形容一个人长得很好看', // 网站的标题
   description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
   base: '/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
   host: '0.0.0.0', // 用于 dev server 的主机名
@@ -50,7 +50,7 @@ module.exports = {
   // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
   dest: '.vuepress/dist', // vuepress build 的输出目录
   themeConfig: {
-    logo: '/xiaojiejie.jpg',
+    logo: '/logo.jpg',
     selectText: '选择语言', // 多语言下拉菜单的标题
     label: '简体中文', // 该语言在下拉菜单中的标签
     editLinkText: '在 GitHub 上编辑此页', // 编辑链接文字

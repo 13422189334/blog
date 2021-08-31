@@ -1,8 +1,8 @@
 ---
 home: true
-heroImage: /xiaojiejie.jpg
+heroImage: /logo.jpg
 heroText: 
-tagline: 倩倩 是我的
+tagline: 别人用好看形容你，我用你形容好看
 actionText: 快速入口 →
 actionLink: /question/vue
 features:
