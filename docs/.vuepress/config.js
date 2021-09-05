@@ -2,6 +2,7 @@ const nav  = [
   {text: '首页', link: '/'},
   {text: '问答', link: '/Question/vue'},
   {text: '前端', link: '/FrontEnd/LifeCycle/'},
+  {text: 'ECMAScript', link: '/ECMAScript/ES6/'},
   {text: 'JS', link: '/JavaScript/JavaScriptMechanism/'},
   {
     text: 'CSS',
@@ -29,6 +30,7 @@ const nav  = [
 const sidebar = {
   '/Question/': ['vue', 'logic'],
   '/FrontEnd/': [ 'LifeCycle/', 'Render/', 'Template/'],
+  '/ECMAScript/': [ 'ES6/'],
   '/JavaScript/': ['JavaScriptMechanism/', 'AsyncHell/', 'Closure/', 'PromiseStatus/', 'Event/', 'Fragment/', 'PromiseImage/'],
   '/Css/': ['@Media/'],
   '/CssComponents/': ['StreamerButton/', 'Login/', 'Shutters/', 'Checked/'],
