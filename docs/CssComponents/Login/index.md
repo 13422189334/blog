@@ -104,9 +104,14 @@ lang: zh-CN
     border-bottom: 1px solid rgb(199, 191, 219);
   }
 
-  input：-webkit-autofill {
+  /*input：-webkit-autofill*/
+  /*input:-webkit-autofill:hover*/
+  input:-webkit-autofill:focus
+  /*input:-webkit-autofill:active*/
+  {
     /*解决自动填充文字背景色*/
-    transition: background-color 500s ease-in-out 0s;
+    transition: background-color 500s ease-in-out 0s !important;
+    /*  background-color: transparent ;*/
   }
 
   -internal-autofill-selected {
