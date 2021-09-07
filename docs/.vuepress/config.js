@@ -50,7 +50,7 @@ module.exports = {
   host: '0.0.0.0', // 用于 dev server 的主机名
   port: 1111, // dev server 的端口
   // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
-  dest: '.vuepress/dist', // vuepress build 的输出目录
+  dest: 'dist', // vuepress build 的输出目录
   themeConfig: {
     logo: '/logo.jpg',
     selectText: '选择语言', // 多语言下拉菜单的标题
