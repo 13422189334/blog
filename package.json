@@ -7,6 +7,7 @@
   "description": "记录面试题、遇到的前端知识点等等",
   "version": "1.0.0",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.8.2",
     "vuepress": "^1.8.2"
   },
   "repository": {
