@@ -46,11 +46,11 @@ const sidebar = {
 module.exports = {
   title: '如何形容一个人长得很好看', // 网站的标题
   description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
-  base: '/vuepress/dist/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
+  base: '/vuepress/prod/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
   host: '0.0.0.0', // 用于 dev server 的主机名
   port: 1111, // dev server 的端口
   // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
-  dest: './dist', // vuepress build 的输出目录
+  dest: './prod', // vuepress build 的输出目录
   repo: 'https://gitee.com/jin-shaohui/vuepress', // 添加 github 链接
   themeConfig: {
     logo: '/logo.jpg',
