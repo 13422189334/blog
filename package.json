@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "docs:dev": "vuepress dev docs --temp .temp",
+    "docs:dev": "vuepress dev docs --open --temp .temp",
     "docs:build": "vuepress build docs"
   },
   "name": "front-end-knowledge",
