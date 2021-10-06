@@ -1,30 +1,30 @@
 const nav  = [
-  {text: '首页', link: './'},
-  {text: '问答', link: './Question/vue'},
-  {text: '前端', link: './FrontEnd/LifeCycle/'},
-  {text: 'ECMAScript', link: './ECMAScript/ES6/'},
-  {text: 'JS', link: './JavaScript/JavaScriptMechanism/'},
+  {text: '首页', link: '/'},
+  {text: '问答', link: '/Question/vue'},
+  {text: '前端', link: '/FrontEnd/LifeCycle/'},
+  {text: 'ECMAScript', link: '/ECMAScript/ES6/'},
+  {text: 'JS', link: '/JavaScript/JavaScriptMechanism/'},
   {
     text: 'CSS',
     items: [
-      { text: '知识点', link: './Css/@Media/'},
-      { text: '小案例', link: './CssComponents/StreamerButton/'}
+      { text: '知识点', link: '/Css/@Media/'},
+      { text: '小案例', link: '/CssComponents/StreamerButton/'}
     ]
   },
   {
     text: '后端',
     items: [
-      { text: 'Lambda', link: './BackEnd/Lambda/'},
-      { text: 'Stream', link: './BackEnd/Stream/'},
-      { text: '工具类', link: './BackEnd/Utils/'}
+      { text: 'Lambda', link: '/BackEnd/Lambda/'},
+      { text: 'Stream', link: '/BackEnd/Stream/'},
+      { text: '工具类', link: '/BackEnd/Utils/'}
     ]
   },
-  {text: '算法', link: './Algorithm/BubbleSort/'},
-  {text: '网络请求', link: './NetworkRequest/BrowserCache/'},
-  {text: '网络', link: './Network/'},
-  {text: 'Git', link: './Git/'},
-  {text: '小技巧', link: './Skill/ObserverModel/'},
-  {text: '推荐', link: './Recommend/'}
+  {text: '算法', link: '/Algorithm/BubbleSort/'},
+  {text: '网络请求', link: '/NetworkRequest/BrowserCache/'},
+  {text: '网络', link: '/Network/'},
+  {text: 'Git', link: '/Git/'},
+  {text: '小技巧', link: '/Skill/ObserverModel/'},
+  {text: '推荐', link: '/Recommend/'}
 ]
 
 const sidebar = {
@@ -51,9 +51,9 @@ module.exports = {
   port: 1111, // dev server 的端口
   // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
   dest: './prod', // vuepress build 的输出目录
-  repo: 'https://gitee.com/jin-shaohui/vuepress', // 添加 github 链接
+  // repo: 'https://gitee.com/jin-shaohui/vuepress', // 添加 github 链接
   themeConfig: {
-    logo: '/logo.jpg',
+    logo: './logo.jpg',
     selectText: '选择语言', // 多语言下拉菜单的标题
     label: '简体中文', // 该语言在下拉菜单中的标签
     editLinkText: '在 GitHub 上编辑此页', // 编辑链接文字
