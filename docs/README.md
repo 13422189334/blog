@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: ./logo.jpg
+heroImage: /logo.jpg
 heroText: 
 tagline: 别人用好看形容你，我用你形容好看
 actionText: 快速入口 →
