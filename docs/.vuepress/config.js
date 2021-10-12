@@ -106,18 +106,18 @@ const sidebar = [
       }
     ]
   },
-  {
-    title: '微前端',   // 必要的
-    collapsable: true , // 可选的, 默认值是 true,
-    children: [
-      {
-        title: '乾坤',   // 必要的
-        path: '/MicroFrontEnd/qiankun/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-        collapsable: true , // 可选的, 默认值是 true
-        children: []
-      }
-    ]
-  },
+  // {
+  //   title: '微前端',   // 必要的
+  //   collapsable: true , // 可选的, 默认值是 true,
+  //   children: [
+  //     {
+  //       title: '乾坤',   // 必要的
+  //       path: '/MicroFrontEnd/qiankun/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+  //       collapsable: true , // 可选的, 默认值是 true
+  //       children: []
+  //     }
+  //   ]
+  // },
   {
     title: '前端框架知识点',   // 必要的
     collapsable: true , // 可选的, 默认值是 true,
