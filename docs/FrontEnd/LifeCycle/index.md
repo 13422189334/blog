@@ -36,9 +36,9 @@ lang: zh-CN
 
   ​		
 
-  ​		然后，我们往下看，**template** 参数选项的对生命周期的影响。（详细请看 [template详解](../template/index.md) ）
+  ​		然后，我们往下看，**template** 参数选项的对生命周期的影响。
 
-  1. 如果vue实例对象中有template参数选项，则将其作为模板编译成 **render函数**。（详细请看 [render详解](../render/index.md) ）
+  1. 如果vue实例对象中有template参数选项，则将其作为模板编译成 **render函数**。
 
   2. 如果没有template选项，则将外部HTML作为模板编译。
 

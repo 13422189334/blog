@@ -3,8 +3,6 @@ title: Lambda
 lang: zh-CN
 ---
 
-## 介绍
-
 Lambda 表达式(lambda expression)是一个匿名函数，Lambda表达式基于数学中的λ演算得名，直接对应于其中的lambda抽象(lambda abstraction)，是一个匿名函数，即没有函数名的函数。
 
 ## 表达式的结构

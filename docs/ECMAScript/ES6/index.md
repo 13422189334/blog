@@ -3,8 +3,6 @@ title: ES6
 lang: zh-CN
 ---
 
-## 什么是 ES6
-
 ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。
 
 Node.js 是 JavaScript 的服务器运行环境（runtime）。它对 ES6 的支持度更高。除了那些默认打开的功能，还有一些语法功能已经实现了，但是默认没有打开。使用下面的命令，可以查看 Node.js 默认没有打开的 ES6 实验性语法。
@@ -167,7 +165,7 @@ import 'core-js'
 import 'regenerator-runtime/runtime'
 // 或者
 require('core-js')
-require('regenerator-runtime/runtime)
+require('regenerator-runtime/runtime')
 ```
 
 Babel 默认不转码的 API 非常多，详细清单可以查看babel-plugin-transform-runtime模块的 **definitions.js** 文件。
