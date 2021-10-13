@@ -268,7 +268,7 @@ module.exports = {
     /** 广告位 */
     ads:{
       style: 1,
-      image: '/dijia.jpg',
+      image: 'https://jin-shaohui.gitee.io/vuepress/dijia.jpg',
       text: '这个世界真的有光',
       link: 'https://gitee.com/jin-shaohui/vuepress',
     },
