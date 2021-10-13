@@ -415,7 +415,7 @@ HTMLHeadElement.prototype.removeChild 的逻辑就是多加了个子应用容器
 
 <img src="./images/beforeMountFlow.png">
 
-###进入到 mount 挂载流程
+### 进入到 mount 挂载流程
 
 在一些初始化配置（如 子应用资源、运行沙箱环境、生命周期钩子函数等等）准备就绪后，qiankun 内部将其组装在一起，返回了三个函数作为 single-spa 内部的生命周期函数
 
@@ -436,5 +436,64 @@ single-spa 内部的逻辑我们后面再展开说，这里我们可以简单理
 - 第 127~133 行：对单实例模式进行检测。在单实例模式下，新的子应用挂载行为会在旧的子应用卸载之后才开始。（由于这里是串行顺序执行，所以如果某一处发生阻塞的话，会阻塞所有后续的函数执行）
 - 第 134 行：执行注册子应用时传入的 render 函数，将 HTML Template 和 loading 作为入参。这里一般是在发生了一次 unmount 后，再次进行 mount 挂载行为时将 HTML 挂载在指定容器中（见下图）
 
+> 由于初始化的时候已经调用过一次 render，所以在首次调用 mount 时可能已经执行过一次 render 方法。
+>
+> 在下面的代码中也有对重复挂载的情况进行判断的语句 - if (frame.querySelector("div") === null，防止重复挂载子应用。
+
+<img src="./images/mountedApp.png">
+
+- 第 135 行：触发了 beforeMount 全局生命周期钩子函数；
+- 第 136 行：挂载沙箱，这一步中激活了对应的子应用沙箱，劫持了部分全局监听（如 setInterval）。此时开始子应用的代码将在沙箱中运行。（反推可知，在 beforeMount 前的部分全局操作将会对主应用造成污染，如 setInterval）
+- 第 137 行：触发子应用的 mount 生命周期钩子函数，在这一步通常是执行对应的子应用的挂载操作（如 ReactDOM.render、Vue.$mount。（见下图）
+
+<img src="./images/mount2.png">
+
+- 第 138 行：再次调用 render 函数，此时 loading 参数为 false，代表子应用已经加载完成。
+- 第 139 行：触发了 afterMount 全局生命周期钩子函数；
+- 第 140~144 行：在单实例模式下设置 prevAppUnmountedDeferred 的值，这个值是一个 promise，在当前子应用卸载时才会被 resolve，在该子应用运行期间会阻塞其他子应用的挂载动作（第 134 行）；
+
+我们在上面很详细的剖析了整个子应用的 mount 挂载流程，如果你还没有搞懂的话，没关系，我们再画一个流程图来帮助理解。（见下图）
+
+<img src="./images/lifeCycle-mount.png">
+
+### 进入到 unmount 卸载流程
+
+我们刚才梳理了子应用的 mount 挂载流程，我们现在就进入到子应用的 unmount 卸载流程。在子应用激活阶段， activeRule 未命中时将会触发 unmount 卸载行为，具体的行为如下（见下图）
+
+<img src="./images/unmount1.png">
+
+从上图我们可以看出，unmount 卸载流程要比 mount 简单很多，我们直接来梳理一下：
+
+- 第 148 行：触发了 beforeUnmount 全局生命周期钩子函数；
+- 第 149 行：这里与 mount 流程的顺序稍微有点不同，这里先执行了子应用的 unmount 生命周期钩子函数，保证子应用仍然是运行在沙箱内，避免造成状态污染。在这里一般是对子应用的一些状态进行清理和卸载操作。（如下图，销毁了刚才创建的 vue 实例）
 
 
+
+- 第 150 行：卸载沙箱，关闭了沙箱的激活状态。
+- 第 151 行：触发了 afterUnmount 全局生命周期钩子函数；
+- 第 152 行：触发 render 方法，并且传入的 appContent 为空字符串，此处可以清空主应用容器内的内容。
+- 第 153~156 行：当前子应用卸载完成后，在单实例模式下触发 prevAppUnmountedDeferred.resolve()，使其他子应用的挂载行为得以继续进行，不再阻塞。
+
+我们对 unmount 卸载流程也画一张图，帮助大家理解（见下图）。
+
+<img src="./images/lifeCycle-unmount.png">
+
+## 总结
+
+到这里，我们对 qiankun 框架的总流程梳理就差不多了。这里应该做个总结，大家看了这么多文字，估计大家也看累了，最后用一张图对 qiankun 的总流程进行总结吧。
+
+<img src="./images/lifeCycle-flow.png">
+
+## 彩蛋
+
+<img src="./images/deleteProperty.png">
+
+## 展望
+
+传统的云控制台应用，几乎都会面临业务快速发展之后，单体应用进化成巨石应用的问题。我们要如何维护一个巨无霸中台应用？
+
+上面这个问题引出了微前端架构理念，所以微前端的概念也越来越火，我们团队最近也在尝试转型微前端架构。
+
+工欲善其事必先利其器，所以针对 qiankun 的源码进行解读，在分享知识的同时也是帮助自己理解。
+
+<img src="./images/lifeCycle-info.png">
