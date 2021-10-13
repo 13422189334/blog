@@ -12,9 +12,9 @@ const nav  = [
   {
     text: '算法',
     items: [
-      { text: '流光按钮', link: '/Algorithm/BubbleSort/'},
-      { text: '登录页', link: '/Algorithm/RepeatSort/'},
-      { text: '百叶窗', link: '/Algorithm/Dichotomy/'}
+      { text: '冒泡算法', link: '/Algorithm/BubbleSort/'},
+      { text: '去重排序', link: '/Algorithm/RepeatSort/'},
+      { text: '二分法', link: '/Algorithm/Dichotomy/'}
     ]
   },
   {text: '网络', link: '/Network/'},
@@ -106,18 +106,18 @@ const sidebar = [
       }
     ]
   },
-  // {
-  //   title: '微前端',   // 必要的
-  //   collapsable: true , // 可选的, 默认值是 true,
-  //   children: [
-  //     {
-  //       title: '乾坤',   // 必要的
-  //       path: '/MicroFrontEnd/qiankun/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-  //       collapsable: true , // 可选的, 默认值是 true
-  //       children: []
-  //     }
-  //   ]
-  // },
+  {
+    title: '微前端',   // 必要的
+    collapsable: true , // 可选的, 默认值是 true,
+    children: [
+      {
+        title: '乾坤',   // 必要的
+        path: '/MicroFrontEnd/qiankun/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+        collapsable: true , // 可选的, 默认值是 true
+        children: []
+      }
+    ]
+  },
   {
     title: '前端框架知识点',   // 必要的
     collapsable: true , // 可选的, 默认值是 true,
@@ -229,7 +229,7 @@ const sidebar = [
 ]
 
 module.exports = {
-  title: '如何形容一个人长得很好看', // 网站的标题
+  title: '人生十有八九不如意', // 网站的标题
   description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
   base: '/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
   host: 'localhost', // 用于 dev server 的主机名
@@ -237,12 +237,15 @@ module.exports = {
   // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
   dest: './prod', // vuepress build 的输出目录
   repo: 'https://gitee.com/jin-shaohui/vuepress', // 添加 github 链接
+  theme: 'antdocs',
   themeConfig: {
     logo: '/logo.jpg',
     selectText: '选择语言', // 多语言下拉菜单的标题
     label: '简体中文', // 该语言在下拉菜单中的标签
-    editLinkText: '在 GitHub 上编辑此页', // 编辑链接文字
+    editLinkText: '在 Gitee 上编辑此页', // 编辑链接文字
     docsDir: 'src',
+    /** 回到顶部 */
+    backToTop: true,
     /** Service Worker 的配置 **/
     serviceWorker: {
       updatePopup: {
@@ -250,6 +253,10 @@ module.exports = {
         buttonText: "刷新"
       }
     },
+    /** 菜单配置，单页面禁用 则需要在相应md YAML front matter 配置 navbar: false **/
+    navbar: true,
+    nav: nav,
+    sidebar: sidebar,
     /** 搜索配置 **/
     search: true,
     searchMaxSuggestions: 10, // 搜索信息最大数量
@@ -258,14 +265,16 @@ module.exports = {
     displayAllHeaders: true, // 默认值：false
     /** 文件最后更新时间 string = 'Last Updated' | boolean 若为字符串则拼接在前  **/
     lastUpdated: '最近更新时间',
-    /** 菜单配置，单页面禁用 则需要在相应md YAML front matter 配置 navbar: false **/
-    navbar: true,
-    nav: nav,
-    sidebar: sidebar
+    /** 广告位 */
+    ads:{
+      style: 1,
+      image: '/dijia.jpg',
+      text: '这个世界真的有光',
+      link: 'https://gitee.com/jin-shaohui/vuepress',
+    },
   },
   /** 插件配置 **/
   plugins: [
-    // '@vuepress/back-to-top',
     [
       'vuepress-plugin-comment',
       {
