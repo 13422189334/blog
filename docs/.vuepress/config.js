@@ -1,6 +1,12 @@
 const nav  = [
   {text: '首页', link: '/'},
   {
+    text: '面试问答题',
+    items: [
+      { text: 'Vue 问题', link: '/Question/vue'}
+    ]
+  },
+  {
     text: 'CSS小案例',
     items: [
       { text: '流光按钮', link: '/CssComponents/StreamerButton/'},
@@ -22,24 +28,6 @@ const nav  = [
 ]
 
 const sidebar = [
-  {
-    title: '面试问答题',   // 必要的
-    collapsable: true , // 可选的, 默认值是 true,
-    children: [
-      {
-        title: 'Vue 问题',   // 必要的
-        path: '/Question/vue',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-        collapsable: true , // 可选的, 默认值是 true
-        children: []
-      },
-      {
-        title: 'logic',   // 必要的
-        path: '/Question/logic',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-        collapsable: true , // 可选的, 默认值是 true,
-        children: []
-      }
-    ]
-  },
   {
     title: '前端知识点',   // 必要的
     collapsable: true , // 可选的, 默认值是 true,
@@ -229,10 +217,10 @@ const sidebar = [
 ]
 
 module.exports = {
-  title: '人生十有八九不如意', // 网站的标题
+  title: '真正的优秀，都是自找的', // 网站的标题
   description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
   base: '/vuepress/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
-  host: 'localhost', // 用于 dev server 的主机名
+  host: '192.168.31.160', // 用于 dev server 的主机名
   port: 1111, // dev server 的端口
   // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
   dest: 'public', // vuepress build 的输出目录
@@ -271,6 +259,35 @@ module.exports = {
       image: 'https://jin-shaohui.gitee.io/vuepress/dijia.jpg',
       text: '这个世界真的有光',
       link: 'https://gitee.com/jin-shaohui/vuepress',
+    },
+    ads:{
+      style: 2,
+      speed: 2000,
+      items:[
+        {
+          text: '图片1详情',
+          image:'https://cn.bing.com/th?id=OHR.LoughriggTarn_ZH-CN1404327665_1920x1080.jpg',
+          link: 'https://jin-shaohui.gitee.io/vuepress'
+        },
+        {
+          text: '图片2详情',
+          image:'https://cn.bing.com/th?id=OHR.MetamorphicRocks_ZH-CN9753251368_1920x1080.jpg',
+          link: 'https://jin-shaohui.gitee.io/vuepress'
+        },
+        {
+          text: '图片3详情',
+          image:'https://cn.bing.com/th?id=OHR.KeichitsuCrocuse_ZH-CN1061292366_1920x1080.jpg',
+          link: 'https://jin-shaohui.gitee.io/vuepress'
+        }
+      ]
+    },
+    ads:{
+      style: 3,
+      title: '悄悄话',
+      btnText: '我有话说',
+      msgTitle: '我有话说',
+      msgText: '如果您有新问题、新知识点等需求，欢迎联系我们（微信：xxxx）。',
+      msgOkText: '确定',
     },
   },
   /** 插件配置 **/

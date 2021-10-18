@@ -1,9 +1,0 @@
----
-title: 逻辑问题
-comment: false 
-lang: zh-CN
----
-
-1. ['b'+'a'+(+'a')+'a'和'b'+'a'++'a'+'a'有什么区别](./Logic/0001.md)
-2. [[1,2]+3=?](./Logic/0002.md)
-
