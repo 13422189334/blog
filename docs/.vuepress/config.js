@@ -240,8 +240,8 @@ module.exports = {
     /** Service Worker 的配置 **/
     serviceWorker: {
       updatePopup: {
-        message: "发现新内容可用.",
-        buttonText: "刷新"
+        message: '发现新内容可用.',
+        buttonText: '刷新'
       }
     },
     /** 菜单配置，单页面禁用 则需要在相应md YAML front matter 配置 navbar: false **/
@@ -295,26 +295,23 @@ module.exports = {
   },
   /** 插件配置 **/
   plugins: [
-    ["go-top"], // 悬挂猫返回顶部
-    ["vuepress-plugin-reading-progress"], //顶部进度条
+    ['go-top'], // 悬挂猫返回顶部
+    ['vuepress-plugin-reading-progress'], //顶部进度条
     [
-      'cursor-effects',
-      {
+      'cursor-effects', {
         size: 4, // size of the particle, default: 2
         shape: ['star'], // shape of the particle,  'star' | 'circle' default: 'star'
         zIndex: 999999999, // z-index property of the canvas, default: 999999999
       },
     ],
     [
-      "vuepress-plugin-code-copy",
-      {
-        color: "#6D7EAD",
-        successText: "🌈复制成功！🌈",
+      'vuepress-plugin-code-copy', {
+        color: '#6D7EAD',
+        successText: '🌈复制成功！🌈',
       },
     ],
     [
-      'vuepress-plugin-comment',
-      {
+      'vuepress-plugin-comment', {
         choosen: 'valine',
         // options选项中的所有参数，会传给Valine的配置
         options: {
@@ -340,7 +337,7 @@ module.exports = {
         // model: 'hibiki',
         model: 'shizuku',
         display: {
-          position: "left", // 显示位置：left/right(default: 'right')
+          position: 'left', // 显示位置：left/right(default: 'right')
           width: 135, // 模型的长度(default: 135)
           height: 300, // 模型的高度(default: 300)
           hOffset: 320, //  水平偏移(default: 65)
@@ -353,7 +350,22 @@ module.exports = {
           opacity: 0.9 // 模型透明度(default: 0.8)
         }
       }
-    }
-    ]
+    }],
+    [ '@vuepress-reco/vuepress-plugin-bgm-player', {
+      position: { right: '10px', bottom: '10px', 'z-index': '999999'},
+      autoplay: true, // 是否自动播放  默认false
+      autoShrink: false, // 是否自动缩小  默认false
+      shrinkMode: 'mini', // 指定PC端缩小为哪种模式 'mini'/'float'  默认 'float'
+      floatPosition: 'right', // 指定浮窗模式浮动在哪一侧  'left'/'right'  默认 'left'
+      floatStyle: { bottom: '200px', 'z-index': '999999' }, // 浮窗的样式
+      audios: [
+        {
+          name: '百年孤寂',
+          artist: '王菲',
+          url: 'https://freetyst.nf.migu.cn/public/product9th/product43/product/24bit/2021/04/10/60054043262/60054043262.flac?Key=1173bb34b1c0b356&Tim=1637059496456&channelid=00&msisdn=9faac2f957454e6f988039cccbdcf647&CI=600540432622600907000006976959&F=011005',
+          cover: 'https://jin-shaohui.gitee.io/vuepress/bingbing.jpg'
+        }
+      ]
+    }]
   ]
 }

@@ -8,6 +8,7 @@
   "description": "记录面试题、遇到的前端知识点等等",
   "version": "1.0.0",
   "devDependencies": {
+    "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4",
     "vuepress": "^1.8.2",
     "vuepress-plugin-cursor-effects": "^0.0.4",
     "vuepress-plugin-go-top": "^1.0.0",
