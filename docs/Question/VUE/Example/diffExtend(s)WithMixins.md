@@ -115,7 +115,7 @@ name: "Home",
 </style>
 ```
 
-​	其中，有以下几点可以便于理解extends
+其中，有以下几点可以便于理解extends
 
 1. extends和Mixins类似，通过暴露一个extends对象到组件中使用。
 2. extends会比Mixins先执行。执行顺序：extends > Mixins> 组件
@@ -123,65 +123,63 @@ name: "Home",
 
 - **extend 的使用方法：**
 
-    ​		vue.extend()方法其实是vue的一个构造器，继承自vue，可以通过extent拓展全局组件，首先我们新建一个 hello.vue
+vue.extend()方法其实是vue的一个构造器，继承自vue，可以通过extent拓展全局组件，首先我们新建一个 hello.vue
     
-      <!--hello.vue-->
-    
-    ```vue
-    <template>
-      <div>{{text}}</div>
-    </template>
-    <script>
-    export default {
-      name: 'hello',
-      data () {
-        return {
-          text: ''
-        }
-      }
+```vue
+<!--hello.vue-->
+<template>
+  <div>{{text}}</div>
+</template>
+<script>
+export default {
+  name: 'hello',
+  data () {
+    return {
+      text: ''
     }
-    </script>
-    ```
-    
-    ​	然后，我们在同级新建一个 hello.js
-    
-    ```javascript
-    // hello.js
-      import Vue from 'docs/question/vue';
-      import HelloTemplate from './hello.vue';
-    
-    // 使用extend方法创建vue的子类
-    const HelloConstructor = Vue.extend(HelloTemplate);
-    
-    // 使用这个方法调用hello组件
-    function Hello(options) {
-      options = options || {};
-      if (typeof options === 'string') {
-        options = {
-          text: options
-        }
-      }
-    
-      // 实例化子组件，然后获取到DOM结构并挂载到body上
-      const helloInstence = new HelloConstructor({data: options});
-      helloInstence.vm = helloInstence.$mount();
-      console.log(helloInstence.vm)
-      document.body.appendChild(helloInstence.vm.$el);
+  }
+}
+</script>
+```
+
+然后，我们在同级新建一个 hello.js
+
+```javascript
+// hello.js
+  import Vue from 'docs/question/vue';
+  import HelloTemplate from './hello.vue';
+
+// 使用extend方法创建vue的子类
+const HelloConstructor = Vue.extend(HelloTemplate);
+
+// 使用这个方法调用hello组件
+function Hello(options) {
+  options = options || {};
+  if (typeof options === 'string') {
+    options = {
+      text: options
     }
-    export default Hello;
-    ```
+  }
+
+  // 实例化子组件，然后获取到DOM结构并挂载到body上
+  const helloInstence = new HelloConstructor({data: options});
+  helloInstence.vm = helloInstence.$mount();
+  console.log(helloInstence.vm)
+  document.body.appendChild(helloInstence.vm.$el);
+}
+export default Hello;
+```
+
+最后在main.js引入
+
+```js
+import Hello from './src/components/hello/hello;
+Hello({
+	text:'hello world'
+})
+```
     
-    
-    最后在main.js引入
-    
-    ```js
-    import Hello from './src/components/hello/hello;
-    Hello({
-    	text:'hello world'
-    })
-    ```
-    
-  - **extend,extends, Mixins 区别**
+- **extend,extends, Mixins 区别**
 
 Vue.extend创建组件的构造函数，为了复用
 
