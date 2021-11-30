@@ -1,5 +1,6 @@
 ---
 title: ES6
+sidebar: auto
 lang: zh-CN
 ---
 

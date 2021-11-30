@@ -1,5 +1,6 @@
 ---
 title: 乾坤
+sidebar: auto
 lang: zh-CN
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Git
+sidebar: auto
 lang: zh-CN
 ---
 

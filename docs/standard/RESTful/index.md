@@ -1,5 +1,6 @@
 ---
 title: RESTful API
+sidebar: auto
 lang: zh-CN
 ---
 

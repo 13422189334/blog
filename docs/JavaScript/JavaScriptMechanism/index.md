@@ -1,5 +1,6 @@
 ---
 title: JavaScript 执行机制
+sidebar: auto
 lang: zh-CN
 ---
 

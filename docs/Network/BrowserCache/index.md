@@ -1,5 +1,6 @@
 ---
 title: 浏览器缓存
+sidebar: auto
 lang: zh-CN
 ---
 
