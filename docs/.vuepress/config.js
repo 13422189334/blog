@@ -2,7 +2,7 @@
 const { nav, sidebar } = require('./router/index')
 
 module.exports = {
-  title: '真正的优秀，都是自找的', // 网站的标题
+  title: '繁华中自律，落魄中自愈', // 网站的标题
   description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
   base: '/vuepress/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
   host: '10.0.3.45', // 用于 dev server 的主机名
