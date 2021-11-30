@@ -1035,6 +1035,4 @@ ES6帮我们实现了！
 
 > Normally if you require a module, you import the whole thing. ES2015 lets you just import the bits you need, without mucking around with custom builds. It's a revolution in how we use libraries in JavaScript, and it's happening right now.
 >
-未完待续
 
-希望更全面了解es6伙伴们可以去看阮一峰所著的电子书ECMAScript 6入门
