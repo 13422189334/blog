@@ -19,6 +19,7 @@ const nav  = [
   },
   { text: 'JavaScript 机制', link: '/JavaScript/JavaScriptMechanism/' },
   { text: '微前端', link: '/MicroFrontEnd/qiankun/' },
+  { text: 'Webpack', link: '/Webpack/' },
   {
     text: 'VUE',
     items: [
