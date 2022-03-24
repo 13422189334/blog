@@ -25,7 +25,7 @@ lang: zh-CN
 
 - **Babel**
 
-  `Webpack`内部的`AST`分析同样依赖于`Babel`进行处理，如果你对`Babel`不是很熟悉。建议可以先去阅读下这两篇文章**「前端基建」带你在Babel的世界中畅游**、**从Tree Shaking来走进Babel插件开发者的世界**。
+  `Webpack`内部的`AST`分析同样依赖于`Babel`进行处理，如果你对`Babel`不是很熟悉。建议可以先去阅读下这两篇文章 **「前端基建」带你在Babel的世界中畅游**、**从Tree Shaking来走进Babel插件开发者的世界**。
 
 
 
@@ -39,12 +39,15 @@ lang: zh-CN
 
 
 ```mermaid
-	graph LR
-	A[初始化参数] -->B[编译]
+   graph LR
+   A[初始化参数] -->B[编译]
     B --> C[模块编译]
     C --> D[完成编译]
     D --> E[输出文件]
 ```
+
+
+
 
 整体将会从上边5个方面来分析`Webpack`打包流程:
 

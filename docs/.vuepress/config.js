@@ -5,7 +5,7 @@ module.exports = {
   title: '繁华中自律，落魄中自愈', // 网站的标题
   description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
   base: '/vuepress/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
-  host: '192.168.31.160', // 用于 dev server 的主机名
+  host: '10.0.3.148', // 用于 dev server 的主机名
   // host: '10.0.3.204', // 用于 dev server 的主机名
   // host: '127.0.0.1', // 用于 dev server 的主机名
   port: 1111, // dev server 的端口
@@ -85,6 +85,7 @@ module.exports = {
   plugins: [
     ['go-top'], // 悬挂猫返回顶部
     ['vuepress-plugin-reading-progress'], //顶部进度条
+    ['vuepress-plugin-mermaidjs'], // 支持 mermaid 绘图的插件
     // [
     //   'cursor-effects', {
     //     size: 4, // size of the particle, default: 2
@@ -98,47 +99,47 @@ module.exports = {
         successText: '🌈复制成功！🌈',
       },
     ],
-    [
-      'vuepress-plugin-comment', {
-        choosen: 'valine',
-        // options选项中的所有参数，会传给Valine的配置
-        options: {
-          el: '#valine',
-          appId: '95aw4m784F9xbEVyrGUupt2v-9Nh9j0Va',
-          appKey: 'dKalMVCST7hmiW7NA2PktxXI',
-          // avater: 'c',
-          visitor: true,
-          placeholder: '留下你想说的话吧^_^',
-          path: '<%- frontmatter.commentid || frontmatter.permalink %>'
-        }
-      }
-    ],
-    [
-      'vuepress-plugin-helper-live2d', {
-      // 是否开启控制台日志打印(default: false)
-      log: false,
-      live2d: {
-        // 是否启用(关闭请设置为false)(default: true)
-        enable: true,
-        // 模型名称(default: hibiki)>>>取值请参考：
-        // https://github.com/JoeyBling/hexo-theme-yilia-plus/wiki/live2d%E6%A8%A1%E5%9E%8B%E5%8C%85%E5%B1%95%E7%A4%BA
-        // model: 'hibiki',
-        model: 'shizuku',
-        display: {
-          position: 'right', // 显示位置：left/right(default: 'right')
-          width: 135, // 模型的长度(default: 135)
-          height: 300, // 模型的高度(default: 300)
-          hOffset: 0, //  水平偏移(default: 65)
-          vOffset: 0, //  垂直偏移(default: 0)
-        },
-        mobile: {
-          show: true // 是否在移动设备上显示(default: false)
-        },
-        react: {
-          opacity: 0.9 // 模型透明度(default: 0.8)
-        }
-      }
-    }],
+    // [
+    //   'vuepress-plugin-comment', {
+    //     choosen: 'valine',
+    //     // options选项中的所有参数，会传给Valine的配置
+    //     options: {
+    //       el: '#valine',
+    //       appId: '95aw4m784F9xbEVyrGUupt2v-9Nh9j0Va',
+    //       appKey: 'dKalMVCST7hmiW7NA2PktxXI',
+    //       // avater: 'c',
+    //       visitor: true,
+    //       placeholder: '留下你想说的话吧^_^',
+    //       path: '<%- frontmatter.commentid || frontmatter.permalink %>'
+    //     }
+    //   }
+    // ],
+    // [
+    //   'vuepress-plugin-helper-live2d', {
+    //   // 是否开启控制台日志打印(default: false)
+    //   log: false,
+    //   live2d: {
+    //     // 是否启用(关闭请设置为false)(default: true)
+    //     enable: true,
+    //     // 模型名称(default: hibiki)>>>取值请参考：
+    //     // https://github.com/JoeyBling/hexo-theme-yilia-plus/wiki/live2d%E6%A8%A1%E5%9E%8B%E5%8C%85%E5%B1%95%E7%A4%BA
+    //     // model: 'hibiki',
+    //     model: 'shizuku',
+    //     display: {
+    //       position: 'right', // 显示位置：left/right(default: 'right')
+    //       width: 135, // 模型的长度(default: 135)
+    //       height: 300, // 模型的高度(default: 300)
+    //       hOffset: 0, //  水平偏移(default: 65)
+    //       vOffset: 0, //  垂直偏移(default: 0)
+    //     },
+    //     mobile: {
+    //       show: true // 是否在移动设备上显示(default: false)
+    //     },
+    //     react: {
+    //       opacity: 0.9 // 模型透明度(default: 0.8)
+    //     }
+    //   }
+    // }],
     // [ '@vuepress-reco/vuepress-plugin-bgm-player', {
     //   position: { right: '10px', bottom: '10px', 'z-index': '999999'},
     //   autoplay: true, // 是否自动播放  默认false
