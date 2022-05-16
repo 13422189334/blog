@@ -1,19 +1,21 @@
 
 const { nav, sidebar } = require('./router/index')
+const { homeSidebarB } = require('./ads/index')
 
 module.exports = {
   title: '繁华中自律，落魄中自愈', // 网站的标题
   description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
   base: '/vuepress/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
-  host: '10.0.3.148', // 用于 dev server 的主机名
+  // host: '10.0.3.148', // 用于 dev server 的主机名
   // host: '10.0.3.204', // 用于 dev server 的主机名
-  // host: '127.0.0.1', // 用于 dev server 的主机名
+  host: '127.0.0.1', // 用于 dev server 的主机名
   port: 1111, // dev server 的端口
   // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
   dest: 'public', // vuepress build 的输出目录
   repo: 'https://gitee.com/jin-shaohui/vuepress', // 添加 github 链接
-  theme: 'antdocs',
+  theme: 'vdoing',
   themeConfig: {
+    /** vuepress的配置 ------------------------- 开始 */
     logo: '/logo.jpg',
     selectText: '选择语言', // 多语言下拉菜单的标题
     label: '简体中文', // 该语言在下拉菜单中的标签
@@ -44,46 +46,103 @@ module.exports = {
     displayAllHeaders: true, // 默认值：false
     /** 文件最后更新时间 string = 'Last Updated' | boolean 若为字符串则拼接在前  **/
     lastUpdated: '最近更新时间',
-    /** 广告位 */
-    ads:{
-      style: 1,
-      image: 'https://jin-shaohui.gitee.io/vuepress/dijia.jpg',
-      text: '这个世界真的有光',
-      link: 'https://gitee.com/jin-shaohui/vuepress',
+    /** vuepress的配置 ------------------------- 结束 */
+
+    /** vuepress-theme-vdoing的配置 ------------------------- 开始 */
+    /**
+     * 分类功能
+     * 自动生成的front matter包含分类字段
+     * 页面中显示与分类相关的信息和模块
+     * 自动生成分类页面（在@pages文件夹）
+     * */
+    category: true,
+    /**
+     * 标签功能
+     * 自动生成的front matter包含分类字段
+     * 页面中显示与分类相关的信息和模块
+     * 自动生成分类页面（在@pages文件夹）
+     * */
+    tag: true,
+    /**
+     * 归档功能
+     * 自动生成分类页面（在@pages文件夹）
+     * */
+    archive: true,
+    /** 碎片化文章默认分类值 */
+    categoryText: '随笔',
+    /** body背景大图 */
+    bodyBgImg: 'https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b175d84f08ac4298b0a19a95ff1e8e2f~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?',
+    // bodyBgImg: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0f9630edc484bfb89643866cee572d9~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?',
+    /** body背景图透明度 0 ~ 1.0 */
+    bodyBgImgOpacity: 0.8,
+    /** 文章标题图标的地址 */
+    titleBadge: true,
+    /** 文章标题图标的地址 */
+    titleBadgeIcons: ['https://jin-shaohui.gitee.io/vuepress/bingbing.jpg', 'https://jin-shaohui.gitee.io/vuepress/dijia.jpg'],
+    /** 文章内容块的背景底纹 1 => 方格 | 2 => 横线 | 3 => 竖线 | 4 => 左斜线 | 5 => 右斜线 | 6 => 点状 */
+    contentBgStyle: 6,
+    /** 初始状态下是否打开侧边栏 */
+    sidebarOpen: false,
+    /**
+     * 最近更新栏，显示于文章页底部和简约版首页文章列表
+     * showToArticle 显示到文章页底部，默认true
+     * moreArticle “更多文章”跳转的页面，默认'/archives/'
+     * */
+    updateBar: { showToArticle: true, moreArticle: '/archives/' },
+    /** 右侧文章大纲栏 */
+    rightMenuBar: true,
+    /** 快捷翻页按钮 */
+    pageButton: true,
+    /** 文章作者信息 */
+    author: { name: 'JSH', link: '404' },
+    /** 博主信息
+     * avatar 头像，必需
+     * name 博主名称，必需
+     * slogan 标语，可选
+     * */
+    blogger: { avatar: './bingbing.jpg', name: '石怜安', slogan: '谋生的路上不抛弃良知，谋爱的路上不丢失尊严，我站在风中，任你大雾四起' },
+    /** 社交图标 */
+    social: {
+      /*iconfontCssFile: String, */
+      icons: [
+        { iconClass: 'icon-QQ', title: '1051131737', link: 'String' },
+        { iconClass: 'icon-youjian', title: '1051131737@qq.com', link: 'String' },
+        { iconClass: 'icon-weixin', title: 'jsh1051131737', link: 'String' },
+        ]
     },
-    ads:{
-      style: 2,
-      speed: 2000,
-      items:[
-        {
-          text: '图片1详情',
-          image:'https://cn.bing.com/th?id=OHR.LoughriggTarn_ZH-CN1404327665_1920x1080.jpg',
-          link: 'https://jin-shaohui.gitee.io/vuepress'
-        },
-        {
-          text: '图片2详情',
-          image:'https://cn.bing.com/th?id=OHR.MetamorphicRocks_ZH-CN9753251368_1920x1080.jpg',
-          link: 'https://jin-shaohui.gitee.io/vuepress'
-        },
-        {
-          text: '图片3详情',
-          image:'https://cn.bing.com/th?id=OHR.KeichitsuCrocuse_ZH-CN1061292366_1920x1080.jpg',
-          link: 'https://jin-shaohui.gitee.io/vuepress'
-        }
-      ]
-    },
-    ads:{
-      style: 3,
-      title: '悄悄话',
-      btnText: '我有话说',
-      msgTitle: '我有话说',
-      msgText: '如果您有新问题、新知识点等需求，欢迎联系我们（微信：xxxx）。',
-      msgOkText: '确定',
-    },
+    /**
+     * 广告
+     * homeSidebarB 首页侧边栏底部
+     * sidebarT 所有左侧边栏顶部
+     * sidebarB 所有左侧边栏底部
+     * pageT 页面顶部
+     * pageB 页面底部
+     * pageTshowMode 页面顶部的显示方式
+     *   未配置 默认所有页面显示
+     *   'article' 仅文章页①显示
+     *   'custom' 仅自定义页①显示
+     * pageBshowMode 页面底部的显示方式
+     *   未配置 默认全局显示
+     *   'article' 仅文章页①显示
+     *   'custom' 仅自定义页①显示
+     * windowLB 全局窗口左下角②
+     * windowRB 全局窗口右下角②
+     * */
+    htmlModules: {
+      homeSidebarB: homeSidebarB(),
+      // sidebarT: 'htmlString',
+      // sidebarB: 'htmlString',
+      // pageT: 'htmlString',
+      // pageB: 'htmlString',
+      // pageTshowMode: 'article' | 'custom',
+      // pageBshowMode: 'article' | 'custom',
+      // windowLB: 'htmlString',
+      // windowRB: 'htmlString',
+    }
+    /** vuepress-theme-vdoing的配置 ------------------------- 结束 */
   },
   /** 插件配置 **/
   plugins: [
-    ['go-top'], // 悬挂猫返回顶部
     ['vuepress-plugin-reading-progress'], //顶部进度条
     ['vuepress-plugin-mermaidjs'], // 支持 mermaid 绘图的插件
     // [

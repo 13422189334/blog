@@ -1,6 +1,14 @@
 ---
 title: v-if 和 v-for优先级
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/f1337c/
+categories: 
+  - Question
+  - VUE
+  - FAQs
+tags: 
+  - 
 ---
 
 **v-if和v-for是开发中经常会遇到的2个指令，那么在使用的过程中，二者如果同时存在同一个标签上，谁的优先级会更高一点呢？**

@@ -1,6 +1,14 @@
 ---
 title: created与activated的区别
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/246046/
+categories: 
+  - Question
+  - VUE
+  - Example
+tags: 
+  - 
 ---
 
 - keep-alive 有什么作用？

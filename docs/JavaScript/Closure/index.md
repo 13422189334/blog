@@ -1,6 +1,13 @@
 ---
 title: 闭包
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/7a62af/
+categories: 
+  - JavaScript
+  - Closure
+tags: 
+  - 
 ---
 
 闭包就是能够读取其他函数内部变量的函数。

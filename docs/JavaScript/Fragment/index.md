@@ -1,6 +1,13 @@
 ---
 title: 文档碎片减少dom操作
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/4285bd/
+categories: 
+  - JavaScript
+  - Fragment
+tags: 
+  - 
 ---
 
 ```javascript

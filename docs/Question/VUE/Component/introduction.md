@@ -1,6 +1,14 @@
 ---
 title: 组件引入方式
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/a3eed0/
+categories: 
+  - Question
+  - VUE
+  - Component
+tags: 
+  - 
 ---
 
 # Vue中的8种组件通信方式

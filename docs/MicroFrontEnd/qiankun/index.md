@@ -2,6 +2,13 @@
 title: 乾坤
 sidebar: auto
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/f2ba05/
+categories: 
+  - MicroFrontEnd
+  - qiankun
+tags: 
+  - 
 ---
 
 **微前端** 是一种类似于微服务的架构，它将微服务的理念应用于浏览器端，即将单页面前端应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。

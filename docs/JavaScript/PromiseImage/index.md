@@ -1,6 +1,13 @@
 ---
 title: 异步加载图片
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/c6592a/
+categories: 
+  - JavaScript
+  - PromiseImage
+tags: 
+  - 
 ---
 
 ```html

@@ -1,6 +1,14 @@
 ---
 title: sftp上传下载
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/2709f8/
+categories: 
+  - Java
+  - Utils
+  - components
+tags: 
+  - 
 ---
 
 ```java

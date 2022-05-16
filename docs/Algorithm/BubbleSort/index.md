@@ -1,6 +1,13 @@
 ---
 title: 冒泡算法
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/3fb790/
+categories: 
+  - Algorithm
+  - BubbleSort
+tags: 
+  - 
 ---
 
 1. 比较相邻的两个元素，如果前一个比后一个大，则交换位置。

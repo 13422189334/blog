@@ -1,6 +1,14 @@
 ---
 title: extend(s)与mixins差异
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/5ad65a/
+categories: 
+  - Question
+  - VUE
+  - Example
+tags: 
+  - 
 ---
 - **Mixins 的使用方法：**
 

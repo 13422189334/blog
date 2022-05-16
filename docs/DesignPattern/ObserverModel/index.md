@@ -1,6 +1,13 @@
 ---
 title: 观察者模式
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/0fbec5/
+categories: 
+  - DesignPattern
+  - ObserverModel
+tags: 
+  - 
 ---
 
 # 观察者模式

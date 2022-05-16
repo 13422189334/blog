@@ -2,6 +2,13 @@
 title: RESTful API
 sidebar: auto
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/49e205/
+categories: 
+  - standard
+  - RESTful
+tags: 
+  - 
 ---
 
 ## 如何解释什么是RESTful

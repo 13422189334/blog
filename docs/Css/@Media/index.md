@@ -1,6 +1,13 @@
 ---
 title: 媒体查询 @media
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/343372/
+categories: 
+  - Css
+  - Media
+tags: 
+  - 
 ---
 
 什么是@media，@media又叫 **媒体查询** ，使用 @media 查询，你可以针对不同的媒体类型定义不同的样式。

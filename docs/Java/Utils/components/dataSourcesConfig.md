@@ -1,6 +1,14 @@
 ---
 title: 多数据源配置
 lang: zh-CN
+date: 2022-05-16 11:26:43
+permalink: /pages/7bf6bc/
+categories: 
+  - Java
+  - Utils
+  - components
+tags: 
+  - 
 ---
 
 数据库连接多数据源，业务中可能需要调用不同数据库数据。

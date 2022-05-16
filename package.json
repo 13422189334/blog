@@ -13,7 +13,8 @@
     "vuepress-plugin-cursor-effects": "^0.0.4",
     "vuepress-plugin-go-top": "^1.0.0",
     "vuepress-plugin-mermaidjs": "^1.9.1",
-    "vuepress-plugin-reading-progress": "^1.0.9"
+    "vuepress-plugin-reading-progress": "^1.0.9",
+    "vuepress-theme-vdoing": "^1.11.3"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,6 @@
   "license": "MIT",
   "dependencies": {
     "vuepress-plugin-code-copy": "^1.0.6",
-    "vuepress-plugin-comment": "^0.7.3",
-    "vuepress-theme-antdocs": "^1.0.0-beta.1"
+    "vuepress-plugin-comment": "^0.7.3"
   }
 }

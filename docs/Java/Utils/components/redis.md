@@ -1,6 +1,14 @@
 ---
 title: redis缓存
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/978736/
+categories: 
+  - Java
+  - Utils
+  - components
+tags: 
+  - 
 ---
 
 ```java

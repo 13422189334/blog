@@ -1,6 +1,13 @@
 ---
 title: Stream
 lang: zh-CN
+date: 2022-05-16 11:26:43
+permalink: /pages/e5b049/
+categories: 
+  - Java
+  - Stream
+tags: 
+  - 
 ---
 
 Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。

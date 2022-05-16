@@ -1,7 +1,13 @@
 ---
 title: js问题
-comment: false 
+comment: false
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/8fd485/
+categories: 
+  - JavaScript
+tags: 
+  - 
 ---
 
 - **常问问题**

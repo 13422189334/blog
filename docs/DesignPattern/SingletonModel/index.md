@@ -1,6 +1,13 @@
 ---
 title: 单例模式
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/bfc7b2/
+categories: 
+  - DesignPattern
+  - SingletonModel
+tags: 
+  - 
 ---
 
 常见的单例模式实现方式有五种：饿汉式、懒汉式、双重检测锁式。而在这三种方式中**饿汉式**和**懒汉式**最为常见。下面将一一列举这三种方式的实现方法：

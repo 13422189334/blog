@@ -1,6 +1,13 @@
 ---
 title: 二分法
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/f25615/
+categories: 
+  - Algorithm
+  - Dichotomy
+tags: 
+  - 
 ---
 
 二分查找法只适用于从有序的数列中进行查找(比如数字和字母等)，将数列排序后再进行查找。

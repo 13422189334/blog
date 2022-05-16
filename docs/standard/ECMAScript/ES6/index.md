@@ -2,6 +2,14 @@
 title: ES6
 sidebar: auto
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/bd8868/
+categories: 
+  - standard
+  - ECMAScript
+  - ES6
+tags: 
+  - 
 ---
 
 ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。

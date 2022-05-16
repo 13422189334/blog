@@ -1,6 +1,13 @@
 ---
 title: 跨域
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/73ce50/
+categories: 
+  - Network
+  - CrossDomain
+tags: 
+  - 
 ---
 > 文章链接跳转：
 > 1. [Jsonp](../Jsonp)

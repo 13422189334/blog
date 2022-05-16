@@ -2,6 +2,13 @@
 title: 浏览器缓存
 sidebar: auto
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/80b956/
+categories: 
+  - Network
+  - BrowserCache
+tags: 
+  - 
 ---
 
 # 浏览器缓存

@@ -1,6 +1,14 @@
 ---
 title: 渐进式
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/75a15d/
+categories: 
+  - Question
+  - VUE
+  - FAQs
+tags: 
+  - 
 ---
 
 ## 什么是渐进式

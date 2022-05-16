@@ -1,6 +1,14 @@
 ---
 title: 性能优化
 lang: zh-CN
+date: 2022-05-16 11:21:30
+permalink: /pages/adb66e/
+categories: 
+  - Question
+  - VUE
+  - FAQs
+tags: 
+  - 
 ---
 
 Vue 框架通过数据双向绑定和虚拟 DOM 技术，帮我们处理了前端开发中最脏最累的 DOM 操作部分， 
