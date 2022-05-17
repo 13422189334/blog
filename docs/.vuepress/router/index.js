@@ -2,10 +2,9 @@ const nav  = [
   { text: '首页', link: '/' },
   {
     text: 'CSS',
-    link: '/Css/@Media/',
     items: [
       { text: '媒体查询', link: '/Css/@Media/'},
-      { text: 'Demo', link: '/Css/Demo/StreamerButton/'},
+      { text: '样式组件库', link: '/Css/Component/'},
     ]
   },
   // { text: 'CSS Demo', link: '/CssDemo/StreamerButton/' },
