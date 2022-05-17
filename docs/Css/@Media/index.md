@@ -2,7 +2,7 @@
 title: 媒体查询 @media
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/343372/
+permalink: /Css/@Media/
 categories: 
   - Css
   - Media
@@ -12,7 +12,7 @@ tags:
 
 什么是@media，@media又叫 **媒体查询** ，使用 @media 查询，你可以针对不同的媒体类型定义不同的样式。
             
-@media 可以针对不同的屏幕尺寸设置不同的样式，特别是如果你需要设置设计响应式的页面，@media 是非常有用的。
+@media 可以针对不同的屏幕尺寸设置不同的样式，特别是如果你需要设置设计响应式的页面，@medjia 是非常有用的。
             
 当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。
 
