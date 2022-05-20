@@ -1,12 +1,10 @@
 ---
-title: rsa加解密
+title: RSA加解密
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/368918/
+permalink: /Java/Utils/RSA
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

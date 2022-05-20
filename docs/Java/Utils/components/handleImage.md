@@ -2,11 +2,9 @@
 title: 图片处理
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/87a74f/
+permalink: /Java/Utils/HandleImage
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

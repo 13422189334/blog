@@ -1,48 +1,164 @@
 ---
+pageComponent:
+  name: Catalogue
+  data:
+    path: JavaUtils
+    imgUrl: /404.jpg
+    description: 实用的java工具类
 title: 后端工具类
 lang: zh-CN
 date: 2022-05-16 11:26:43
-permalink: /pages/d251d5/
+permalink: /Java/Utils/
+sidebar: true # 不显示侧边栏
+article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
+comment: true # 不显示评论栏
+editLink: true # 不显示编辑按钮
 categories: 
-  - Java
-  - Utils
+  - JavaUtils
 tags: 
   - 
 ---
 
 - 加解密
-1. [aes加解密](./components/aes.md)
-2. [rsa加解密](components/rsa.md)
+::: cardList 4
+```yaml
+- name: AES加解密
+  desc: ''
+  link: /Java/Utils/AES
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+- name: RSA加解密
+  desc: ''
+  link: /Java/Utils/RSA
+  bgColor: '#DFEEE7'
+  textColor: '#2A3344'
+```
+:::
 
 - 类型转换
-1. [对象转换](./components/objectConvert.md)
-2. [xml转对象](./components/xmlToObject.md)
-3. [pojo、xml、javaBean类型转换](./components/pojoXmlJavaBean.md)
-4. [驼峰转换](./components/hump.md)
+::: cardList 4
+```yaml
+- name: 对象转换
+  desc: ''
+  link: /Java/Utils/ObjectConvert
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+- name: XML转对象
+  desc: ''
+  link: /Java/Utils/XmlToObject
+  bgColor: '#DFEEE7'
+  textColor: '#2A3344'
+- name: POJO XML JavaBean
+  desc: ''
+  link: /Java/Utils/PojoXmlJavaBean
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+- name: 驼峰转换
+  desc: ''
+  link: /Java/Utils/Hump
+  bgColor: '#DFEEE7'
+  textColor: '#2A3344'
+```
+:::
 
 - 类型处理
-1. [字符串](./components/string.md)
-2. [时间](./components/date.md)
+::: cardList 4
+```yaml
+- name: 字符串
+  desc: ''
+  link: /Java/Utils/String
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+- name: 时间
+  desc: ''
+  link: /Java/Utils/Date
+  bgColor: '#DFEEE7'
+  textColor: '#2A3344'
+```
+:::
 
-- 校验、解析、工具
-1. [url参数解析](./components/url.md)
-2. [解析ip](./components/ip.md)
-3. [人民币大写](./components/rmbUpper.md)
-4. [身份证校验](./components/idCard.md)
-5. [多数据源配置](./components/dataSourcesConfig.md)
+
+- 解析校验
+::: cardList 4
+```yaml
+- name: URL参数解析
+  desc: ''
+  link: /Java/Utils/Url
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+- name: IP解析
+  desc: ''
+  link: /Java/Utils/Ip
+  bgColor: '#DFEEE7'
+  textColor: '#2A3344'
+- name: 人民币大写
+  desc: ''
+  link: /Java/Utils/RmbUpper
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+- name: 身份证校验
+  desc: ''
+  link: /Java/Utils/IdCard
+  bgColor: '#DFEEE7'
+  textColor: '#2A3344'
+```
+:::
 
 - 文件处理
-1. [图片处理](./components/handleImage.md)
-2. [图片转换](./components/transformImage.md)
-3. [Excel](./components/excel.md)
-4. [Audio](./components/audio.md)
+::: cardList 4
+```yaml
+- name: 图片处理
+  desc: ''
+  link: /Java/Utils/HandleImage
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+- name: 图片转换
+  desc: ''
+  link: /Java/Utils/TransformImage
+  bgColor: '#DFEEE7'
+  textColor: '#2A3344'
+- name: Excel
+  desc: ''
+  link: /Java/Utils/Excel
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+```
+:::
 
 - 上传下载
-1. [sftp上传下载](./components/sftp.md)
-2. [文件上传下载](./components/file.md)
+::: cardList 4
+```yaml
+- name: Sftp
+  desc: ''
+  link: /Java/Utils/Sftp
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+- name: 文件上传下载
+  desc: ''
+  link: /Java/Utils/File
+  bgColor: '#DFEEE7'
+  textColor: '#2A3344'
+```
+:::
 
 - 缓存
-1. [redis缓存](./components/redis.md)
+::: cardList 4
+```yaml
+- name: Redis
+  desc: ''
+  link: /Java/Utils/Redis
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+```
+:::
 
-- sms
-1. [sms短信](./components/sms.md)
+- 短信
+::: cardList 4
+```yaml
+- name: SMS
+  desc: ''
+  link: /Java/Utils/SMS
+  bgColor: '#F0DFB1'
+  textColor: '#242A38'
+```
+:::

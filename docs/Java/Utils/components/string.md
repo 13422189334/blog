@@ -2,11 +2,9 @@
 title: 字符串
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/a694b4/
+permalink: /Java/Utils/String
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

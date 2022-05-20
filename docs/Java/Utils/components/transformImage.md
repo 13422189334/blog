@@ -2,11 +2,9 @@
 title: 图片转换
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/a8d68e/
+permalink: /Java/Utils/TransformImage
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

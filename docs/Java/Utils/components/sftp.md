@@ -1,12 +1,10 @@
 ---
-title: sftp上传下载
+title: Sftp
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/2709f8/
+permalink: /Java/Utils/Sftp
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

@@ -1,12 +1,10 @@
 ---
-title: sms短信
+title: SMS
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/3b70e8/
+permalink: /Java/Utils/SMS
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

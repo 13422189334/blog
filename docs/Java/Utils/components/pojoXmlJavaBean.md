@@ -1,12 +1,10 @@
 ---
-title: pojo、xml、javaBean类型转换
+title: POJO、XML、JavaBean类型转换
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/0da613/
+permalink: /Java/Utils/PojoXmlJavaBean
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

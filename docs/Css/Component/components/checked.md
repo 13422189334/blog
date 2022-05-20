@@ -5,8 +5,7 @@ date: 2022-05-16 11:21:30
 permalink: /Css/Component/Checked/
 categories: 
   - Css
-  - Demo
-  - Checked
+  - CssComponent
 tags: 
   - 
 ---

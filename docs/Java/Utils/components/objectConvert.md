@@ -2,11 +2,9 @@
 title: 对象转换
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/d0e537/
+permalink: /Java/Utils/ObjectConvert
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

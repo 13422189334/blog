@@ -32,7 +32,14 @@ const nav  = [
     ]
   },
   { text: '算法', link: '/Algorithm/BubbleSort/' },
-  { text: 'Java', link: '/Java/Utils/' },
+  {
+    text: 'Java',
+    link: '/Java/Utils/',
+    items: [
+      { text: 'RESTful', link: '/Java/Utils/'},
+      { text: 'JDK8', link: '/Java/Utils/'}
+    ]
+  },
   { text: '设计模式', link: '/DesignPattern/ObserverModel/' },
   {
     text: '网络',
@@ -49,12 +56,6 @@ const nav  = [
 ]
 
 const sidebar = {
-  '/Css/Demo/': [
-    'StreamerButton/', // 流光按钮
-    'Login/', //登录页
-    'Shutters/', // 百叶窗
-    'Checked/', // 打钩动画
-  ],
   '/JavaScript/': [
     'Closure/', // 闭包
     'PromiseImage/', //异步加载图片
@@ -67,11 +68,6 @@ const sidebar = {
     'BubbleSort/', // 冒泡算法
     'RepeatSort/', //去重排序
     'Dichotomy/', // 二分法
-  ],
-  '/Java/': [ //
-    'Utils/', // 工具类
-    'Lambda/', //Lambda
-    'Stream/', // Stream
   ],
   '/DesignPattern/': [ //
     'ObserverModel/', // 观察者模式

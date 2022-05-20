@@ -1,12 +1,10 @@
 ---
-title: redis缓存
+title: Redis
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/978736/
+permalink: /Java/Utils/Redis
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

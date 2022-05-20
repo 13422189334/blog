@@ -1,12 +1,10 @@
 ---
-title: 解析ip
+title: 解析IP
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/759f5d/
+permalink: /Java/Utils/Ip
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

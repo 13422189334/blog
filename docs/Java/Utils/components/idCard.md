@@ -2,11 +2,9 @@
 title: 身份证校验
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/cbb820/
+permalink: /Java/Utils/IdCard
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

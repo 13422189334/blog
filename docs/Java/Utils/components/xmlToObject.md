@@ -1,12 +1,10 @@
 ---
-title: xml转对象
+title: XML转对象
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/8e445c/
+permalink: /Java/Utils/XmlToObject
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---

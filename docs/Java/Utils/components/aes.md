@@ -1,12 +1,10 @@
 ---
-title: aes加解密
+title: AES加解密
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/0cd5bb/
+permalink: /Java/Utils/AES
 categories: 
-  - Java
-  - Utils
-  - components
+  - JavaUtils
 tags: 
   - 
 ---
