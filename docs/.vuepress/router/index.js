@@ -1,5 +1,7 @@
 const nav  = [
   { text: '首页', link: '/' },
+  { text: '前端知识库', link: '/FrontEnd/' },
+
   {
     text: 'CSS',
     items: [

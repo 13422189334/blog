@@ -8,7 +8,7 @@ pageComponent:
 title: Css样式组件
 lang: zh-CN
 date: 2022-05-17 14:46:27
-permalink: /Css/Component
+permalink: /Css/Component/
 sidebar: true # 不显示侧边栏
 article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
 comment: true # 不显示评论栏
@@ -19,6 +19,7 @@ categories:
 tags: 
   - 
 ---
+
 ::: cardList  4
 ```yaml
 - name: 打钩动画
