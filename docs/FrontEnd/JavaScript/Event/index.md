@@ -2,10 +2,13 @@
 title: 封装绑定事件处理函数
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/24caae/
+permalink: /JavaScript/Event/
+sidebar: true # 不显示侧边栏
+article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
+comment: true # 不显示评论栏
+editLink: true # 不显示编辑按钮
 categories: 
   - JavaScript
-  - Event
 tags: 
   - 
 ---

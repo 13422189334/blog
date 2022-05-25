@@ -1,12 +1,14 @@
 ---
 title: JavaScript 执行机制
-sidebar: auto
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/c7174f/
+permalink: /JavaScript/EventLoop/
+sidebar: true # 不显示侧边栏
+article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
+comment: true # 不显示评论栏
+editLink: true # 不显示编辑按钮
 categories: 
   - JavaScript
-  - JavaScriptMechanism
 tags: 
   - 
 ---

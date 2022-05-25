@@ -1,16 +1,6 @@
 const nav  = [
   { text: '首页', link: '/' },
   { text: '前端知识库', link: '/FrontEnd/' },
-
-  {
-    text: 'CSS',
-    items: [
-      { text: '媒体查询', link: '/Css/@Media/'},
-      { text: '样式组件库', link: '/Css/Component/'},
-    ]
-  },
-  // { text: 'CSS Demo', link: '/CssDemo/StreamerButton/' },
-  { text: 'JS 技巧', link: '/JavaScript/Closure/' },
   {
     text: '规范',
     items: [
@@ -18,7 +8,6 @@ const nav  = [
       { text: 'ES6', link: '/standard/ECMAScript/ES6/'}
     ]
   },
-  { text: 'JavaScript 机制', link: '/JavaScript/JavaScriptMechanism/' },
   { text: '微前端', link: '/MicroFrontEnd/qiankun/' },
   { text: 'Webpack', link: '/Webpack/' },
   {
@@ -58,14 +47,6 @@ const nav  = [
 ]
 
 const sidebar = {
-  '/JavaScript/': [
-    'Closure/', // 闭包
-    'PromiseImage/', //异步加载图片
-    'Fragment/', // 文档碎片减少dom操作
-    'Event/', // 封装绑定事件处理函数
-    'AsyncHell/', // Promise解决回调地狱
-    'PromiseAjax/', // Promise和Ajax封装请求
-  ],
   '/Algorithm/': [ // 算法
     'BubbleSort/', // 冒泡算法
     'RepeatSort/', //去重排序
