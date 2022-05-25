@@ -73,9 +73,9 @@ module.exports = {
     /** body背景大图 */
     // bodyBgImg: 'https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b175d84f08ac4298b0a19a95ff1e8e2f~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?',
     // bodyBgImg: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0f9630edc484bfb89643866cee572d9~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?',
-    bodyBgImg: ['./background/white-001.jpg', './background/black-001.jpg'],
+    // bodyBgImg: ['./background/white-001.jpg', './background/black-001.jpg'],
     /** body背景图透明度 0 ~ 1.0 */
-    bodyBgImgOpacity: 0.5,
+    // bodyBgImgOpacity: 0.5,
     /** 文章标题图标的地址 */
     titleBadge: true,
     /** 文章标题图标的地址 */
@@ -101,7 +101,7 @@ module.exports = {
      * name 博主名称，必需
      * slogan 标语，可选
      * */
-    blogger: { avatar: './bingbing.jpg', name: '石怜安', slogan: '谋生的路上不抛弃良知，谋爱的路上不丢失尊严，我站在风中，任你大雾四起' },
+    blogger: { avatar: './bingbing.jpg', name: '石怜安', slogan: '在线找大长腿小姐姐' },
     /** 社交图标 */
     social: {
       /*iconfontCssFile: String, */

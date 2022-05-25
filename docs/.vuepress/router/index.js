@@ -9,7 +9,6 @@ const nav  = [
       { text: 'ES6', link: '/standard/ECMAScript/ES6/'}
     ]
   },
-  { text: '微前端', link: '/MicroFrontEnd/qiankun/' },
   { text: 'Webpack', link: '/Webpack/' },
   {
     text: 'VUE',

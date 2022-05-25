@@ -112,3 +112,25 @@ data:
 ```
 :::
 
+
+::: center
+  ## 微前端相关
+  包括微前端技术、single-spa、iframe等前端微服务话解决方案
+:::
+
+::: cardList 4
+```yaml
+config:
+    target: _self
+    imgHeight: auto
+    objectFit: cover
+    lineClamp: 1
+
+data:
+  - name: 乾坤
+    desc: 阿里微前端解决方案
+    link: /Micro/QianKun/
+    bgColor: '#F0DFB1'
+    textColor: '#242A38'
+```
+:::
