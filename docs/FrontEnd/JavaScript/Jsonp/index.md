@@ -2,17 +2,16 @@
 title: Jsonp
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/a0a67e/
+permalink: /JavaScript/Jsonp/
+sidebar: true # 不显示侧边栏
+article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
+comment: true # 不显示评论栏
+editLink: true # 不显示编辑按钮
 categories: 
-  - Network
-  - Jsonp
+  - JavaScript
 tags: 
   - 
 ---
-
-> 文章链接跳转：
-> 1. [跨域](../CrossDomain)
->
 
 我们都知道，Ajax请求是不能跨域的，无论是静态页面、动态网页、web服务等，只要是跨域请求，一律都不允许通过浏览器跨域的检测和阻拦。
 但是，我们可以发现，web页面上调用js是不受跨域的影响，同时拥有src属性的标签也具有相同的能力，比如 <**script**>、<**img**>、<**iframe**>

@@ -1,8 +1,8 @@
 ---
-title: Promise和Ajax封装请求
+title: Promise 和 XHR 封装请求
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /JavaScript/PromiseAjax/
+permalink: /JavaScript/PromiseXHR/
 sidebar: true # 不显示侧边栏
 article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
 comment: true # 不显示评论栏

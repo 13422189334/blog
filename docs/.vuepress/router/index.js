@@ -16,12 +16,6 @@ const nav  = [
       { text: '生命周期', link: '/Vue/LifeCycle/' }
     ]
   },
-  {
-    text: 'REACT',
-    items: [
-      { text: '生命周期'  }
-    ]
-  },
   { text: '算法', link: '/Algorithm/BubbleSort/' },
   {
     text: 'Java',
@@ -36,8 +30,7 @@ const nav  = [
     text: '网络',
     items: [
       { text: '浏览器缓存', link: '/Network/BrowserCache/'},
-      { text: '跨域', link: '/Network/CrossDomain/'},
-      { text: 'Jsonp', link: '/Network/Jsonp/'}
+      { text: '跨域', link: '/Network/CrossDomain/'}
     ]
   },
   { text: '网管', link: '/NetworkManagement/' },

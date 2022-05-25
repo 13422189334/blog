@@ -82,21 +82,26 @@ data:
     link: /JavaScript/EventLoop/
     bgColor: '#DFEEE7'
     textColor: '#2A3344'
-  - name: Fragment
-    desc: 文档碎片减少dom操作
+  - name: 文档碎片
+    desc: Fragment减少dom操作
     link: /JavaScript/Fragment/
     bgColor: '#F0DFB1'
     textColor: '#242A38'
-  - name: PromiseAjax
-    desc: Promise和Ajax封装请求
-    link: /JavaScript/PromiseAjax/
+  - name: 封装接口请求
+    desc: Promise 和 XHR 封装请求
+    link: /JavaScript/PromiseXHR/
     bgColor: '#DFEEE7'
     textColor: '#2A3344'
   - name: 异步加载图片
-    desc: 文档碎片减少dom操作
+    desc: img元素onload加载图片
     link: /JavaScript/PromiseImage/
     bgColor: '#F0DFB1'
     textColor: '#242A38'
+  - name: Jsonp
+    desc: 跨域解决方式
+    link: /JavaScript/Jsonp/
+    bgColor: '#DFEEE7'
+    textColor: '#2A3344'
   - name: 代完成
     desc: 待整理问题
     link: /JavaScript/await/
