@@ -1,6 +1,7 @@
 const nav  = [
   { text: '首页', link: '/' },
   { text: '前端知识库', link: '/FrontEnd/' },
+  { text: '后端知识库', link: '/BackEnd/' },
   {
     text: '规范',
     items: [
@@ -17,14 +18,14 @@ const nav  = [
     ]
   },
   { text: '算法', link: '/Algorithm/BubbleSort/' },
-  {
-    text: 'Java',
-    link: '/Java/Utils/',
-    items: [
-      { text: 'RESTful', link: '/Java/Utils/'},
-      { text: 'JDK8', link: '/Java/Utils/'}
-    ]
-  },
+  // {
+  //   text: 'Java',
+  //   link: '/Java/Utils/',
+  //   items: [
+  //     { text: 'RESTful', link: '/Java/Utils/'},
+  //     { text: 'JDK8', link: '/Java/Utils/'}
+  //   ]
+  // },
   { text: '设计模式', link: '/DesignPattern/ObserverModel/' },
   {
     text: '网络',

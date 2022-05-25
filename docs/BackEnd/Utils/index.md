@@ -22,6 +22,13 @@ tags:
 - 加解密
 ::: cardList 4
 ```yaml
+config:
+    target: _self
+    imgHeight: auto
+    objectFit: cover
+    lineClamp: 1
+
+data:
 - name: AES加解密
   desc: ''
   link: /Java/Utils/AES
