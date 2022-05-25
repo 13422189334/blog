@@ -22,11 +22,11 @@ tags:
 来自 [JSH](https://gitee.com/jin-shaohui/vuepress)
 :::
 
-
-::: theorem CSS
 ::: center
   ## CSS相关
   包括css使用、知识简介等
+:::
+
 ::: cardList 4
 ```yaml
 config:
@@ -49,10 +49,12 @@ data:
 ```
 :::
 
-::: theorem JavaScript
+
 ::: center
   ## JavaScript相关
   包括JavaScript知识点、面试题等
+:::
+
 ::: cardList 4
 ```yaml
 config:
@@ -102,7 +104,7 @@ data:
     link: /JavaScript/Jsonp/
     bgColor: '#DFEEE7'
     textColor: '#2A3344'
-  - name: 代完成
+  - name: 代完成...
     desc: 待整理问题
     link: /JavaScript/await/
     bgColor: '#FF0000'
