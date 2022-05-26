@@ -41,11 +41,56 @@ data:
     link: /Css/@Media/
     bgColor: '#F0DFB1'
     textColor: '#242A38'
-  - name: 样式组件库
+```
+:::
+
+
+::: center
+  ### CSS样式组件库
+  适用Vue、React、Html等不同类型框架的CSS样式组件
+:::
+
+::: cardImgList  4
+```yaml
+config:
+    target: _self
+    imgHeight: 100px
+    objectFit: cover
+    lineClamp: 1
+
+data:
+  - name: 打钩动画
+    desc: svg css绘制打钩动画
+    author: JSH
+    avatar: /bingbing.jpg
+    img: ./Css/Component/images/checked.jpg
+    link: /Css/Component/Checked/
+    bgColor: '#CBEAFA' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
+    textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
+  - name: 登录页
     desc: 蓝紫色风格登录框
-    link: /Css/Component/
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
+    author: JSH
+    avatar: /bingbing.jpg
+    img: ./Css/Component/images/login.jpg
+    link: /Css/Component/login/
+    bgColor: '#C2FF2E' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
+    textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
+  - name: 百叶窗
+    desc: checkbox实现百叶窗
+    author: JSH
+    avatar: /bingbing.jpg
+    img: ./Css/Component/images/shutters.jpg
+    link: /Css/Component/shutters/
+    bgColor: '#FF6BC9' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
+    textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
+  - name: 流光按钮
+    desc: 渐变色实现流光按钮
+    author: JSH
+    avatar: /bingbing.jpg
+    img: ./Css/Component/images/streamButton.jpg
+    link: /Css/Component/streamButton/
+    bgColor: '#43F7FF' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
+    textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
 ```
 :::
 

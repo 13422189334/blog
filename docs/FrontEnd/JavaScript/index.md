@@ -7,7 +7,7 @@ permalink: /JavaScript/await/
 categories: 
   -
 tags: 
-  - 
+  - JS面试仔
 ---
 
 - **常问问题**

@@ -7,12 +7,11 @@ categories:
   - Css
   - CssComponent
 tags: 
-  - 
+  - 菜鸡CSS仔
 ---
 
-<Shutters />
-
-```vue
+::: demo 
+```html
 <template>
   <div id="accordion" class="accordion">
     <div class="accordion-box" v-for="(item, index) in list">
@@ -38,7 +37,7 @@ tags:
   }
 </script>
 
-<style scoped>
+<style>
   /* 整体布局 */
   .accordion {
     box-sizing: border-box;
@@ -125,3 +124,4 @@ tags:
   }
 </style>
 ```
+:::

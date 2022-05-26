@@ -7,12 +7,11 @@ categories:
   - Css
   - CssComponent
 tags: 
-  - 
+  - 菜鸡CSS仔
 ---
 
-<StreamerButton/>
-
-```vue
+::: demo 
+```html
 <template>
   <div id="body">
     <a id="button">StreamerButton</a>
@@ -25,7 +24,7 @@ tags:
   }
 </script>
 
-<style scoped>
+<style>
   #body {
     /* 弹性布局 让页面元素垂直 + 水平居中 */
     display: flex;
@@ -94,3 +93,4 @@ tags:
   }
 </style>
 ```
+:::

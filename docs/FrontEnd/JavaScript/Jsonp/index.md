@@ -10,7 +10,7 @@ editLink: true # 不显示编辑按钮
 categories: 
   - JavaScript
 tags: 
-  - 
+  - JS面试仔
 ---
 
 我们都知道，Ajax请求是不能跨域的，无论是静态页面、动态网页、web服务等，只要是跨域请求，一律都不允许通过浏览器跨域的检测和阻拦。

@@ -1,11 +1,11 @@
-
+const path = require('path')
 const { nav, sidebar } = require('./router/index')
 const { homeSidebarB } = require('./ads/index')
 
-module.exports = {
+module.exports = (options, context) => ({
   title: '繁华中自律，落魄中自愈', // 网站的标题
   description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
-  base: '/vuepress/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
+  base: '/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
   // host: '10.0.3.148', // 用于 dev server 的主机名
   // host: '10.0.3.204', // 用于 dev server 的主机名
   host: '127.0.0.1', // 用于 dev server 的主机名
@@ -130,7 +130,7 @@ module.exports = {
      * windowRB 全局窗口右下角②
      * */
     htmlModules: {
-      homeSidebarB: homeSidebarB(),
+      // homeSidebarB: homeSidebarB(),
       // sidebarT: 'htmlString',
       // sidebarB: 'htmlString',
       // pageT: 'htmlString',
@@ -144,15 +144,9 @@ module.exports = {
   },
   /** 插件配置 **/
   plugins: [
+    ['demo-container'],
     ['vuepress-plugin-reading-progress'], //顶部进度条
     ['vuepress-plugin-mermaidjs'], // 支持 mermaid 绘图的插件
-    // [
-    //   'cursor-effects', {
-    //     size: 4, // size of the particle, default: 2
-    //     shape: ['star'], // shape of the particle,  'star' | 'circle' default: 'star'
-    //     zIndex: 999999999, // z-index property of the canvas, default: 999999999
-    //   },
-    // ],
     [
       'vuepress-plugin-code-copy', {
         color: '#6D7EAD',
@@ -174,47 +168,10 @@ module.exports = {
     //     }
     //   }
     // ],
-    // [
-    //   'vuepress-plugin-helper-live2d', {
-    //   // 是否开启控制台日志打印(default: false)
-    //   log: false,
-    //   live2d: {
-    //     // 是否启用(关闭请设置为false)(default: true)
-    //     enable: true,
-    //     // 模型名称(default: hibiki)>>>取值请参考：
-    //     // https://github.com/JoeyBling/hexo-theme-yilia-plus/wiki/live2d%E6%A8%A1%E5%9E%8B%E5%8C%85%E5%B1%95%E7%A4%BA
-    //     // model: 'hibiki',
-    //     model: 'shizuku',
-    //     display: {
-    //       position: 'right', // 显示位置：left/right(default: 'right')
-    //       width: 135, // 模型的长度(default: 135)
-    //       height: 300, // 模型的高度(default: 300)
-    //       hOffset: 0, //  水平偏移(default: 65)
-    //       vOffset: 0, //  垂直偏移(default: 0)
-    //     },
-    //     mobile: {
-    //       show: true // 是否在移动设备上显示(default: false)
-    //     },
-    //     react: {
-    //       opacity: 0.9 // 模型透明度(default: 0.8)
-    //     }
-    //   }
-    // }],
-    // [ '@vuepress-reco/vuepress-plugin-bgm-player', {
-    //   position: { right: '10px', bottom: '10px', 'z-index': '999999'},
-    //   autoplay: true, // 是否自动播放  默认false
-    //   autoShrink: false, // 是否自动缩小  默认false
-    //   shrinkMode: 'mini', // 指定PC端缩小为哪种模式 'mini'/'float'  默认 'float'
-    //   floatPosition: 'right', // 指定浮窗模式浮动在哪一侧  'left'/'right'  默认 'left'
-    //   floatStyle: { bottom: '200px', 'z-index': '999999' }, // 浮窗的样式
-    //   audios: [
-    //     {
-    //       name: '百年孤寂',
-    //       artist: '王菲',
-    //       url: 'https://freetyst.nf.migu.cn/public/product9th/product43/product/24bit/2021/04/10/60054043262/60054043262.flac?Key=1173bb34b1c0b356&Tim=1637059496456&channelid=00&msisdn=9faac2f957454e6f988039cccbdcf647&CI=600540432622600907000006976959&F=011005',
-    //       cover: 'https://jin-shaohui.gitee.io/vuepress/bingbing.jpg'
-    //     }
-    //   ]
-    // }]
-  ]
-}
+  ],
+
+  chainWebpack (config) {
+    console.log(__dirname, path.resolve(__dirname, '../FrontEnd/'), '===========')
+    config.resolve.alias.set('@frontEnd',  path.resolve(__dirname, '../FrontEnd/'))
+  }
+})

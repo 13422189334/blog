@@ -7,12 +7,12 @@ categories:
   - Css
   - CssComponent
 tags: 
-  - 
+  - 菜鸡CSS仔
 ---
 
-<Login/>
 
-```vue
+::: demo 
+```html
 <template>
   <div class="body">
     <div class="login-container">
@@ -44,7 +44,7 @@ tags:
   }
 </script>
 
-<style scoped>
+<style>
   /** {*/
   /*  margin: 0;*/
   /*  padding: 0;*/
@@ -191,3 +191,4 @@ tags:
   }
 </style>
 ```
+:::

@@ -7,13 +7,12 @@ categories:
   - Css
   - CssComponent
 tags: 
-  - 
+  - 菜鸡CSS仔
 ---
 
-<Checked />
-
-```vue
-<template>
+::: demo 
+```html
+<html>
   <div class="body">
     <input type="checkbox" checked/>
     <svg width="400" height="400">
@@ -22,7 +21,7 @@ tags:
     </svg>
     <h2>Success</h2>
   </div>
-</template>
+</html>
 
 <script>
   export default {
@@ -30,7 +29,7 @@ tags:
   }
 </script>
 
-<style scoped>
+<style>
   .body {
     width: 100%;
     display: flex;
@@ -107,3 +106,4 @@ tags:
   }
 </style>
 ```
+:::

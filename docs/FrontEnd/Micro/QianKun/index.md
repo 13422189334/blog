@@ -10,7 +10,7 @@ editLink: true # 不显示编辑按钮
 categories: 
   - MicroFrontEnd
 tags: 
-  - 前端打工仔
+  - 微前端
 ---
 
 **微前端** 是一种类似于微服务的架构，它将微服务的理念应用于浏览器端，即将单页面前端应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。
@@ -19,9 +19,11 @@ tags:
 
 **qiankun（乾坤）** 就是一款由蚂蚁金服推出的比较成熟的微前端框架，基于 **single-spa** 进行二次开发，用于将Web应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。
 
-<img src="./images/info.png">
+<img :src="$withBase('/images/info.png')">
 
 那么，话不多说，我们的源码解析正式开始。
+
+<!-- more -->
 
 我们从两个基础 API : **registerMicroApps(apps, lifeCycles?) - 注册子应用** 和 **start(opts?) - 启动主应用** 开始
 

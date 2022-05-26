@@ -10,7 +10,7 @@ editLink: true # 不显示编辑按钮
 categories: 
   - JavaScript
 tags: 
-  - 
+  - JS面试仔
 ---
 
 人们普遍以javaScript的执行顺序来编写代码,在执行异步代码时,无论以什么顺序简单的执行代码,通常情况会变成许多层级的回调函数堆积
