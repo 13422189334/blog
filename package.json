@@ -22,7 +22,7 @@
   "author": "jinshaohui",
   "license": "MIT",
   "dependencies": {
-    "vuepress-plugin-code-copy": "^1.0.6",
-    "vuepress-plugin-comment": "^0.7.3"
+    "vuepress-plugin-comment": "^0.7.3",
+    "vuepress-plugin-one-click-copy": "^1.0.6"
   }
 }
