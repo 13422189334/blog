@@ -1,11 +1,10 @@
 ---
 title: 生命周期
 lang: zh-CN
-date: 2022-05-16 11:21:30
-permalink: /pages/842abb/
+date: 2022-05-26 11:21:30
+permalink: /Vue/LifeCycle/
 categories: 
   - Vue
-  - LifeCycle
 tags: 
   - 
 ---
@@ -15,9 +14,11 @@ tags:
 
 ​下面这张官网的图，想必大家都熟悉，那让我们一步一步的分析，并最后验证一下。
 
-<img src="./images/lifecycle.png" alt="Vue 实例生命周期" style="zoom: 50%;" />
+<img src="./images/vueLifecycle.png" alt="Vue 实例生命周期" style="zoom: 50%;" />
 
 ​图中可以看到在一整个生命周期中会有很多的钩子函数，不同的钩子函数提供给我们在vue生命周期不同的时刻进行的操作, 那么我们先列出所有的钩子函数，然后我们再一一详解：
+
+<!-- more -->
 
 > 结合 [生命周期案例](./demo.html) ，F12看控制台更容易理解。
 
