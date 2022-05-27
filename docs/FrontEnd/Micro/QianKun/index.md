@@ -1,7 +1,7 @@
 ---
 title: 乾坤
 lang: zh-CN
-date: 2022-05-27 11:21:30
+date: 2022-05-16 11:21:30
 permalink: /Micro/QianKun/
 sidebar: true # 不显示侧边栏
 article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
@@ -19,7 +19,7 @@ tags:
 
 **qiankun（乾坤）** 就是一款由蚂蚁金服推出的比较成熟的微前端框架，基于 **single-spa** 进行二次开发，用于将Web应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。
 
-![](./images/info.png )
+![microInfo](./images/microInfo.png)
 
 那么，话不多说，我们的源码解析正式开始。
 

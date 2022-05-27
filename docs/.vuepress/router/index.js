@@ -16,7 +16,7 @@ const nav  = [
       { text: '生命周期', link: '/Vue/LifeCycle/' }
     ]
   },
-  { text: '算法', link: '/Algorithm/BubbleSort/' },
+  { text: '算法', link: '/Algorithm/' },
   // {
   //   text: 'Java',
   //   link: '/Java/Utils/',
@@ -40,11 +40,6 @@ const nav  = [
 ]
 
 const sidebar = {
-  '/Algorithm/': [ // 算法
-    'BubbleSort/', // 冒泡算法
-    'RepeatSort/', //去重排序
-    'Dichotomy/', // 二分法
-  ],
   '/DesignPattern/': [ //
     'ObserverModel/', // 观察者模式
     'SingletonModel/', //单例模式
