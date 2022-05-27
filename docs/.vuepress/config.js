@@ -71,6 +71,8 @@ module.exports = (options, context) => ({
     /** 碎片化文章默认分类值 */
     categoryText: '随笔',
     /** body背景大图 */
+    // bodyBgImg: '/bingbing.jpg',  // 你的图片路径(必须位于 public 下)，可以是 URL
+    // bodyBgImgOpacity: 1, // body 背景图透明度，选值 0 ~ 1.0, 默认0.5
     // bodyBgImg: 'https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b175d84f08ac4298b0a19a95ff1e8e2f~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?',
     // bodyBgImg: 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0f9630edc484bfb89643866cee572d9~tplv-k3u1fbpfcp-zoom-crop-mark:1304:1304:1304:734.awebp?',
     // bodyBgImg: ['./background/white-001.jpg', './background/black-001.jpg'],
@@ -148,10 +150,13 @@ module.exports = (options, context) => ({
     ['vuepress-plugin-reading-progress'], //顶部进度条
     ['vuepress-plugin-mermaidjs'], // 支持 mermaid 绘图的插件
     [
-      'vuepress-plugin-code-copy', {
-        color: '#6D7EAD',
-        successText: '🌈复制成功！🌈',
-      },
+      'one-click-copy',
+      {
+        copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
+        copyMessage: 'Copied successfully!', // default is 'Copied successfully!'
+        toolTipMessage: 'Copy to clipboard', // default is ''Copy to clipboard'
+        duration: 300, // prompt message display time
+       }
     ],
     // [
     //   'vuepress-plugin-comment', {
