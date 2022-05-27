@@ -1,7 +1,7 @@
 ---
 title: 乾坤
 lang: zh-CN
-date: 2022-05-16 11:21:30
+date: 2022-05-27 11:21:30
 permalink: /Micro/QianKun/
 sidebar: true # 不显示侧边栏
 article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
@@ -19,7 +19,7 @@ tags:
 
 **qiankun（乾坤）** 就是一款由蚂蚁金服推出的比较成熟的微前端框架，基于 **single-spa** 进行二次开发，用于将Web应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。
 
-<img :src="$withBase('/images/info.png')">
+![](./images/info.png )
 
 那么，话不多说，我们的源码解析正式开始。
 
@@ -86,12 +86,12 @@ tags:
 
 <img src="./images/entry.png">
 
-| 字段                     | 解释                                                         |
-| :----------------------- | :----------------------------------------------------------- |
-| `template`               | 将脚本文件内容注释后的 `html` 模板文件                       |
-| `assetPublicPath`        | 资源地址根路径，可用于加载子应用资源                         |
-| `getExternalScripts`     | 方法：获取外部引入的脚本文件                                 |
-| `getExternalStyleSheets` | 方法：获取外部引入的样式表文件                               |
+| 字段                       | 解释                                       |
+| :----------------------- | :--------------------------------------- |
+| `template`               | 将脚本文件内容注释后的 `html` 模板文件                  |
+| `assetPublicPath`        | 资源地址根路径，可用于加载子应用资源                       |
+| `getExternalScripts`     | 方法：获取外部引入的脚本文件                           |
+| `getExternalStyleSheets` | 方法：获取外部引入的样式表文件                          |
 | `execScripts`            | 方法：执行该模板文件中所有的 `JS` 脚本文件，并且可以指定脚本的作用域 - `proxy` 对象 |
 
 我们先将 **template 模板**、**getExternalScripts** 和 **getExternalStyleSheets** 函数的执行结果打印出来，效果如下:
@@ -153,17 +153,17 @@ tags:
 
 我们来分析一下 LegacySandbox 类的几个属性：
 
-| 字段                                     | 解释                                                         |
-| :--------------------------------------- | :----------------------------------------------------------- |
-| `addedPropsMapInSandbox`                 | 记录沙箱运行期间新增的全局变量                               |
-| `modifiedPropsOriginalValueMapInSandbox` | 记录沙箱运行期间更新的全局变量                               |
+| 字段                                       | 解释                                       |
+| :--------------------------------------- | :--------------------------------------- |
+| `addedPropsMapInSandbox`                 | 记录沙箱运行期间新增的全局变量                          |
+| `modifiedPropsOriginalValueMapInSandbox` | 记录沙箱运行期间更新的全局变量                          |
 | `currentUpdatedPropsValueMap`            | 记录沙箱运行期间操作过的全局变量。上面两个 `Map` 用于 `关闭沙箱` 时还原全局状态，而 `currentUpdatedPropsValueMap` 是在 `激活沙箱` 时还原沙箱的独立状态 |
-| `name`                                   | 沙箱名称                                                     |
-| `proxy`                                  | 代理对象，可以理解为子应用的 `global/window` 对象            |
-| `sandboxRunning`                         | 当前沙箱是否在运行中                                         |
-| `active`                                 | 激活沙箱，在子应用挂载时启动                                 |
-| `inactive`                               | 关闭沙箱，在子应用卸载时启动                                 |
-| `constructor`                            | 构造函数，创建沙箱环境                                       |
+| `name`                                   | 沙箱名称                                     |
+| `proxy`                                  | 代理对象，可以理解为子应用的 `global/window` 对象        |
+| `sandboxRunning`                         | 当前沙箱是否在运行中                               |
+| `active`                                 | 激活沙箱，在子应用挂载时启动                           |
+| `inactive`                               | 关闭沙箱，在子应用卸载时启动                           |
+| `constructor`                            | 构造函数，创建沙箱环境                              |
 
 我们现在从 window.Proxy 的 set 和 get 属性来详细讲解 LegacySandbox 是如何实现沙箱运行环境的。（见下图）
 
@@ -210,15 +210,15 @@ ProxySandbox 是一种新的沙箱模式，目前用于多实例模式的状态�
 
 我们来分析一下 ProxySandbox 类的几个属性：
 
-| 字段             | 解释                                               |
-| :--------------- | :------------------------------------------------- |
-| `updateValueMap` | 记录沙箱中更新的值，也就是每个子应用中独立的状态池 |
-| `name`           | 沙箱名称                                           |
-| `proxy`          | 代理对象，可以理解为子应用的 `global/window` 对象  |
-| `sandboxRunning` | 当前沙箱是否在运行中                               |
-| `active`         | 激活沙箱，在子应用挂载时启动                       |
-| `inactive`       | 关闭沙箱，在子应用卸载时启动                       |
-| `constructor`    | 构造函数，创建沙箱环境                             |
+| 字段               | 解释                                |
+| :--------------- | :-------------------------------- |
+| `updateValueMap` | 记录沙箱中更新的值，也就是每个子应用中独立的状态池         |
+| `name`           | 沙箱名称                              |
+| `proxy`          | 代理对象，可以理解为子应用的 `global/window` 对象 |
+| `sandboxRunning` | 当前沙箱是否在运行中                        |
+| `active`         | 激活沙箱，在子应用挂载时启动                    |
+| `inactive`       | 关闭沙箱，在子应用卸载时启动                    |
+| `constructor`    | 构造函数，创建沙箱环境                       |
 
 我们现在从 window.Proxy 的 set 和 get 属性来详细讲解 ProxySandbox 是如何实现沙箱运行环境的。（见下图）
 
@@ -257,16 +257,16 @@ eval(
 
 我们来分析一下 SnapshotSandbox 类的几个属性：
 
-| 字段             | 解释                                 |
-| :--------------- | :----------------------------------- |
-| `name`           | 沙箱名称                             |
-| `proxy`          | 代理对象，此处为 `window` 对象       |
-| `sandboxRunning` | 当前沙箱是否激活                     |
-| `windowSnapshot` | `window` 状态快照                    |
+| 字段               | 解释                      |
+| :--------------- | :---------------------- |
+| `name`           | 沙箱名称                    |
+| `proxy`          | 代理对象，此处为 `window` 对象    |
+| `sandboxRunning` | 当前沙箱是否激活                |
+| `windowSnapshot` | `window` 状态快照           |
 | `modifyPropsMap` | 沙箱运行期间被修改过的 `window` 属性 |
-| `constructor`    | 构造函数，激活沙箱                   |
-| `active`         | 激活沙箱，在子应用挂载时启动         |
-| `inactive`       | 关闭沙箱，在子应用卸载时启动         |
+| `constructor`    | 构造函数，激活沙箱               |
+| `active`         | 激活沙箱，在子应用挂载时启动          |
+| `inactive`       | 关闭沙箱，在子应用卸载时启动          |
 
 SnapshotSandbox 的沙箱环境主要是通过激活时记录 window 状态快照，在关闭时通过快照还原 window 对象来实现的。（见下图）
 
