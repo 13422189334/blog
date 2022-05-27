@@ -1,5 +1,4 @@
 ---
-
 title: 前端知识库
 lang: zh-CN
 date: 2022-05-17 14:46:27
@@ -147,7 +146,7 @@ data:
   - name: 代完成...
     desc: 待整理问题
     link: /JavaScript/await/
-    bgColor: '#FF0000'
+    bgColor: '#FF5599'
     textColor: '#FFFFFF'
 ```
 :::
@@ -217,5 +216,15 @@ data:
     link: /Vue/LifeCycle/
     bgColor: '#F0DFB1'
     textColor: '#242A38'
+  - name: 组建通信
+    desc: Vue组件通讯方式
+    link: /Vue/Communicate/
+    bgColor: '#DFEEE7'
+    textColor: '#2A3344'
+  - name: 问答
+    desc: 待整理问题
+    link: /Vue/Question/
+    bgColor: '#FF5599'
+    textColor: '#FFFFFF'
 ```
 :::

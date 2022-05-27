@@ -1,12 +1,14 @@
 ---
-title: 组件引入方式
+title: 组件通讯方式
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/a3eed0/
+permalink: /Vue/Communicate/
+sidebar: true # 不显示侧边栏
+article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
+comment: true # 不显示评论栏
+editLink: true # 不显示编辑按钮
 categories: 
-  - Question
   - VUE
-  - Component
 tags: 
   - 
 ---
