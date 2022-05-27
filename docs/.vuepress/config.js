@@ -113,6 +113,7 @@ module.exports = (options, context) => ({
         { iconClass: 'icon-weixin', title: 'jsh1051131737', link: 'String' },
         ]
     },
+    footer: { createYear: '2021', copyrightInfo: 'JSH' },
     /**
      * 广告
      * homeSidebarB 首页侧边栏底部
