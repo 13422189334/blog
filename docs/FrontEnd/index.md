@@ -1,10 +1,5 @@
 ---
-pageComponent:
-  name: Catalogue
-  data:
-    path: FrontEnd
-    imgUrl: /404.jpg
-    description: 分类型记录前端内容
+
 title: 前端知识库
 lang: zh-CN
 date: 2022-05-17 14:46:27
@@ -14,7 +9,7 @@ article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
 comment: true # 不显示评论栏
 editLink: true # 不显示编辑按钮
 categories: 
-  - FrontEnd
+  -
 tags: 
   - 
 ---
@@ -157,6 +152,28 @@ data:
 ```
 :::
 
+::: center
+  ## 打包相关
+  包括Webpack、Vite等打包工具原理介绍
+:::
+
+::: cardList 4
+```yaml
+config:
+    target: _self
+    imgHeight: auto
+    objectFit: cover
+    lineClamp: 1
+
+data:
+  - name: 手写webpack
+    desc: 实现webpack打包流程
+    link: /Webpack/
+    bgColor: '#F0DFB1'
+    textColor: '#242A38'
+```
+:::
+
 
 ::: center
   ## 微前端相关
@@ -175,6 +192,29 @@ data:
   - name: 乾坤
     desc: 阿里微前端解决方案
     link: /Micro/QianKun/
+    bgColor: '#F0DFB1'
+    textColor: '#242A38'
+```
+:::
+
+
+::: center
+  ## VUE相关
+  包括Vue、Vuex、VueRouter等Vue全家桶相关知识点
+:::
+
+::: cardList 4
+```yaml
+config:
+    target: _self
+    imgHeight: auto
+    objectFit: cover
+    lineClamp: 1
+
+data:
+  - name: 生命周期
+    desc: Vue生命周期函数
+    link: /Vue/LifeCycle/
     bgColor: '#F0DFB1'
     textColor: '#242A38'
 ```

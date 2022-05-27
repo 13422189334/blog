@@ -9,22 +9,7 @@ const nav  = [
       { text: 'ES6', link: '/standard/ECMAScript/ES6/'}
     ]
   },
-  { text: 'Webpack', link: '/Webpack/' },
-  {
-    text: 'VUE',
-    items: [
-      { text: '生命周期', link: '/Vue/LifeCycle/' }
-    ]
-  },
   { text: '算法', link: '/Algorithm/' },
-  // {
-  //   text: 'Java',
-  //   link: '/Java/Utils/',
-  //   items: [
-  //     { text: 'RESTful', link: '/Java/Utils/'},
-  //     { text: 'JDK8', link: '/Java/Utils/'}
-  //   ]
-  // },
   { text: '设计模式', link: '/DesignPattern/ObserverModel/' },
   {
     text: '网络',
@@ -35,19 +20,10 @@ const nav  = [
   },
   { text: '网管', link: '/NetworkManagement/' },
   { text: '版本控制', link: '/Git/' },
-  { text: 'Q & A', link: '/Question/vue' },
   { text: '推荐', link: '/Recommend/' }
 ]
 
-const sidebar = {
-  '/DesignPattern/': [ //
-    'ObserverModel/', // 观察者模式
-    'SingletonModel/', //单例模式
-  ],
-  '/Question/': [
-    'vue'
-  ]
-}
+const sidebar = {}
 
 module.exports = {
   nav, sidebar

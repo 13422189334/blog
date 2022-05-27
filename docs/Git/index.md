@@ -96,13 +96,13 @@ HEAD是Git中非常重要的一个概念，你可以称它为指针或者引用�
 
 **添加某个文件到暂存区：**
 
-``` 
+``` shell script
 git add 文件路径 
 ```
 
 **添加所有文件到暂存区：**
 
-```
+``` shell script
 git add .
 ```
 
@@ -110,13 +110,13 @@ git add .
 
 **撤销工作区改动：**
 
-```
+``` shell script
 git checkout -- 文件名
 ```
 
 **清空暂存区：**
 
-```
+``` shell script
 git reset HEAD 文件名
 ```
 
@@ -124,7 +124,7 @@ git reset HEAD 文件名
 
 将改动文件加入到暂存区后就可以进行提交了，提交后会生成一个新的提交节点，具体命令如下：
 
-```
+``` shell script
 git commit -m "该节点的描述信息"
 ```
 
@@ -134,7 +134,7 @@ git commit -m "该节点的描述信息"
 
 创建一个分支后该分支会与HEAD指向同一节点，说通俗点就是HEAD指向哪创建的新分支就指向哪，命令如下：
 
-```
+``` shell script
 git branch 分支名
 ```
 
@@ -142,13 +142,13 @@ git branch 分支名
 
 当切换分支后，默认情况下HEAD会指向当前分支，即HEAD间接指向当前分支指向的节点
 
-```
+``` shell script
 git checkout 分支名
 ```
 
 同时也可以创建一个分支后立即切换，命令如下：
 
-```
+``` shell script
 git checkout -b 分支名
 ```
 
@@ -158,7 +158,7 @@ git checkout -b 分支名
 
 删除命令如下：
 
-```
+``` shell script
 git branch -d 分支名
 ```
 
@@ -171,7 +171,7 @@ git branch -d 分支名
 
 merge是最常用的合并命令，它可以将某个分支或者某个节点的代码合并至当前分支。具体命令如下：
 
-```
+``` shell script
 git merge 分支名/节点哈希值
 ```
 
@@ -223,7 +223,7 @@ rebase相比于merge提交历史更加线性、干净，使并行的开发流程
 
 cherry-pick的合并不同于merge和rebase，它可以选择某几个节点进行合并，如图3-4
 
-```
+``` shell script
 git cherry-pick 节点哈希值
 ```
 
@@ -237,7 +237,7 @@ git cherry-pick 节点哈希值
 
 在默认情况下HEAD是指向分支的，但也可以将HEAD从分支上取下来直接指向某个节点，此过程就是分离HEAD，具体命令如下：
 
-```
+``` shell script
 git checkout 节点哈希值
 //也可以直接脱离分支指向当前节点
 git checkout --detach
@@ -245,7 +245,7 @@ git checkout --detach
 
 由于哈希值是一串很长很长的乱码，在实际操作中使用哈希值分离HEAD很麻烦，所以Git也提供了HEAD基于某一特殊位置(分支/HEAD)直接指向前一个或前N个节点的命令，也即相对引用，如下：
 
-```
+``` shell script
 //HEAD分离并指向前一个节点
 git checkout 分支名/HEAD^
 
@@ -255,7 +255,7 @@ git checkout 分支名～N
 
 将HEAD分离出来指向节点有什么用呢？举个例子：如果开发过程发现之前的提交有问题，此时可以将HEAD指向对应的节点，修改完毕后再提交，此时你肯定不希望再生成一个新的节点，而你只需在提交时加上--amend即可，具体命令如下：
 
-```
+``` shell script
 git commit --amend
 ```
 
@@ -263,7 +263,7 @@ git commit --amend
 
 回退场景在平时开发中还是比较常见的，比如你巴拉巴拉写了一大堆代码然后提交，后面发现写的有问题，于是你想将代码回到前一个提交，这种场景可以通过reset解决，具体命令如下：
 
-```
+``` shell script
 //回退N个提交
 git reset HEAD~N
 ```
@@ -274,7 +274,7 @@ reset和相对引用很像，区别是reset会使分支和HEAD一并回退。
 
 当我们接触一个新项目时，第一件事情肯定是要把它的代码拿下来，在Git中可以通过clone从远程仓库复制一份代码到本地，具体命令如下：
 
-```
+``` shell script
 git clone 仓库地址
 ```
 
@@ -293,7 +293,7 @@ git clone 仓库地址
 
 说的通俗一点，fetch命令就是一次下载操作，它会将远程新增加的节点以及引用(分支/HEAD)的状态下载到本地，具体命令如下：
 
-```
+``` shell script
 git fetch 远程仓库地址/分支名
 ```
 
@@ -301,7 +301,7 @@ git fetch 远程仓库地址/分支名
 
 pull命令可以从远程仓库的某个引用拉取代码，具体命令如下：
 
-```
+``` shell script
 git pull 远程分支名
 ```
 
@@ -309,7 +309,7 @@ git pull 远程分支名
 
 另外pull命令也可以通过rebase进行合并，具体命令如下：
 
-```
+``` shell script
 git pull --rebase 远程分支名
 ```
 
@@ -317,7 +317,7 @@ git pull --rebase 远程分支名
 
 push命令可以将本地提交推送至远程，具体命令如下：
 
-```
+``` shell script
 git push 远程分支名
 ```
 

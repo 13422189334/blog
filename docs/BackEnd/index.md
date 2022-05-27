@@ -1,10 +1,4 @@
 ---
-pageComponent:
-  name: Catalogue
-  data:
-    path: BackEnd
-    imgUrl: /404.jpg
-    description: 分类型记录后端内容
 title: 后端知识库
 lang: zh-CN
 date: 2022-05-17 14:46:27
@@ -14,7 +8,7 @@ article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
 comment: true # 不显示评论栏
 editLink: true # 不显示编辑按钮
 categories: 
-  - BackEnd
+  -
 tags: 
   - 
 ---
