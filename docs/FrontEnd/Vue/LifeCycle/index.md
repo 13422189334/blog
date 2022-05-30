@@ -14,7 +14,7 @@ tags:
 
 ​下面这张官网的图，想必大家都熟悉，那让我们一步一步的分析，并最后验证一下。
 
-<img src="./images/vueLifecycle.png" alt="Vue 实例生命周期" style="zoom: 50%;" />
+![microInfo](/images/vueLifecycle.png)
 
 ​图中可以看到在一整个生命周期中会有很多的钩子函数，不同的钩子函数提供给我们在vue生命周期不同的时刻进行的操作, 那么我们先列出所有的钩子函数，然后我们再一一详解：
 
