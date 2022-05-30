@@ -57,7 +57,7 @@ data:
     desc: svg css绘制打钩动画
     author: JSH
     avatar: /bingbing.jpg
-    img: /Css/Component/images/checked.jpg
+    img: ./Css/Component/images/checked.jpg
     link: /Css/Component/Checked/
     bgColor: '#CBEAFA' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
@@ -65,7 +65,7 @@ data:
     desc: 蓝紫色风格登录框
     author: JSH
     avatar: /bingbing.jpg
-    img: /Css/Component/images/login.jpg
+    img: ./Css/Component/images/login.jpg
     link: /Css/Component/login/
     bgColor: '#C2FF2E' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
@@ -73,7 +73,7 @@ data:
     desc: checkbox实现百叶窗
     author: JSH
     avatar: /bingbing.jpg
-    img: /Css/Component/images/shutters.jpg
+    img: ./Css/Component/images/shutters.jpg
     link: /Css/Component/shutters/
     bgColor: '#FF6BC9' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
@@ -81,7 +81,7 @@ data:
     desc: 渐变色实现流光按钮
     author: JSH
     avatar: /bingbing.jpg
-    img: /Css/Component/images/streamButton.jpg
+    img: ./Css/Component/images/streamButton.jpg
     link: /Css/Component/streamButton/
     bgColor: '#43F7FF' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
