@@ -81,7 +81,7 @@ module.exports = (options, context) => ({
     /** 文章标题图标的地址 */
     titleBadge: true,
     /** 文章标题图标的地址 */
-    titleBadgeIcons: ['https://jin-shaohui.gitee.io/vuepress/bingbing.jpg', 'https://jin-shaohui.gitee.io/vuepress/dijia.jpg'],
+    titleBadgeIcons: ['/bingbing.jpg', '/dijia.jpg'],
     /** 文章内容块的背景底纹 1 => 方格 | 2 => 横线 | 3 => 竖线 | 4 => 左斜线 | 5 => 右斜线 | 6 => 点状 */
     contentBgStyle: 6,
     /** 初始状态下是否打开侧边栏 */
@@ -103,7 +103,7 @@ module.exports = (options, context) => ({
      * name 博主名称，必需
      * slogan 标语，可选
      * */
-    blogger: { avatar: './bingbing.jpg', name: '石怜安', slogan: '在线找大长腿小姐姐' },
+    blogger: { avatar: '/bingbing.jpg', name: '石怜安', slogan: '在线找大长腿小姐姐' },
     /** 社交图标 */
     social: {
       /*iconfontCssFile: String, */
