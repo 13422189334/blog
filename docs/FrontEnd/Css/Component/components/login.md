@@ -14,7 +14,7 @@ tags:
 ::: demo 
 ```html
 <template>
-  <div class="body">
+  <div class="login-body">
     <div class="login-container">
       <div class="left-container">
         <div class="title"><span>登录</span></div>
@@ -55,7 +55,7 @@ tags:
   /*  width: 100%;*/
   /*}*/
 
-  .body {
+  .login-body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +65,7 @@ tags:
     background-image: linear-gradient(to bottom right, rgb(114, 135, 254), rgb(130, 88, 186));
   }
 
-  .body .login-container {
+  .login-body .login-container {
     /*position: absolute;*/
     width: 600px;
     height: 315px;
@@ -75,7 +75,7 @@ tags:
     background-color: rgb(95, 76, 194);
   }
 
-  .body .login-container .left-container {
+  .login-body .login-container .left-container {
     display: inline-block;
     width: 330px;
     border-top-left-radius: 15px;
@@ -84,20 +84,20 @@ tags:
     background-image: linear-gradient(to bottom right, rgb(118, 76, 163), rgb(97, 103, 211));
   }
 
-  .body .login-container .left-container .title {
+  .login-body .login-container .left-container .title {
     color: #fff;
     font-size: 18px;
   }
 
-  .body .login-container .left-container .title span {
+  .login-body .login-container .left-container .title span {
     border-bottom: 3px solid rgb(237, 221, 22);
   }
 
-  .body .login-container .left-container .input-container {
+  .login-body .login-container .left-container .input-container {
     padding: 20px 0;
   }
 
-  .body .login-container .left-container .input-container input {
+  .login-body .login-container .left-container .input-container input {
     border: 0;
     background: none;
     background-color: transparent !important;
@@ -125,7 +125,7 @@ tags:
     transition: background-color 500s ease-in-out 0s;
   }
 
-  .body .login-container .left-container .input-container input:hover {
+  .login-body .login-container .left-container .input-container input:hover {
     border-bottom-color: #fff;
   }
 
@@ -133,18 +133,18 @@ tags:
     color: rgb(199, 191, 219);
   }
 
-  .body .login-container .left-container .message-container {
+  .login-body .login-container .left-container .message-container {
     font-size: 14px;
     transition: .2s;
     color: rgb(199, 191, 219);
     cursor: pointer;
   }
 
-  .body .login-container .left-container .message-container:hover {
+  .login-body .login-container .left-container .message-container:hover {
     color: #fff
   }
 
-  .body .login-container .right-container {
+  .login-body .login-container .right-container {
     display: inline-block;
     width: 145px;
     height: calc(100% - 120px);
@@ -152,18 +152,18 @@ tags:
     padding: 60px 0;
   }
 
-  .body .login-container .right-container .registry-container {
+  .login-body .login-container .right-container .registry-container {
     text-align: center;
     color: #fff;
     font-size: 18px;
     font-weight: 200;
   }
 
-  .body .login-container .right-container .registry-container span {
+  .login-body .login-container .right-container .registry-container span {
     border-bottom: 3px solid rgb(237, 221, 22);
   }
 
-  .body .login-container .right-container .action-container {
+  .login-body .login-container .right-container .action-container {
     font-size: 10px;
     color: #fff;
     height: 100%;
@@ -171,7 +171,7 @@ tags:
     position: relative;
   }
 
-  .body .login-container .right-container .action-container span {
+  .login-body .login-container .right-container .action-container span {
     border: 1px solid rgb(237, 221, 22);
     padding: 10px;
     display: inline;
@@ -184,7 +184,7 @@ tags:
     cursor: pointer;
   }
 
-  .body .login-container .right-container .action-container span:hover {
+  .login-body .login-container .right-container .action-container span:hover {
     background-color: rgb(237, 221, 22);
     color: rgb(95, 76, 194);
 

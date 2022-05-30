@@ -13,7 +13,7 @@ tags:
 ::: demo 
 ```html
 <template>
-  <div class="body">
+  <div class="checked-body">
     <input type="checkbox" checked/>
     <svg width="400" height="400">
       <circle class="circle" fill="none" r="190" stroke="#68e534" stroke-width="10" cx="200" cy="200" stroke-linecap="round" transform="rotate(-90 200 200)" />
@@ -30,7 +30,7 @@ tags:
 </script>
 
 <style>
-  .body {
+  .checked-body {
     width: 100%;
     display: flex;
     flex-direction: column;

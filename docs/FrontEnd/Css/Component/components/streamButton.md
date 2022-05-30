@@ -13,8 +13,8 @@ tags:
 ::: demo 
 ```html
 <template>
-  <div id="body">
-    <a id="button">StreamerButton</a>
+  <div class="button-body">
+    <a class="button">StreamerButton</a>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ tags:
 </script>
 
 <style>
-  #body {
+  .button-body {
     /* 弹性布局 让页面元素垂直 + 水平居中 */
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@ tags:
     /*background-color: #000;*/
   }
 
-  #button {
+  .button {
     /*相对定位*/
     position: relative;
     width: 200px;
@@ -58,7 +58,7 @@ tags:
     z-index: 1;
   }
 
-  #button::before {
+  .button::before {
     content: "1";
     position: absolute;
     top: -5px;
@@ -76,12 +76,12 @@ tags:
     filter: blur(10px);
   }
 
-  #button:hover {
+  .button:hover {
     /*动画 名称 时间  无线次播放*/
     animation: sun 3s infinite;
   }
 
-  #button:hover::before {
+  .button:hover::before {
     animation: sun 3s infinite;
   }
 
