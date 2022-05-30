@@ -175,9 +175,11 @@ module.exports = (options, context) => ({
     //   }
     // ],
   ],
-
-  chainWebpack (config) {
-    console.log(__dirname, path.resolve(__dirname, '../FrontEnd/'), '===========')
-    config.resolve.alias.set('@frontEnd',  path.resolve(__dirname, '../FrontEnd/'))
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@assets': path.resolve(__dirname, './public/images/')
+      }
+    }
   }
 })
