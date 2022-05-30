@@ -12,7 +12,7 @@ tags:
 
 ::: demo 
 ```html
-<html>
+<template>
   <div class="body">
     <input type="checkbox" checked/>
     <svg width="400" height="400">
@@ -21,7 +21,7 @@ tags:
     </svg>
     <h2>Success</h2>
   </div>
-</html>
+</template>
 
 <script>
   export default {
