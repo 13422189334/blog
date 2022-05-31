@@ -5,6 +5,7 @@ const nav  = [
   { text: '设计模式', link: '/DesignPattern/' },
   { text: '常用算法', link: '/Algorithm/' },
   { text: 'Git', link: '/Git/' },
+  { text: '服务器', link: '/Server/' },
   {
     text: '规范',
     items: [
@@ -19,7 +20,6 @@ const nav  = [
       { text: '跨域', link: '/Network/CrossDomain/'}
     ]
   },
-  { text: '网管', link: '/NetworkManagement/' },
   { text: '推荐', link: '/Recommend/' }
 ]
 
