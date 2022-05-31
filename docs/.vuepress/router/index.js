@@ -4,6 +4,7 @@ const nav  = [
   { text: '后端知识库', link: '/BackEnd/' },
   { text: '设计模式', link: '/DesignPattern/' },
   { text: '常用算法', link: '/Algorithm/' },
+  { text: 'Git', link: '/Git/' },
   {
     text: '规范',
     items: [
@@ -19,7 +20,6 @@ const nav  = [
     ]
   },
   { text: '网管', link: '/NetworkManagement/' },
-  { text: '版本控制', link: '/Git/' },
   { text: '推荐', link: '/Recommend/' }
 ]
 

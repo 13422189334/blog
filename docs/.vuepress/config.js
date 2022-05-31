@@ -14,6 +14,9 @@ module.exports = (options, context) => ({
   dest: 'public', // vuepress build 的输出目录
   repo: 'https://gitee.com/jin-shaohui/vuepress', // 添加 github 链接
   theme: 'vdoing',
+  markdown: {
+    extractHeaders: [ 'h2', 'h3', 'h4', 'h5', 'h6' ]
+  },
   themeConfig: {
     /** vuepress的配置 ------------------------- 开始 */
     logo: '/logo.jpg',
