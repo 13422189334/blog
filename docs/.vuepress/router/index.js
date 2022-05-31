@@ -2,6 +2,8 @@ const nav  = [
   { text: '首页', link: '/' },
   { text: '前端知识库', link: '/FrontEnd/' },
   { text: '后端知识库', link: '/BackEnd/' },
+  { text: '设计模式', link: '/DesignPattern/' },
+  { text: '常用算法', link: '/Algorithm/' },
   {
     text: '规范',
     items: [
@@ -9,8 +11,6 @@ const nav  = [
       { text: 'ES6', link: '/standard/ECMAScript/ES6/'}
     ]
   },
-  { text: '算法', link: '/Algorithm/' },
-  { text: '设计模式', link: '/DesignPattern/ObserverModel/' },
   {
     text: '网络',
     items: [
