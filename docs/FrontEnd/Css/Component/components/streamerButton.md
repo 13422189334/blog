@@ -2,7 +2,7 @@
 title: 流光按钮
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /Css/Component/streamButton/
+permalink: /Css/Component/streamerButton/
 categories: 
   - Css
   - CssComponent
@@ -14,7 +14,7 @@ tags:
 ```html
 <template>
   <div class="button-body">
-    <a class="button">StreamerButton</a>
+    <a class="streamer-button">StreamerButton</a>
   </div>
 </template>
 
@@ -35,7 +35,7 @@ tags:
     /*background-color: #000;*/
   }
 
-  .button {
+  .streamer-button {
     /*相对定位*/
     position: relative;
     width: 200px;

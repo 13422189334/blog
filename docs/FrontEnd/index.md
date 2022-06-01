@@ -81,8 +81,8 @@ data:
     desc: 渐变色实现流光按钮
     author: JSH
     avatar: /bingbing.jpg
-    img: ./Css/Component/images/streamButton.jpg
-    link: /Css/Component/streamButton/
+    img: ./Css/Component/images/streamerButton.jpg
+    link: /Css/Component/streamerButton/
     bgColor: '#43F7FF' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
 ```
