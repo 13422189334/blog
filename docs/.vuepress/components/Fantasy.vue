@@ -17,44 +17,44 @@
     },
     methods: {
       init() {
-        var cvs = document.getElementById("cvs");
+        let cvs = document.getElementById("cvs");
         if (!cvs) {
           return;
         }
-        var ctx = cvs.getContext("2d");
+        let ctx = cvs.getContext("2d");
 
-        var display = document.getElementById("display");
-        var displayCtx = display.getContext("2d");
+        let display = document.getElementById("display");
+        let displayCtx = display.getContext("2d");
 
-        var screenImage = document.getElementById("screenImage");
-        var screenImageCtx = screenImage.getContext("2d");
+        let screenImage = document.getElementById("screenImage");
+        let screenImageCtx = screenImage.getContext("2d");
 
-        var rili = document.getElementById("rili");
-        var riliCtx = rili.getContext("2d");
+        let rili = document.getElementById("rili");
+        let riliCtx = rili.getContext("2d");
 
-        var songInfo = {};
-        var AllTimeBak = 0;
-        var NowBak = 0;
-        var DrawWarning = false;
-        var EnMonth = false;
+        let songInfo = {};
+        let AllTimeBak = 0;
+        let NowBak = 0;
+        let DrawWarning = false;
+        let EnMonth = false;
 
         // 出处：https://blog.csdn.net/u012601195/article/details/47860617
         function drawRili() {
           riliCtx.clearRect(0, 0, 600, 600);
-          var date = new Date();
-          var year = date.getYear();
-          var mouth = date.getMonth();
-          var today = date.getDate();
-          var week = date.getDay();
+          let date = new Date();
+          let year = date.getYear();
+          let mouth = date.getMonth();
+          let today = date.getDate();
+          let week = date.getDay();
 
-          var cardSize = 40;
+          let cardSize = 40;
 
-          var array_three = [4, 6, 9, 11];
-          var array_threeone = [1, 3, 5, 7, 8, 10, 12];
-          var array_week = ["SUN", "MON", "TUES", "WED", "THUR", "FRI", "SAT"];
+          let array_three = [4, 6, 9, 11];
+          let array_threeone = [1, 3, 5, 7, 8, 10, 12];
+          let array_week = ["SUN", "MON", "TUES", "WED", "THUR", "FRI", "SAT"];
 
-          var firstDraw; //1号绘制位置
-          var wIdx = (today - 1) % 7;
+          let firstDraw; //1号绘制位置
+          let wIdx = (today - 1) % 7;
 
           if (week >= wIdx) {
             firstDraw = week - wIdx;
@@ -62,8 +62,8 @@
             firstDraw = week - wIdx + 7;
           }
 
-          var dayIndex = 1;
-          var countDay = 30;
+          let dayIndex = 1;
+          let countDay = 30;
 
           if (array_three.indexOf(mouth + 1) > -1) {
             countDay = 30;
@@ -75,7 +75,7 @@
             else countDay = 28;
           }
 
-          var row = 6;
+          let row = 6;
           // if (7 - firstDraw + 7 * 4 < countDay) { //确定表格行数，防止日期绘制不全
           //     row = 7;
           //}
@@ -142,13 +142,13 @@
             riliCtx.restore();
           }
 
-          var isNum = /^\d+(\d+)?$/;
+          let isNum = /^\d+(\d+)?$/;
 
           function drawDate(txt, i, j) {
             riliCtx.textAlign = "center";
             riliCtx.fillStyle = "rgb(69,68,84)";
             riliCtx.font = cardSize / 1.5 + "px Impact";
-            var yOffest = 3;
+            let yOffest = 3;
 
             if ((j == 0 || j == 6) && isNum.test(txt)) {
               riliCtx.fillStyle = "#900";
@@ -168,7 +168,7 @@
           riliCtx.fillStyle = "rgb(69,68,84)";
           riliCtx.font = "900 26pt SimHei";
           riliCtx.textAlign = "center";
-          var monthCN = [
+          let monthCN = [
             "一",
             "二",
             "三",
@@ -182,7 +182,7 @@
             "十一",
             "十二",
           ];
-          var monthEN = [
+          let monthEN = [
             " January",
             "February",
             "  March",
@@ -211,8 +211,8 @@
             riliCtx.fillText(today + "日", 520, 38);
           }
 
-          for (var i = 0; i < row; i++) {
-            for (var j = 0; j < 7; j++) {
+          for (let i = 0; i < row; i++) {
+            for (let j = 0; j < 7; j++) {
               riliCtx.strokeRect(
                 45 + j * cardSize * 1.7,
                 50 + i * cardSize,
@@ -224,9 +224,9 @@
 
           dayIndex = 1;
 
-          for (var i = 0; i < row; i++) {
+          for (let i = 0; i < row; i++) {
             //开始绘制日期数
-            for (var j = 0; j < 7; j++) {
+            for (let j = 0; j < 7; j++) {
               if (i == 0) {
                 //表格第一行绘制星期
                 drawDate(array_week[j], i, j);
@@ -248,17 +248,17 @@
           }
         }
 
-        var riliInterval = setInterval(drawRili, 3600000);
+        let riliInterval = setInterval(drawRili, 3600000);
         drawRili();
 
         // Canvas奇妙的剪切蒙版实现
-        var screenMask = new Image();
+        let screenMask = new Image();
         screenMask.src = "/fantasy/Screenmask.png";
 
-        var screen = new Image();
+        let screen = new Image();
         screen.src = "/fantasy/screen.png";
 
-        var iv = setInterval(() => {
+        let iv = setInterval(() => {
           if (screen.complete && screenMask.complete) {
             screenImageCtx.drawImage(screen, -300, -50, 1280, 720);
             screenImageCtx.globalCompositeOperation = "destination-atop";
@@ -282,50 +282,50 @@
         window.onresize();
 
         // 加载图片
-        var bg = new Image();
+        let bg = new Image();
         bg.src = "/fantasy/bg.png";
 
-        var mask = new Image();
+        let mask = new Image();
         mask.src = "/fantasy/mask.png";
 
-        var light = new Image();
+        let light = new Image();
         light.src = "/fantasy/light.png";
 
-        var caidai = new Image();
+        let caidai = new Image();
         caidai.src = "/fantasy/caidai.png";
 
-        var two = new Image();
+        let two = new Image();
         two.src = "/fantasy/22.png";
 
-        var screenLight = new Image();
+        let screenLight = new Image();
         screenLight.src = "/fantasy/screenLight.png";
 
-        var phoneLight = new Image();
+        let phoneLight = new Image();
         phoneLight.src = "/fantasy/phoneLight.png";
 
-        var phoneText = JSON.parse(
+        let phoneText = JSON.parse(
           '[{"time":0,"text":"凌晨啦!"},{"time":6,"text":"早上好!"},{"time":8,"text":"上午好!"},{"time":11,"text":"你吃了吗"},{"time":13,"text":"下午好鸭!"},{"time":16,"text":"傍晚咯!"},{"time":19,"text":"晚安!"}]'
         );
 
-        var noRili = false;
-        var updateSongInfoHandler = -1;
+        let noRili = false;
+        let updateSongInfoHandler = -1;
 
-        var data = new Array(128);
-        var animData = new Array(128);
-        var SoundPlaying = false;
+        let data = new Array(128);
+        let animData = new Array(128);
+        let SoundPlaying = false;
 
         // 奇妙的初始化
-        for (var i = 0; i < 128; i++) {
+        for (let i = 0; i < 128; i++) {
           data[i] = animData[i] = 0;
         }
 
         // 奇妙的Normalize
-        var peakValue = 1;
+        let peakValue = 1;
         if (window.wallpaperRegisterAudioListener) {
           window.wallpaperRegisterAudioListener(function (audioData) {
-            var max = 0;
+            let max = 0;
 
-            for (var i = 0; i < 128; i++) {
+            for (let i = 0; i < 128; i++) {
               if (audioData[i] > max) max = audioData[i];
             }
 
@@ -340,7 +340,7 @@
             }
           });
         } else {
-          var iva;
+          let iva;
           let audio = document.getElementsByClassName("aplayer-button")[0];
           if (audio) {
             audio.onclick = () => {
@@ -355,13 +355,13 @@
                   for (i = 0; i < 64; i++) {
                     data[127 - i] = Math.random() * 0.2 * Math.random();
                   }
-                  // for (var i = 0; i < 128; i++) {
+                  // for (let i = 0; i < 128; i++) {
                   //     data[i] = Math.random();
                   // }
                 }, 130);
               } else {
                 clearInterval(iva);
-                for (var i = 0; i < 128; i++) {
+                for (let i = 0; i < 128; i++) {
                   data[i] = animData[i] = 0;
                 }
               }
@@ -379,9 +379,9 @@
         }
 
         // 奇妙的颜色变化
-        var targetColor = { r: 80, g: 120, b: 169 };
-        var currentColor = { r: 80, g: 120, b: 169 };
-        var lightColor = { r: 0, g: 34, b: 77, a: 0 };
+        let targetColor = { r: 80, g: 120, b: 169 };
+        let currentColor = { r: 80, g: 120, b: 169 };
+        let lightColor = { r: 0, g: 34, b: 77, a: 0 };
 
         function colorToRgb(color) {
           return (
@@ -409,12 +409,12 @@
           );
         }
 
-        var night = false;
-        var debug = false;
+        let night = false;
+        let debug = false;
 
         // Canvas的奇妙冒险!
         function render() {
-          for (var i = 0; i < 128; i++) {
+          for (let i = 0; i < 128; i++) {
             animData[i] += (data[i] - animData[i]) * 0.3;
             animData[i] = min(animData[i], 1);
           }
@@ -440,7 +440,7 @@
 
           ctx.transform(1, 2.05 * (Math.PI / 180), 0, 1, 0, 0);
 
-          var time = new Date();
+          let time = new Date();
           ctx.fillText(
             (time.getHours() < 10 ? "0" : "") +
             time.getHours().toString() +
@@ -482,7 +482,7 @@
           ctx.fillStyle = colorToRgb(currentColor);
 
           if (!noRili) {
-            for (var i = 32; i < 95; i++)
+            for (let i = 32; i < 95; i++)
               ctx.fillRect(
                 10 * (i - 32),
                 20 + (300 - 300 * animData[i]),
@@ -490,7 +490,7 @@
                 300 * animData[i]
               );
           } else
-            for (var i = 32; i < 95; i++)
+            for (let i = 32; i < 95; i++)
               ctx.fillRect(
                 40 + 7.5 * (i - 32),
                 30 + (300 - 300 * animData[i]),
@@ -536,7 +536,7 @@
           }
 
           night = true;
-          var greeting = "凌晨啦!";
+          let greeting = "凌晨啦!";
 
           phoneText.forEach((v) => {
             if (time.getHours() >= v.time) {
@@ -576,7 +576,7 @@
         window.requestAnimationFrame(render);
       },
       mountedElement() {
-        var fantasy = document.getElementsByClassName("fantasy")[0];
+        let fantasy = document.getElementsByClassName("fantasy")[0];
         document.getElementsByClassName("banner")[0].appendChild(fantasy);
         // 下面是全局背景图，如果使用，则取 plugins 里以组件名来注册插件
         // let interval = setInterval(() => {
