@@ -1,15 +1,16 @@
 ---
 title: ES6
-sidebar: auto
 lang: zh-CN
-date: 2022-05-16 11:21:30
-permalink: /pages/bd8868/
+date: 2022-06-01 11:21:30
+permalink: /JavaScript/ES6/
+sidebar: true # 不显示侧边栏
+article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
+comment: true # 不显示评论栏
+editLink: true # 不显示编辑按钮
 categories: 
-  - standard
-  - ECMAScript
-  - ES6
+  - JavaScript
 tags: 
-  - 
+  - ECMAScript
 ---
 
 ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。
@@ -22,6 +23,8 @@ $ node --v8-options | grep harmony
 // Windows
 $ node --v8-options | findstr harmony
 ```
+
+<!-- more -->
 
 ## Babel 转码器
 

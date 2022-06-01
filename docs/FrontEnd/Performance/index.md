@@ -1,12 +1,10 @@
 ---
 title: 性能优化
 lang: zh-CN
-date: 2022-05-16 11:21:30
-permalink: /pages/adb66e/
+date: 2022-06-01 15:08:30
+permalink: /Performance/
 categories: 
-  - Question
-  - VUE
-  - FAQs
+  - 性能优化
 tags: 
   - 
 ---

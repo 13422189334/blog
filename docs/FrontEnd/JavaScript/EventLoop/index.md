@@ -1,7 +1,7 @@
 ---
 title: JavaScript 执行机制
 lang: zh-CN
-date: 2022-05-16 11:21:30
+date: 2022-06-01 16:15:33
 permalink: /JavaScript/EventLoop/
 sidebar: true # 不显示侧边栏
 article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
@@ -10,7 +10,7 @@ editLink: true # 不显示编辑按钮
 categories: 
   - JavaScript
 tags: 
-  - JS面试仔
+  -
 ---
 
 # 这一次，彻底弄懂 JavaScript 执行机制
@@ -30,7 +30,9 @@ let b = '2';
 console.log(b);
 ```
 
-<img src="./images/001.jpg" />
+![microInfo](/images/eventLoop.jpg)
+
+<!-- more -->
 
 然而实际上js是这样的：
 ```javascript

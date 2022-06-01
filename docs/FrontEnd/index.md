@@ -12,6 +12,7 @@ categories:
 tags: 
   - 
 ---
+
 ::: right
 来自 [JSH](https://gitee.com/jin-shaohui/vuepress)
 :::
@@ -91,7 +92,7 @@ data:
 
 ::: center
   ## JavaScript相关
-  包括JavaScript知识点、面试题等
+  包括JavaScript知识点
 :::
 
 ::: cardList 4
@@ -103,49 +104,24 @@ config:
     lineClamp: 1
 
 data:
-  - name: 回调地狱
-    desc: Promise解决回调地狱
-    link: /JavaScript/AsyncHell/
+  - name: ES6
+    desc: ECMAScript 2015 新特性
+    link: /JavaScript/ES6/
     bgColor: '#F0DFB1'
     textColor: '#242A38'
-  - name: 闭包
-    desc: 闭包
-    link: /JavaScript/Closure/
+  - name: RESTful
+    desc: RESTful Api
+    link: /JavaScript/RESTful/
     bgColor: '#DFEEE7'
     textColor: '#2A3344'
-  - name: 封装绑定事件处理函数
-    desc: 封装绑定事件处理函数
-    link: /JavaScript/Event/
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
   - name: EventLoop
     desc: JavaScript 执行机制
     link: /JavaScript/EventLoop/
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-  - name: 文档碎片
-    desc: Fragment减少dom操作
-    link: /JavaScript/Fragment/
     bgColor: '#F0DFB1'
     textColor: '#242A38'
-  - name: 封装接口请求
-    desc: Promise 和 XHR 封装请求
-    link: /JavaScript/PromiseXHR/
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-  - name: 异步加载图片
-    desc: img元素onload加载图片
-    link: /JavaScript/PromiseImage/
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: Jsonp
-    desc: 跨域解决方式
-    link: /JavaScript/Jsonp/
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-  - name: 代完成...
+  - name: 问答
     desc: 待整理问题
-    link: /JavaScript/await/
+    link: /JavaScript/Question/
     bgColor: '#FF5599'
     textColor: '#FFFFFF'
 ```
@@ -224,6 +200,38 @@ data:
   - name: 问答
     desc: 待整理问题
     link: /Vue/Question/
+    bgColor: '#FF5599'
+    textColor: '#FFFFFF'
+```
+:::
+
+::: center
+  ## 服务方面
+  包括浏览器问题、跨域问题、服务器问题等内容
+:::
+
+::: cardList 4
+```yaml
+config:
+    target: _self
+    imgHeight: auto
+    objectFit: cover
+    lineClamp: 1
+
+data:
+  - name: 浏览器缓存
+    desc: 浏览器缓存
+    link: /Network/BrowserCache/
+    bgColor: '#F0DFB1'
+    textColor: '#242A38'
+  - name: 跨域
+    desc: 跨域
+    link: /Network/CrossDomain/
+    bgColor: '#DFEEE7'
+    textColor: '#2A3344'
+  - name: 问答
+    desc: 待整理问题
+    link: /Network/Question/
     bgColor: '#FF5599'
     textColor: '#FFFFFF'
 ```

@@ -1,14 +1,16 @@
 ---
 title: RESTful API
-sidebar: auto
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /pages/49e205/
+permalink: /JavaScript/RESTful/
+sidebar: true # 不显示侧边栏
+article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
+comment: true # 不显示评论栏
+editLink: true # 不显示编辑按钮
 categories: 
-  - standard
-  - RESTful
+  - JavaScript
 tags: 
-  - 
+  - API
 ---
 
 ## 如何解释什么是RESTful

@@ -1,14 +1,16 @@
 ---
 title: 浏览器缓存
-sidebar: auto
 lang: zh-CN
-date: 2022-05-16 11:21:30
-permalink: /pages/80b956/
+date: 2022-06-01 15:27:04
+permalink: /Network/BrowserCache/
+sidebar: true # 不显示侧边栏
+article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
+comment: true # 不显示评论栏
+editLink: true # 不显示编辑按钮
 categories: 
   - Network
-  - BrowserCache
 tags: 
-  - 
+  - 缓存
 ---
 
 # 浏览器缓存
@@ -18,6 +20,8 @@ tags:
 - 缓存位置 (Service Worker、Memory Cache...)
 - 缓存过程分析
 - 缓存策略的实际场景应用
+
+<!-- more -->
 
 ## 缓存的类型
 

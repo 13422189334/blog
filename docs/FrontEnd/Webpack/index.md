@@ -22,6 +22,8 @@ tags:
 
 > 可以根据 [代码](https://gitee.com/jin-shaohui/webpack-demo) 一边看一边尝试
 
+<!-- more -->
+
 ## 前置知识
 
 - **Tapable**
