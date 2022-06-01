@@ -58,7 +58,7 @@ tags:
     z-index: 1;
   }
 
-  .button::before {
+  .streamer-button::before {
     content: "1";
     position: absolute;
     top: -5px;
@@ -76,12 +76,12 @@ tags:
     filter: blur(10px);
   }
 
-  .button:hover {
+  .streamer-button:hover {
     /*动画 名称 时间  无线次播放*/
     animation: sun 3s infinite;
   }
 
-  .button:hover::before {
+  .streamer-button:hover::before {
     animation: sun 3s infinite;
   }
 
