@@ -236,3 +236,5 @@ data:
     textColor: '#FFFFFF'
 ```
 :::
+
+<Vssue :title="$title" />

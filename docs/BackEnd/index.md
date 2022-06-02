@@ -240,3 +240,5 @@ data:
     textColor: '#242A38'
 ```
 :::
+
+<Vssue :title="$title" />

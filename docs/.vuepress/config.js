@@ -8,7 +8,7 @@ module.exports = (options, context) => ({
   base: '/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
   // host: '10.0.3.148', // 用于 dev server 的主机名
   // host: '192.168.31.160', // 用于 dev server 的主机名
-  host: '127.0.0.1', // 用于 dev server 的主机名
+  host: 'localhost', // 用于 dev server 的主机名
   port: 1111, // dev server 的端口
   // temp: '/path/to/@vuepress/core/.temp', // 客户端文件的临时目录
   dest: 'public', // vuepress build 的输出目录
@@ -151,6 +151,7 @@ module.exports = (options, context) => ({
   /** 插件配置 **/
   plugins: [
     ['@vuepress/pwa'],
+    ['vuepress-plugin-export'],
     ['demo-container'],
     ['vuepress-plugin-reading-progress'], //顶部进度条
     ['vuepress-plugin-mermaidjs'], // 支持 mermaid 绘图的插件
@@ -178,6 +179,17 @@ module.exports = (options, context) => ({
     //     }
     //   }
     // ],
+    [
+      '@vssue/vuepress-plugin-vssue',
+      {
+        platform: 'gitee', // 设置 `platform` 而不是 `api`
+        // 其他的 Vssue 配置
+        owner: 'jin-shaohui',
+        repo: 'jin-shaohui',
+        clientId: '415409b47bec6153d2d79884c575e176be00b2d35aa5d0793ee50c3b02094d76',
+        clientSecret: '7c24cbcc03e81e737dfd5fc4deaac464739b26d6fa16771f9e4f79920a4e4506'
+      },
+    ]
   ],
   configureWebpack: {
     resolve: {
