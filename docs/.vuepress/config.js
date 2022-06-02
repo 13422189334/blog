@@ -179,17 +179,18 @@ module.exports = (options, context) => ({
     //     }
     //   }
     // ],
-    [
-      '@vssue/vuepress-plugin-vssue',
-      {
-        platform: 'gitee', // 设置 `platform` 而不是 `api`
-        // 其他的 Vssue 配置
-        owner: 'jin-shaohui',
-        repo: 'jin-shaohui',
-        clientId: '415409b47bec6153d2d79884c575e176be00b2d35aa5d0793ee50c3b02094d76',
-        clientSecret: '7c24cbcc03e81e737dfd5fc4deaac464739b26d6fa16771f9e4f79920a4e4506'
-      },
-    ]
+    // [
+    //   '@vssue/vuepress-plugin-vssue',
+    //   {
+    //     platform: 'gitee', // 设置 `platform` 而不是 `api`
+    //     // 其他的 Vssue 配置
+    //     owner: 'jin-shaohui',
+    //     repo: 'jin-shaohui',
+    //     clientId: '415409b47bec6153d2d79884c575e176be00b2d35aa5d0793ee50c3b02094d76',
+    //     clientSecret: '7c24cbcc03e81e737dfd5fc4deaac464739b26d6fa16771f9e4f79920a4e4506',
+    //     proxy: url => `${url}`
+    //   },
+    // ]
   ],
   configureWebpack: {
     resolve: {
