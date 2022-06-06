@@ -2,14 +2,13 @@
   "scripts": {
     "intall": "yarn install",
     "docs:dev": "vuepress dev docs --temp .temp  --no-cache",
-    "docs:build": "vuepress build docs",
-    "docs:export": "vuepress export ./export"
+    "docs:build": "vuepress build docs"
   },
   "name": "front-end-knowledge",
   "description": "记录面试题、遇到的前端知识点等等",
   "version": "1.0.0",
   "devDependencies": {
-    "@vuepress/plugin-pwa": "^1.9.7",
+    "@mr-hope/vuepress-plugin-pwa": "^1.30.0",
     "vuepress": "^1.8.2",
     "vuepress-plugin-demo-container": "^0.2.0",
     "vuepress-plugin-mermaidjs": "^1.9.1",
@@ -26,7 +25,6 @@
     "@vssue/api-gitee-v5": "^1.4.7",
     "vssue": "^1.4.8",
     "vuepress-plugin-comment": "^0.7.3",
-    "vuepress-plugin-export": "^0.2.0",
     "vuepress-plugin-one-click-copy": "^1.0.6"
   }
 }

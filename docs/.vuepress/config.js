@@ -150,8 +150,10 @@ module.exports = (options, context) => ({
   },
   /** 插件配置 **/
   plugins: [
-    ['@vuepress/pwa'],
-    ['vuepress-plugin-export'],
+    // ['@vuepress/pwa'],
+    ['@mr-hope/pwa'],
+    // ['vuepress-plugin-export'],
+
     ['demo-container'],
     ['vuepress-plugin-reading-progress'], //顶部进度条
     ['vuepress-plugin-mermaidjs'], // 支持 mermaid 绘图的插件
