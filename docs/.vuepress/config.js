@@ -88,7 +88,7 @@ module.exports = (options, context) => ({
     /** 文章内容块的背景底纹 1 => 方格 | 2 => 横线 | 3 => 竖线 | 4 => 左斜线 | 5 => 右斜线 | 6 => 点状 */
     contentBgStyle: 6,
     /** 初始状态下是否打开侧边栏 */
-    sidebarOpen: false,
+    sidebarOpen: true,
     /**
      * 最近更新栏，显示于文章页底部和简约版首页文章列表
      * showToArticle 显示到文章页底部，默认true
