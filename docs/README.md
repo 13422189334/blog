@@ -9,4 +9,5 @@ bannerBg: 'background: url("./background/black-001.jpg") center / cover no-repea
 <ClientOnly>
   <IndexBigImg />
   <Fantasy />
+  <WebInfo/>
 </ClientOnly>
