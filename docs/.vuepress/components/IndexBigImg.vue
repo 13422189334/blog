@@ -193,15 +193,15 @@
         navbar.className = "navbar navbar1 blur";
       },
       // 导航栏的字体颜色
-      blurText() {
+      blurText(navColor = this.navColor) {
         let title = document.getElementsByClassName("site-name")[0];
         let search = document.getElementsByClassName("search-box")[0];
         let nav = document.getElementsByClassName("nav-links")[0];
-        if (this.navColor == 1) {
+        if (navColor == 1) {
           title.className = "site-name can-hide";
           nav.className = "nav-links can-hide";
           search.className = "search-box";
-        } else if (this.navColor == 2) {
+        } else if (navColor == 2) {
           title.className = "site-name site-name1 can-hide";
           nav.className = "nav-links nav-links1 can-hide";
           search.className = "search-box search-box1";
