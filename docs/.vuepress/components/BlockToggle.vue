@@ -4,7 +4,7 @@
   export default {
     mounted() {
       setTimeout(() => {
-        this.addExpand(0);
+        this.addExpand();
       }, 1000);
     },
     watch: {
@@ -17,65 +17,67 @@
       },
     },
     methods: {
-      // 隐藏代码块后，保留 40 的代码块高度
-      addExpand(hiddenHeight = 40) {
-        // let modes = document.getElementsByClassName("line-numbers-mode");
-        let modes = document.getElementsByTagName('code');
-        // 遍历出每一个代码块
-        Array.from(modes).forEach((i) => {
-          const item = i.parentNode
+      // 隐藏代码块后，保留 35 的代码块高度
+      addExpand(hiddenHeight = 35) {
+        // code 是代码块 显示 隐藏
+        // pre 是存放代码块的面板
+        // div 是整体容器 offsetHeight  缩小后高度为 hiddenHeight
+        let codes = document.getElementsByTagName('code');
+        Array.from(codes).forEach((code) => {
+          const pre = code.parentNode
+          const div = pre.parentNode
           // 首先获取 expand 元素
-          let expand = item.getElementsByClassName("expand")[0];
+          let expand = pre.getElementsByClassName("expand")[0];
           // expand 元素不存在，则进入 if 创建
           if (!expand) {
-            // 获取代码块原来的高度，进行备份
-            console.log(i)
-            let modeHeight = i.offsetHeight;
+            // 获取代码块的各个元素的高度，进行备份
+            let codeHeight = code.offsetHeight - 12;
+            let preHeight = pre.offsetHeight - 12;
+            let divHeight = div.offsetHeight - 12;
             // display:none 的代码块需要额外处理，图文卡片列表本质是代码块，所以排除掉
-            // if (modeHeight == 0 && item.parentNode.className != "cardImgListContainer") {
-            //   modeHeight = this.getHiddenElementHeight(item);
+            // if (codeHeight == 0 && item.parentNode.className != "cardImgListContainer") {
+            //   codeHeight = this.getHiddenElementHeight(item);
             // }
-            // modeHeight 比主题多 12，所以减掉，并显示赋值，触发动画过渡效果
-            modeHeight -= 24;
-            // item.style.height = modeHeight + "px";
-            // 获取代码块的各个元素
-            // let pre = item.getElementsByTagName("pre")[0];
-            // let pre = item.getElementsByTagName("pre")[0];
-            // let wrapper = item.getElementsByClassName("line-numbers-wrapper")[0];
+            // codeHeight 比主题多 12，所以减掉，并显示赋值，触发动画过渡效果
+            // codeHeight -= 24;
+            code.style.height = codeHeight + "px";
+            pre.style.height = preHeight + "px";
+            div.style.height = divHeight + "px";
             // 创建箭头元素
-            const div = document.createElement("div");
-            div.className = "expand icon-xiangxiajiantou iconfont";
+            const element = document.createElement("div");
+            element.className = "expand icon-xiangxiajiantou iconfont";
             // 箭头点击事件
-            div.onclick = () => {
+            element.onclick = () => {
               // 代码块已经被隐藏，则进入 if 循环，如果没有被隐藏，则进入 else 循环
-              console.log(parseInt(item.style.height) == hiddenHeight, parseInt(item.style.height), hiddenHeight)
-              if (parseInt(item.style.height) == hiddenHeight) {
-                div.className = "expand icon-xiangxiajiantou iconfont";
-                i.style.height = modeHeight + "px";
+              if (parseInt(div.style.height) == hiddenHeight) {
+                element.className = "expand icon-xiangxiajiantou iconfont";
+                code.style.height = codeHeight + "px";
+                pre.style.height = preHeight + "px";
+                div.style.height = divHeight + "px";
                 setTimeout(() => {
+
                   // pre.style.display = "block";
-                  i.style.display = "block";
-                  // wrapper.style.display = "block";
-                }, 80);
+                  code.style.display = "";
+                }, 100);
               } else {
-                div.className = "expand icon-xiangxiajiantou iconfont closed";
-                i.style.height = hiddenHeight + "px";
+                element.className = "expand icon-xiangxiajiantou iconfont closed";
                 setTimeout(() => {
+                  div.style.height = hiddenHeight + "px";
                   // pre.style.display = "none";
-                  i.style.display = "none";
+                  code.style.display = "none";
                   // wrapper.style.display = "none";
-                }, 300);
+                }, 90);
               }
             };
-            item.append(div);
-            item.append(this.addCircle());
+            pre.append(element);
+            pre.append(this.addCircle());
           }
           // 解决某些代码块的语言不显示在页面上
-          this.getLanguage(item);
+          this.getLanguage(pre);
           // 移动一键复制图标到正确的位置
           let flag = false;
           let interval = setInterval(() => {
-            flag = this.moveCopyBlock(item);
+            flag = this.moveCopyBlock(pre);
             if (flag) {
               clearInterval(interval);
             }
@@ -150,10 +152,11 @@
     cursor: pointer;
     position: absolute;
     z-index: 3;
-    top: 0.8em;
-    right: 0.5em;
+    top: 9px;
+    right: 11px;
     color: rgba(238, 255, 255, 0.8);
-    font-weight: 900;
+    font-size: 14px;
+    font-weight: 600;
     transition: transform 0.3s;
     margin: 0;
   }
@@ -172,20 +175,25 @@
     transform: rotate(90deg) translateY(-3px);
     transition: all 0.3s;
   }
-  span .closed {
-    transform: rotate(90deg) translate(5px, -8px);
-  }
+
+  /*span .closed {*/
+  /*  transform: rotate(90deg) translate(5px, -8px);*/
+  /*}*/
   /* 代码块的语言 */
   div[class*="language-"]::before {
     position: absolute;
     z-index: 3;
-    top: 0.3em;
-    left: 4.7rem;
+    top: 3px;
+    left: 76px;
     font-size: 1.15em;
     color: rgba(238, 255, 255, 0.8);
     text-transform: uppercase;
     font-weight: bold;
     width: fit-content;
+  }
+
+  div[class*="language-"] {
+    transition: all 0.3s;
   }
 
   div[class*="language-"] pre {
@@ -204,8 +212,8 @@
   /* 代码块的三个圆圈颜色 */
   .circle {
     position: absolute;
-    top: 0.8em;
-    left: 0.9rem;
+    top: 10px;
+    left: 10px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -213,6 +221,7 @@
     -webkit-box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
     box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
   }
+
   /* 代码块一键复制图标 */
   .code-copy {
     position: absolute;
@@ -221,6 +230,7 @@
     fill: rgba(238, 255, 255, 0.8);
     opacity: 1;
   }
+
   .code-copy svg {
     margin: 0;
   }
