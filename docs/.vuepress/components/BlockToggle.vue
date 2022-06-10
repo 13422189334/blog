@@ -17,8 +17,8 @@
       },
     },
     methods: {
-      // 隐藏代码块后，保留 35 的代码块高度
-      addExpand(hiddenHeight = 35) {
+      // 隐藏代码块后，保留 40 的代码块高度
+      addExpand(hiddenHeight = 40) {
         // code 是代码块 显示 隐藏
         // pre 是存放代码块的面板
         // div 是整体容器 offsetHeight  缩小后高度为 hiddenHeight
@@ -31,9 +31,10 @@
           // expand 元素不存在，则进入 if 创建
           if (!expand) {
             // 获取代码块的各个元素的高度，进行备份
-            let codeHeight = code.offsetHeight - 12;
-            let preHeight = pre.offsetHeight - 12;
-            let divHeight = div.offsetHeight - 12;
+            console.log()
+            let codeHeight = code.offsetHeight;
+            let preHeight = pre.offsetHeight;
+            let divHeight = div.offsetHeight;
             // display:none 的代码块需要额外处理，图文卡片列表本质是代码块，所以排除掉
             // if (codeHeight == 0 && item.parentNode.className != "cardImgListContainer") {
             //   codeHeight = this.getHiddenElementHeight(item);
@@ -193,6 +194,7 @@
   }
 
   div[class*="language-"] {
+    margin: 1.3rem 0;
     transition: all 0.3s;
   }
 
