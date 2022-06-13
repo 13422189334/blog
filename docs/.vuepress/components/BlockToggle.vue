@@ -33,8 +33,9 @@
             // 获取代码块的各个元素的高度，进行备份
             console.log()
             let codeHeight = code.offsetHeight;
-            let preHeight = pre.offsetHeight;
             let divHeight = div.offsetHeight;
+            // 这一步是为了解决首页的时候展开代码遮挡住了 阅读全文
+            let preHeight = `calc(${divHeight}px - 4rem)`;
             // display:none 的代码块需要额外处理，图文卡片列表本质是代码块，所以排除掉
             // if (codeHeight == 0 && item.parentNode.className != "cardImgListContainer") {
             //   codeHeight = this.getHiddenElementHeight(item);
@@ -42,8 +43,9 @@
             // codeHeight 比主题多 12，所以减掉，并显示赋值，触发动画过渡效果
             // codeHeight -= 24;
             code.style.height = codeHeight + "px";
-            pre.style.height = preHeight + "px";
+            pre.style.height = preHeight;
             div.style.height = divHeight + "px";
+            console.log(codeHeight, preHeight, divHeight)
             // 创建箭头元素
             const element = document.createElement("div");
             element.className = "expand icon-xiangxiajiantou iconfont";
@@ -53,10 +55,9 @@
               if (parseInt(div.style.height) == hiddenHeight) {
                 element.className = "expand icon-xiangxiajiantou iconfont";
                 code.style.height = codeHeight + "px";
-                pre.style.height = preHeight + "px";
+                pre.style.height =  preHeight;
                 div.style.height = divHeight + "px";
                 setTimeout(() => {
-
                   // pre.style.display = "block";
                   code.style.display = "";
                 }, 100);
@@ -64,7 +65,10 @@
                 element.className = "expand icon-xiangxiajiantou iconfont closed";
                 setTimeout(() => {
                   div.style.height = hiddenHeight + "px";
-                  // pre.style.display = "none";
+                  // 这一步是为了解决首页的时候收缩代码遮挡住了 阅读全文
+                  // pre.style.height = hiddenHeight + "px";
+                  // pre.style.padding = "0 !important";
+                  // pre.style.backgroundColor = "red";
                   code.style.display = "none";
                   // wrapper.style.display = "none";
                 }, 90);
@@ -184,7 +188,7 @@
   div[class*="language-"]::before {
     position: absolute;
     z-index: 3;
-    top: 3px;
+    top: .3rem;
     left: 76px;
     font-size: 1.15em;
     color: rgba(238, 255, 255, 0.8);
