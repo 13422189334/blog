@@ -22,16 +22,15 @@
         // code 是代码块 显示 隐藏
         // pre 是存放代码块的面板
         // div 是整体容器 offsetHeight  缩小后高度为 hiddenHeight
-        let codes = document.getElementsByTagName('code');
-        Array.from(codes).forEach((code) => {
-          const pre = code.parentNode
+        let pres = document.getElementsByTagName('pre');
+        Array.from(pres).forEach((pre) => {
+          const code = pre.childNodes[0]
           const div = pre.parentNode
           // 首先获取 expand 元素
           let expand = pre.getElementsByClassName("expand")[0];
           // expand 元素不存在，则进入 if 创建
           if (!expand) {
             // 获取代码块的各个元素的高度，进行备份
-            console.log()
             let codeHeight = code.offsetHeight;
             let divHeight = div.offsetHeight;
             // 这一步是为了解决首页的时候展开代码遮挡住了 阅读全文
@@ -45,7 +44,6 @@
             code.style.height = codeHeight + "px";
             pre.style.height = preHeight;
             div.style.height = divHeight + "px";
-            console.log(codeHeight, preHeight, divHeight)
             // 创建箭头元素
             const element = document.createElement("div");
             element.className = "expand icon-xiangxiajiantou iconfont";
