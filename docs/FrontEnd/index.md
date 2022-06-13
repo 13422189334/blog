@@ -237,4 +237,27 @@ data:
 ```
 :::
 
+::: center
+  ## 封装方面
+  包括Axios、Storage、utils等内容
+:::
+
+
+::: cardList 4
+```yaml
+config:
+    target: _self
+    imgHeight: auto
+    objectFit: cover
+    lineClamp: 1
+
+data:
+  - name: Storage
+    desc: Storage
+    link: /Package/Storage/
+    bgColor: '#F0DFB1'
+    textColor: '#242A38'
+```
+:::
+
 <Vssue :title="$title" />
