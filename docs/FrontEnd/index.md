@@ -260,4 +260,42 @@ data:
 ```
 :::
 
+::: center
+  ## 实用技术文档
+  包括 等内容
+:::
+
+
+::: cardList 4
+```yaml
+config:
+    target: _self
+    imgHeight: auto
+    objectFit: cover
+    lineClamp: 1
+
+data:
+  - name: LazyRouter
+    desc: 路由懒加载
+    link: /SkillPoint/LazyRouter/
+    bgColor: '#F0DFB1'
+    textColor: '#242A38'
+  - name: LazyComponent
+    desc: 组件懒加载
+    link: /SkillPoint/LazyComponent/
+    bgColor: '#DFEEE7'
+    textColor: '#2A3344'
+  - name: Context
+    desc: 上下文批量引入
+    link: /SkillPoint/Context/
+    bgColor: '#F0DFB1'
+    textColor: '#242A38'
+  - name: Hook
+    desc: hook监听生命周期
+    link: /SkillPoint/@Hook/
+    bgColor: '#DFEEE7'
+    textColor: '#2A3344'
+```
+:::
+
 <Vssue :title="$title" />
