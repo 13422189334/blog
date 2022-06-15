@@ -295,6 +295,21 @@ data:
     link: /SkillPoint/@Hook/
     bgColor: '#DFEEE7'
     textColor: '#2A3344'
+  - name: Computed
+    desc: Computed中使用this
+    link: /SkillPoint/Computed/
+    bgColor: '#F0DFB1'
+    textColor: '#242A38'
+  - name: Freeze
+    desc: 数据冻结
+    link: /SkillPoint/Freeze/
+    bgColor: '#DFEEE7'
+    textColor: '#2A3344'
+  - name: Sync
+    desc: 父组件通信
+    link: /SkillPoint/Sync/
+    bgColor: '#F0DFB1'
+    textColor: '#242A38'
 ```
 :::
 
