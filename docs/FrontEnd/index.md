@@ -310,6 +310,11 @@ data:
     link: /SkillPoint/Sync/
     bgColor: '#F0DFB1'
     textColor: '#242A38'
+  - name: Slot
+    desc: 插槽
+    link: /SkillPoint/Slot/
+    bgColor: '#DFEEE7'
+    textColor: '#2A3344'
 ```
 :::
 
