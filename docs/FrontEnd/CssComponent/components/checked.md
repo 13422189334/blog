@@ -2,9 +2,8 @@
 title: 打钩动画
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /Css/Component/Checked/
+permalink: /CssComponent/Checked/
 categories: 
-  - Css
   - CssComponent
 tags: 
   - 菜鸡仔的CSS

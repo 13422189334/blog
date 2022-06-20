@@ -2,9 +2,8 @@
 title: 流光按钮
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /Css/Component/streamerButton/
+permalink: /CssComponent/streamerButton/
 categories: 
-  - Css
   - CssComponent
 tags: 
   - 菜鸡仔的CSS
