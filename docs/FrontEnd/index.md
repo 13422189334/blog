@@ -18,6 +18,26 @@ tags:
 :::
 
 
+## 前端规范
+
+::: cardList 4
+```yaml
+config:
+    target: _self
+    imgHeight: auto
+    objectFit: cover
+    lineClamp: 1
+
+data:
+  - name: 前端规范
+    desc: HTML规范指南
+    link: /Standard/FrontEnd/
+    bgColor: '#FCDBA0'
+    textColor: '#A05F2C'
+```
+:::
+
+
 ## CSS样式组件库
 适用Vue、React、Html等不同类型框架的CSS样式组件
 
