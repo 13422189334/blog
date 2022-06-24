@@ -13,10 +13,10 @@ const nav  = [
 const sidebar = {
   '/Algorithm/': [
     'Dichotomy/', // 二分查找理论
-    'DynamicProgram/' // 动态规划算法
+    'DynamicProgram/', // 动态规划算法
+    'PriorityTraversal/', // 优先遍历算法
   ]
 }
-
 
 module.exports = {
   nav, sidebar
