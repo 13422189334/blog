@@ -10,7 +10,7 @@ editLink: true # 不显示编辑按钮
 categories: 
   - VUE
 tags: 
-  - 
+  - Vue
 ---
 
 # Vue中的8种组件通信方式

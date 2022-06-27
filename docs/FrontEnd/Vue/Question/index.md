@@ -8,6 +8,7 @@ categories:
   - Question
 tags: 
   - 前端面试仔
+  - Vue
 ---
 
 ## 常问问题

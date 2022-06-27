@@ -4,10 +4,10 @@ lang: zh-CN
 date: 2022-05-16 11:21:30
 permalink: /DesignPattern/Observer/
 categories: 
-  - DesignPattern
+  - 设计模式
   - 
 tags: 
-  - 
+  - 很菜的设计模式
 ---
 
 # 观察者模式
