@@ -131,7 +131,8 @@
             "language".length + 1,
             element.className.indexOf(" ")
           );
-          element.setAttribute("data-language", language);
+          // 从pre获取代码类型  赋值给父节点div上的 data-language， 由css伪元素before绑定 content: attr(data-language)
+          element.parentNode.setAttribute("data-language", language);
         }
       },
     },
@@ -183,7 +184,9 @@
   /*  transform: rotate(90deg) translate(5px, -8px);*/
   /*}*/
   /* 代码块的语言 */
+
   div[class*="language-"]::before {
+    content: attr(data-language);
     position: absolute;
     z-index: 3;
     top: .3rem;
