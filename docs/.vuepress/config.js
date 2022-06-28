@@ -227,5 +227,8 @@ module.exports = (options, context) => ({
         '@assets': path.resolve(__dirname, './public/images/')
       }
     }
+  },
+  chainWebpack (config) {
+    config.resolve.alias.set('core-js/library/fn', 'core-js/features');
   }
 })

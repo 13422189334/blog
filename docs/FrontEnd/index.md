@@ -1,4 +1,10 @@
 ---
+pageComponent:
+  name: Catalogue
+  data:
+    path: Recommend
+    imgUrl: /404.jpg
+    description: 前端知识库
 title: 前端知识库
 lang: zh-CN
 date: 2022-05-17 14:46:27
@@ -13,34 +19,12 @@ tags:
   - 
 ---
 
-::: right
-来自 [JSH](https://gitee.com/jin-shaohui/vuepress)
-:::
-
-
-## 前端规范
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: 前端规范
-    desc: HTML规范指南
-    link: /Standard/FrontEnd/
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-```
-:::
-
-
-## CSS样式组件库
-适用Vue、React、Html等不同类型框架的CSS样式组件
-
+<el-collapse>
+<el-collapse-item title="前端规范" name="1">
+  <div><a target="_blank" href="/Standard/FrontEnd/">HTML规范指南</a></div>
+</el-collapse-item>
+<el-collapse-item title="CSS样式组件库 - 适用Vue、React、Html等不同类型框架的CSS样式组件" name="2">
+  
 ::: cardImgList  4
 ```yaml
 config:
@@ -84,254 +68,52 @@ data:
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
 ```
 :::
+  
+</el-collapse-item>
+<el-collapse-item title="JavaScript相关" name="3">
+  <div><a target="_blank" href="/JavaScript/ES6/">ES6 / ECMAScript 2015</a></div>
+  <div><a target="_blank" href="/JavaScript/RESTful/">RESTful Api</a></div>
+  <div><a target="_blank" href="/JavaScript/EventLoop/">JavaScript 执行机制</a></div>
+  <div><a target="_blank" href="/JavaScript/Question/">待整理问题</a></div>
+</el-collapse-item>
+<el-collapse-item title="打包相关 - 包括Webpack、Vite等打包工具原理介绍" name="4">
+  <div><a target="_blank" href="/Webpack/">实现webpack打包流程</a></div>
+</el-collapse-item>
+<el-collapse-item title="微前端相关 - 包括微前端技术、single-spa、iframe等前端微服务话解决方案" name="5">
+  <div><a target="_blank" href="/Micro/QianKun/">乾坤 - 阿里微前端解决方案</a></div>
+</el-collapse-item>
+<el-collapse-item title="VUE相关 - 包括Vue、Vuex、VueRouter等Vue全家桶相关知识点" name="6">
+  <div><a target="_blank" href="/Vue/LifeCycle/">Vue生命周期函数</a></div>
+  <div><a target="_blank" href="/Vue/Communicate/">Vue组件通讯方式</a></div>
+  <div><a target="_blank" href="/Vue/Question/">待整理问题</a></div>
+</el-collapse-item>
+<el-collapse-item title="React相关 - 包括React hooks等React相关知识点" name="7">
+  <div><a target="_blank" href="/React/Hooks/">浅谈12个Hooks</a></div>
+</el-collapse-item>
+<el-collapse-item title="服务方面 - 包括浏览器问题、跨域问题、服务器问题等内容" name="8">
+  <div><a target="_blank" href="/Network/BrowserCache/">浏览器缓存</a></div>
+  <div><a target="_blank" href="/Network/CrossDomain/">跨域</a></div>
+  <div><a target="_blank" href="/Network/Question/">待整理问题</a></div>
+</el-collapse-item>
+<el-collapse-item title="封装方面 - 包括Axios、Storage、utils等内容" name="9">
+  <div><a target="_blank" href="/Package/Storage/">Storage</a></div>
+</el-collapse-item>
+<el-collapse-item title="实用技术文档" name="10">
+  <div><a target="_blank" href="/SkillPoint/LazyRouter/">路由懒加载</a></div>
+  <div><a target="_blank" href="/SkillPoint/LazyComponent/">组件懒加载</a></div>
+  <div><a target="_blank" href="/SkillPoint/Context/">上下文批量引入</a></div>
+  <div><a target="_blank" href="/SkillPoint/@Hook/">hook监听生命周期</a></div>
+  <div><a target="_blank" href="/SkillPoint/Computed/">Computed中使用this</a></div>
+  <div><a target="_blank" href="/SkillPoint/Freeze/">数据冻结</a></div>
+  <div><a target="_blank" href="/SkillPoint/Sync/">父组件通信</a></div>
+  <div><a target="_blank" href="/SkillPoint/Slot/">插槽</a></div>
+</el-collapse-item>
+</el-collapse>
 
 
-
-## JavaScript相关
-包括JavaScript知识点
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: ES6
-    desc: ECMAScript 2015
-    link: /JavaScript/ES6/
-    avatar: ./images/es6.jpg
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-  - name: RESTful
-    desc: RESTful Api
-    link: /JavaScript/RESTful/
-    avatar: ./images/restful.jpg
-    bgColor: '#CBEAFA' # 可选，默认var(--bodyBg)。颜色值有#号时请添加单引号
-    textColor: '#6854A1' # 可选，默认var(--textColor)
-  - name: EventLoop
-    desc: JavaScript 执行机制
-    link: /JavaScript/EventLoop/
-    avatar: ./images/eventLoop.jpg
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-  - name: 问答
-    desc: 待整理问题
-    link: /JavaScript/Question/
-    avatar: ./images/question.jpg
-    bgColor: '#718971'
-    textColor: '#ffffff'
-```
+::: right
+来自 [JSH](https://gitee.com/jin-shaohui/vuepress)
 :::
 
-
-## 打包相关
-包括Webpack、Vite等打包工具原理介绍
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: 手写webpack
-    desc: 实现webpack打包流程
-    link: /Webpack/
-    avatar: ./images/webpack.jpg
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-```
-:::
-
-
-
-## 微前端相关
-包括微前端技术、single-spa、iframe等前端微服务话解决方案
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: 乾坤
-    desc: 阿里微前端解决方案
-    link: /Micro/QianKun/
-    avatar: ./images/qiankun.jpg
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-```
-:::
-
-
-## VUE相关
-包括Vue、Vuex、VueRouter等Vue全家桶相关知识点
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: 生命周期
-    desc: Vue生命周期函数
-    link: /Vue/LifeCycle/
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-  - name: 组建通信
-    desc: Vue组件通讯方式
-    link: /Vue/Communicate/
-    bgColor: '#CBEAFA' # 可选，默认var(--bodyBg)。颜色值有#号时请添加单引号
-    textColor: '#6854A1' # 可选，默认var(--textColor)
-  - name: 问答
-    desc: 待整理问题
-    link: /Vue/Question/
-    avatar: ./images/question.jpg
-    bgColor: '#718971'
-    textColor: '#ffffff'
-```
-:::
-
-## React相关
-包括React hooks等React相关知识点
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: React hooks
-    desc: 浅谈12个Hooks
-    link: /React/Hooks/
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-```
-:::
-
-
-## 服务方面
-包括浏览器问题、跨域问题、服务器问题等内容
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: 浏览器缓存
-    desc: 浏览器缓存
-    link: /Network/BrowserCache/
-    avatar: ./images/304.jpg
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-  - name: 跨域
-    desc: 跨域
-    link: /Network/CrossDomain/
-    avatar: ./images/cors.jpg
-    bgColor: '#CBEAFA' # 可选，默认var(--bodyBg)。颜色值有#号时请添加单引号
-    textColor: '#6854A1' # 可选，默认var(--textColor)
-  - name: 问答
-    desc: 待整理问题
-    link: /Network/Question/
-    avatar: ./images/question.jpg
-    bgColor: '#718971'
-    textColor: '#ffffff'
-```
-:::
-
-
-## 封装方面
-包括Axios、Storage、utils等内容
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: Storage
-    desc: Storage
-    link: /Package/Storage/
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-```
-:::
-
-
-## 实用技术文档
-包括 等内容
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: LazyRouter
-    desc: 路由懒加载
-    link: /SkillPoint/LazyRouter/
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-  - name: LazyComponent
-    desc: 组件懒加载
-    link: /SkillPoint/LazyComponent/
-    bgColor: '#CBEAFA' # 可选，默认var(--bodyBg)。颜色值有#号时请添加单引号
-    textColor: '#6854A1' # 可选，默认var(--textColor)
-  - name: Context
-    desc: 上下文批量引入
-    link: /SkillPoint/Context/
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-  - name: Hook
-    desc: hook监听生命周期
-    link: /SkillPoint/@Hook/
-    bgColor: '#CBEAFA' # 可选，默认var(--bodyBg)。颜色值有#号时请添加单引号
-    textColor: '#6854A1' # 可选，默认var(--textColor)
-  - name: Computed
-    desc: Computed中使用this
-    link: /SkillPoint/Computed/
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-  - name: Freeze
-    desc: 数据冻结
-    link: /SkillPoint/Freeze/
-    bgColor: '#CBEAFA' # 可选，默认var(--bodyBg)。颜色值有#号时请添加单引号
-    textColor: '#6854A1' # 可选，默认var(--textColor)
-  - name: Sync
-    desc: 父组件通信
-    link: /SkillPoint/Sync/
-    bgColor: '#FCDBA0'
-    textColor: '#A05F2C'
-  - name: Slot
-    desc: 插槽
-    link: /SkillPoint/Slot/
-    bgColor: '#CBEAFA' # 可选，默认var(--bodyBg)。颜色值有#号时请添加单引号
-    textColor: '#6854A1' # 可选，默认var(--textColor)
-```
-:::
 
 <Vssue :title="$title" />

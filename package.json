@@ -23,6 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@vssue/api-gitee-v5": "^1.4.7",
+    "element-ui": "^2.15.9",
     "vssue": "^1.4.8",
     "vuepress-plugin-comment": "^0.7.3",
     "vuepress-plugin-one-click-copy": "^1.0.6"
