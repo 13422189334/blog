@@ -13,232 +13,73 @@ tags:
   - 
 ---
 
+
+
+
+<el-collapse>
+<el-collapse-item title="JDK8相关 - 包括JDK8使用、新特性等" name="1">
+  <div><a target="_blank" href="/JDK8/Lambda/">Lambda表达式</a></div>
+  <div><a target="_blank" href="/JDK8/Stream/">Stream流</a></div>
+</el-collapse-item>
+<el-collapse-item title="后端工具类" name="2">
+
+<el-form>
+<el-row :gutter="20">
+  <el-col :span="8">
+  <el-divider content-position="left">解析校验</el-divider>
+  <div><a target="_blank" href="/Java/Utils/Url">URL参数解析</a></div>
+  <div><a target="_blank" href="/Java/Utils/Ip">IP解析</a></div>
+  <div><a target="_blank" href="/Java/Utils/RmbUpper">人民币大写</a></div>
+  <div><a target="_blank" href="/Java/Utils/IdCard">身份证校验</a></div>
+  </el-col>
+  <el-col :span="8">
+  <el-divider content-position="left">文件处理</el-divider>
+  <div><a target="_blank" href="/Java/Utils/HandleImage">图片处理</a></div>
+  <div><a target="_blank" href="/Java/Utils/TransformImage">图片转换</a></div>
+  <div><a target="_blank" href="/Java/Utils/Excel">Excel</a></div>
+  </el-col>
+  <el-col :span="8">
+  <el-divider content-position="left">类型转换</el-divider>
+  <div><a target="_blank" href="/Java/Utils/ObjectConvert">对象转换</a></div>
+  <div><a target="_blank" href="/Java/Utils/XmlToObject">XML转对象</a></div>
+  <div><a target="_blank" href="/Java/Utils/PojoXmlJavaBean">POJO XML JavaBean</a></div>
+  <div><a target="_blank" href="/Java/Utils/Hump">驼峰转换</a></div>
+  </el-col>
+  <el-col :span="8">
+  <el-divider content-position="left">字符串</el-divider>
+  <div><a target="_blank" href="/Java/Utils/String">字符串</a></div>
+  <div><a target="_blank" href="/Java/Utils/Date">时间</a></div> 
+  </el-col>
+  <el-col :span="8">
+  <el-divider content-position="left">加解密</el-divider>
+  <div><a target="_blank" href="/Java/Utils/AES">Lambda表达式</a></div>
+  <div><a target="_blank" href="/Java/Utils/RSA">RSA加解密</a></div>
+  </el-col>
+  <el-col :span="8">
+  <el-divider content-position="left">上传下载</el-divider>
+  <div><a target="_blank" href="/Java/Utils/Sftp">Sftp</a></div>
+  <div><a target="_blank" href="/Java/Utils/File">文件上传下载</a></div>
+  </el-col>
+  <el-col :span="8">  
+  <el-divider content-position="left">缓存</el-divider>
+  <div><a target="_blank" href="/Java/Utils/Redis">Redis</a></div>
+  </el-col>
+  <el-col :span="8">  
+  <el-divider content-position="left">缓存</el-divider>
+  <div><a target="_blank" href="/Java/Utils/Redis">Redis</a></div>
+  </el-col>
+  <el-col :span="8">  
+  <el-divider content-position="left">短信</el-divider>
+  <div><a target="_blank" href="/Java/Utils/SMS">SMS</a></div>
+  </el-col>
+</el-row>
+</el-form>
+</el-collapse-item>
+</el-collapse>
+
 ::: right
 来自 [JSH](https://gitee.com/jin-shaohui/vuepress)
 :::
 
-::: center
-  ## JDK8相关
-  包括JDK8使用、新特性等
-:::
-
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-
-data:
-  - name: Lambda
-    desc: Lambda表达式
-    link: /BackEnd/Lambda/
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: Stream
-    desc: Stream流
-    link: /BackEnd/Stream/
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-```
-:::
-
-
-::: center
-  ## 后端工具类
-  包括JavaScript知识点、面试题等
-:::
-
-### 加解密
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-data:
-  - name: AES加解密
-    desc: ''
-    link: /Java/Utils/AES
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: RSA加解密
-    desc: ''
-    link: /Java/Utils/RSA
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-```
-:::
-
-### 类型转换
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-data:
-  - name: 对象转换
-    desc: ''
-    link: /Java/Utils/ObjectConvert
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: XML转对象
-    desc: ''
-    link: /Java/Utils/XmlToObject
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-  - name: POJO XML JavaBean
-    desc: ''
-    link: /Java/Utils/PojoXmlJavaBean
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: 驼峰转换
-    desc: ''
-    link: /Java/Utils/Hump
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-```
-:::
-
-### 类型处理
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-data:
-  - name: 字符串
-    desc: ''
-    link: /Java/Utils/String
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: 时间
-    desc: ''
-    link: /Java/Utils/Date
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-```
-:::
-
-### 解析校验
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-data:
-  - name: URL参数解析
-    desc: ''
-    link: /Java/Utils/Url
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: IP解析
-    desc: ''
-    link: /Java/Utils/Ip
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-  - name: 人民币大写
-    desc: ''
-    link: /Java/Utils/RmbUpper
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: 身份证校验
-    desc: ''
-    link: /Java/Utils/IdCard
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-```
-:::
-
-### 文件处理
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-data:
-  - name: 图片处理
-    desc: ''
-    link: /Java/Utils/HandleImage
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: 图片转换
-    desc: ''
-    link: /Java/Utils/TransformImage
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-  - name: Excel
-    desc: ''
-    link: /Java/Utils/Excel
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-```
-:::
-
-### 上传下载
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-data:
-  - name: Sftp
-    desc: ''
-    link: /Java/Utils/Sftp
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-  - name: 文件上传下载
-    desc: ''
-    link: /Java/Utils/File
-    bgColor: '#DFEEE7'
-    textColor: '#2A3344'
-```
-:::
-
-### 缓存
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-data:
-  - name: Redis
-    desc: ''
-    link: /Java/Utils/Redis
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-```
-:::
-
-### 短信
-::: cardList 4
-```yaml
-config:
-    target: _self
-    imgHeight: auto
-    objectFit: cover
-    lineClamp: 1
-data:
-  - name: SMS
-    desc: ''
-    link: /Java/Utils/SMS
-    bgColor: '#F0DFB1'
-    textColor: '#242A38'
-```
-:::
 
 <Vssue :title="$title" />

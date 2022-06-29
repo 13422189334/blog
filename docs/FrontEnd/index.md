@@ -79,7 +79,7 @@ data:
 <el-collapse-item title="打包相关 - 包括Webpack、Vite等打包工具原理介绍" name="4">
   <div><a target="_blank" href="/Webpack/">实现webpack打包流程</a></div>
 </el-collapse-item>
-<el-collapse-item title="微前端相关 - 包括微前端技术、single-spa、iframe等前端微服务话解决方案" name="5">
+<el-collapse-item title="微前端相关 - 包括single-spa、iframe等前端微服务话解决方案" name="5">
   <div><a target="_blank" href="/Micro/QianKun/">乾坤 - 阿里微前端解决方案</a></div>
 </el-collapse-item>
 <el-collapse-item title="VUE相关 - 包括Vue、Vuex、VueRouter等Vue全家桶相关知识点" name="6">
