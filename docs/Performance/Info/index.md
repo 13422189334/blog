@@ -1,7 +1,7 @@
 ---
-title: 性能优化
+title: 浅谈性能优化
 date: 2022-06-30 10:39:48
-permalink: /Performance/
+permalink: /Performance/info/
 categories: 
   - 性能优化
 tags: 
