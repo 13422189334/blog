@@ -2,11 +2,11 @@
 title: 性能优化
 lang: zh-CN
 date: 2022-06-01 15:08:30
-permalink: /Performance/
+permalink: /Performance/1
 categories: 
   - 性能优化
 tags: 
-  - 
+  - 不咋滴的性能优化
 ---
 
 Vue 框架通过数据双向绑定和虚拟 DOM 技术，帮我们处理了前端开发中最脏最累的 DOM 操作部分， 

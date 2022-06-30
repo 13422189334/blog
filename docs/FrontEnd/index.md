@@ -4,7 +4,7 @@ pageComponent:
   data:
     path: Recommend
     imgUrl: /404.jpg
-    description: 前端知识库
+    description: 包括 前端规范、CSS、JS、VUE、React、浏览器等相关内容
 title: 前端知识库
 lang: zh-CN
 date: 2022-05-17 14:46:27

@@ -1,4 +1,10 @@
 ---
+pageComponent:
+  name: Catalogue
+  data:
+    path: Recommend
+    imgUrl: /404.jpg
+    description: 包括 JDK8、工具类等相关内容
 title: 后端知识库
 lang: zh-CN
 date: 2022-05-17 14:46:27
@@ -12,8 +18,6 @@ categories:
 tags: 
   - 
 ---
-
-
 
 
 <el-collapse>
@@ -59,10 +63,6 @@ tags:
   <el-divider content-position="left">上传下载</el-divider>
   <div><a target="_blank" href="/Java/Utils/Sftp">Sftp</a></div>
   <div><a target="_blank" href="/Java/Utils/File">文件上传下载</a></div>
-  </el-col>
-  <el-col :span="8">  
-  <el-divider content-position="left">缓存</el-divider>
-  <div><a target="_blank" href="/Java/Utils/Redis">Redis</a></div>
   </el-col>
   <el-col :span="8">  
   <el-divider content-position="left">缓存</el-divider>
