@@ -19,15 +19,13 @@ tags:
   - 
 ---
 
+<el-divider content-position="center">JDK8相关 - 包括JDK8使用、新特性等</el-divider>
+<el-row :gutter="20">
+  <el-col :span="8"><div><a target="_blank" href="/JDK8/Lambda/">Lambda表达式</a></div></el-col>
+  <el-col :span="8"><div><a target="_blank" href="/JDK8/Stream/">Stream流</a></div></el-col>
+</el-row>
 
-<el-collapse>
-<el-collapse-item title="JDK8相关 - 包括JDK8使用、新特性等" name="1">
-  <div><a target="_blank" href="/JDK8/Lambda/">Lambda表达式</a></div>
-  <div><a target="_blank" href="/JDK8/Stream/">Stream流</a></div>
-</el-collapse-item>
-<el-collapse-item title="后端工具类" name="2">
-
-<el-form>
+<el-divider content-position="center">后端工具类</el-divider>
 <el-row :gutter="20">
   <el-col :span="8">
   <el-divider content-position="left">解析校验</el-divider>
@@ -73,9 +71,7 @@ tags:
   <div><a target="_blank" href="/Java/Utils/SMS">SMS</a></div>
   </el-col>
 </el-row>
-</el-form>
-</el-collapse-item>
-</el-collapse>
+
 
 ::: right
 来自 [JSH](https://gitee.com/jin-shaohui/vuepress)
