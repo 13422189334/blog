@@ -20,69 +20,102 @@ tags:
 ---
 
 
-<el-divider content-position="left"><strong style="color: red">前端规范</strong></el-divider>
-<div><a target="_blank" href="/Standard/FrontEnd/">HTML规范指南</a></div>
+<Container
+  title='前端规范'
+  :arrData="[
+    { url: '/Standard/FrontEnd/', name: 'HTML规范指南' }
+  ]"
+/>
 
+<Container
+  title='JavaScript相关'
+  :arrData="[
+    { url: '/JavaScript/ES6/', name: 'ES6 / ECMAScript 2015' },
+    { url: '/JavaScript/RESTful/', name: 'RESTful Api' },
+    { url: '/JavaScript/EventLoop/', name: 'JavaScript 执行机制' },
+    { url: '/JavaScript/Question/', name: '待整理问题' },
+  ]"
+/>
 
-<el-divider content-position="left"><strong style="color: red">JavaScript相关</strong></el-divider>
-<el-row :gutter="20">
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/JavaScript/ES6/">ES6 / ECMAScript 2015</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/JavaScript/RESTful/">RESTful Api</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/JavaScript/EventLoop/">JavaScript 执行机制</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/JavaScript/Question/">待整理问题</a></div></el-col>
-</el-row>
+<Container
+  title='打包相关'
+  subTitle='包括Webpack、Vite等打包工具原理介绍'
+  :arrData="[
+    { url: '/Webpack/', name: '实现webpack打包流程' }
+  ]"
+/>
 
+<Container
+  title='微前端相关'
+  subTitle='包括single-spa、iframe等前端微服务话解决方案'
+  :arrData="[
+    { url: '/Micro/QianKun/', name: '乾坤 - 阿里微前端解决方案' }
+  ]"
+/>
 
-<el-divider content-position="left"><strong style="color: red">打包相关</strong> - 包括Webpack、Vite等打包工具原理介绍</el-divider>
-<div><a target="_blank" href="/Webpack/">实现webpack打包流程</a></div>
+<Container
+  title='VUE2相关'
+  subTitle='包括Vue、Vuex、VueRouter等Vue全家桶相关知识点'
+  :arrData="[
+    { url: '/Vue/LifeCycle/', name: 'Vue生命周期函数' },
+    { url: '/Vue/Communicate/', name: 'Vue组件通讯方式' },
+    { url: '/Vue/Question/', name: '待整理问题' },
+  ]"
+/>
 
+<Container
+  title='VUE3相关'
+  subTitle='包括源码相关知识点'
+  :arrData="[
+    { url: '/Vue3/ToolFunction/', name: '工具函数源码解析' }
+  ]"
+/>
 
-<el-divider content-position="left"><strong style="color: red">微前端相关</strong> - 包括single-spa、iframe等前端微服务话解决方案</el-divider>
-<div><a target="_blank" href="/Micro/QianKun/">乾坤 - 阿里微前端解决方案</a></div>
+<Container
+  title='React相关'
+  subTitle='包括React hooks等React相关知识点'
+  :arrData="[
+    { url: '/React/Hooks/', name: '浅谈12个Hooks' }
+  ]"
+/>
 
+<Container
+  title='服务方面'
+  subTitle='包括浏览器问题、跨域问题、服务器问题等内容'
+  :arrData="[
+    { url: '/Network/BrowserCache/', name: '浏览器缓存' },
+    { url: '/Network/CrossDomain/', name: '跨域' },
+    { url: '/Network/Question/', name: '待整理问题' },
+  ]"
+/>
 
-<el-divider content-position="left"><strong style="color: red">VUE2相关</strong> - 包括Vue、Vuex、VueRouter等Vue全家桶相关知识点</el-divider>
-<el-row :gutter="20">
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/Vue/LifeCycle/">Vue生命周期函数</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/Vue/Communicate/">Vue组件通讯方式</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/Vue/Question/">待整理问题</a></div></el-col>
-</el-row>
+<Container
+  title='封装方面'
+  subTitle='包括Axios、Storage、utils等内容'
+  :arrData="[
+    { url: '/Package/Storage/', name: 'Storage' }
+  ]"
+/>
 
-<el-divider content-position="left"><strong style="color: red">VUE3相关</strong> - 包括源码相关知识点</el-divider>
-<el-row :gutter="20">
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/Vue3/ToolFunction/">工具函数源码解析</a></div></el-col>
-</el-row>
+<Container
+  title='实用技术文档'
+  :arrData="[
+    { url: '/SkillPoint/LazyRouter/', name: '路由懒加载' },
+    { url: '/SkillPoint/LazyComponent/', name: '组件懒加载' },
+    { url: '/SkillPoint/Context/', name: '上下文批量引入' },
+    { url: '/SkillPoint/@Hook/', name: 'hook监听生命周期' },
+    { url: '/SkillPoint/Computed/', name: 'Computed中使用this' },
+    { url: '/SkillPoint/Freeze/', name: '数据冻结' },
+    { url: '/SkillPoint/Sync/', name: '父组件通信' },
+    { url: '/SkillPoint/Slot/', name: '插槽' },
+  ]"
+/>
 
-<el-divider content-position="left"><strong style="color: red">React相关</strong> - 包括React hooks等React相关知识点</el-divider>
-<div><a target="_blank" href="/React/Hooks/">浅谈12个Hooks</a></div>
-
-
-<el-divider content-position="left"><strong style="color: red">服务方面</strong> - 包括浏览器问题、跨域问题、服务器问题等内容</el-divider>
-<el-row :gutter="20">
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/Network/BrowserCache/">浏览器缓存</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/Network/CrossDomain/">跨域</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/Network/Question/">待整理问题</a></div></el-col>
-</el-row>
-
-
-<el-divider content-position="left"><strong style="color: red">封装方面</strong> - 包括Axios、Storage、utils等内容</el-divider>
-<div><a target="_blank" href="/Package/Storage/">Storage</a></div>
-
-
-<el-divider content-position="left"><strong style="color: red">实用技术文档</strong></el-divider>
-<el-row :gutter="20">
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/SkillPoint/LazyRouter/">路由懒加载</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/SkillPoint/LazyComponent/">组件懒加载</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/SkillPoint/Context/">上下文批量引入</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/SkillPoint/@Hook/">hook监听生命周期</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/SkillPoint/Computed/">Computed中使用this</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/SkillPoint/Freeze/">数据冻结</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/SkillPoint/Sync/">父组件通信</a></div></el-col>
-  <el-col :lg="8" :sm="24"><div><a target="_blank" href="/SkillPoint/Slot/">插槽</a></div></el-col>
-</el-row>
-
-
-<el-divider content-position="left"><strong style="color: red">CSS样式组件库</strong> - 适用Vue、React、Html等不同类型框架的CSS样式组件</el-divider>
+<Container
+  title='CSS样式组件库'
+  subTitle='适用Vue、React、Html等不同类型框架的CSS样式组件'
+  :arrData="[]"
+>
 
 ::: cardImgList  4
 ```yaml
@@ -127,6 +160,9 @@ data:
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
 ```
 :::
+
+</Container>
+
 
 
 ::: right
