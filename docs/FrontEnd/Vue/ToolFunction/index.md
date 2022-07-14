@@ -6,183 +6,182 @@ categories:
   - Vue
   - Vue3
 tags:
-  - Vue3源码
+  - Vue源码分析
 ---
 
-具体目录在/packages/shared/src/index.ts文件下, 本文针对源码中的工具函数, 作出了分析, 和较冷门知识点的提取分析.
+:::danger
+具体文件是 `shared.cjs.prod.js` 和 `shared.cjs.js` 文件下针对源码中的工具函数和较冷门知识点的提取分析。
 
-## toTypeString
+vue 版本为 3.2.31
+:::
 
-定义位置: shared/src/index.ts 第66行
+## 常量定义
 
-toTypeString主要是返回数据的类型, 使用了Object.prototype.toString.call的方法, 实现了对复杂数据类型的区分
+### EMPTY_OBJ EMPTY_ARR 对象
 
-```JavaScript
-const objectToString = Object.prototype.toString
-const toTypeString = (val) => objectToString.call(val)
+typescript是通过 `readonly` 的方式来定义一个冻结对象的类型的， `readonly` 是只读修饰符。 `Object.freeze` 冻结对象属性功能。
 
-let arr = []
-let obj = {}
-let map = new Map()
-let set = new Set()
-console.log(toTypeString(obj))
-console.log(toTypeString(arr))
-console.log(toTypeString(map))
-console.log(toTypeString(set))
-// [object Object]
-// [object Array]
-// [object Map]
-// [object Set]
+- 源码实现
+
+```TypeScript
+export declare const EMPTY_OBJ: {
+    readonly [key: string]: any;
+} = __DEV__ ? Object.freeze({}) : {}
+
+
+export declare const EMPTY_ARR: {
+    readonly [key: string]: any;
+} = __DEV__ ? Object.freeze([]) : []
 ```
 
-## toRawType 方法
+- 使用案例
 
-定义位置: shared/src/index.ts 第70行
-
-这里需要注意的是前面我们的toTypeString返回了'[object xxType]', 现在则是使用slice方法来将xxType取出
-
-```JavaScript
-export const toRawType = (value: unknown): string => {
-  // extract "RawType" from strings like "[object RawType]"
-  return toTypeString(value).slice(8, -1)
-}
-```
-
-案例:
-
-```JavaScript
-const objectToString = Object.prototype.toString
-const toTypeString = (value) => {
-  return objectToString.call(value)
-}
-
-const toRawType = (value) => {
-  return toTypeString(value).slice(8, -1)
-}
-
-const str = toRawType('')
-console.log('str', str) // 'String'
-const num = toRawType(123)
-console.log('num', num) // 'Number'
-
-```
-
-
-## EMPTY_OBJ对象
-
-定义位置: shared/src/index.ts 第15行
-
-注意两点:
-
-typescript是通过readonly的方式来定义一个冻结对象的类型的, readonly 是只读修饰符. Object.freeze冻结对象属性功能.
-
-```JavaScript
-export const EMPTY_OBJ: { readonly [key: string]: any } = __DEV__
-  ? Object.freeze({}) : {}
-let emptyObj2 = Object.freeze({
+```TypeScript
+let emptyObj = Object.freeze({
   props: {
     name: 'jack',
     age: 12
   },
   total: 1000
 })
-
 // 无法修改第一层属性
-emptyObj2.total = 0
-console.log('emptyObj2.total', emptyObj2.total)
+emptyObj.total = 0
+console.log('emptyObj.total', emptyObj.total)
 // 可以修改第二层对象的属性
-emptyObj2.props.age = 13
-console.log('emptyObj2.props.age', emptyObj2.props.age)
+emptyObj.props.age = 13
+console.log('emptyObj.props.age', emptyObj.props.age)
 // 无法新建本不存在的属性
-emptyObj2.props2 = {}
-console.log('emptyObj2.props2', emptyObj2.props2)
+emptyObj.props2 = {}
+console.log('emptyObj.props2', emptyObj.props2)
+
+
 let arr = Object.freeze([])
+let arr1 = Object.freeze([{ name: 'jack' }])
 // arr.push(1) // 无法添加元素, 会直接报错
 arr.length = 3
 console.log('arr', arr)
-
-let arr1 = Object.freeze([{name: 'jack'}])
 // 对象内的属性可以修改
 arr1[0].name = 'rose'
 console.log('arr1[0].name', arr1[0].name) // rose
-
 ```
 
+### NOOP 空函数
 
+定义一个空函数，而不是 `function () {}` 这样定义，是为了方便压缩。
 
-## NOOP空函数
+- 源码实现
 
-定义位置: shared/src/index.ts 第21行
-
-定义一个空函数, 这样写, 而不是function () {}这样定义, 是为了方便压缩, 这样压缩后的代码, 就都只是一个变量, 指向了一个空函数,而不是在使用的地方写上一个function () {}
-
-```JavaScript
+```TypeScript
 export const NOOP = () => {}
-
-let obj = function getName (cb => NOOP) {
-// ... 代码省略 ...
-}
 ```
 
-## NO函数
+- 使用案例
 
-定义位置: shared/src/index.ts 第26行
+```TypeScript
+let obj = function getName (cb => NOOP) {}
+```
 
-永远返回false的函数, 个人理解就是一个返回boolean值的函数的备选项
+### NO 返回false常量函数
 
-```JavaScript
+永远返回 `false` 的函数, 就是一个返回 `boolean` 值的函数的备选项
+
+- 源码实现
+
+```TypeScript
 export const NO = () => false
-// /packages/compiler-sfc/node_modules/@vue/compiler-ssr/
-// src/transforms/ssrTransformElement.ts 第374行
-const isVoidTag = context.options.isVoidTag || NO
-...
-// 395行, 执行isVoidTag这个函数,如果是NO, 那就永远返回false
-if (!isVoidTag(node.tag)) {
-	// push closing tag
-	context.pushStringPart(`</${node.tag}>`)
+```
+
+
+## 函数定义
+
+### toTypeString  复杂数据类型区分
+
+`toTypeString` 主要是返回数据的类型，使用了 `Object.prototype.toString.call` 的方法，实现了对复杂数据类型的区分
+
+- 源码实现
+
+```TypeScript
+const objectToString = Object.prototype.toString;
+const toTypeString = (value) => objectToString.call(value);
+```
+
+- 使用案例
+
+```TypeScript
+let arr = []
+let obj = {}
+let map = new Map()
+let set = new Set()
+console.log(toTypeString(obj)) // [object Object]
+console.log(toTypeString(arr)) // [object Array]
+console.log(toTypeString(map)) // [object Map]
+console.log(toTypeString(set)) // [object Set]
+```
+
+### toRawType 取出数据类型
+
+这里需要注意的是前面的 `toTypeString` 返回了 `[object xxType]` ，现在则是使用 `slice` 方法来将 `xxType` 取出
+
+- 源码实现
+
+```TypeScript
+export const toRawType = (value: unknown): string => {
+  // extract "RawType" from strings like "[object RawType]"
+  return toTypeString(value).slice(8, -1)
 }
 ```
 
-## isOn方法
+- 使用案例
 
-定义位置: shared/src/index.ts 第28行
+```TypeScript
+const objectToString = Object.prototype.toString
+const toTypeString = (value) => objectToString.call(value)
 
-利用正则来判断当前的事件名是否是on+EventName的格式, 注意:^在正则开头表示首位占位符, 其他地方都是非的含义, [^a-z]表示不是a到z的字母, 正则检验工具https://regex101.com/
+const toRawType = (value) => toTypeString(value).slice(8, -1)
 
-```JavaScript
+const str = toRawType('')
+console.log('str', str) // 'String'
+const num = toRawType(123)
+console.log('num', num) // 'Number'
+```
+
+
+### isOn 事件名on判断
+
+利用正则来判断当前的事件名是否是 `on + EventName` 的格式
+
+注意: `^` 在正则开头表示首位占位符，其他地方都是非的含义，`[^a-z]` 表示不是 a 到 z 的字母
+
+- 源码实现
+
+```TypeScript
 const onRE = /^on[^a-z]/
 export const isOn = (key: string) => onRE.test(key)
 ```
 
-## isModelListener方法
+### isModelListener 事件名onUpdate判断
 
-定义位置: shared/src/index.ts 第31行
+检验监听事件名是否是`onUpdate:`开头
 
-检验监听事件名是否是onUpdate:开头
+- 源码实现
 
-```JavaScript
+```TypeScript
 export const isModelListener = (key: string) => key.startsWith('onUpdate:')
 ```
 
-startsWith是es6当中的方法, 可以获取一个字符串是否以指定的子字符串开头, 返回Boolean类型
+> `startsWith` 是 `es6` 当中的方法，可以获取一个字符串是否以指定的子字符串开头，返回Boolean类型
 
-语法: string.startsWith(searchvalue, start), searchValue为指定的子字符串, start为开始的位数, 默认为0
+- 使用案例
 
-```export const isModelListener = (key: string) => key.startsWith('onUpdate:')
-let isModeListener = (key) => {
-  return key.startsWith('onUpdate:')
-}
-
+```TypeScript
 console.log(isModeListener('onUpdate:change'))
 ```
 
-## extend方法, 合并对象
-
-定义位置: shared/src/index.ts 第33行
+### extend 方法, 合并对象
 
 用于合并对象, 类似于继承
 
-```JavaScript
+```TypeScript
 const extend = Object.assign
 let obj1 = {name: 'jack'}
 let obj2 = {name: 'rose', age: 18}
@@ -193,13 +192,13 @@ console.log('obj', obj) // { name: 'rose', age: 18 }
 console.log('obj1', obj1) // { name: 'rose', age: 18 }
 ```
 
-## remove方法
+### remove方法
 
 定义位置: shared/src/index.ts 第35行
 
 删除数组中的某个元素, 但是注意了, 删除数组中的某个元素,使用splice方法, 其实是比较消耗性能的,
 
-```JavaScript
+```TypeScript
 export const remove = <T>(arr: T[], el: T) => {
   const i = arr.indexOf(el)
   if (i > -1) {
@@ -215,7 +214,7 @@ console.log(arr, 'arr数据')
 
 所以在axios源码中(lib/core/interceptorManager.js), 使用以下的方式‘删除’数组中的元素:
 
-```JavaScript
+```TypeScript
 // 第32行
 InterceptorManager.prototype.eject = function eject(id) {
   if (this.handlers[id]) {
@@ -242,7 +241,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 };
 ```
 
-## hasOwn方法
+### hasOwn方法
 
 定义位置: shared/src/index.ts 第43行
 
@@ -250,7 +249,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 
 注意这里的key is keyof typeof val, 这里的is是类型谓词, 实际上是在描述函数参数的类型
 
-```JavaScript
+```TypeScript
 const hasOwnProperty = Object.prototype.hasOwnProperty
 export const hasOwn = (
   val: object,
@@ -262,7 +261,7 @@ export const hasOwn = (
 
 这种写法一般用于返回boolean类型的函数中, 事先将参数的类型范围确定
 
-```JavaScript
+```TypeScript
 const isString = (str: any): str is string => typeof str === 'string'
 
 function fn(strParams: any) {
@@ -279,13 +278,13 @@ function fn(strParams: any) {
 }
 ```
 
-## isArray
+### isArray
 
 定义位置: shared/src/index.ts 第48行
 
 判断一个对象是不是数组
 
-```JavaScript
+```TypeScript
 const isArray = Array.isArray
 
 const fakeArray = { __proto__: Array.prototype, length: 0 }
@@ -295,24 +294,24 @@ console.log('isArray(fakeArray)', isArray(fakeArray)) // false
 console.log('fakeArray instanceof Array', fakeArray instanceof Array) // true
 ```
 
-## isMap/isSet
+### isMap/isSet
 
 定义位置: shared/src/index.ts 第49行
 
 注意, 这里再一次使用到了类型谓词, params is type 这种类型的写法
 
-```JavaScript
+```TypeScript
 export const isMap = (val: unknown): val is Map<any, any> =>
   toTypeString(val) === '[object Map]'
 export const isSet = (val: unknown): val is Set<any> =>
   toTypeString(val) === '[object Set]'
 ```
 
-## Map
+### Map
 
 Map是一种es6提供的新的数据类型, 一种键值对的数据结构, 相比于对象, 它其实也是键值对, 但是它的键不同于对象那种只能是字符串的键, 可以是各种类型
 
-```JavaScript
+```TypeScript
 // 形式上, Map类型是二维数组
 // 1. 定义一个函数作为键
 let fn = function haha() { console.log('this is function') }
@@ -353,7 +352,7 @@ console.log('清空后的结果', m)
 
 遍历相关的方法主要有keys, entries, values, forEach
 
-```JavaScript
+```TypeScript
 let fn = function haha() { console.log('this is function') }
 let m = new Map([['jack', 100], [fn, '我是函数的值']])
 m.forEach(item => {
@@ -422,7 +421,7 @@ for (let value of it) {
 
 Set类型也是es6提供的一种新的数据类型,它允许你存入任意类型的唯一值, 无论是基本数据类型还是引用类型, 但是, 尽管NaN !== NaN, Set仍然认为这是同一个数据
 
-```JavaScript
+```TypeScript
 // 1. NaN
 let set = new Set([NaN, NaN])
 // 尽管NaN !== NaN, 但是, 在Set中仍然被认为是相同的数据
@@ -464,7 +463,7 @@ console.log('set clear -->', set) // set clear --> Set {}
 
 遍历相关的方法, 主要有keys, entries, values, forEach
 
-```JavaScript
+```TypeScript
 // 1. keys方法
 let it = set.keys()
 // console.log(it.next().value) // { name: '大明' }
@@ -527,7 +526,7 @@ set.forEach(item => {
  */
 ```
 
-## isDate
+### isDate
 
 定义位置: shared/src/index.ts 第54行
 
@@ -544,7 +543,7 @@ let result = isDate({__proto__: Date.prototype, length: 0})
 console.log('result', result) // result true
 ```
 
-## isFunction
+### isFunction
 
 定义位置: shared/src/index.ts 第55行
 
@@ -555,15 +554,13 @@ export const isFunction = (val: unknown): val is Function =>
   typeof val === 'function'
 ```
 
-## isObject
+### isObject
 
 定义位置: shared/src/index.ts 第59行
 
 注意:
 
-```JavaScript
 typeof null === 'object', 所以必须确保val不为null.
-```
 
 Record是typescript中的一种工具类型
 
@@ -571,7 +568,7 @@ Record是typescript中的一种工具类型
 
 所谓的工具类型, 其实可以理解为就是一种封装好了的方法, 就像我们日常开发时候所使用的util.js这类工具, 它无需引入, 可以直接使用, Record就是其中之一, 它的作用是限制一个对象的键值类型, 其两个泛型参数就是一个限制键类型, 一个限制值类型
 
-```JavaScript
+```TypeScript
 export const isObject = (val: unknown): val is Record<any, any> =>
   val !== null && typeof val === 'object'
 ```
@@ -616,7 +613,7 @@ const animalInfo: AnimalInfo = {
 console.log(animalInfo)
 ```
 
-## isPlainObject 方法
+### isPlainObject 方法
 
 定义位置: shared/src/index.ts 第75行
 
@@ -627,11 +624,11 @@ export const isPlainObject = (val: unknown): val is object =>
   toTypeString(val) === '[object Object]'
 ```
 
-## isPromise 方法
+### isPromise 方法
 
 定义位置: shared/src/index.ts 第62行
 
-判断是否是promise对象, 这里要注意的是Promise的类型, typescript 中 Promise<T>类型, 接受一个泛型参数T, 用以确定这个promise对象最终resolve的值的类型
+判断是否是promise对象, 这里要注意的是Promise的类型, typescript 中 `Promise<T>` 类型, 接受一个泛型参数T, 用以确定这个promise对象最终resolve的值的类型
 
 ```TypeScript
 export const isPromise = <T = any>(val: unknown): val is Promise<T> => {
@@ -655,7 +652,7 @@ let promiseString = new Promise((resolve: (params: string) => void, reject) => {
 })
 ```
 
-## isIntegerKey 方法
+### isIntegerKey 方法
 
 定义位置: shared/src/index.ts 第78行
 
@@ -703,7 +700,7 @@ console.log('result', result) // NaN
 
 由此我们得知, parseInt最多只能取到36!
 
-## makeMap方法
+### makeMap方法
 
 定义位置: shared/src/makeMap.ts 第8行
 
@@ -766,7 +763,7 @@ console.log(result2) // true, 存在dog
 !!, 双感叹号, 将数据转为boolean类型
 
 
-## cacheStringFunction方法
+### cacheStringFunction方法
 
 定义位置: shared/src/index.ts 第92行
 
@@ -830,7 +827,7 @@ let data = testGenerics([1,2,3], 8)
 data.slice(0,1) // 直接报错, 因为根本就不是数组!
 ```
 
-## camelize方法
+### camelize方法
 
 定义位置: shared/src/index.ts 第104行
 
@@ -864,7 +861,7 @@ replace的第一个参数非常好理解, 要么是字符串, 要么是正则, �
 
 - $&, 用于无分组的情况
 
-```JavaScript
+```TypeScript
 let str = '史记真是史家之绝唱,无韵之离骚'
 let result = str.replace('史记', '《$&》') // 这里的$&就是‘史记’二字, 也就是用《史记》代替史记
 console.log(result) // 《史记》真是史家之绝唱,无韵之离骚
@@ -872,7 +869,7 @@ console.log(result) // 《史记》真是史家之绝唱,无韵之离骚
 
 - . $`, 匹配到的数据的左边字符串
 
-```JavaScript
+```TypeScript
 let str = '研究一下replace该怎么用'
 
 let result = str.replace('replace', ',$`前端技术') // 这里的$`代表‘研究一下’, 
@@ -882,7 +879,7 @@ console.log(result) // 研究一下,研究一下前端技术该怎么用
 
 - .$' , 和 $`相反, 代表匹配到的数据的右边字符串
 
-```JavaScript
+```TypeScript
 let str = '研究一下replace该怎么用'
 
 let result = str.replace('replace', ",vue3$',")
@@ -893,7 +890,7 @@ console.log(result) // 研究一下,vue3该怎么用,该怎么用
 
 - . $1,$2,$3,.....$n, 表示第几个分组
 
-```JavaScript
+```TypeScript
 let str = '西瓜,番薯,大番薯,咸鱼,萝卜,苹果'
 let result = str.replace(/(西瓜)(.*)(苹果)/, "$1(水果)$2$3(水果)")
 // 此处的$1代表'西瓜',$2代表',番薯,大番薯,咸鱼,萝卜,',$3代表'苹果'
@@ -913,7 +910,7 @@ let result = str.replace(/(今年).+?(时间).*/g, function () {
 
 我们可以得出结论,那就是有分组的情况下, 第二个参数开始就是依次展示每次分组匹配到的内容, 所以, 我们回到源码中, 此处的c, 实际上就是前面说的每次匹配到的第一个分组, 本案例中依次为: h, c两个, 然后将其改为大写, 直接return , 就能将 -x 替换为X,从而实现我们的目标.
 
-```JavaScript
+```TypeScript
 let str = 'on-handle-click'
 let result = str.replace(/-(\w)/g, function () {
   console.log(arguments)
@@ -923,7 +920,7 @@ let result = str.replace(/-(\w)/g, function () {
 })
 ```
 
-## hasChanged
+### hasChanged
 
 定义位置: shared/src/index.ts 第130行
 
@@ -943,7 +940,7 @@ export const hasChanged = (value: any, oldValue: any): boolean =>
 
 可能有人感到疑问, 两个值是否不同还需要封装?多此一举吧, 我直接 a !== b 不就行了? 我们来看几个例子:
 
-```JavaScript
+```TypeScript
 // +0 和 -0问题
 console.log(+0 === -0) // true
 Object.is(+0, -1) // false
@@ -972,7 +969,7 @@ console.log('+0 === -0 -->', Object.is(+0, -0))
 // +0 === -0 --> false
 ```
 
-## def 方法
+### def 方法
 
 定义位置: shared/src/index.ts 第140行
 
@@ -980,7 +977,7 @@ console.log('+0 === -0 -->', Object.is(+0, -0))
 
 关于属性描述符, makeMap方法中已经提到了,这里不再展开
 
-```JavaScript
+```TypeScript
 export const def = (obj: object, key: string | symbol, value: any) => {
   Object.defineProperty(obj, key, {
     configurable: true,
@@ -992,7 +989,7 @@ export const def = (obj: object, key: string | symbol, value: any) => {
 
 方法使用案例:
 
-```JavaScript
+```TypeScript
 let person = {
   name: 'human',
   age: 100
@@ -1009,7 +1006,7 @@ console.log('gender --> ', person.gender) // male
 
 测试可枚举性, 按照我们之前说的for...in, Object.keys, JSON.stringify三种方法
 
-```JavaScript
+```TypeScript
 // for...in
 for (let key in person) {
   console.log('key', key)
@@ -1039,7 +1036,7 @@ console.log('Object.keys(person)', Object.keys(person))
 - get
 - set
 
-## toNumber 方法
+### toNumber 方法
 
 定义位置: shared/src/index.ts 第148行
 
