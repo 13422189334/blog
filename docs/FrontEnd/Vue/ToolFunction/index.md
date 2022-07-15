@@ -17,7 +17,7 @@ vue 版本为 3.2.31
 
 ## 常量定义
 
-### EMPTY_OBJ EMPTY_ARR 对象
+### EMPTY_OBJ、EMPTY_ARR 对象
 
 typescript是通过 `readonly` 的方式来定义一个冻结对象的类型的， `readonly` 是只读修饰符。 `Object.freeze` 冻结对象属性功能。
 
@@ -120,7 +120,7 @@ console.log(toTypeString(set)) // [object Set]
 
 ### toRawType 取出数据类型
 
-这里需要注意的是前面的 `toTypeString` 返回了 `[object xxType]` ，现在则是使用 `slice` 方法来将 `xxType` 取出
+这里需要注意的是前面的 `toTypeString` 返回了 `[object xxType]`，现在则是使用 `slice` 方法来将 `xxType` 取出
 
 - 源码实现
 
@@ -144,7 +144,6 @@ console.log('str', str) // 'String'
 const num = toRawType(123)
 console.log('num', num) // 'Number'
 ```
-
 
 ### isOn 事件名on判断
 
@@ -177,12 +176,17 @@ export const isModelListener = (key: string) => key.startsWith('onUpdate:')
 console.log(isModeListener('onUpdate:change'))
 ```
 
-### extend 方法, 合并对象
+### extend 合并对象
 
-用于合并对象, 类似于继承
+- 源码实现
 
 ```TypeScript
 const extend = Object.assign
+```
+
+- 使用案例
+
+```TypeScript
 let obj1 = {name: 'jack'}
 let obj2 = {name: 'rose', age: 18}
 
@@ -192,11 +196,11 @@ console.log('obj', obj) // { name: 'rose', age: 18 }
 console.log('obj1', obj1) // { name: 'rose', age: 18 }
 ```
 
-### remove方法
+### remove 删除数组元素
 
-定义位置: shared/src/index.ts 第35行
+删除数组中的某个元素，但是使用splice方法，其实是比较消耗性能的。
 
-删除数组中的某个元素, 但是注意了, 删除数组中的某个元素,使用splice方法, 其实是比较消耗性能的,
+- 源码实现
 
 ```TypeScript
 export const remove = <T>(arr: T[], el: T) => {
@@ -205,23 +209,26 @@ export const remove = <T>(arr: T[], el: T) => {
     arr.splice(i, 1)
   }
 }
+```
 
+- 使用案例
+
+```TypeScript
 let arr = [1, 2, 3]
-remove(arr, 2)
-// [ 1, 3 ] 'arr数据'
+remove(arr, 2) // [ 1, 3 ] 'arr数据'
 console.log(arr, 'arr数据')
 ```
 
-所以在axios源码中(lib/core/interceptorManager.js), 使用以下的方式‘删除’数组中的元素:
+:::danger
+
+axios源码中 `lib/core/interceptorManager.js` , 使用以下的方式删除数组中的元素:
 
 ```TypeScript
-// 第32行
 InterceptorManager.prototype.eject = function eject(id) {
   if (this.handlers[id]) {
     this.handlers[id] = null;
   }
 };
-// ...
 
 // 第46行
 /**
@@ -240,74 +247,95 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
   });
 };
 ```
+:::
 
-### hasOwn方法
+### hasOwn 是否包含属性
 
-定义位置: shared/src/index.ts 第43行
+判断一个属性是否是一个对象本身的属性，利用了 `Object.prototype.hasOwnProperty.call` 的形式来实现功能
 
-判断一个属性是否是一个对象本身的属性, 利用了Object.prototype.hasOwnProperty.call的形式来实现功能
-
-注意这里的key is keyof typeof val, 这里的is是类型谓词, 实际上是在描述函数参数的类型
+- 源码实现
 
 ```TypeScript
 const hasOwnProperty = Object.prototype.hasOwnProperty
+
+/**
+ * Vue3 的写法
+ */
 export const hasOwn = (
   val: object,
   key: string | symbol
 ): key is keyof typeof val => hasOwnProperty.call(val, key)
+
+/**
+ * Vue3.2 的写法
+ */
+export const hasOwn = (
+  val: object,
+  key: string | symbol
+): key is never => hasOwnProperty.call(val, key)
 ```
 
-注意这里的类型谓词写法, 这种声明函数类型, 后面写上'params is type' 的写法, 可以有效缩小参数的取值范围, 参考以下案例, 相当于是如果isString返回了true, 那str的类型肯定是string类型
+:::danger
 
-这种写法一般用于返回boolean类型的函数中, 事先将参数的类型范围确定
+注意: 
+
+- `is` 关键字：它被称为类型谓词，用来判断一个变量属于某个接口或类型，比如：
 
 ```TypeScript
-const isString = (str: any): str is string => typeof str === 'string'
-
-function fn(strParams: any) {
-  if (isStrings(strParams)) {
-    strParams.join(',') // 编译报错
-  }
-}
-const isString = (str: any): boolean => typeof str === 'string'
-
-function fn(strParams: any) {
-  if (isStrings(strParams)) {
-    strParams.join(',') // 编译不会报错, 运行时报错
-  }
-}
+const isNumber = (val: unknown): val is number => typeof val === 'number'
+const isString = (val: unknown): val is string => typeof val === 'string'
 ```
 
-### isArray
-
-定义位置: shared/src/index.ts 第48行
-
-判断一个对象是不是数组
+- `keyof` 关键字：用于获取某种类型的所有键，其返回类型是联合类型，比如：
 
 ```TypeScript
-const isArray = Array.isArray
+interface Person {
+    name: string;
+    age: number;
+}
+type K = keyof Person; // "name" | "age"
+```
 
+- `typeof` 关键字：js 中的 typeof 只能获取几种类型，而在 ts 中 typeof 用来获取一个变量声明或对象的类型，比如：
+
+```TypeScript
+interface Person {
+  name: string;
+  age: number;
+}
+ 
+const sem: Person = { name: 'semlinker', age: 30 };
+type Sem = typeof sem; // -> Person
+```
+:::
+
+### isArray 是否数组
+
+- 源码实现
+
+```TypeScript
+export const isArray = (arg: any) : arg is any[] => Array.isArray(arg);
+```
+
+- 使用案例
+
+```TypeScript
 const fakeArray = { __proto__: Array.prototype, length: 0 }
 
 console.log('isArray(fakeArray)', isArray(fakeArray)) // false
-
 console.log('fakeArray instanceof Array', fakeArray instanceof Array) // true
 ```
 
-### isMap/isSet
+### isMap/isSet 是否Map/Set 
 
-定义位置: shared/src/index.ts 第49行
-
-注意, 这里再一次使用到了类型谓词, params is type 这种类型的写法
+- 源码实现
 
 ```TypeScript
-export const isMap = (val: unknown): val is Map<any, any> =>
-  toTypeString(val) === '[object Map]'
-export const isSet = (val: unknown): val is Set<any> =>
-  toTypeString(val) === '[object Set]'
+export const isMap = (val: unknown): val is Map<any, any> => toTypeString(val) === '[object Map]'
+export const isSet = (val: unknown): val is Set<any> => toTypeString(val) === '[object Set]'
 ```
 
-### Map
+#### Map
 
 Map是一种es6提供的新的数据类型, 一种键值对的数据结构, 相比于对象, 它其实也是键值对, 但是它的键不同于对象那种只能是字符串的键, 可以是各种类型
 
@@ -417,7 +445,7 @@ for (let value of it) {
 - Map在频繁增减键值对的场景下, 性能较好
 - Map中的数据是有序的, 而Object则是无序的
 
-#  Set
+####  Set
 
 Set类型也是es6提供的一种新的数据类型,它允许你存入任意类型的唯一值, 无论是基本数据类型还是引用类型, 但是, 尽管NaN !== NaN, Set仍然认为这是同一个数据
 
