@@ -220,7 +220,6 @@ console.log(arr, 'arr数据')
 ```
 
 :::danger
-
 axios源码中 `lib/core/interceptorManager.js` , 使用以下的方式删除数组中的元素:
 
 ```TypeScript
@@ -276,9 +275,6 @@ export const hasOwn = (
 ```
 
 :::danger
-
-注意: 
-
 - `is` 关键字：它被称为类型谓词，用来判断一个变量属于某个接口或类型，比如：
 
 ```TypeScript
@@ -337,63 +333,76 @@ export const isSet = (val: unknown): val is Set<any> => toTypeString(val) === '[
 
 #### Map
 
-Map是一种es6提供的新的数据类型, 一种键值对的数据结构, 相比于对象, 它其实也是键值对, 但是它的键不同于对象那种只能是字符串的键, 可以是各种类型
+Map 是一种 `es6` 提供的新的一种键值对数据结构的数据类型，相比于对象，它的键不同于对象那种只能是字符串的键，可以是各种类型。
+
+- 基础方法
+
+> `get` 获取元素， 
+> `set` 新增元素成员， 
+> `has` 是否包含某元素， 
+> `delete` 删除元素成员， 
+> `clear` 清空所有元素， 
+> `Array.from` 转为普通的二维数组
 
 ```TypeScript
-// 形式上, Map类型是二维数组
 // 1. 定义一个函数作为键
-let fn = function haha() { console.log('this is function') }
-let m = new Map([['jack', 100], [fn, '我是函数的值']])
+let fn = function func() { console.log('this is function') }
+let m = new Map([['jack', 100], [fn, '我是函数的值']]) // 形式上, Map类型是二维数组
 
 // 2. get方法获取元素
 let result = m.get(fn)
-console.log('haha -> result', result)
-// haha -> result 我是函数的值
+console.log('func -> result', result)
+// func -> result 我是函数的值
 
 // 3. 通过Array.from可以转为普通的二维数组
 let arr = Array.from(m)
-console.log('haha -> arr', arr)
-// haha -> arr [ [ 'jack', 100 ], [ [Function: haha], '我是函数的值' ] ]
+console.log('func -> arr', arr)
+// func -> arr [ [ 'jack', 100 ], [ [Function: func], '我是函数的值' ] ]
 
 // 4. set方法新增元素成员
-let obj = {name: 'jack'}
+let obj = { name: 'jack' }
 m.set(obj, '28岁了都')
 console.log('set新元素之后', m)
 // set新元素之后 Map {
 // 'jack' => 100,
-//  [Function: haha] => '我是函数的值',
+//  [Function: func] => '我是函数的值',
 //  { name: 'jack' } => '28岁了都' }
 
 // 5. has 判断是否包含某元素
 m.has(fn)
-console.log('haha -> m.has(fn)', m.has(fn)) // true
+console.log('func -> m.has(fn)', m.has(fn)) // true
 
 // 6. delete删除元素成员
 m.delete(obj)
 console.log('删除后的结果', Array.from(m))
-// 删除后的结果 [ [ 'jack', 100 ], [ [Function: haha], '我是函数的值' ] ]
+// 删除后的结果 [ [ 'jack', 100 ], [ [Function: func], '我是函数的值' ] ]
 
 // 7. clear清空所有元素
 m.clear()
 console.log('清空后的结果', m)
 ```
 
-遍历相关的方法主要有keys, entries, values, forEach
+- 遍历相关的方法
+
+> `keys` 返回包含映射中 **键** 的迭代器对象，`entries` 返回包含映射中的 **键值** 的迭代器对象，`values` 返回包含映射中的 **值** 的迭代器对象，`forEach`
 
 ```TypeScript
-let fn = function haha() { console.log('this is function') }
+let fn = function func() { console.log('this is function') }
 let m = new Map([['jack', 100], [fn, '我是函数的值']])
 m.forEach(item => {
   console.log('forEach -> item', item)
-  // forEach -> item 100
-  // forEach -> item 我是函数的值
 })
+/**
+ * forEach -> item 100
+ * forEach -> item 我是函数的值
+ */
+
 
 // 1. keys 方法, 返回包含映射中键的迭代器对象
 let it = m.keys()
-console.log('it', it) // it [Map Iterator] { 'jack', [Function: haha] }
+console.log('it', it) // it [Map Iterator] { 'jack', [Function: func] }
 console.log(it.next().value) // jack
-console.log(it.next().value) // [Function: haha]
+console.log(it.next().value) // [Function: func]
 console.log(it.next().value) // undefined
 // 或者
 for (let key of it) {
@@ -402,7 +411,7 @@ for (let key of it) {
 /**
  * 
   for...of... -> key jack
-  for...of... -> key function haha() {
+  for...of... -> key function func() {
     console.log('this is function');
   }
  */
@@ -410,7 +419,7 @@ for (let key of it) {
 // 2. entries 方法, 返回包含映射中的键值的迭代器对象
 let it = m.entries()
 console.log(it.next().value) // [ 'jack', 100 ]
-console.log(it.next().value) // [ [Function: haha], '我是函数的值' ]
+console.log(it.next().value) // [ [Function: func], '我是函数的值' ]
 console.log(it.next().value) // undefined
 // 或者
 for (let item of it) {
@@ -418,12 +427,11 @@ for (let item of it) {
 }
 /**
  * for...of... -> entries [ 'jack', 100 ]
- * for...of... -> entries [ [Function: haha], '我是函数的值' ]
+ * for...of... -> entries [ [Function: func], '我是函数的值' ]
  */
 
 // 3. values 方法, 返回包含映射中的值的迭代器对象
 let it = m.values()
-
 console.log(it.next().value) // 100
 console.log(it.next().value) // 我是函数的值
 console.log(it.next().value) // undefined
@@ -431,32 +439,40 @@ console.log(it.next().value) // undefined
 for (let value of it) {
 	console.log('for...of... -> value', value)
 }
-
 // /**
 //  * for...of... -> value 100
 //  * for...of... -> value 我是函数的值
 //  */
 ```
 
-综合, 我们可以得出Map和Object的区别:
 
-- Map的键可以是任意类型, Object只能是String或者Symbol
-- Map的可以通过size属性获取元素数量, Object则必须手动计算
-- Map在频繁增减键值对的场景下, 性能较好
-- Map中的数据是有序的, 而Object则是无序的
+::: theorem Map和Object的区别:
+- Map的键可以是`任意类型`, Object只能是 `String` 或者 `Symbol`
+- Map的可以通过`size`属性获取元素数量, Object则必须`手动计算`
+- Map在频繁`增减键值对`的场景下, `性能较好`
+- Map中的数据是`有序`的, 而Object则是`无序`的
+:::
 
 ####  Set
 
-Set类型也是es6提供的一种新的数据类型,它允许你存入任意类型的唯一值, 无论是基本数据类型还是引用类型, 但是, 尽管NaN !== NaN, Set仍然认为这是同一个数据
+Set类型是`es6`提供的一种新的数据类型，它允许你存入 `任意类型` 的 `唯一值` ，无论是 `基本数据类型` 还是 `引用类型` ，尽管NaN !== NaN，Set仍然认为这是同一个数据。
+
+- 基础方法
+
+> `add` 新增元素成员， 
+> `has` 是否包含某元素， 
+> `delete` 删除元素成员， 
+> `clear` 清空所有元素， 
+> `Array.from` 转为数组
 
 ```TypeScript
 // 1. NaN
 let set = new Set([NaN, NaN])
 // 尽管NaN !== NaN, 但是, 在Set中仍然被认为是相同的数据
-console.log('NaN === NaN', NaN === NaN)
-console.log('set', set)
+console.log('NaN === NaN', NaN === NaN) // false
+console.log('set', set) // Set {NaN}
 
-// 2.add方法
+// 2.add 方法
 let set = new Set()
 let person1 = {
   name: '大明'
@@ -464,10 +480,8 @@ let person1 = {
 let person2 = {
   name: '小明'
 }
-
 set.add(person1)
 set.add(person2)
-
 console.log('add的结果', set)
 // add的结果 Set { { name: '大明' }, { name: '小明' } }
 
@@ -489,55 +503,44 @@ set.clear()
 console.log('set clear -->', set) // set clear --> Set {}
 ```
 
-遍历相关的方法, 主要有keys, entries, values, forEach
+- 遍历相关的方法
+
+> 主要有`keys`，`entries`，`values`，`forEach`
 
 ```TypeScript
 // 1. keys方法
 let it = set.keys()
-// console.log(it.next().value) // { name: '大明' }
-// console.log(it.next().value) // { name: '小明' }
-// console.log(it.next().value) // undefined
-
+console.log(it.next().value) // { name: '大明' }
+console.log(it.next().value) // { name: '小明' }
+console.log(it.next().value) // undefined
 // 或者
-
 for (let key of it) {
   console.log('for...of... -> keys', key)
 }
-
 /**
  * for...of... -> keys { name: '大明' }
  * for...of... -> keys { name: '小明' }
  */
 
 // 2. entries 方法
-let it = set.entries()
-console.log(it.next().value) // { name: '大明' }
-console.log(it.next().value) // { name: '小明' }
-console.log(it.next().value) // undefined
-
-// 或者
-
+let it = set.entries() // SetIterator {{…} => {…}, {…} => {…}}
 for (let key of it) {
   console.log('for...of... -> entries', key)
 }
-
 /**
  * for...of... -> entries [ { name: '大明' }, { name: '大明' } ]
  * for...of... -> entries [ { name: '小明' }, { name: '小明' } ]
  */
 
 // 3. values
-let it = set.values()
+let it = set.values() // SetIterator {{…}, {…}}
 console.log(it.next().value) // { name: '大明' }
 console.log(it.next().value) // { name: '小明' }
 console.log(it.next().value) // undefined
-
 // 或者
-
 for (let key of it) {
   console.log('for...of... -> values', key)
 }
-
 /**
  * for...of... -> values { name: '大明' }
  * for...of... -> values { name: '小明' }
@@ -547,61 +550,52 @@ for (let key of it) {
 set.forEach(item => {
   console.log('item', item)
 })
-
 /**
  * item { name: '大明' }
  * item { name: '小明' }
  */
 ```
 
-### isDate
+### isDate 是否时间
 
-定义位置: shared/src/index.ts 第54行
+- 源码实现 <Badge text="有风险" type="error"/>
 
 ```TypeScript
 export const isDate = (val: unknown): val is Date => val instanceof Date
 ```
 
-这么做有一定的漏洞, 但一般还是可以判断
+这么做有一定的漏洞，但一般还是可以判断
 
 ```TypeScript
 const isDate = (val) => val instanceof Date
 let date = new Date()
-let result = isDate({__proto__: Date.prototype, length: 0})
+let result = isDate({ __proto__: Date.prototype, length: 0 })
 console.log('result', result) // result true
 ```
 
-### isFunction
+### isFunction 是否函数
 
-定义位置: shared/src/index.ts 第55行
-
-判断是否是函数类型还是较为简单的
+- 源码实现
 
 ```TypeScript
-export const isFunction = (val: unknown): val is Function =>
-  typeof val === 'function'
+export const isFunction = (val: unknown): val is Function => typeof val === 'function'
 ```
 
-### isObject
+### isObject 是否对象
 
-定义位置: shared/src/index.ts 第59行
+- 注意事项
 
-注意:
+> `typeof null === 'object'`，所以必须确保val不为null。
+>
+> `Record`是 `typescript` 中的一种工具类型，它的作用是限制一个对象的键值类型，其两个泛型参数就是一个限制键类型，一个限制值类型。
 
-typeof null === 'object', 所以必须确保val不为null.
-
-Record是typescript中的一种工具类型
-
-类型谓词, 此处不再解释
-
-所谓的工具类型, 其实可以理解为就是一种封装好了的方法, 就像我们日常开发时候所使用的util.js这类工具, 它无需引入, 可以直接使用, Record就是其中之一, 它的作用是限制一个对象的键值类型, 其两个泛型参数就是一个限制键类型, 一个限制值类型
+- 源码实现
 
 ```TypeScript
-export const isObject = (val: unknown): val is Record<any, any> =>
-  val !== null && typeof val === 'object'
+export const isObject = (val: unknown): val is Record<any, any> => val !== null && typeof val === 'object'
 ```
-Record等工具类型的源码, 我们可以在node_modules/typescript/lib/lib.es5.d.ts中找到, 也可以直接点击Record自动跳转过去
 
+:::danger
 ```TypeScript
 // 第1469行代码
 type Record<K extends keyof any, T> = {
@@ -637,58 +631,51 @@ const animalInfo: AnimalInfo = {
     age: 3
   }
 }
-
-console.log(animalInfo)
 ```
+:::
 
-### isPlainObject 方法
+### isPlainObject 是否纯粹对象
 
-定义位置: shared/src/index.ts 第75行
+该方法作用是，判断一个对象`是否是纯粹的对象`，前面一个isObject方法，`isObject([])是true`，`isObject({})也是true`，而此处的isPlainObject则仅限于真正的Object。
 
-该方法作用是, 判断一个对象是否是纯粹的对象, 前面一个isObject方法, isObject([])是true, isObject({})也是true, 而此处的isPlainObject则仅限于真正的Object
+- 源码实现
 
 ```TypeScript
-export const isPlainObject = (val: unknown): val is object =>
-  toTypeString(val) === '[object Object]'
+export const isPlainObject = (val: unknown): val is object => toTypeString(val) === '[object Object]'
 ```
 
-### isPromise 方法
+### isPromise 是否Promise
 
-定义位置: shared/src/index.ts 第62行
+判断是否是promise对象，这里要注意的是Promise的类型，typescript 中 `Promise<T>` 类型，接受一个`泛型参数T`，用以确定这个promise对象最终`resolve的值的类型`。
 
-判断是否是promise对象, 这里要注意的是Promise的类型, typescript 中 `Promise<T>` 类型, 接受一个泛型参数T, 用以确定这个promise对象最终resolve的值的类型
+- 源码实现
 
 ```TypeScript
-export const isPromise = <T = any>(val: unknown): val is Promise<T> => {
-  return isObject(val) && isFunction(val.then) && isFunction(val.catch)
-}
+export const isPromise = <T = any>(val: unknown): val is Promise<T> => isObject(val) && isFunction(val.then) && isFunction(val.catch)
 ```
 
-思考一个问题: 我们如何控制声明Promise返回值的类型?
+:::danger
+我们如何控制声明Promise返回值的类型:
 
-使用这里的泛型方式声明
+- 使用这里的泛型方式声明
 
 ```TypeScript
 let promiseString:Promise<string> = new Promise(resolve => resolve('123'))
 let promiseNumber:Promise<number> = new Promise(resolve => resolve('123'))
 ```
 
-单独声明resolve方法
+- 单独声明resolve方法
+
 ```TypeScript
-let promiseString = new Promise((resolve: (params: string) => void, reject) => {
-  resolve('123')
-})
+let promiseString = new Promise((resolve: (params: string) => void, reject) => resolve('123'))
 ```
+:::
 
-### isIntegerKey 方法
+### isIntegerKey 是否数字型的字符串
 
-定义位置: shared/src/index.ts 第78行
+主要是用于判断是否是数字型的字符串，形如: '123'，'888' 则为true，'123hello'则为false。
 
-主要是用于判断是否是数字型的字符串, 形如: '123', '888' 则为true, '123hello'则为false
-
-这里我们需要关注parseInt这个方法, 这个方法主要是将字符串转为数字, 例如: '123name' -> 123; '123name888' -> 123
-
-parseInt 的第一个参数大家都很熟悉, 就是要被转换的字符串, 但是第二个出现的概率可能相对偏低, 第二个表示的就是进制, 一般默认是10, 也就是十进制!那么既然默认是10? 此处为何还要多写一次? 这当然是为了保证在不同的环境下运行结果能保证一致!
+- 源码实现
 
 ```TypeScript
 export const isString = (val: unknown): val is string => typeof val === 'string'
@@ -697,42 +684,45 @@ export const isIntegerKey = (key: unknown) =>
   key !== 'NaN' &&
   key[0] !== '-' &&
   '' + parseInt(key, 10) === key
-isIntegerKey('888hello') // 888
+isIntegerKey('888hello') // false
 ```
 
-parseInt 第二个参数使用案例:
-
-第二个参数, 进制的表示
+:::danger
+parseInt 的第一个参数大家都很熟悉，就是要被转换的字符串，但是第二个出现的概率可能相对偏低，第二个表示的就是`进制`，一般`默认是10`，也就是十进制！
+这里指明进制数是为了保证在不同的环境下运行结果能保证一致！
 
 ```TypeScript
 // 以二进制的方式解析'010'
 const result = parseInt('010', 2)
 console.log('result', result) // 2
-// 我们都知道, 如果 '010'是二进制, 那么,转为10进制, 就是使用: 0*2^0 + 1*2^1 + 0*2^2 结果自然就
-// 是2,同理我们可以知道用三进制来解析:
+// 我们都知道，如果 '010'是二进制，那么，转为10进制，就是使用: 0*2^0 + 1*2^1 + 0*2^2 结果自然就是2，同理我们可以知道用三进制来解析：
 const result = parseInt('010', 3) // 结果自然就是3
 ```
 
-第二个参数的取值最大能达到多少呢?
+<Badge text="思考"/>
 
-我们知道, 十进制最大的数也就是9, 那么如果我要解析十进制以上的数字呢? 最常见的就是十六进制. 不错, 我们会用字母代替! 也就是a-z, 共26个字母, 那么我们大胆猜测下, 最大取值,是不是就是36?
+ 第二个参数的取值最大能达到多少？
+
+<Badge text="猜测" type="warning"/> 
+
+我们知道，十进制最大的数也就是9，那么如果我要解析十进制以上的数字呢？
+最常见的就是十六进制。不错，我们会用字母代替！也就是a-z，共26个字母，那么我们大胆猜测下，最大取值，是不是就是36？
 
 ```TypeScript
-// 继续用我们万年不变的老案例...:
 const result = parseInt('010', 36)
 console.log('result', result) // 36
 // 那再往上加一呢:
 const result = parseInt('010', 37)
 console.log('result', result) // NaN
 ```
-
 由此我们得知, parseInt最多只能取到36!
+:::
 
-### makeMap方法
+### makeMap 构造带逗号的字符串校验字符函数
 
-定义位置: shared/src/makeMap.ts 第8行
+该方法主要是接收一个`带逗号的字符串`，将该字符串以`逗号拆分`为一个个子字符串，再用这些子字符串作为一个对象的`键`，`值全部为true`；返回一个方法，这个方法可以检测出这个方法接收的参数是否是对象中的键。
 
-该方法主要是接受一个带逗号的字符串, 将该字符串以逗号拆分为一个个子字符串, 再用这些子字符串作为一个对象的键, 值全部为true; 返回一个方法, 这个方法可以检测出, 这个方法接受的参数是否是对象中的键!
+- 源码实现
 
 ```TypeScript
 export function makeMap(
@@ -748,11 +738,11 @@ export function makeMap(
 }
 ```
 
-类型上来看, 其实就是一个这样的方法:
+- 难点解析
 
-(params1:string, params2?:boolean) => (key: string) => boolean
+类型上来看，其实就是一个这样的方法：`(params1:string, params2?:boolean) => (key: string) => boolean`，其返回了一个检测函数，该检测函数接受一个字符串，返回是该字符串是否存在！
 
-其返回了一个检测函数,该检测函数接受一个字符串, 返回是该字符串是否存在!
+- 使用案例
 
 ```TypeScript
 const fn = makeMap('dog,cat,bird')
@@ -762,43 +752,36 @@ const result2 = fn('dog')
 console.log(result2) // true, 存在dog
 ```
 
-好了, 通过以上讲解,我们大体上知道了这个函数的作用, 现在我们来看看需要注意的点:
+:::danger
+<Badge text="思考"/> 
 
-工具类型`Record<string, boolean>`, 表示该对象键全部是string, 值全是boolean, 这里前面已经讲过了.
+创建对象为何要用 `Object.create(null)` 而不是直接使用 `const map = {}` 
 
-创建对象为何要用Object.create(null) ? 而不是直接使用 const map = {} ?
+<Badge text="解答" type="warning"/>
 
-语法: `Object.create(proto, [propertiesObject])`, 返回一个新的对象
+`Object.create(proto, [propertiesObject])`，返回一个新的对象。第一个参数`proto`，将会被挂在到`新对象的原型对象`上。
+第二个参数`propertiesObject`，对应了`Object.defineProperties`的第二个参数，也就是所谓的属性描述符:
 
-第一个参数proto, 将会被挂在到新对象的原型对象上.
-
-第二个参数propertiesObject, 对应了Object.defineProperties的第二个参数, 也就是所谓的属性描述符:
-
-- value, 属性的值
-- writable, 是否可以写, 默认为true
-- enumerable, 属性是否可枚举, 所谓可枚举, 就是能够被以下方法访问到
-- for...in,能将该属性遍历出来
-- Object.keys, 能将该属性包含在返回的数组中
-- JSON.stringify, 能够将其变为JSON字符串的一部分!
-- configurable, 默认true,如果为false, 则属性无法被改变, 无法被删除, 无法修改属性描述符
+- value 属性的值
+- writable 是否可以写，默认为true
+- enumerable  属性是否可枚举, 所谓可枚举，就是能够被以下方法访问到
+- for...in 能将该属性遍历出来
+- Object.keys 能将该属性包含在返回的数组中
+- JSON.stringify 能够将其变为JSON字符串的一部分
+- configurable 默认true，如果为false，则属性无法被改变，无法被删除，无法修改属性描述符
 - set 存值函数
 - get 取值函数
 
-我们来对比下, 使用Object.create(null)和{}的区别
 
-我们可以看到, Object.create(null), 创建的对象, 更为‘纯粹’, 这样, 当方法执行到`map[val.toLowerCase()]`时, 不会受到__proto__的影响.
-
-!!, 双感叹号, 将数据转为boolean类型
-
+我们可以看到，`Object.create(null)`创建的对象更为纯粹，当方法执行到`map[val.toLowerCase()]`时，不会受到`__proto__`的影响。
+:::
 
 ### cacheStringFunction方法
 
-定义位置: shared/src/index.ts 第92行
+返回的这个函数呢，接受一个字符串参数，如果我们第一次传入了一个参数，计算结果就会被闭包缓存起来，下次再遇到相同的时候，就不会再走fn方法重新计算了。
+这个函数本质上也是一个单例模式，利用闭包，保存了之前的计算结果。
 
-这个函数的大概作用,相信大家一看就明白了, 参数是一个函数, 返回值也是一个函数;
-
-返回的这个函数呢, 接受一个字符串参数, 如果我们第一次传入了一个参数, 计算结果就会被闭包缓存起来,下次再遇到相同的时候, 就不会再走fn方法重新计算了.这个函数本质上也是一个单例模式, 利用闭包, 保存了之前的计算结果.
-
+- 源码实现
 
 ```TypeScript
 const cacheStringFunction = <T extends (str: string) => string>(fn: T): T => {
@@ -810,16 +793,13 @@ const cacheStringFunction = <T extends (str: string) => string>(fn: T): T => {
 }
 ```
 
-使用案例:
-
-可以看到, hello被传入了两次, 但是函数实际执行运算, 只执行了一次, 然后值就被缓存起来了
+- 使用案例
 
 ```TypeScript
 let fn1 = cacheStringFunction((key) => {
   console.log('通过了计算得到', key + 'world')
   return key + 'world'
 })
-
 console.log(fn1('hello'))
 console.log(fn1('hello'))
 console.log(fn1('goodbye'))
@@ -833,9 +813,14 @@ console.log(fn1('goodbye'))
  */
 ```
 
-说完了函数的基本功能, 我们来说个需要关注的点, 那就是为何返回的函数要被as any? 去掉会如何?
+:::danger
+<Badge text="思考"/>
 
-果不其然,报错了, 那么这个错误什么意思呢, 其实也很容易理解,我个人理解就是: (str:string) => string 是符合T的类型要求, 但是, T也可以是另一种形式的子类,也就无法保证和参数的类型完全一致. 举个例子, 假如以下函数不报错:
+为何返回的函数要被`as any`？去掉会如何？
+
+<Badge text="猜测" type="warning"/> 
+
+`(str:string) => string` 是符合 `T` 的类型要求，但是，T也可以是另一种形式的子类，也就无法保证和参数的类型完全一致。举个例子，假如以下函数不报错：
 
 ```TypeScript
 let testGenerics = <T extends {length: number}>(params: T, minNum: number): T =>{
@@ -854,6 +839,8 @@ let data = testGenerics([1,2,3], 8)
 // 此时的data,讲道理应该是Array类型
 data.slice(0,1) // 直接报错, 因为根本就不是数组!
 ```
+:::
+
 
 ### camelize方法
 
