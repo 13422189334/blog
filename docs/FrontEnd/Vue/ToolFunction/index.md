@@ -776,10 +776,10 @@ console.log(result2) // true, 存在dog
 我们可以看到，`Object.create(null)`创建的对象更为纯粹，当方法执行到`map[val.toLowerCase()]`时，不会受到`__proto__`的影响。
 :::
 
-### cacheStringFunction方法
+### cacheStringFunction 缓存结果函数
 
-返回的这个函数呢，接受一个字符串参数，如果我们第一次传入了一个参数，计算结果就会被闭包缓存起来，下次再遇到相同的时候，就不会再走fn方法重新计算了。
-这个函数本质上也是一个单例模式，利用闭包，保存了之前的计算结果。
+函数`返回一个函数`，这个函数接收`一个字符串`参数，如果第一次传入了一个参数，计算结果就会被`闭包``缓存`起来，下次再遇到相同参数的时候，就不会再走`fn方法重新计算`了。
+本质上是一个`单例模式`，利用闭包，保存了之前的计算结果。
 
 - 源码实现
 
@@ -820,14 +820,14 @@ console.log(fn1('goodbye'))
 
 <Badge text="猜测" type="warning"/> 
 
-`(str:string) => string` 是符合 `T` 的类型要求，但是，T也可以是另一种形式的子类，也就无法保证和参数的类型完全一致。举个例子，假如以下函数不报错：
+`(str:string) => string` 是符合 `T` 的类型要求，但是，`T`也可以是另一种形式的`子类`，也就无法保证和参数的类型完全一致。举个例子，假如以下函数不报错：
 
 ```TypeScript
-let testGenerics = <T extends {length: number}>(params: T, minNum: number): T =>{
+let testGenerics = <T extends { length: number }>(params: T, minNum: number): T =>{
   if (params.length >= minNum) {
     return params
-  }else {
-    return {length: minNum}
+  } else {
+    return { length: minNum } as T
   }
 }
 ```
@@ -842,88 +842,88 @@ data.slice(0,1) // 直接报错, 因为根本就不是数组!
 :::
 
 
-### camelize方法
+### camelize 驼峰转化
 
-定义位置: shared/src/index.ts 第104行
-
-这个函数的作用也非常好理解, 就是将连字符转为驼峰写法.
-
-这里我们要注意下replace第二个参数的用法.
+- 源码实现
 
 ```TypeScript
 const camelizeRE = /-(\w)/g
-/**
- * @private
- */
 export const camelize = cacheStringFunction((str: string): string => {
   return str.replace(camelizeRE, (_, c) => (c ? c.toUpperCase() : ''))
 })
-// 使用案例
+```
+
+- 使用案例
+
+```TypeScript
 let str = 'on-handle-click'
 const result = camelize(str)
 console.log('result', result) // result onHandleClick
 ```
 
-关于replace的使用:
+:::danger
+关于replace的使用: `replace(regexp|substr, newSubStr|function)`
 
-replace的第一个参数非常好理解, 要么是字符串, 要么是正则, 总之就是需要被替换的字符串的文本模式,一个参考物.
+> 第一个参数既可以是`字符串`，也可以是`正则`，总之就是需要`被替换的字符串的文本模式`。
+>
+> 第二个参数，它既可以是用于`替换掉`第一个参数在原字符串中的匹配部分的`字符串`（该字符串中可以内插一些`特殊的变量名`），也可以是一个用来创建新子字符串的`函数`，该函数的返回值将替换掉第一个参数匹配到的结果。
 
-我们要说的是第二个参数, 它可以有以下几种情况
+- 正则替换表达式
 
-字符串, 最为常见, 这里就不展开了
-
-正则替换表达式
-
-- $&, 用于无分组的情况
+> $& 用于无分组的情况
 
 ```TypeScript
 let str = '史记真是史家之绝唱,无韵之离骚'
-let result = str.replace('史记', '《$&》') // 这里的$&就是‘史记’二字, 也就是用《史记》代替史记
+let result = str.replace('史记', '《$&》') // 这里的$&就是`史记`二字, 也就是用《史记》代替史记
 console.log(result) // 《史记》真是史家之绝唱,无韵之离骚
 ```
 
-- . $`, 匹配到的数据的左边字符串
+> $` 匹配到的数据的左边字符串
 
 ```TypeScript
 let str = '研究一下replace该怎么用'
-
-let result = str.replace('replace', ',$`前端技术') // 这里的$`代表‘研究一下’, 
-// 也就是用‘,研究一下前端技术’代替'replace'
+let result = str.replace('replace', ',$`前端技术') // 这里的 $` === 研究一下，也就是用 ',研究一下前端技术' 代替 'replace' 
 console.log(result) // 研究一下,研究一下前端技术该怎么用
 ```
 
-- .$' , 和 $`相反, 代表匹配到的数据的右边字符串
+> $' 和 $` 相反，代表匹配到的数据的右边字符串
 
 ```TypeScript
 let str = '研究一下replace该怎么用'
-
-let result = str.replace('replace', ",vue3$',")
-// 此处的$'就是replace右边的字符串, 也就是'该怎么用', 连起来就是
-// 用“,vue3该怎么用,”代替“replace”
+let result = str.replace('replace', ",vue3$',") // 此处的 $' === 该怎么用，也就是用 ',vue3该怎么用,' 代替 'replace'
 console.log(result) // 研究一下,vue3该怎么用,该怎么用
 ```
 
-- . $1,$2,$3,.....$n, 表示第几个分组
-
+> $1,$2,$3,.....$n，表示第几个分组
 ```TypeScript
 let str = '西瓜,番薯,大番薯,咸鱼,萝卜,苹果'
 let result = str.replace(/(西瓜)(.*)(苹果)/, "$1(水果)$2$3(水果)")
-// 此处的$1代表'西瓜',$2代表',番薯,大番薯,咸鱼,萝卜,',$3代表'苹果'
+/**
+ * $1 === 西瓜
+ * $2 === ,番薯,大番薯,咸鱼,萝卜,
+ * $3 === 苹果
+ */
 console.log('result', result) // 西瓜(水果),番薯,大番薯,咸鱼,萝卜,苹果(水果)
-函数, 这里就是本案例的重点了
-有分组的情况
+```
+
+- 函数
+
+```TypeScript
 let str = '今年是2022年,时间好快'
 let result = str.replace(/(今年).+?(时间).*/g, function () {
   console.log(arguments)
-  // {'0': '今年是2022年,时间好快', 代表匹配到的字符串
-  // '1': '今年', 分组1
-  // '2': '时间', 分组2
-  // '3': 0, 匹配到字符串开始的位置, 此处为0
-  // '4': '今年是2022年,时间好快' } 原始字符串
+  /**
+   * 0: "今年是2022年,时间好快"
+   * 1: "今年"
+   * 2: "时间"
+   * 3: 0
+   * 4: "今年是2022年,时间好快"
+   */
 })
 ```
 
-我们可以得出结论,那就是有分组的情况下, 第二个参数开始就是依次展示每次分组匹配到的内容, 所以, 我们回到源码中, 此处的c, 实际上就是前面说的每次匹配到的第一个分组, 本案例中依次为: h, c两个, 然后将其改为大写, 直接return , 就能将 -x 替换为X,从而实现我们的目标.
+可以得出结论，那就是`有分组`的情况下，第二个参数开始就是`依次展示`每次分组`匹配到的内容`。
+所以，我们回到源码中，此处的`c`，实际上就是前面说的每次匹配到的`第一个分组`，本案例中依次为：h, c两个，然后将其改为大写，直接return，就能将`-x`替换为`X`，从而实现我们的目标。
 
 ```TypeScript
 let str = 'on-handle-click'
@@ -934,37 +934,33 @@ let result = str.replace(/-(\w)/g, function () {
   return str.replace(camelizeRE, (_, c) => (c ? c.toUpperCase() : ''))
 })
 ```
+:::
 
-### hasChanged
+### hasChanged 比较变量相同
 
-定义位置: shared/src/index.ts 第130行
-
-从字面意思就可以看出来, 这个方法的主要作用就是, 比较两个值是否不同!
-
-Object.is(value1, value2);
-
-参数: value1和value2为需要比较的两个变量
-
-返回值: Boolean
+- 源码实现
 
 ```TypeScript
 // compare whether a value has changed, accounting for NaN.
-export const hasChanged = (value: any, oldValue: any): boolean =>
-  !Object.is(value, oldValue)
+export const hasChanged = (value: any, oldValue: any): boolean => !Object.is(value, oldValue)
 ```
 
-可能有人感到疑问, 两个值是否不同还需要封装?多此一举吧, 我直接 a !== b 不就行了? 我们来看几个例子:
+::: danger
+可能有人感到疑问，两个值是否不同还需要封装？多此一举，我直接 `a !== b` 不就行了？我们来看几个例子：
 
 ```TypeScript
 // +0 和 -0问题
 console.log(+0 === -0) // true
-Object.is(+0, -1) // false
+Object.is(+0, -0) // false
 
 // NaN 问题
 console.log(NaN === NaN) // false
 Object.is(NaN, NaN) // true
-由此可以看出, Object.is可以弥补 正负0 和 NaN比较上存在的问题. MDN网站上还提供了一个polyfill:
+```
 
+由此可以看出，`Object.is`可以弥补 `正负0` 和 `NaN` 比较上存在的问题。MDN网站上还提供了一个`polyfill`：
+
+```TypeScript
 Object.is = function () {
 	 // 如果两个值不同(有可能是正负0)
   if (x === y) {
@@ -983,14 +979,13 @@ console.log('+0 === -0 -->', Object.is(+0, -0))
 // NaN === NaN --> true ⠼ : timing npm:load:cleanupLog Completed in 2ms
 // +0 === -0 --> false
 ```
+:::
 
-### def 方法
+### def 添加不可枚举属性
 
-定义位置: shared/src/index.ts 第140行
+就是给对象`obj`，加上一个`可以删除`，其属性描述符`可以改变`，且`不可枚举的属性key`，其值为`value`。
 
-代码同样很简单, 就是给对象obj, 加上一个可以被删除,其属性描述符可以被改变, 且不可枚举的属性key, 其值为value.
-
-关于属性描述符, makeMap方法中已经提到了,这里不再展开
+- 源码实现
 
 ```TypeScript
 export const def = (obj: object, key: string | symbol, value: any) => {
@@ -1002,14 +997,13 @@ export const def = (obj: object, key: string | symbol, value: any) => {
 }
 ```
 
-方法使用案例:
+- 使用案例
 
 ```TypeScript
 let person = {
   name: 'human',
   age: 100
 }
-
 def(person, 'gender', 'male')
 console.log('person --> ', person) 
 /**
@@ -1019,7 +1013,7 @@ console.log('person --> ', person)
 console.log('gender --> ', person.gender) // male
 ```
 
-测试可枚举性, 按照我们之前说的for...in, Object.keys, JSON.stringify三种方法
+测试可枚举性，按照我们之前说的`for...in`，`Object.keys`，`JSON.stringify`三种方法
 
 ```TypeScript
 // for...in
@@ -1040,24 +1034,17 @@ console.log('Object.keys(person)', Object.keys(person))
 // [ 'name', 'age' ]
 ```
 
-关于属性描述符的知识点, 还需要补充一下, 那就是 属性描述符可以细分为数据描述符和存取描述符. 注意, configurable 和 enumerable既是数据描述符又是存取描述符. 除了这两个属性之外, 其他不同的描述符不得共用!
+:::danger 
+属性描述符可以细分为`数据描述符`和`存取描述符`。注意，configurable 和 enumerable既是数据描述符又是存取描述符。除了这两个属性之外，其他不同的描述符不得共用！
 
-数据描述符
+数据描述符：`writable` 只有writable为true的时候，该属性才能被改变值。 `value` 属性的值
 
-- writable , 只有writable为true的时候, 该属性才能被改变值
-- value, 属性的值
+存取描述符： `get`，`set`
+:::
 
-存取描述符
-- get
-- set
+### toNumber 尝试转换数字
 
-### toNumber 方法
-
-定义位置: shared/src/index.ts 第148行
-
-该方法的意图是: 如果一个值无法被转为数字, 则原样返回!
-
-我们这里需要关注的点是, isNaN这个方法
+- 源码实现
 
 ```TypeScript
 export const toNumber = (val: any): any => {
@@ -1066,6 +1053,7 @@ export const toNumber = (val: any): any => {
 }
 ```
 
+:::danger 
 isNaN一看字面意思就知道: 判断一个值是否为NaN. 但他有一些怪异行为, 例如:
 
 ```TypeScript
@@ -1082,4 +1070,5 @@ Number.isNaN('undefined') // false
 Number.isNaN('haha') // false
 ```
 
-所以, 一定要注意了, isNaN和Number.isNaN不是一回事!
+所以, 一定要注意了, `isNaN`和`Number.isNaN`不是一回事!
+:::
