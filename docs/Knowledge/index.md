@@ -8,7 +8,7 @@
 title: 
 lang: zh-CN
 date: 2022-05-17 14:46:27
-permalink: /FrontEnd
+permalink: /Knowledge/
 sidebar: true # 不显示侧边栏
 article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
 comment: true # 不显示评论栏
@@ -111,16 +111,33 @@ tags:
        typeTitle: '后端知识库',
        arrData: [
          {
-           title: '后端规范',
-           arr: [{ url: '/Standard/FrontEnd/', name: 'HTML规范指南' }]
+           title: 'JDK8相关',
+           subTitle: '包括JDK8使用、新特性等',
+           arr: [{ url: '/JDK8/Lambda/', name: 'Lambda表达式' }],
+           arr: [{ url: '/JDK8/Stream/', name: 'Stream流' }],
          },
          {
-           title: 'JavaScript相关',
+           title: '后端工具类',
            arr: [
-             { url: '/JavaScript/ES6/', name: 'ES6 / ECMAScript 2015' },
-             { url: '/JavaScript/RESTful/', name: 'RESTful Api' },
-             { url: '/JavaScript/EventLoop/', name: 'JavaScript 执行机制' },
-             { url: '/JavaScript/Question/', name: '待整理问题' }
+             { url: '/Java/Utils/Url', name: 'URL参数解析' },
+             { url: '/Java/Utils/Ip', name: 'IP解析' },
+             { url: '/Java/Utils/RmbUpper', name: '人民币大写' },
+             { url: '/Java/Utils/IdCard', name: '身份证校验' },
+             { url: '/Java/Utils/HandleImage', name: '图片处理' },
+             { url: '/Java/Utils/TransformImage', name: '图片转换' },
+             { url: '/Java/Utils/Excel', name: 'Excel' },
+             { url: '/Java/Utils/ObjectConvert', name: '对象转换' },
+             { url: '/Java/Utils/XmlToObject', name: 'XML转对象' },
+             { url: '/Java/Utils/PojoXmlJavaBean', name: 'POJO XML JavaBean' },
+             { url: '/Java/Utils/Hump', name: '驼峰转换' },
+             { url: '/Java/Utils/String', name: '字符串' },
+             { url: '/Java/Utils/Date', name: '时间' },
+             { url: '/Java/Utils/AES', name: 'AES加解密' },
+             { url: '/Java/Utils/RSA', name: 'RSA加解密' },
+             { url: '/Java/Utils/Sftp', name: 'Sftp' },
+             { url: '/Java/Utils/File', name: '文件上传下载' },
+             { url: '/Java/Utils/Redis', name: 'Redis' },
+             { url: '/Java/Utils/SMS', name: 'SMS' }
            ]
          }
        ]
@@ -149,7 +166,7 @@ data:
     desc: svg css绘制打钩动画
     author: JSH
     avatar: /bingbing.jpg
-    img: ./CssComponent/images/checked.jpg
+    img: ./FrontEnd/CssComponent/images/checked.jpg
     link: /CssComponent/Checked/
     bgColor: '#CBEAFA' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
@@ -157,7 +174,7 @@ data:
     desc: 蓝紫色风格登录框
     author: JSH
     avatar: /bingbing.jpg
-    img: ./CssComponent/images/login.jpg
+    img: ./FrontEnd/CssComponent/images/login.jpg
     link: /CssComponent/login/
     bgColor: '#C2FF2E' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
@@ -165,7 +182,7 @@ data:
     desc: checkbox实现百叶窗
     author: JSH
     avatar: /bingbing.jpg
-    img: ./CssComponent/images/shutters.jpg
+    img: ./FrontEnd/CssComponent/images/shutters.jpg
     link: /CssComponent/shutters/
     bgColor: '#FF6BC9' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)
@@ -173,7 +190,7 @@ data:
     desc: 渐变色实现流光按钮
     author: JSH
     avatar: /bingbing.jpg
-    img: ./CssComponent/images/streamerButton.jpg
+    img: ./FrontEnd/CssComponent/images/streamerButton.jpg
     link: /CssComponent/streamerButton/
     bgColor: '#43F7FF' # 背景色，可选，默认var(--bodyBg)。颜色值有#号时请添加引号
     textColor: '#6854A1' # 文本色，可选，默认var(--textColor)

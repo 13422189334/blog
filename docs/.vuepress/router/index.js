@@ -1,7 +1,6 @@
 const nav  = [
   { text: '首页', link: '/' },
-  { text: '前端知识库', link: '/FrontEnd/' },
-  { text: '后端知识库', link: '/BackEnd/' },
+  { text: '知识库', link: '/Knowledge/' },
   { text: '设计模式', link: '/DesignPattern/' },
   { text: '常用算法', link: '/Algorithm/Dichotomy/' },
   { text: 'Git', link: '/Git/' },

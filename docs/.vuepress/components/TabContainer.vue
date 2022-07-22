@@ -24,16 +24,24 @@
             v-for="(arrData, aIndex) in rightData"
             :key="aIndex"
           >
-            <div class="tab-container-content-item-title">{{ arrData.title }}</div>
-            <div class="tab-container-content-item-sub">{{ arrData.subTitle }}</div>
-            <div>
-              <a v-for="i in arrData.arr" :key="i.url" :href="i.url"> {{ i.name }}</a>
+            <div class="tab-container-content-item-title" :title-index="`${aIndex + 1} - `">
+              {{ arrData.title + (arrData.arr.length ? `(${arrData.arr.length})`: '') }}
+              <el-popover
+                placement="bottom"
+                width="250"
+                trigger="click"
+              >
+                  <li v-for="i in arrData.arr" :key="i.url">
+                  <router-link :to="i.url">{{ i.name }}</router-link>
+                  </li>
+                <a slot="reference" class="tab-container-content-item-title-handler">查看详情> </a>
+              </el-popover>
             </div>
+            <div class="tab-container-content-item-sub">{{ arrData.subTitle }}</div>
           </div>
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -66,7 +74,7 @@
         const arrData = data[handlerTabIndex].arrData
         // data 移除左边的 就是右边的
         const set = new Set(arrData)
-        set.delete(leftData)
+        // set.delete(leftData)
         return Array.from(set)
       }
     },
@@ -129,14 +137,10 @@
 /* 分类项 ----------------------------  结束 */
 
 .tab-container-content {
-  /* height: 440px; */
   background: linear-gradient(0deg,#f7f8fa,#f7f8fa);
 }
 
 .tab-container-content-list {
-  /* padding: 60px 26px; */
-  /* margin: 0 auto; */
-  /* display: inline-flexbox; */
   overflow-y: hidden;
   overflow-x: auto;
 }
@@ -147,21 +151,17 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
-  /* margin-right: 26px; */
-  /* padding: 0 26px; */
   height: 320px;
-  /* border: 1px red solid; */
-  /* margin-top: -16px; */
 }
 
 .tab-container-content-item {
-  width: 300px;
+  width: 280px;
   height: 152px;
   background: #ffffff;
   border-radius: 2px;
   box-shadow: 0 2px 6px rgb(0 0 0 / 4%);
   padding-left: 48px;
-  margin: 0 24px 0 2px;
+  margin-right: 26px;
 }
 
 .tab-container-content-item:hover {
@@ -174,6 +174,28 @@
   line-height: 24px;
   padding-top: 24px;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 236px;
+  justify-content: space-between;
+}
+
+.tab-container-content-item-title:before {
+  content: attr(title-index);
+  position: absolute;
+  /* z-index: 3;
+  /* top: .3rem; */
+  left: -1.5rem;
+  /* font-size: 1.15em; */
+  /* color: rgba(238, 255, 255, 0.8); */
+  /* text-transform: uppercase; */
+  /* font-weight: bold; */
+  width: fit-content; 
+}
+
+.tab-container-content-item-title-handler {
+  font-size: 14px;
+  color: rgba(0,0,0,.45);
 }
 
 .tab-container-content-item-sub {
