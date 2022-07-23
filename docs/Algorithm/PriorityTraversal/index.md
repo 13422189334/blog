@@ -22,7 +22,7 @@ tags:
 
 深度优先遍历的关键就在于如何找到已经探索过节点的上一个节点，也就是如何回溯。
 
-![priorityTraversal](/images/priorityTraversal.jpg)
+![pt_000](/assets/algorithm/priorityTraversal/pt_000.jpg)
 
 <!-- more -->
 
@@ -31,11 +31,11 @@ tags:
 - 此时 3 以及下面的节点遍历完后，回到根节点 1，继续遍历 4，8
 - 完整的遍历顺序图如下：
 
-<img src="./images/pt_001.jpg" />
+<img src="~@assets/algorithm/priorityTraversal/pt_001.jpg" />
 
 另一个利用栈的动图描述：
 
-<img src="./images/pt_002.gif" />
+<img src="~@assets/algorithm/priorityTraversal/pt_002.gif" />
 
 :::danger
 递归实现
@@ -90,13 +90,13 @@ public static void dfs(TreeNode root) {
 
 广度优先遍历（Breath First Search，简称 BFS）一层一层遍历，每一层得到的所有新节点，要用队列存储起来以备下一层遍历的时候再遍历。
 
-<img src="./images/pt_003.gif" />
+<img src="~@assets/algorithm/priorityTraversal/pt_003.gif" />
 
 可以看出，遍历的顺序先是 2，3，4，接着是 5，6，7，8，最后是 9，10。属于一层一层遍历。
 
 另一个利用队列的动图描述：
 
-<img src="./images/pt_004.gif" />
+<img src="~@assets/algorithm/priorityTraversal/pt_004.gif" />
 
 深度优先遍历用的是栈，而广度优先遍历要用队列来实现。
 

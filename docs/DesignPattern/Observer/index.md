@@ -154,4 +154,4 @@ function off(eventName, fn) {
 
 - 最后的结果是：
 
-<img src="./images/001.jpg">
+<img src="~@assets/designPattern/observer/001.jpg">
