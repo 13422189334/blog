@@ -58,8 +58,6 @@ tags:
 ```
 
 
-
-
 整体将会从上边5个方面来分析`Webpack`打包流程:
 
  1. 初始化参数阶段
@@ -90,7 +88,7 @@ tags:
 
 让我们来创建这样一个目录:
 
-![fileDirectory](./images/fileDirectory.jpg)
+![fileDirectory](~@assets/knowledge/frontEnd/webpack/fileDirectory.jpg)
 
 ## 初始化参数阶段
 

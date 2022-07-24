@@ -19,7 +19,7 @@ tags:
 
 **qiankun（乾坤）** 就是一款由蚂蚁金服推出的比较成熟的微前端框架，基于 **single-spa** 进行二次开发，用于将Web应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。
 
-![microInfo](/images/microInfo.png)
+![microInfo](/assets/knowledge/frontEnd/micro/qianKun/microInfo.png)
 
 那么，话不多说，我们的源码解析正式开始。
 
@@ -31,7 +31,7 @@ tags:
 
 ## start(opts)
 
-<img src="./images/start.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/start.png">
 
 第 196 行：设置 **window** 的 **__POWERED_BY_QIANKUN__** 属性为 true，在子应用中使用 **window.__POWERED_BY_QIANKUN__** 值判断是否运行在主应用容器中。
 
@@ -51,7 +51,7 @@ tags:
 
 **registerMicroApps** 函数的作用是注册子应用，并且在子应用激活时，创建运行沙箱，在不同阶段调用不同的生命周期钩子函数。
 
-<img src="./images/registerMicroApps.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/registerMicroApps.png">
 
 从上面可以看出，在 第 70~71 行 **registerMicroApps** 函数做了个处理，防止重复注册相同的子应用。
 
@@ -70,7 +70,7 @@ tags:
 
 如果你还是觉得有点懵，没关系，我们通过一张图来帮助理解。
 
-<img src="./images/flow.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/flow.png">
 
 ## import-html-entry
 
@@ -80,11 +80,11 @@ tags:
 
 那我们假设此时我们的子应用已激活，我们来看看这里做了什么。
 
-<img src="./images/importHtmlEntry.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/importHtmlEntry.png">
 
 从上图可以看出，在子应用激活后，首先在 第 81~84 行 处使用了 import-html-entry 库从 entry 进入加载子应用，加载完成后将返回一个对象
 
-<img src="./images/entry.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/entry.png">
 
 | 字段                       | 解释                                       |
 | :----------------------- | :--------------------------------------- |
@@ -96,7 +96,7 @@ tags:
 
 我们先将 **template 模板**、**getExternalScripts** 和 **getExternalStyleSheets** 函数的执行结果打印出来，效果如下:
 
-<img src="./images/entryDetail.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/entryDetail.png">
 
 从上图我们可以看到我们外部引入的三个 **js** 脚本文件，这个模板文件没有外部 **css** 样式表，对应的样式表数组也为空。
 
@@ -104,10 +104,10 @@ tags:
 
 在微前端架构中，这个对象一般会包含一些子应用的生命周期钩子函数，主应用可以通过在特定阶段调用这些生命周期钩子函数，进行挂载和销毁子应用的操作。
 
-<img src="./images/execScripts.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/execScripts.png">
 
 
-<img src="./images/proxyLastOptions.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/proxyLastOptions.png">
 
 在 qiankun 的 **importEntry** 函数中还传入了配置项 **getTemplate**，这个其实是对 html 目标文件的二次处理，这里就不作展开了，有兴趣的可以自行去了解一下。
 
@@ -115,13 +115,13 @@ tags:
 
 我们回到 qiankun 源码部分继续看
 
-<img src="./images/render.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/render.png">
 
 从上图看出，在 第 85~87 行 处，先对单实例进行检测。在单实例模式下，新的子应用挂载行为会在旧的子应用卸载之后才开始。
 
 在 第 88 行 中，执行注册子应用时传入的 render 函数，将 HTML Template 和 loading 作为入参，render 函数的内容一般是将 HTML 挂载在指定容器中（见下图）。
 
-<img src="./images/mountedApp.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/mountedApp.png">
 
 在这个阶段，主应用已经将子应用基础的 HTML 结构挂载在了主应用的某个容器内，接下来还需要执行子应用对应的 mount 方法（如 Vue.$mount）对子应用状态进行挂载。
 
@@ -131,13 +131,13 @@ tags:
 
 我们回到 qiankun 源码部分继续看，此时还是子应用激活时的回调函数部分（见下图）
 
-<img src="./images/genSandbox.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/genSandbox.png">
 
 在 第 90~98 行 是 qiankun 比较核心的部分，也是几个子应用之间状态独立的关键，那就是 js 的沙箱运行环境。如果关闭了 useJsSandbox 选项，那么所有子应用的沙箱环境都是 window，就很容易对全局状态产生污染。
 
 我们进入到 genSandbox 内部，看看 qiankun 是如何创建的 （JS）沙箱运行环境。（见下图）
 
-<img src="./images/genSandboxDetail.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/genSandboxDetail.png">
 
 从上图可以看出 genSandbox 内部的沙箱主要是通过是否支持 window.Proxy 分为 LegacySandbox 和 SnapshotSandbox 两种。
 
@@ -149,7 +149,7 @@ tags:
 
 我们先来看看 LegacySandbox 沙箱是怎么进行状态隔离的（见下图）
 
-<img src="./images/legacySandbox.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/legacySandbox.png">
 
 我们来分析一下 LegacySandbox 类的几个属性：
 
@@ -167,7 +167,7 @@ tags:
 
 我们现在从 window.Proxy 的 set 和 get 属性来详细讲解 LegacySandbox 是如何实现沙箱运行环境的。（见下图）
 
-<img src="./images/genSandboxProxy.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/genSandboxProxy.png">
 
 > 注意：子应用沙箱中的 proxy 对象（第 62 行）可以简单理解为子应用的 window 全局对象（代码如下），子应用对全局属性的操作就是对该 proxy 对象属性的操作，带着这份理解继续往下看吧。
 
@@ -190,7 +190,7 @@ eval(
 
 LegacySandbox 的沙箱隔离是通过激活沙箱时还原子应用状态，卸载时还原主应用状态（子应用挂载前的全局状态）实现的，具体实现如下（见下图）。
 
-<img src="./images/legacySandboxActive.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/legacySandboxActive.png">
 
 从上图可以看出：
 
@@ -200,13 +200,13 @@ LegacySandbox 的沙箱隔离是通过激活沙箱时还原子应用状态，卸
 
 从上面的分析可以得知，LegacySandbox 的沙箱隔离机制利用快照模式实现，我们画一张图来帮助理解（见下图）
 
-<img src="./images/legacySandboxFlow.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/legacySandboxFlow.png">
 
 ### 多实例沙箱 - ProxySandbox
 
 ProxySandbox 是一种新的沙箱模式，目前用于多实例模式的状态隔离。在稳定后以后可能会成为 单实例沙箱，我们来看看 ProxySandbox 沙箱是怎么进行状态隔离的（见下图）
 
-<img src="./images/proxySandbox.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/proxySandbox.png">
 
 我们来分析一下 ProxySandbox 类的几个属性：
 
@@ -222,7 +222,7 @@ ProxySandbox 是一种新的沙箱模式，目前用于多实例模式的状态�
 
 我们现在从 window.Proxy 的 set 和 get 属性来详细讲解 ProxySandbox 是如何实现沙箱运行环境的。（见下图）
 
-<img src="./images/proxySandboxProxy.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/proxySandboxProxy.png">
 
 > 注意：子应用沙箱中的 proxy 对象可以简单理解为子应用的 window 全局对象（代码如下），子应用对全局属性的操作就是对该 proxy 对象属性的操作，带着这份理解继续往下看吧。
 
@@ -247,13 +247,13 @@ eval(
 
 我们对 ProxySandbox 沙箱画一张图来加深理解（见下图）
 
-<img src="./images/proxySandboxFlow.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/proxySandboxFlow.png">
 
 ### SnapshotSandbox
 
 在不支持 window.Proxy 属性时，将会使用 SnapshotSandbox 沙箱，我们来看看其内部实现（见下图）
 
-<img src="./images/snapshotSandbox.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/snapshotSandbox.png">
 
 我们来分析一下 SnapshotSandbox 类的几个属性：
 
@@ -270,7 +270,7 @@ eval(
 
 SnapshotSandbox 的沙箱环境主要是通过激活时记录 window 状态快照，在关闭时通过快照还原 window 对象来实现的。（见下图）
 
-<img src="./images/snapshotSandboxActive.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/snapshotSandboxActive.png">
 
 我们先看 active 函数，在沙箱激活时，会先给当前 window 对象打一个快照，记录沙箱激活前的状态（第 38~40 行）。打完快照后，函数内部将 window 状态通过 modifyPropsMap 记录还原到上次的沙箱运行环境，也就是还原沙箱激活期间（历史记录）修改过的 window 属性。
 
@@ -280,21 +280,21 @@ SnapshotSandbox 沙箱就是利用快照实现了对 window 对象状态隔离�
 
 我们对 SnapshotSandbox 沙箱画一张图来加深理解（见下图）
 
-<img src="./images/snapshotSandboxFlow.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/snapshotSandboxFlow.png">
 
 ## 挂载沙箱 - mountSandbox
 
-<img src="./images/genSandbox.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/genSandbox.png">
 
 我们继续回到这张图，genSandbox 函数不仅返回了一个 sandbox 沙箱，还返回了一个 mount 和 unmount 方法，分别在子应用挂载时和卸载时的时候调用。
 
 我们先看看 mount 函数内部（见下图）
 
-<img src="./images/mount.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/mount.png">
 
 首先，在 mount 内部先激活了子应用沙箱（第 26 行），在沙箱启动后开始劫持各类全局监听（第 27 行），我们这里重点看看 patchAtMounting 内部是怎么实现的。（见下图）
 
-<img src="./images/patchAtMounting.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/patchAtMounting.png">
 
 patchAtMounting 内部调用了下面四个函数：
 
@@ -309,15 +309,15 @@ patchAtMounting 内部调用了下面四个函数：
 
 我们先来看看 patchTimer 对计时器的劫持（见下图）
 
-<img src="./images/patchTimer-patch.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/patchTimer-patch.png">
 
 从上图可以看出，patchTimer 内部将 setInterval 进行重载，将每个启用的定时器的 intervalId 都收集起来（第 23~24 行），以便在子应用卸载时调用 free 函数将计时器全部清除（见下图）
 
-<img src="./images/patchTimer-free.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/patchTimer-free.png">
 
 我们来看看在子应用加载时的 setInterval 函数验证即可（见下图）
 
-<img src="./images/patchTimer-setInterval-log.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/patchTimer-setInterval-log.png">
 
 从上图可以看出，在进入子应用时，setInterval 已经被替换成了劫持后的函数，防止全局计时器泄露污染。
 
@@ -327,23 +327,23 @@ patchWindowListener 和 patchHistoryListener 的实现都与 patchTimer 实现�
 
 我们需要重点对 patchDynamicAppend 函数进行解析，这个函数的作用是劫持对 head 元素的操作（见下图）
 
-<img src="./images/patchDynamicAppend-patch.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/patchDynamicAppend-patch.png">
 
 从上图可以看出，patchDynamicAppend 主要是对动态添加的 style 样式表和 script 标签做了处理。
 
 我们先看看对 style 样式表的处理（见下图）
 
-<img src="./images/patchDynamicAppend-style.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/patchDynamicAppend-style.png">
 
 从上图可以看出，主要的处理逻辑在 第 68~74 行，如果当前子应用处于激活状态（判断子应用的激活状态主要是因为：当主应用切换路由时可能会自动添加动态样式表，
 此时需要避免主应用的样式表被添加到子应用head节点中导致出错），那么动态 style 样式表就会被添加到子应用容器内（见下图），在子应用卸载时样式表也可以和子应用一起被卸载，从而避免样式污染。
 同时，动态样式表也会存储在 dynamicStyleSheetElements 数组中，在后面还会提到其用处。
 
-<img src="./images/patchDynamicAppend-dynamicStyleSheetElements.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/patchDynamicAppend-dynamicStyleSheetElements.png">
 
 我们再来看看对 script 脚本文件的处理（见下图）
 
-<img src="./images/patchDynamicAppend-script.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/patchDynamicAppend-script.png">
 
 对动态 script 脚本文件的处理较为复杂一些，我们也来解析一波：
 
@@ -359,7 +359,7 @@ HTMLHeadElement.prototype.removeChild 的逻辑就是多加了个子应用容器
 
 最后我们来看看 free 函数（见下图）
 
-<img src="./images/patchDynamicAppend-free.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/patchDynamicAppend-free.png">
 
 这个 free 函数与其他的 patches（劫持函数） 实现不太一样，这里缓存了一份 cssRules，在重新挂载的时候会执行 rebuild 函数将其还原。
 这是因为样式元素 DOM 从文档中删除后，浏览器会自动清除样式元素表。如果不这么做的话，在重新挂载时会出现存在 style 标签，但是没有渲染样式的问题。
@@ -368,11 +368,11 @@ HTMLHeadElement.prototype.removeChild 的逻辑就是多加了个子应用容器
 
 我们再回到 mount 函数本身（见下图）
 
-<img src="./images/mount.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/mount.png">
 
 从上图可以看出，在 patchAtMounting 函数中劫持了各类全局监听，并返回了解除劫持的 free 函数。在卸载应用时调用 free 函数解除这些全局监听的劫持行为（见下图）
 
-<img src="./images/unmount.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/unmount.png">
 
 从上图可以看到 sideEffectsRebuilders 在 free 后被返回，在 mount 的时候又将被调用 rebuild 重建动态样式表。这块环环相扣，是稍微有点绕，没太看明白的同学可以翻上去再看一遍。
 
@@ -380,23 +380,23 @@ HTMLHeadElement.prototype.removeChild 的逻辑就是多加了个子应用容器
 
 在这里我们画一张图，对沙箱的创建过程进行一个总梳理（见下图）
 
-<img src="./images/sandboxLifeCycle.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/sandboxLifeCycle.png">
 
 ### 注册内部生命周期函数
 
 在创建好了沙箱环境后，在 第 100~106 行 注册了一些内部生命周期函数（见下图）
 
-<img src="./images/lifeCycles.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/lifeCycles.png">
 
 在上图中，第 106 行 的 mergeWith 方法的作用是将内置的生命周期函数与传入的 lifeCycles 生命周期函数。
 
 > 这里的 lifeCycles 生命周期函数指的是全子应用共享的生命周期函数，可用于执行多个子应用间相同的逻辑操作，例如 加载效果 之类的。（见下图）
 
-<img src="./images/registerMicroAppsLoading.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/registerMicroAppsLoading.png">
 
 除了外部传入的生命周期函数外，我们还需要关注 qiankun 内置的生命周期函数做了些什么（见下图）
 
-<img src="./images/getAddOn.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/getAddOn.png">
 
 我们对上图的代码进行逐一解析：
 
@@ -406,26 +406,26 @@ HTMLHeadElement.prototype.removeChild 的逻辑就是多加了个子应用容器
 
 通过上面的分析我们可以得出一个结论，我们可以在子应用中获取该环境变量，将其设置为 __webpack_public_path__ 的值，从而使子应用在主应用中运行时，可以匹配正确的资源路径。（见下图）
 
-<img src="./images/isInContainer.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/isInContainer.png">
 
 ### 触发 beforeLoad 生命周期钩子函数
 
 在注册完了生命周期函数后，立即触发了 beforeLoad 生命周期钩子函数（见下图）
 
-<img src="./images/beforeLoad.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/beforeLoad.png">
 
 
 从上图可以看出，在 第 108 行 中，触发了 beforeLoad 生命周期钩子函数。
 
 随后，在 第 110 行 执行了 import-html-entry 的 execScripts 方法。指定了脚本文件的运行沙箱（jsSandbox），执行完子应用的脚本文件后，返回了一个对象，对象包含了子应用的生命周期钩子函数（见下图）。
 
-<img src="./images/proxyLastOptions.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/proxyLastOptions.png">
 
 在 第 112~121 行 对子应用的生命周期钩子函数做了个检测，如果在子应用的导出对象中没有发现生命周期钩子函数，会在沙箱对象中继续查找生命周期钩子函数。如果最后没有找到生命周期钩子函数则会抛出一个错误，所以我们的子应用一定要有 bootstrap, mount, unmount 这三个生命周期钩子函数才能被 qiankun 正确嵌入到主应用中。
 
 这里我们画一张图，对子应用挂载前的初始化过程做一个总梳理（见下图）
 
-<img src="./images/beforeMountFlow.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/beforeMountFlow.png">
 
 ### 进入到 mount 挂载流程
 
@@ -441,7 +441,7 @@ single-spa 内部的逻辑我们后面再展开说，这里我们可以简单理
 
 我们这里对 mount 阶段进行展开，看看在子应用 mount 阶段执行了哪些函数（见下
 
-<img src="./images/mount1.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/mount1.png">
 
 我们进行逐行解析：
 
@@ -452,13 +452,13 @@ single-spa 内部的逻辑我们后面再展开说，这里我们可以简单理
 >
 > 在下面的代码中也有对重复挂载的情况进行判断的语句 - if (frame.querySelector("div") === null，防止重复挂载子应用。
 
-<img src="./images/mountedApp.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/mountedApp.png">
 
 - 第 135 行：触发了 beforeMount 全局生命周期钩子函数；
 - 第 136 行：挂载沙箱，这一步中激活了对应的子应用沙箱，劫持了部分全局监听（如 setInterval）。此时开始子应用的代码将在沙箱中运行。（反推可知，在 beforeMount 前的部分全局操作将会对主应用造成污染，如 setInterval）
 - 第 137 行：触发子应用的 mount 生命周期钩子函数，在这一步通常是执行对应的子应用的挂载操作（如 ReactDOM.render、Vue.$mount。（见下图）
 
-<img src="./images/mount2.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/mount2.png">
 
 - 第 138 行：再次调用 render 函数，此时 loading 参数为 false，代表子应用已经加载完成。
 - 第 139 行：触发了 afterMount 全局生命周期钩子函数；
@@ -466,13 +466,13 @@ single-spa 内部的逻辑我们后面再展开说，这里我们可以简单理
 
 我们在上面很详细的剖析了整个子应用的 mount 挂载流程，如果你还没有搞懂的话，没关系，我们再画一个流程图来帮助理解。（见下图）
 
-<img src="./images/lifeCycle-mount.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/lifeCycle-mount.png">
 
 ### 进入到 unmount 卸载流程
 
 我们刚才梳理了子应用的 mount 挂载流程，我们现在就进入到子应用的 unmount 卸载流程。在子应用激活阶段， activeRule 未命中时将会触发 unmount 卸载行为，具体的行为如下（见下图）
 
-<img src="./images/unmount1.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/unmount1.png">
 
 从上图我们可以看出，unmount 卸载流程要比 mount 简单很多，我们直接来梳理一下：
 
@@ -488,17 +488,17 @@ single-spa 内部的逻辑我们后面再展开说，这里我们可以简单理
 
 我们对 unmount 卸载流程也画一张图，帮助大家理解（见下图）。
 
-<img src="./images/lifeCycle-unmount.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/lifeCycle-unmount.png">
 
 ## 总结
 
 到这里，我们对 qiankun 框架的总流程梳理就差不多了。这里应该做个总结，大家看了这么多文字，估计大家也看累了，最后用一张图对 qiankun 的总流程进行总结吧。
 
-<img src="./images/lifeCycle-flow.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/lifeCycle-flow.png">
 
 ## 彩蛋
 
-<img src="./images/deleteProperty.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/deleteProperty.png">
 
 ## 展望
 
@@ -508,4 +508,4 @@ single-spa 内部的逻辑我们后面再展开说，这里我们可以简单理
 
 工欲善其事必先利其器，所以针对 qiankun 的源码进行解读，在分享知识的同时也是帮助自己理解。
 
-<img src="./images/lifeCycle-info.png">
+<img src="~@assets/knowledge/frontEnd/micro/qianKun/lifeCycle-info.png">

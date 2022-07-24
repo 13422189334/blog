@@ -30,7 +30,7 @@ let b = '2';
 console.log(b);
 ```
 
-![microInfo](/images/eventLoop.jpg)
+![microInfo](/assets/knowledge/frontEnd/javaScript/eventLoop/001.jpg)
 
 <!-- more -->
 
@@ -52,7 +52,7 @@ new Promise(function(resolve){
 console.log('代码执行结束');
 ```
 
-<img src="./images/002.jpg" />
+<img src="~@assets/knowledge/frontEnd/javaScript/eventLoop/002.jpg" />
 
 依照 **js是按照语句出现的顺序执行** 这个理念，自信的写下输出结果：
 
@@ -65,7 +65,7 @@ console.log('代码执行结束');
 
 去chrome上验证下，结果完全不对，瞬间懵了，说好的一行一行执行的呢？
 
-<img src="./images/003.jpg" />
+<img src="~@assets/knowledge/frontEnd/javaScript/eventLoop/003.jpg" />
 
 我们真的要彻底弄明白javascript的执行机制了。
 
@@ -86,7 +86,7 @@ javascript是一门 **单线程** 语言，在最新的HTML5中提出了Web-Work
 而像加载图片音乐之类占用资源大耗时久的任务，就是异步任务。
 关于这部分有严格的文字定义，但本文的目的是用最小的学习成本彻底弄懂执行机制，所以我们用导图来说明：
 
-<img src="./images/004.jpg" />
+<img src="~@assets/knowledge/frontEnd/javaScript/eventLoop/004.jpg" />
 
 导图要表达的内容用文字来表述的话：
 
@@ -242,7 +242,7 @@ console.log('console');
 
 事件循环，宏任务，微任务的关系如图所示：
 
-<img src="./images/005.jpg" />
+<img src="~@assets/knowledge/frontEnd/javaScript/eventLoop/005.jpg" />
 
 我们来分析一段较复杂的代码，看看你是否真的掌握了js的执行机制：
 
@@ -365,4 +365,4 @@ setTimeout(function() {
 
 牢牢把握两个基本点，以认真学习javascript为中心，早日实现成为前端高手的伟大梦想！
 
-<img src="./images/006.jpg">
+<img src="~@assets/knowledge/frontEnd/javaScript/eventLoop/006.jpg">
