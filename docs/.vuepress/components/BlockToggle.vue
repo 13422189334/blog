@@ -26,8 +26,28 @@
         Array.from(pres).forEach((pre) => {
           const code = pre.childNodes[0]
           const div = pre.parentNode
+
+          // 解决某些代码块的语言不显示在页面上
+          this.getLanguage(pre);
+          // 移动一键复制图标到正确的位置
+          let flag = false;
+          let interval = setInterval(() => {
+            flag = this.moveCopyBlock(pre);
+            if (flag) {
+              clearInterval(interval);
+            }
+          }, 1000);
+          
+          pre.append(this.addCircle());
+
+          // 如果 div还有parentNode，同时类名为 code-content， 说明这里是 demo 的代码块，跳过后续内容
+          const parentDiv = div.parentNode
+          if (parentDiv && parentDiv.className === 'code-content') {
+            return 
+          }
+
           // 首先获取 expand 元素
-          let expand = pre.getElementsByClassName("expand")[0];
+          let expand = pre.getElementsByClassName('expand')[0];
           // expand 元素不存在，则进入 if 创建
           if (!expand) {
             // 获取代码块的各个元素的高度，进行备份
@@ -73,18 +93,7 @@
               }
             };
             pre.append(element);
-            pre.append(this.addCircle());
           }
-          // 解决某些代码块的语言不显示在页面上
-          this.getLanguage(pre);
-          // 移动一键复制图标到正确的位置
-          let flag = false;
-          let interval = setInterval(() => {
-            flag = this.moveCopyBlock(pre);
-            if (flag) {
-              clearInterval(interval);
-            }
-          }, 1000);
         });
       },
       getHiddenElementHeight(hiddenElement) {
