@@ -41,9 +41,7 @@ tags:
 如果要展示的`数据量比较大`，比如一条数据就是一个元素节点，那使用 canvas 会比较合适；如果用户操作的`交互比较多`，而且对`清晰度`有要求（矢量图），那么使用 svg 会比较合适。
 :::
 
-## 起步
-
-### 画条直线
+## 起步 - 画条直线
 
 - 在 HTML 中创建 canvas 元素
 - 通过 js 获取 canvas 标签
@@ -55,7 +53,7 @@ tags:
 <!-- 1、创建 canvas 元素 -->
 <template>
 <canvas
-  id="c"
+  id="canvas_001"
   width="300"
   height="200"
   style="border: 1px solid #ccc;"
@@ -66,7 +64,7 @@ export default {
   name: "Canvas",
   mounted() {
     // 2、获取 canvas 对象
-    const cnv = document.getElementById('c')
+    const cnv = document.getElementById('canvas_001')
     // 3、获取 canvas 上下文环境对象
     const cxt = cnv.getContext('2d')
     // 4、绘制图形
@@ -79,17 +77,13 @@ export default {
 ```
 :::
 
-:::danger
-注意点
-:::
-
-- 默认`宽高`
+### 默认`宽高`
 
 canvas 有 `默认`的 `宽度(300px)` 和 `高度(150px)`
 
 如果不在 canvas 上设置宽高，那 canvas 元素的默认宽度是300px，默认高度是150px。
 
-- 设置 canvas 宽高
+### 设置 canvas 宽高
 
 canvas 元素提供了 `width` 和 `height` 两个属性，可设置它的宽高。
 
@@ -99,14 +93,16 @@ canvas 元素提供了 `width` 和 `height` 两个属性，可设置它的宽高
 <canvas width="600" height="400"></canvas>
 ```
 
-- 不能通过 `CSS` 设置画布的宽高
+### 不能通过 `CSS` 设置画布的宽高
 
-使用 css 设置 canvas 的宽高，会出现 `内容被拉伸` 的后果！！！
+使用 css 设置 canvas 的宽高，会出现 `内容被拉伸` 的后果！！！ canvas 的默认宽度是`300px`，默认高度是`150px`。
+
+如果使用 css 修改 canvas 的宽高（比如变成 400px * 400px），那宽度就由 `300px 拉伸到 400px`，高度由 `150px 拉伸到 400px`。使用 `js` 获取 canvas 的宽高，此时返回的是 canvas 的`默认值`。最后出现的效果如下所示。
 
 :::demo
 ```vue
 <style>
-  #canvas-test-style {
+  #canvas_002 {
     width: 400px;
     height: 400px;
     border: 1px solid #ccc;
@@ -114,7 +110,7 @@ canvas 元素提供了 `width` 和 `height` 两个属性，可设置它的宽高
 </style>
 <template>
 <canvas
-  id="canvas-test-style"
+  id="canvas_002"
   style="border: 1px solid #ccc;"
 ></canvas>
 </template>
@@ -123,7 +119,7 @@ export default {
   name: "canvas",
   mounted() {
     // 2、获取 canvas 对象
-    const cnv = document.getElementById('canvas-test-style')
+    const cnv = document.getElementById('canvas_002')
     // 3、获取 canvas 上下文环境对象
     const cxt = cnv.getContext('2d')
     // 4、绘制图形
@@ -136,232 +132,231 @@ export default {
 ```
 :::
 
+### `线条`默认`宽度`和`颜色`
 
+线条的默认宽度是 `1px` ，默认颜色是 `黑色`。
 
+但由于默认情况下 canvas 会将线条的`中心点`和`像素的底部`对齐，所以会导致显示效果是 `2px` 和`非纯黑色`问题。
 
+- IE兼容性高
 
+暂时只有 `IE 9` 以上才支持 canvas 。
 
+如需兼容 IE 7 和 8 ，可以使用 `ExplorerCanvas` 。但即使是使用了 ExplorerCanvas 仍然会有所限制，比如无法使用 `fillText()` 方法等。
 
+## 基础图形
 
-canvas 的默认宽度是300px，默认高度是150px。
+### 坐标系
 
-如果使用 css 修改 canvas 的宽高（比如本例变成 400px * 400px），那宽度就由 300px 拉伸到 400px，高度由 150px 拉伸到 400px。
-使用 js 获取 canvas 的宽高，此时返回的是 canvas 的默认值。
-最后出现的效果如上图所示。
+在绘制基础图形之前，需要先搞清楚 Canvas 使用的坐标系。
 
-4、线条默认宽度和颜色
-线条的默认宽度是 1px ，默认颜色是黑色。
+Canvas 使用的是 W3C 坐标系 ，也就是遵循我们屏幕、报纸的阅读习惯，`从上往下，从左往右`。
 
-但由于默认情况下 canvas 会将线条的中心点和像素的底部对齐，所以会导致显示效果是 2px 和非纯黑色问题。
+<img src="~@assets/knowledge/frontEnd/canvas/KFC_001.jpg" />
 
-5、IE兼容性高
-暂时只有 IE 9 以上才支持 canvas 。但好消息是 IE 已经有自己的墓碑了。
+W3C 坐标系 和 数学直角坐标系 的 `X轴` 是`一样的`，只是 `Y轴` 的`方向相反`。
 
-如需兼容 IE 7 和 8 ，可以使用 ExplorerCanvas[3] 。但即使是使用了 ExplorerCanvas 仍然会有所限制，比如无法使用 fillText() 方法等。
+### 直线
 
-基础图形
-坐标系
-在绘制基础图形之前，需要先搞清除 Canvas 使用的坐标系。
-
-Canvas 使用的是 W3C 坐标系 ，也就是遵循我们屏幕、报纸的阅读习惯，从上往下，从左往右。
-
-图片
-04.jpg
-W3C 坐标系 和 数学直角坐标系 的 X轴 是一样的，只是 Y轴 的反向相反。
-
-W3C 坐标系 的 Y轴 正方向向下。
-
-直线
-一条直线
-最简单的起步方式是画一条直线。这里所说的 “直线” 是几何学里的 “线段” 的意思。
+最简单的起步方式是画一条直线。这里所说的 `直线` 是几何学里的 `线段` 的意思。
 
 需要用到这3个方法：
 
-moveTo(x1, y1)：起点坐标 (x, y)
-lineTo(x2, y2)：下一个点的坐标 (x, y)
-stroke()：将所有坐标用一条线连起来
-起步阶段可以先这样理解。
+- moveTo(x1, y1)：起点坐标 (x, y)
+- lineTo(x2, y2)：下一个点的坐标 (x, y)
+- stroke()：将所有坐标用一条线连起来
 
-图片
-05.png
 
+::: demo
 ```vue
-<canvas id="c" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_003" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // 绘制直线
-  cxt.moveTo(50, 100) // 起点坐标
-  cxt.lineTo(200, 50) // 下一个点的坐标
-  cxt.stroke() // 将上面的坐标用一条线连接起来
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_003')
+    const cxt = cnv.getContext('2d')
+    // 绘制直线
+    cxt.moveTo(50, 100) // 起点坐标
+    cxt.lineTo(200, 50) // 下一个点的坐标
+    cxt.stroke() // 将上面的坐标用一条线连接起来 
+  }
+}
 </script>
 ```
-复制代码
-上面的代码所呈现的效果，可以看下图解释（手不太聪明，画得不是很标准，希望能看懂）
+:::
 
-图片
-06.jpg
-多条直线
-如需画多条直线，可以用会上面那几个方法。
-
-图片
-07.png
+### 多条直线
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_004" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.moveTo(20, 100)
-  cxt.lineTo(200, 100)
-  cxt.stroke()
-
-  cxt.moveTo(20, 120.5)
-  cxt.lineTo(200, 120.5)
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_004')
+    const cxt = cnv.getContext('2d')
+    cxt.moveTo(20, 100)
+    cxt.lineTo(200, 100)
+    cxt.stroke()
+    cxt.moveTo(20, 120.5)
+    cxt.lineTo(200, 120.5)
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
+:::
+
+:::danger
 仔细观察一下，为什么两条线的粗细不一样的？
+:::
 
-明明使用的方法都是一样的，只是第二条直线的 Y轴 的值是有小数点。
+明明使用的方法都是一样的，只是第二条直线的 `Y轴` 的值是有`小数点`。
 
-答：默认情况下 canvas 会将线条的中心点和像素的底部对齐，所以会导致显示效果是 2px 和非纯黑色问题。
+<img src="~@assets/knowledge/frontEnd/canvas/KFC_002.jpg" />
 
-图片
-08.jpg
-上图每个格子代表 1px。
+线的`中心点`会和`画布像素点`的底部对齐，所以会线`中间是黑色`的，但由于`一个像素不能再切割`了，所以会有`半个像素`被`染色`，就变成了`浅灰色`。
 
-线的中心点会和画布像素点的底部对齐，所以会线中间是黑色的，但由于一个像素就不能再切割了，所以会有半个像素被染色，就变成了浅灰色。
+## 样式
 
-所以如果你设置的 Y轴 值是一个整数，就会出现上面那种情况。
+- lineWidth：线的粗细
+- strokeStyle：线的颜色
+- lineCap：线帽：默认: butt; 圆形: round; 方形: square
 
-设置样式
-lineWidth：线的粗细
-strokeStyle：线的颜色
-lineCap：线帽：默认: butt; 圆形: round; 方形: square
-图片
-09.png
-
+:::demo
 ```vue
-<canvas id="c" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_005" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // 绘制直线
-  cxt.moveTo(50, 50)
-  cxt.lineTo(200, 50)
-
-  // 修改直线的宽度
-  cxt.lineWidth = 20
-
-  // 修改直线的颜色
-  cxt.strokeStyle = 'pink'
-
-  // 修改直线两端样式
-  cxt.lineCap = 'round' // 默认: butt; 圆形: round; 方形: square
-
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_005')
+    const cxt = cnv.getContext('2d')
+    // 绘制直线
+    cxt.moveTo(50, 50)
+    cxt.lineTo(200, 50)
+    // 修改直线的宽度
+    cxt.lineWidth = 20
+    // 修改直线的颜色
+    cxt.strokeStyle = 'pink'
+    // 修改直线两端样式
+    cxt.lineCap = 'butt' // 默认: butt; 圆形: round; 方形: square
+    cxt.stroke()
+  }
+}
 </script>
 ```
+:::
 
-复制代码
-新开路径
-开辟新路径的方法：
+## 新开路径
 
-beginPath()
-在绘制多条线段的同时，还要设置线段样式，通常需要开辟新路径。
+开辟新路径的方法：`beginPath()`
 
-要不然样式之间会相互污染。
+在绘制`多条线段`的同时，还要设置线段`样式`，通常需要`开辟新路径`，要不然`样式`之间会`相互污染`。
 
-比如这样
-
-图片
-10.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_006" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // 第一条线
-  cxt.moveTo(20, 100)
-  cxt.lineTo(200, 100)
-  cxt.lineWidth = 10
-  cxt.strokeStyle = 'pink'
-  cxt.stroke()
-
-  // 第二条线
-  cxt.moveTo(20, 120.5)
-  cxt.lineTo(200, 120.5)
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_006')
+    const cxt = cnv.getContext('2d')
+    // 第一条线
+    cxt.moveTo(20, 100)
+    cxt.lineTo(200, 100)
+    cxt.lineWidth = 10
+    cxt.strokeStyle = 'pink'
+    cxt.stroke()
+    // 第二条线
+    cxt.moveTo(20, 120.5)
+    cxt.lineTo(200, 120.5)
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-如果不想相互污染，需要做2件事：
+:::
 
-使用 beginPath() 方法，重新开一个路径
-设置新线段的样式（必须项）
+
+如果不想相互污染，需要做`2件事`：
+
+- 使用 `beginPath()` 方法，重新开一个路径
+- 设置`新线段的样式`（必须项）
+
 如果上面2步却了其中1步都会有影响。
 
-只使用 beginPath()
-图片
-11.png
+### 只使用 beginPath()
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_007" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // 第一条线
-  cxt.moveTo(20, 100)
-  cxt.lineTo(200, 100)
-  cxt.lineWidth = 10
-  cxt.strokeStyle = 'pink'
-  cxt.stroke()
-
-  // 第二条线
-  cxt.beginPath() // 重新开启一个路径
-  cxt.moveTo(20, 120.5)
-  cxt.lineTo(200, 120.5)
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_007')
+    const cxt = cnv.getContext('2d')
+    // 第一条线
+    cxt.moveTo(20, 100)
+    cxt.lineTo(200, 100)
+    cxt.lineWidth = 10
+    cxt.strokeStyle = 'pink'
+    cxt.stroke()
+    // 第二条线
+    cxt.beginPath() // 重新开启一个路径
+    cxt.moveTo(20, 120.5)
+    cxt.lineTo(200, 120.5)
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-第一条线的样式会影响之后的线。
+:::
 
-但如果使用了 beginPath() ，后面的线段不会影响前面的线段。
+第一条线的`样式`会`影响之后的线`。
 
-图片
-12.png
+但如果使用了 `beginPath()` ，后面的线段不会影响前面的线段。
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_008" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // 第一条线
-  cxt.moveTo(20, 100)
-  cxt.lineTo(200, 100)
-  cxt.stroke()
-
-  // 第二条线
-  cxt.beginPath() // 重新开启一个路径
-  cxt.moveTo(20, 120.5)
-  cxt.lineTo(200, 120.5)
-  cxt.lineWidth = 4
-  cxt.strokeStyle = 'red'
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_008')
+    const cxt = cnv.getContext('2d')
+    // 第一条线
+    cxt.moveTo(20, 100)
+    cxt.lineTo(200, 100)
+    cxt.stroke()
+    // 第二条线
+    cxt.beginPath() // 重新开启一个路径
+    cxt.moveTo(20, 120.5)
+    cxt.lineTo(200, 120.5)
+    cxt.lineWidth = 4
+    cxt.strokeStyle = 'red'
+    cxt.stroke()
+  }
+}
 </script>
 ```
+:::
 复制代码
 设置新线段的样式，没使用 beginPath() 的情况
 这个情况会反过来，后面的线能影响前面的线。
