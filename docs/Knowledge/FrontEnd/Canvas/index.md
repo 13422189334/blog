@@ -1219,7 +1219,7 @@ export default {
 ```
 :::
 
-#### strokeStyle 设置描边颜色
+##### strokeStyle 设置描边颜色
 
 :::demo
 ```vue
@@ -1241,222 +1241,249 @@ export default {
 ```
 :::
 
-#### fillText 填充
+#### fillText() 填充
 
-使用 fillText() 可填充文本。
+语法：`fillText(text, x, y, maxWidth)`
 
-语法和 strokeText() 一样。
-
-fillText(text, x, y, maxWidth)
-复制代码
-图片
-47.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_036" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.font = '60px Arial'
-  cxt.fillText('雷猴', 30, 90)
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_036')
+    const cxt = cnv.getContext('2d')
+    cxt.font = '60px Arial'
+    cxt.fillText('雷猴', 30, 90)
+  }
+}
 </script>
 ```
-复制代码
-设置填充颜色 fillStyle
-使用 fillStyle 可以设置文本填充颜色。
+:::
 
-图片
-48.png
+##### fillStyle 设置填充颜色
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_037" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.font = '60px Arial'
-  cxt.fillStyle = 'pink'
-  cxt.fillText('雷猴', 30, 90)
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_037')
+    const cxt = cnv.getContext('2d')
+    cxt.font = '60px Arial'
+    cxt.fillStyle = 'pink'
+    cxt.fillText('雷猴', 30, 90)
+  }
+}
 </script>
 ```
-复制代码
-获取文本长度 measureText()
-measureText().width 方法可以获取文本的长度，单位是 px 。
+:::
 
+#### measureText() 获取文本长度
+
+`measureText().width` 方法可以获取文本的`长度`，单位是 `px` 。
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_038" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  let text = '雷猴'
-  cxt.font = 'bold 40px Arial'
-  cxt.fillText(text, 40, 80)
-
-  console.log(cxt.measureText(text).width) // 80
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_038')
+    const cxt = cnv.getContext('2d')
+    let text = '雷猴'
+    cxt.font = 'bold 40px Arial'
+    cxt.fillText(text, 40, 80)
+    console.log(cxt.measureText(text).width) // 80
+  }
+}
 </script>
 ```
-复制代码
-水平对齐方式 textAlign
-使用 textAlign 属性可以设置文字的水平对齐方式，一共有5个值可选
+:::
 
-start: 默认。在指定位置的横坐标开始。
-end: 在指定坐标的横坐标结束。
-left: 左对齐。
-right: 右对齐。
-center: 居中对齐。
-图片
-49.png
-红线是辅助参考线。
+#### textAlign 水平对齐方式
 
+- start: 默认。在指定位置的`横坐标开始`。
+- end: 在指定坐标的`横坐标结束`。
+- left: `左`对齐。
+- right: `右`对齐。
+- center: `居中`对齐。
+
+:::demo
 ```vue
-<canvas id="c" width="400" height="400" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_039" width="350" height="350" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_039')
+    const cxt = cnv.getContext('2d')
 
-  // 竖向的辅助线（参考线，在画布中间）
-  cxt.moveTo(200, 0)
-  cxt.lineTo(200, 400)
-  cxt.strokeStyle = 'red'
-  cxt.stroke()
+    // 竖向的辅助线（参考线，在画布中间）
+    cxt.moveTo(200, 0)
+    cxt.lineTo(200, 400)
+    cxt.strokeStyle = 'red'
+    cxt.stroke()
 
-  cxt.font = '30px Arial'
+    cxt.font = '30px Arial'
 
-  // 横坐标开始位对齐
-  cxt.textAlign = 'start' // 默认值,
-  cxt.fillText('雷猴 start', 200, 40)
+    // 横坐标开始位对齐
+    cxt.textAlign = 'start' // 默认值,
+    cxt.fillText('雷猴 start', 200, 40)
 
-  // 横坐标结束位对齐
-  cxt.textAlign = 'end' // 结束对齐
-  cxt.fillText('雷猴 end', 200, 100)
+    // 横坐标结束位对齐
+    cxt.textAlign = 'end' // 结束对齐
+    cxt.fillText('雷猴 end', 200, 100)
 
-  // 左对齐
-  cxt.textAlign = 'left' // 左对齐
-  cxt.fillText('雷猴 left', 200, 160)
+    // 左对齐
+    cxt.textAlign = 'left' // 左对齐
+    cxt.fillText('雷猴 left', 200, 160)
 
-  // 右对齐
-  cxt.textAlign = 'right' // 右对齐
-  cxt.fillText('雷猴 right', 200, 220)
+    // 右对齐
+    cxt.textAlign = 'right' // 右对齐
+    cxt.fillText('雷猴 right', 200, 220)
 
-  // 居中对齐
-  cxt.textAlign = 'center' // 右对齐
-  cxt.fillText('雷猴 center', 200, 280)
+    // 居中对齐
+    cxt.textAlign = 'center' // 右对齐
+    cxt.fillText('雷猴 center', 200, 280)
+  }
+}
 </script>
 ```
-复制代码
-从上面的例子看，start 和 left 的效果好像是一样的，end 和 right 也好像是一样的。
+:::
 
-在大多数情况下，它们的确一样。但在某些国家或者某些场合，阅读文字的习惯是 从右往左 时，start 就和 right 一样了，end 和 left 也一样。这是需要注意的地方。
+:::danger 
+从上面的例子看，`start` 和 `left` 的效果好像是一样的，`end` 和 `right` 也好像是一样的。
 
-垂直对齐方式 textBaseline
-使用 textBaseline 属性可以设置文字的垂直对齐方式。
+在大多数情况下，它们的确一样。
 
-在使用 textBaseline 前，需要自行了解 css 的文本基线。
+但在某些国家或者某些场合，阅读文字的习惯是 `从右往左` 时，`start` 就和 `right` 一样了，`end` 和 `left` 也一样。这是需要注意的地方。
+:::
 
-图片
-50.png
-用一张网图解释一下基线
+#### textBaseline 垂直对齐方式
 
-textBaseline 可选属性：
+- alphabetic: 默认。文本基线是普通的`字母基线`。
+- top: 文本基线是 em 方框的`顶端`。
+- bottom: 文本基线是 em 方框的`底端`。
+- middle: 文本基线是 em 方框的`正中`。
+- hanging: 文本基线是`悬挂基线`。
 
-alphabetic: 默认。文本基线是普通的字母基线。
-top: 文本基线是 em 方框的顶端。
-bottom: 文本基线是 em 方框的底端。
-middle: 文本基线是 em 方框的正中。
-hanging: 文本基线是悬挂基线。
-图片
-51.png
-红线是辅助参考线。
-
+:::demo
 ```vue
-<canvas id="c" width="800" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_040" width="800" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_040')
+    const cxt = cnv.getContext('2d')
 
-  // 横向的辅助线（参考线，在画布中间）
-  cxt.moveTo(0, 150)
-  cxt.lineTo(800, 150)
-  cxt.strokeStyle = 'red'
-  cxt.stroke()
+    // 横向的辅助线（参考线，在画布中间）
+    cxt.moveTo(0, 150)
+    cxt.lineTo(800, 150)
+    cxt.strokeStyle = 'red'
+    cxt.stroke()
 
-  cxt.font = '20px Arial'
+    cxt.font = '20px Arial'
 
-  // 默认 alphabetic
-  cxt.textBaseline = 'alphabetic'
-  cxt.fillText('雷猴 alphabetic', 10, 150)
+    // 默认 alphabetic
+    cxt.textBaseline = 'alphabetic'
+    cxt.fillText('雷猴 alphabetic', 10, 150)
 
-  // 默认 top
-  cxt.textBaseline = 'top'
-  cxt.fillText('雷猴 top', 200, 150)
+    // 默认 top
+    cxt.textBaseline = 'top'
+    cxt.fillText('雷猴 top', 200, 150)
 
-  // 默认 bottom
-  cxt.textBaseline = 'bottom'
-  cxt.fillText('雷猴 bottom', 320, 150)
+    // 默认 bottom
+    cxt.textBaseline = 'bottom'
+    cxt.fillText('雷猴 bottom', 320, 150)
 
-  // 默认 middle
-  cxt.textBaseline = 'middle'
-  cxt.fillText('雷猴 middle', 480, 150)
+    // 默认 middle
+    cxt.textBaseline = 'middle'
+    cxt.fillText('雷猴 middle', 480, 150)
 
-  // 默认 hanging
-  cxt.textBaseline = 'hanging'
-  cxt.fillText('雷猴 hanging', 640, 150)
+    // 默认 hanging
+    cxt.textBaseline = 'hanging'
+    cxt.fillText('雷猴 hanging', 640, 150)
+  }
+}
 </script>
 ```
-复制代码
-注意：在绘制文字的时候，默认是以文字的左下角作为参考点进行绘制
+:::
 
-图片
+:::danger
+在绘制文字的时候，默认是以文字的左下角作为参考点进行绘制
+:::
+
+### 图片
+
 在 Canvas 中可以使用 drawImage() 方法绘制图片。
 
-渲染图片
-渲染图片的方式有2中，一种是在JS里加载图片再渲染，另一种是把DOM里的图片拿到 canvas 里渲染。
+#### 渲染图片
 
-渲染的语法：
+渲染图片的方式有两种，一种是在`JS里加载图片`再渲染，另一种是把`DOM里的图片`拿到 `canvas` 里渲染。
 
-drawImage(image, dx, dy)
-复制代码
-image: 要渲染的图片对象。
-dx: 图片左上角的横坐标位置。
-dy: 图片左上角的纵坐标位置。
-JS版
+语法：`drawImage(image, dx, dy)`
+
+- image: 要渲染的图片对象。
+- dx: 图片左上角的横坐标位置。
+- dy: 图片左上角的纵坐标位置。
+  
+##### JS版
+
 在 JS 里加载图片并渲染，有以下几个步骤：
 
-创建 Image 对象
-引入图片
-等待图片加载完成
-使用 drawImage() 方法渲染图片
-图片
-52.png
+1. 创建 Image 对象
+2. 引入图片
+3. 等待图片加载完成
+4. 使用 drawImage() 方法渲染图片
+
+:::demo
 ```vue
-<canvas id="c" width="500" height="500" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_041" width="900" height="500" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_041')
+    const cxt = cnv.getContext('2d')
 
-  // 1 创建 Image 对象
-  const image = new Image()
+    // 1 创建 Image 对象
+    const image = new Image()
 
-  // 2 引入图片
-  image.src = './images/dog.jpg'
+    // 2 引入图片
+    image.src = '/assets/knowledge/frontEnd/canvas/KFC_001.jpg'
 
-  // 3 等待图片加载完成
-  image.onload = () => {
-    // 4 使用 drawImage() 方法渲染图片
-    cxt.drawImage(image, 30, 30)
+    // 3 等待图片加载完成
+    image.onload = () => {
+      // 4 使用 drawImage() 方法渲染图片
+      cxt.drawImage(image, 30, 30)
+    }
   }
+}
 </script>
 ```
-复制代码
-DOM版
-图片
-53.png
+:::
+
+##### DOM版
+
+:::demo
 ```vue
 <style>
   #dogImg {
@@ -1464,38 +1491,37 @@ DOM版
   }
 </style>
 
-<img src="./images/dog.jpg" id="dogImg"/>
-<canvas id="c" width="500" height="500" style="border: 1px solid #ccc;"></canvas>
+<template>
+<img src="/assets/knowledge/frontEnd/canvas/KFC_001.jpg" id="dogImg"/>
+<canvas id="canvas_042" width="900" height="500" style="border: 1px solid #ccc;"></canvas>
+</template>
 
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  const image = document.getElementById('dogImg')
-
-  cxt.drawImage(image, 70, 70)
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_042')
+    const cxt = cnv.getContext('2d')
+    const image = document.getElementById('dogImg')
+    console.log(image)
+    cxt.drawImage(image, 70, 70)
+  }
+}
 </script>
 ```
-复制代码
-因为图片是从 DOM 里获取到的，所以一般来说，只要在 window.onload 这个生命周期内使用 drawImage 都可以正常渲染图片。
+:::
 
-本例使用了 css 的方式，把图片的 display 设置成 none 。因为我不想被 <img> 影响到本例讲解。
+因为图片是从 `DOM` 里获取到的，所以一般来说，只要在 `window.onload` 这个生命周期内使用 `drawImage` 都可以`正常渲染`图片。
 
-实际开发过程中按照实际情况设置即可。
+#### 设置图片宽高
 
-设置图片宽高
-前面的例子都是直接加载图片，图片默认的宽高是多少就加载多少。
+前面的例子都是直接加载图片，图片`默认`的宽高是多少就加载多少。
 
 如果需要指定图片宽高，可以在前面的基础上再添加两个参数：
 
-drawImage(image, dx, dy, dw, dh)
-复制代码
-image、 dx、 dy 的用法和前面一样。
+`drawImage(image, dx, dy, dw, dh)`
 
-dw 用来定义图片的宽度，dh 定义图片的高度。
 
-图片
-54.png
 ```vue
 <canvas id="c" width="500" height="500" style="border: 1px solid #ccc;"></canvas>
 
