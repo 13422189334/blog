@@ -222,7 +222,7 @@ export default {
 
 线的`中心点`会和`画布像素点`的底部对齐，所以会线`中间是黑色`的，但由于`一个像素不能再切割`了，所以会有`半个像素`被`染色`，就变成了`浅灰色`。
 
-## 样式
+#### 样式
 
 - lineWidth：线的粗细
 - strokeStyle：线的颜色
@@ -255,7 +255,7 @@ export default {
 ```
 :::
 
-## 新开路径
+#### 新开路径
 
 开辟新路径的方法：`beginPath()`
 
@@ -288,15 +288,14 @@ export default {
 ```
 :::
 
-
 如果不想相互污染，需要做`2件事`：
 
 - 使用 `beginPath()` 方法，重新开一个路径
 - 设置`新线段的样式`（必须项）
 
-如果上面2步却了其中1步都会有影响。
+`如果上面2步缺了其中1步都会有影响。`
 
-### 只使用 beginPath()
+##### 使用 beginPath() 同时 不设置样式
 
 :::demo
 ```vue
@@ -328,7 +327,9 @@ export default {
 
 第一条线的`样式`会`影响之后的线`。
 
-但如果使用了 `beginPath()` ，后面的线段不会影响前面的线段。
+但如果使用了 `beginPath()` ，后面的线段不会影响前面的线段。 
+
+##### 使用 beginPath() 同时 设置样式
 
 :::demo
 ```vue
@@ -357,203 +358,208 @@ export default {
 </script>
 ```
 :::
-复制代码
-设置新线段的样式，没使用 beginPath() 的情况
-这个情况会反过来，后面的线能影响前面的线。
 
-图片
-13.png
+##### 不使用 beginPath() 同时 设置样式
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_009" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // 第一条线
-  cxt.moveTo(20, 100)
-  cxt.lineTo(200, 100)
-  cxt.lineWidth = 10
-  cxt.strokeStyle = 'pink'
-  cxt.stroke()
-
-  // 第二条线
-  cxt.moveTo(20, 120.5)
-  cxt.lineTo(200, 120.5)
-  cxt.lineWidth = 4
-  cxt.strokeStyle = 'red'
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_009')
+    const cxt = cnv.getContext('2d')
+    // 第一条线
+    cxt.moveTo(20, 100)
+    cxt.lineTo(200, 100)
+    cxt.lineWidth = 10
+    cxt.strokeStyle = 'pink'
+    cxt.stroke()
+    // 第二条线
+    cxt.moveTo(20, 120.5)
+    cxt.lineTo(200, 120.5)
+    cxt.lineWidth = 4
+    cxt.strokeStyle = 'red'
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-正确的做法
-在设置 beginPath() 的同时，也各自设置样式。这样就能做到相互不影响了。
+:::
 
-图片
-14.png
+### 折线
+
+和 `直线` 差不多，都是使用 `moveTo()` 、`lineTo()` 和 `stroke()` 方法可以`绘制折线`。
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_010" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.moveTo(20, 100)
-  cxt.lineTo(200, 100)
-  cxt.lineWidth = 10
-  cxt.strokeStyle = 'pink'
-  cxt.stroke()
-
-  cxt.beginPath() // 重新开启一个路径
-  cxt.moveTo(20, 120.5)
-  cxt.lineTo(200, 120.5)
-  cxt.lineWidth = 4
-  cxt.strokeStyle = 'red'
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_010')
+    const cxt = cnv.getContext('2d')
+    cxt.moveTo(50, 200)
+    cxt.lineTo(100, 50)
+    cxt.lineTo(200, 200)
+    cxt.lineTo(250, 50)
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-折线
-和 直线 差不多，都是使用 moveTo() 、lineTo() 和 stroke() 方法可以绘制折线。
+:::
 
-图片
-15.png
+### 矩形
+
+根据前面的基础，我们可以 使用`线段`来`描绘矩形`，但 canvas 也提供了 `rect()` 等方法可以直接生成矩形。
+
+#### 线段描绘矩形
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_011" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.moveTo(50, 200)
-  cxt.lineTo(100, 50)
-  cxt.lineTo(200, 200)
-  cxt.lineTo(250, 50)
-
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_011')
+    const cxt = cnv.getContext('2d')
+    // 绘制矩形
+    cxt.moveTo(50, 50)
+    cxt.lineTo(200, 50)
+    cxt.lineTo(200, 120)
+    cxt.lineTo(50, 120)
+    cxt.lineTo(50, 50) // 需要闭合，又或者使用 closePath() 方法进行闭合，推荐使用 closePath()
+    // cxt.closePath()
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-画这种折线，最好在草稿纸上画一个坐标系，自己计算并描绘一下每个点大概在什么什么位置，最后在 canvas 中看看效果。
+:::
 
-矩形
-根据前面的基础，我们可以 使用线段来描绘矩形，但 canvas 也提供了 rect() 等方法可以直接生成矩形。
+#### strokeRect() 描边矩形
 
-使用线段描绘矩形
-可以使用前面画线段的方法来绘制矩形
+- strokeStyle：设置描边的属性（`颜色`、`渐变`、`图案`）
+- strokeRect(x, y, width, height)：描边矩形（x和y是矩形`左上角起点`；`width` 和 `height` 是矩形的`宽高`）
+- strokeStyle 必须写在 strokeRect() 前面，不然样式不生效。
 
-图片
-16.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_012" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
- const cnv = document.getElementById('c')
- const cxt = cnv.getContext('2d')
-
- // 绘制矩形
- cxt.moveTo(50, 50)
- cxt.lineTo(200, 50)
- cxt.lineTo(200, 120)
- cxt.lineTo(50, 120)
- cxt.lineTo(50, 50) // 需要闭合，又或者使用 closePath() 方法进行闭合，推荐使用 closePath()
-
- cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_012')
+    const cxt = cnv.getContext('2d')
+    // strokeStyle 属性
+    // strokeRect(x, y, width, height) 方法
+    cxt.strokeStyle = 'pink'
+    cxt.strokeRect(50, 50, 200, 100)
+  }
+}
 </script>
 ```
-复制代码
-上面的代码几个点分别对应下图。
+:::
 
-图片
-17.jpg
-使用 strokeRect() 描边矩形
-strokeStyle：设置描边的属性（颜色、渐变、图案）
-strokeRect(x, y, width, height)：描边矩形（x和y是矩形左上角起点；width 和 height 是矩形的宽高）
-strokeStyle 必须写在 strokeRect() 前面，不然样式不生效。
-图片
-18.png
+#### fillRect() 填充矩形
+
+`fillRect()` 和 `strokeRect()` 方法差不多，但 fillRect() 的作用是`填充`。
+
+需要注意的是，`fillStyle` 必须写在 `fillRect()` `之前`，不然样式不生效。
+
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_013" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // strokeStyle 属性
-  // strokeRect(x, y, width, height) 方法
-  cxt.strokeStyle = 'pink'
-  cxt.strokeRect(50, 50, 200, 100)
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_013')
+    const cxt = cnv.getContext('2d')
+    // fillStyle 属性
+    // fillRect(x, y, width, height) 方法
+    cxt.fillStyle = 'pink'
+    cxt.fillRect(50, 50, 200, 100) // fillRect(x, y, width, height)
+  }
+}
 </script>
 ```
-复制代码
-上面的代码可以这样理解
+:::
 
-图片
-19.jpg
-使用 fillRect() 填充矩形
-fillRect() 和 strokeRect() 方法差不多，但 fillRect() 的作用是填充。
 
-需要注意的是，fillStyle 必须写在 fillRect() 之前，不然样式不生效。
+#### strokeRect() 和 fillRect()
 
-图片
-20.png
+ 会产生`描边`和`填充`的效果
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_014" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // fillStyle 属性
-  // fillRect(x, y, width, height) 方法
-  cxt.fillStyle = 'pink'
-  cxt.fillRect(50, 50, 200, 100) // fillRect(x, y, width, height)
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_014')
+    const cxt = cnv.getContext('2d')
+    cxt.strokeStyle = 'red'
+    cxt.strokeRect(50, 50, 200, 100) // strokeRect(x, y, width, height)
+    cxt.fillStyle = 'yellow'
+    cxt.fillRect(50, 50, 200, 100) // fillRect(x, y, width, height)
+  }
+}
 </script>
 ```
-复制代码
-同时使用 strokeRect() 和 fillRect()
-同时使用 strokeRect() 和 fillRect() 会产生描边和填充的效果
+:::
 
-图片
-21.png
+#### rect() 生成矩形
+
+:::danger 
+`rect()` 和 `fillRect()` 、`strokeRect()` 的用法差不多，唯一的`区别`是：
+
+strokeRect() 和 fillRect() 这两个方法调用后会`立即绘制`；
+
+`rect()` 方法被调用后，`不会立刻绘制矩形`，而是需要调用 `stroke()` 或 `fill()` 辅助渲染。
+:::
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_015" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.strokeStyle = 'red'
-  cxt.strokeRect(50, 50, 200, 100) // strokeRect(x, y, width, height)
-  cxt.fillStyle = 'yellow'
-  cxt.fillRect(50, 50, 200, 100) // fillRect(x, y, width, height)
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_015')
+    const cxt = cnv.getContext('2d')
+    cxt.strokeStyle = 'red'
+    cxt.fillStyle = 'pink'
+    cxt.rect(50, 50, 200, 100) // rect(x, y, width, height)
+    cxt.stroke()
+    cxt.fill()
+  }
+}
 </script>
 ```
-复制代码
-使用 rect() 生成矩形
-rect() 和 fillRect() 、strokeRect() 的用法差不多，唯一的区别是：
+:::
 
-strokeRect() 和 fillRect() 这两个方法调用后会立即绘制；rect() 方法被调用后，不会立刻绘制矩形，而是需要调用 stroke() 或 fill() 辅助渲染。
-
-图片
-22.png
-```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
-<script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.strokeStyle = 'red'
-  cxt.fillStyle = 'pink'
-
-  cxt.rect(50, 50, 200, 100) // rect(x, y, width, height)
-
-  cxt.stroke()
-  cxt.fill()
-</script>
-```
-复制代码
 等价公式：
 
 ```JavaScript
@@ -563,645 +569,680 @@ cxt.stroke()
 
 // 等价于
 cxt.strokeStyle = 'red'
-cxt.strokerect(50, 50, 200, 100)
+cxt.strokeRect(50, 50, 200, 100)
 
+//----------------//
 
-// -----------------------------
-
-
-cxt.fillStyle = 'hotpink'
+cxt.fillStyle = 'pink'
 cxt.rect(50, 50, 200, 100)
 cxt.fill()
-
 // 等价于
-cxt.fillStyle = 'yellowgreen'
+cxt.fillStyle = 'pink'
 cxt.fillRect(50, 50, 200, 100)
-复制代码
-使用 clearRect() 清空矩形
-使用 clearRect() 方法可以清空指定区域。
-
-clearRect(x, y, width, height)
 ```
-复制代码
-其语法和创建 cxt.rect() 差不多。
 
-图片
-23.png
+#### clearRect() 清空矩形
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_016" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.fillStyle = 'pink' // 设置填充颜色
-  cxt.fillRect(50, 50, 200, 200) // 填充矩形
-
-  cxt.clearRect(60, 60, 180, 90) // 清空矩形
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_016')
+    const cxt = cnv.getContext('2d')
+    cxt.fillStyle = 'pink' // 设置填充颜色
+    cxt.fillRect(50, 50, 200, 200) // 填充矩形
+    cxt.clearRect(60, 60, 180, 90) // 清空矩形
+  }
+}
 </script>
 ```
-复制代码
-清空画布
-canvas 画布元素是矩形，所以可以通过下面的代码把整个画布清空掉。
+:::
 
-// 省略部分代码
+:::danger
+canvas 画布元素是矩形，所以可以通过下面的代码把整个`画布清空`掉。
+
+要清空的区域：从画布`左上角`开始，直到画布的`宽`和画布的`高`为止。
 
 ```JavaScript
 cxt.clearRect(0, 0, cnv.width, cnv.height)
+```
+:::
+
+### 多边形
+
+Canvas 要画多边形，需要使用 `moveTo()` 、 `lineTo()` 和 `closePath()` 。
+
+### 三角形
+
+虽然三角形是常见图形，但 canvas 并`没有`提供类似 `rect()` 的方法来绘制`三角形`。
+
+需要确定三角形`3个点`的`坐标位置`，然后使用 `stroke()` 或者 `fill()` 方法生成三角形。
+
+
+:::demo
 ```vue
-复制代码
-要清空的区域：从画布左上角开始，直到画布的宽和画布的高为止。
-
-多边形
-Canvas 要画多边形，需要使用 moveTo() 、 lineTo() 和 closePath() 。
-
-三角形
-虽然三角形是常见图形，但 canvas 并没有提供类似 rect() 的方法来绘制三角形。
-
-需要确定三角形3个点的坐标位置，然后使用 stroke() 或者 fill() 方法生成三角形。
-
-图片
-24.png
-```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+<template>
+<canvas id="canvas_017" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 
 <script>
-
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.moveTo(50, 50)
-  cxt.lineTo(200, 50)
-  cxt.lineTo(200, 200)
-
-  // 注意点：如果使用 lineTo 闭合图形，是不能很好闭合拐角位的。
-  cxt.lineTo(50, 50) // 闭合
-
-  cxt.stroke()
-
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_017')
+    const cxt = cnv.getContext('2d')
+    cxt.moveTo(50, 50)
+    cxt.lineTo(200, 50)
+    cxt.lineTo(200, 200)
+    cxt.closePath()
+    // cxt.lineTo(50, 50) // 闭合
+    cxt.stroke()
+  }
+}
 </script>
 ```
+:::
 
-复制代码
-注意，默认情况下不会自动从最后一个点连接到起点。最后一步需要设置一下 cxt.lineTo(50, 50) ，让它与 cxt.moveTo(50, 50) 一样。这样可以让路径回到起点，形成一个闭合效果。
+:::danger
+默认情况下`不会自动`从最后一个`点`连接到`起点`。最后一步需要设置一下 `cxt.lineTo(50, 50)` ，让它与 `cxt.moveTo(50, 50)` 一样。这样可以让路径`回到起点`，形成一个`闭合`效果。
 
 但这样做其实是有点问题的，而且也比较麻烦，要记住起始点坐标。
+:::
 
-上面的闭合操作，如果遇到设置了 lineWidth 或者 lineJoin 就会有问题，比如：
+#### lineWidth 和 lineJoin
+上面的闭合操作，如果遇到设置了 `lineWidth` 或者 `lineJoin` 就会有问题：当线段变粗后，起始点和结束点的链接处，拐角就出现`不正常`现象。
 
-图片
-25.png
-// 省略部分代码
-cxt.lineWidth = 20
-复制代码
-当线段变粗后，起始点和结束点的链接处，拐角就出现“不正常”现象。
+如果需要真正闭合，可以使用 `closePath()` 方法自动将`终点`和`起始点`连接起来，此时看上去就正常多了。比如：
 
-如果需要真正闭合，可以使用 closePath() 方法。
-
-图片
-26.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_018" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+<canvas id="canvas_019" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+<canvas id="canvas_020" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_018')
+    const cnv1 = document.getElementById('canvas_019')
+    const cnv2 = document.getElementById('canvas_020')
+    const cxt = cnv.getContext('2d')
+    const cxt1 = cnv1.getContext('2d')
+    const cxt2 = cnv2.getContext('2d')
+    cxt.moveTo(50, 50)
+    cxt.lineTo(200, 50)
+    cxt.lineTo(200, 200)
+    cxt.lineTo(50, 50) // 闭合
+    cxt.lineWidth = 20
+    cxt.stroke()
 
-  cxt.moveTo(50, 50)
-  cxt.lineTo(200, 50)
-  cxt.lineTo(200, 200)
-  // 手动闭合
-  cxt.closePath()
+    cxt1.moveTo(50, 50)
+    cxt1.lineTo(200, 50)
+    cxt1.lineTo(200, 200)
+    cxt1.lineTo(50, 50) // 闭合
+    cxt1.lineJoin = 'round' // 线条连接的样式。miter: 默认; bevel: 斜面; round: 圆角
+    cxt1.lineWidth = 20
+    cxt1.stroke()
 
-  cxt.lineJoin = 'miter' // 线条连接的样式。miter: 默认; bevel: 斜面; round: 圆角
-  cxt.lineWidth = 20
-  cxt.stroke()
+    cxt2.moveTo(50, 50)
+    cxt2.lineTo(200, 50)
+    cxt2.lineTo(200, 200)
+    cxt2.lineJoin = 'round' // 线条连接的样式。miter: 默认; bevel: 斜面; round: 圆角
+    cxt2.lineWidth = 20
+    cxt2.closePath()
+    cxt2.stroke()
+  }
+}
 </script>
 ```
-复制代码
-使用 cxt.closePath() 可以自动将终点和起始点连接起来，此时看上去就正常多了。
+:::
 
-菱形
-有一组邻边相等的平行四边形是菱形
+### 菱形
 
-图片
-27.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_021" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.moveTo(150, 50)
-  cxt.lineTo(250, 100)
-  cxt.lineTo(150, 150)
-  cxt.lineTo(50, 100)
-  cxt.closePath()
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_021')
+    const cxt = cnv.getContext('2d')
+    cxt.moveTo(150, 50)
+    cxt.lineTo(250, 100)
+    cxt.lineTo(150, 150)
+    cxt.lineTo(50, 100)
+    cxt.closePath()
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-要绘制直线类型的图形，在草稿纸上标记出起始点和每个拐角的点，然后再连线即可。相对曲线图形来说，直线图形是比较容易的。
+:::
 
-圆形
-绘制圆形的方法是 arc()。
+### 圆形
 
-语法：
+绘制圆形的方法是 `arc(x, y, r, sAngle, eAngle，counterclockwise)`。
 
-```JavaScript
-arc(x, y, r, sAngle, eAngle，counterclockwise)
-```
-复制代码
-x 和 y: 圆心坐标
-r: 半径
-sAngle: 开始角度
-eAngle: 结束角度
-counterclockwise: 绘制方向（true: 逆时针; false: 顺时针），默认 false
-图片
-28.jpg
-开始角度和结束角度，都是以弧度为单位。例如 180°就写成 Math.PI ，360°写成 Math.PI * 2 ，以此类推。
+- x 和 y: `圆心`坐标
+- r: 半径
+- sAngle: 开始角度
+- eAngle: 结束角度
+- counterclockwise: 绘制方向（true: 逆时针; false: 顺时针），默认 `false`
 
-在实际开发中，为了让自己或者别的开发者更容易看懂弧度的数值，1°应该写成 Math.PI / 180。
+开始角度和结束角度，都是以`弧度`为`单位`。例如 `180°`就写成 `Math.PI` ，`360°`写成 `Math.PI * 2` ，以此类推。
 
-100°: 100 * Math.PI / 180
-110°: 110 * Math.PI / 180
-241°: 241 * Math.PI / 180
-注意：绘制圆形之前，必须先调用 beginPath() 方法！！！在绘制完成之后，还需要调用 closePath() 方法！！！
+> 在实际开发中，为了更容易看懂弧度的`数值`，`1°`应该写成 `Math.PI / 180`
+>
+> 100°: `100 * Math.PI / 180`
+>
+> 110°: `110 * Math.PI / 180`
+>
+> 241°: `241 * Math.PI / 180`
+>
+> 注意：绘制圆形之前，`必须`先调用 `beginPath()` 方法！！！在绘制`完成`之后，还需要调用 `closePath()` 方法！！！
 
-图片
-29.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_022" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.beginPath()
-  cxt.arc(150, 150, 80, 0, 360 * Math.PI / 180)
-  cxt.closePath()
-
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_022')
+    const cxt = cnv.getContext('2d')
+    cxt.beginPath()
+    cxt.fillStyle = 'pink'
+    cxt.arc(150, 150, 80, 0, 360 * Math.PI / 180)
+    cxt.closePath()
+    cxt.stroke()
+    cxt.fill()
+  }
+}
 </script>
 ```
-复制代码
-半圆
-如果使用 arc() 方法画圆时，没做到刚好绕完一周（360°）就直接闭合路径，就会出现半圆的状态。
+:::
 
-图片
-30.png
+### 半圆
+
+如果使用 `arc()` 方法画圆时，没做到刚好绕完一周（360°）就直接闭合路径，就会出现`半圆`的状态。
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_023" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.beginPath()
-  cxt.arc(150, 150, 100, 0, 180 * Math.PI / 180) // 顺时针
-  cxt.closePath()
-
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_023')
+    const cxt = cnv.getContext('2d')
+    cxt.beginPath()
+    cxt.arc(150, 150, 80, 0, 180 * Math.PI / 180) // 顺时针
+    cxt.closePath()
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-上面的代码中，cxt.arc 最后一个参数没传，默认是 false ，所以是顺时针绘制。
+:::
 
-图片
-31.jpg
-如果希望半圆的弧面在上方，可以将 cxt.arc 最后一个参数设置成 true
+cxt.arc 最后一个参数没传，默认是 `false` ，所以是`顺时针`绘制。如果希望半圆的弧面在`上方`，可以将 cxt.arc 最后一个参数设置成 `true`。
 
-图片
-32.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_024" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.beginPath()
-  cxt.arc(150, 150, 100, 0, 180 * Math.PI / 180, true)
-  cxt.closePath()
-
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_024')
+    const cxt = cnv.getContext('2d')
+    cxt.beginPath()
+    cxt.arc(150, 150, 80, 0, 180 * Math.PI / 180, true)
+    cxt.closePath()
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-弧线
-使用 arc() 方法画半圆时，如果最后不调用 closePath() 方法，就不会出现闭合路径。也就是说，那是一条弧线。
+:::
 
-在 canvas 中，画弧线有2中方法：arc() 和 arcTo() 。
+### 弧线
 
-arc() 画弧线
-如果想画一条 0° ~ 30° 的弧线，可以这样写
+使用 arc() 方法画半圆时，如果最后`不调用closePath()`方法，就不会出现闭合路径。也就是说，那是一条`弧线`。
 
-图片
-33.png
+在 canvas 中，画弧线有2中方法：`arc()` 和 `arcTo()`。
+
+#### arc()
+
+如果想画一条 `0° ~ 30°` 的弧线，可以这样写
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_025" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.beginPath()
-  cxt.arc(150, 150, 100, 0, 30 * Math.PI / 180)
-
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_025')
+    const cxt = cnv.getContext('2d')
+    cxt.beginPath()
+    cxt.arc(150, 150, 80, 0, 30 * Math.PI / 180)
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-原理如下图所示，红线代表画出来的那条弧线。
+:::
 
-图片
-34.jpg
-arcTo() 画弧线
-arcTo() 的使用方法会更加复杂，如果初学看不太懂的话可以先跳过，看完后面的再回来补补。
+#### arcTo()
 
-语法：
+`arcTo(cx, cy, x2, y2, radius)`
 
-arcTo(cx, cy, x2, y2, radius)
-复制代码
-cx: 两切线交点的横坐标
-cy: 两切线交点的纵坐标
-x2: 结束点的横坐标
-y2: 结束点的纵坐标
-radius: 半径
-其中，(cx, cy) 也叫控制点，(x2, y2) 也叫结束点。
+- cx: 两切线交点的横坐标
+- cy: 两切线交点的纵坐标
+- x2: 结束点的横坐标
+- y2: 结束点的纵坐标
+- radius: 半径
+
+其中，`(cx, cy)` 也叫`控制点`，`(x2, y2)` 也叫`结束点`。
+
+:::danger
+<Badge text="思考"/>
 
 是不是有点奇怪，为什么没有 x1 和 y1 ？
 
-(x1, y1) 是开始点，通常是由 moveTo() 或者 lineTo() 提供。
+<Badge text="猜测" type="warning"/> 
 
-arcTo() 方法利用 开始点、控制点和结束点形成的夹角，绘制一段与夹角的两边相切并且半径为 radius 的圆弧。
+`(x1, y1)` 是`开始点`，通常是由 `moveTo()` 或者 `lineTo()` 提供。
 
-图片
-35.jpg
-举个例子
+arcTo() 方法利用 `开始点`、`控制点`和`结束点`形成的`夹角`，绘制一段与夹角的两边`相切`并且`半径`为 `radius` 的圆弧。
+:::
 
-图片
-36.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_026" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.moveTo(40, 40)
-  cxt.arcTo(120, 40, 120, 120, 80)
-
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_026')
+    const cxt = cnv.getContext('2d')
+    cxt.moveTo(40, 40)
+    cxt.arcTo(120, 40, 120, 120, 80)
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-基础样式
-前面学完基础图形，接下来可以开始了解一下如何设置元素的基础样式。
+:::
 
-描边 stroke()
-前面的案例中，其实已经知道使用 stroke() 方法进行描边了。这里就不再多讲这个方法。
+## 基础样式
 
-线条宽度 lineWidth
-lineWidth 默认值是 1 ，默认单位是 px。
+### stroke() 描边
 
-语法：
+前面的案例中，其实已经知道使用 `stroke()` 方法进行描边了。这里就不再赘述。
 
-lineWidth = 线宽
-复制代码
-图片
-37.png
+### lineWidth 线条宽度
+
+lineWidth 默认值是 `1` ，默认单位是 `px`。
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_027" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // 线宽 10
-  cxt.beginPath()
-  cxt.moveTo(50, 50)
-  cxt.lineTo(250, 50)
-  cxt.lineWidth = 10 // 设置线宽
-  cxt.stroke()
-
-  // 线宽 20
-  cxt.beginPath()
-  cxt.moveTo(50, 150)
-  cxt.lineTo(250, 150)
-  cxt.lineWidth = 20 // 设置线宽
-  cxt.stroke()
-
-  // 线宽 30
-  cxt.beginPath()
-  cxt.moveTo(50, 250)
-  cxt.lineTo(250, 250)
-  cxt.lineWidth = 30 // 设置线宽
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_027')
+    const cxt = cnv.getContext('2d')
+    // 线宽 10
+    cxt.beginPath()
+    cxt.moveTo(50, 50)
+    cxt.lineTo(250, 50)
+    cxt.lineWidth = 10 // 设置线宽
+    cxt.stroke()
+    // 线宽 20
+    cxt.beginPath()
+    cxt.moveTo(50, 150)
+    cxt.lineTo(250, 150)
+    cxt.lineWidth = 20 // 设置线宽
+    cxt.stroke()
+    // 线宽 30
+    cxt.beginPath()
+    cxt.moveTo(50, 250)
+    cxt.lineTo(250, 250)
+    cxt.lineWidth = 30 // 设置线宽
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-线条颜色 strokeStyle
-使用 strokeStyle 可以设置线条颜色
+:::
 
-语法:
+### strokeStyle 线条颜色
 
-strokeStyle = 颜色值
-复制代码
-图片
-38.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_028" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.moveTo(50, 50)
-  cxt.lineTo(250, 50)
-  cxt.lineWidth = 20
-  cxt.strokeStyle = 'pink' // 设置颜色
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_028')
+    const cxt = cnv.getContext('2d')
+    cxt.moveTo(50, 50)
+    cxt.lineTo(250, 50)
+    cxt.lineWidth = 20
+    cxt.strokeStyle = 'pink' // 设置颜色
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-为了展示方便，我将 lineWidth 设为 20。
+:::
 
-线帽 lineCap
-线帽指的是线段的开始和结尾处的样式，使用 lineCap 可以设置
+### lineCap 线帽
 
-语法：
+线帽指的是线段的`开始`和`结尾处`的样式，使用 `lineCap` 可以设置
 
-lineCap = '属性值'
-复制代码
 属性值包括：
 
-butt: 默认值，无线帽
-square: 方形线帽
-round: 圆形线帽
-图片
-39.png
+- butt: 默认值，无线帽
+- square: 方形线帽
+- round: 圆形线帽
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_029" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  // 设置线宽，方便演示
-  cxt.lineWidth = 16
-
-  // 默认线帽 butt
-  cxt.beginPath()
-  cxt.moveTo(50, 60)
-  cxt.lineTo(250, 60)
-  cxt.stroke()
-
-
-  // 方形线帽 square
-  cxt.beginPath()
-  cxt.lineCap = 'square'
-  cxt.moveTo(50, 150)
-  cxt.lineTo(250, 150)
-  cxt.stroke()
-
-
-  // 圆形线帽 round
-  cxt.beginPath()
-  cxt.lineCap = 'round'
-  cxt.moveTo(50, 250)
-  cxt.lineTo(250, 250)
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_029')
+    const cxt = cnv.getContext('2d')
+    // 设置线宽，方便演示
+    cxt.lineWidth = 16
+    // 默认线帽 butt
+    cxt.beginPath()
+    cxt.moveTo(50, 60)
+    cxt.lineTo(250, 60)
+    cxt.stroke()
+    // 方形线帽 square
+    cxt.beginPath()
+    cxt.lineCap = 'square'
+    cxt.moveTo(50, 150)
+    cxt.lineTo(250, 150)
+    cxt.stroke()
+    // 圆形线帽 round
+    cxt.beginPath()
+    cxt.lineCap = 'round'
+    cxt.moveTo(50, 250)
+    cxt.lineTo(250, 250)
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-使用 square 和 round 的话，会使线条变得稍微长一点点，这是给线条增加线帽的部分，这个长度在日常开发中需要注意。
+:::
 
-线帽只对线条的开始和结尾处产生作用，对拐角不会产生任何作用。
+使用 `square` 和 `round` 的话，会使线条变得`稍微长一点点`，这是给线条`增加线帽`的部分，日常开发中`需要注意`。
 
-拐角样式 lineJoin
-如果需要设置拐角样式，可以使用 lineJoin 。
+线帽只对线条的`开始`和`结尾`处产生作用，对拐角不会产生任何作用。
 
-语法：
+### lineJoin 拐角样式
 
-lineJoin = '属性值'
-复制代码
 属性值包括：
 
-miter: 默认值，尖角
-round: 圆角
-bevel: 斜角
-图片
-40.png
+- miter: 默认值，尖角
+- round: 圆角
+- bevel: 斜角
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_030" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-  
-  cxt.lineWidth = 20
-
-  // 默认，尖角
-  cxt.moveTo(50, 40)
-  cxt.lineTo(200, 40)
-  cxt.lineTo(200, 90)
-  cxt.stroke()
-
-  // 斜角 bevel
-  cxt.beginPath()
-  cxt.moveTo(50, 140)
-  cxt.lineTo(200, 140)
-  cxt.lineTo(200, 190)
-  cxt.lineJoin = 'bevel'
-  cxt.stroke()
-
-  // 圆角 round
-  cxt.beginPath()
-  cxt.moveTo(50, 240)
-  cxt.lineTo(200, 240)
-  cxt.lineTo(200, 290)
-  cxt.lineJoin = 'round'
-  cxt.stroke()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_030')
+    const cxt = cnv.getContext('2d')
+    cxt.lineWidth = 20
+    // 默认，尖角
+    cxt.moveTo(50, 40)
+    cxt.lineTo(200, 40)
+    cxt.lineTo(200, 90)
+    cxt.stroke()
+    // 斜角 bevel
+    cxt.beginPath()
+    cxt.moveTo(50, 140)
+    cxt.lineTo(200, 140)
+    cxt.lineTo(200, 190)
+    cxt.lineJoin = 'bevel'
+    cxt.stroke()
+    // 圆角 round
+    cxt.beginPath()
+    cxt.moveTo(50, 240)
+    cxt.lineTo(200, 240)
+    cxt.lineTo(200, 290)
+    cxt.lineJoin = 'round'
+    cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-虚线 setLineDash()
-使用 setLineDash() 方法可以将描边设置成虚线。
+:::
 
-语法：
+### setLineDash() 虚线
 
-setLineDash([])
-复制代码
-需要传入一个数组，且元素是数值型。
+虚线分3种情况:
 
-虚线分3种情况
+- 只传1个值
+- 有2个值
+- 有3个以上的值
 
-只传1个值
-有2个值
-有3个以上的值
-图片
-41.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_031" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
+export default {
+  name: "canvas",
+  mounted() {
+  const cnv = document.getElementById('canvas_031')
   const cxt = cnv.getContext('2d')
-
   cxt.lineWidth = 20
   cxt.strokeStyle = 'pink'
 
   cxt.moveTo(50, 50)
   cxt.lineTo(200, 50)
   cxt.setLineDash([10]) // 只传1个参数，实线与空白都是 10px
+
   cxt.stroke()
-
-
   cxt.beginPath()
   cxt.moveTo(50, 100)
   cxt.lineTo(200, 100)
   cxt.setLineDash([10, 20]) // 2个参数，此时，实线是 10px, 空白 20px
+
   cxt.stroke()
-
-
   cxt.beginPath()
   cxt.moveTo(50, 150)
   cxt.lineTo(200, 150)
   cxt.setLineDash([10, 20, 5]) // 传3个以上的参数，此例：10px实线，20px空白，5px实线，10px空白，20px实线，5px空白 ……
-
   cxt.stroke()
+  }
+}
 </script>
 ```
-复制代码
-此外，还可以始终 cxt.getLineDash() 获取虚线不重复的距离；
+:::
 
-用 cxt.lineDashOffset 设置虚线的偏移位。
+此外:
 
-填充
-使用 fill() 可以填充图形，根据前面的例子应该掌握了如何使用 fill()
+`cxt.getLineDash()` 获取虚线不重复的距离；
 
-图片
-42.png
+`cxt.lineDashOffset` 设置虚线的偏移位。
+
+### fill 填充
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_032" width="300" height="200" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.fillStyle = 'pink'
-
-  cxt.rect(50, 50, 200, 100)
-
-  cxt.fill()
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_032')
+    const cxt = cnv.getContext('2d')
+    cxt.fillStyle = 'pink'
+    cxt.rect(50, 50, 200, 100)
+    cxt.fill()
+  }
+}
 </script>
 ```
-复制代码
-可以使用 fillStyle 设置填充颜色，默认是黑色。
+:::
 
-非零环绕填充
+可以使用 fillStyle 设置填充颜色，默认是`黑色`。
+
+#### 非零环绕填充
+
 在使用 fill() 方法填充时，需要注意一个规则：非零环绕填充。
 
-在使用 moveTo 和 lineTo 描述图形时，如果是按顺时针绘制，计数器会加1；如果是逆时针，计数器会减1。
+在使用 moveTo 和 lineTo 描述图形时，如果是按`顺时针绘制`，计数器会`加1`；如果是`逆时针`，计数器会`减1`。
 
-当图形所处的位置，计数器的结果为0时，它就不会被填充。
+当图形所处的位置，计数器的`结果为0`时，它就`不会`被`填充`。
 
-这样说有点复杂，先看看例子
-
-图片
-43.png
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_033" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_033')
+    const cxt = cnv.getContext('2d')
 
-  // 外层矩形
-  cxt.moveTo(50, 50)
-  cxt.lineTo(250, 50)
-  cxt.lineTo(250, 250)
-  cxt.lineTo(50, 250)
-  cxt.closePath()
+    // 外层矩形
+    cxt.moveTo(50, 50)
+    cxt.lineTo(250, 50)
+    cxt.lineTo(250, 250)
+    cxt.lineTo(50, 250)
+    cxt.closePath()
 
-  // 内层矩形
-  cxt.moveTo(200, 100)
-  cxt.lineTo(100, 100)
-  cxt.lineTo(100, 200)
-  cxt.lineTo(200, 200)
-  cxt.closePath()
-  cxt.fill()
+    // 内层矩形
+    cxt.moveTo(200, 100)
+    cxt.lineTo(100, 100)
+    cxt.lineTo(100, 200)
+    cxt.lineTo(200, 200)
+    cxt.closePath()
+    cxt.fill()
+  }
+}
 </script>
 ```
-复制代码
-请看看上面的代码，我画了2个矩形，它们都没有用 beginPath() 方法开辟新路径。
+:::
 
-图片
-44.png
-内层矩形是逆时针绘制的，所以内层的值是 -1 ，它又经过外层矩形，而外层矩形是顺时针绘制，所以经过外层时值 +1，最终内层的值为 0 ，所以不会被填充。
+请看看上面的代码，画了`2个矩形`，它们都没有用 `beginPath()` 方法开辟新路径。
 
-文本
-Canvas 提供了一些操作文本的方法。
+内层矩形是`逆时针绘制`的，所以内层的值是 `-1` 。外层矩形是`顺时针绘制`，所以经过外层时值 `+1`，最终内层的值为 `0` ，所以`不会被填充`。
 
-为了方便演示，我们先了解一下在 Canvas 中如何给本文设置样式。
+### 文本
 
-样式 font
-和 CSS 设置 font 差不多，Canvas 也可以通过 font 设置样式。
 
-语法：
+#### font 样式
 
-cxt.font = 'font-style font-variant font-weight font-size/line-height font-family'
-复制代码
-如果需要设置字号 font-size，需要同事设置 font-family。
+和 `CSS` 设置 `font` 差不多，Canvas 也可以通过 `font` 设置`样式`。
 
-cxt.font = '30px 宋体'
-复制代码
-描边 strokeText()
-使用 strokeText() 方法进行文本描边
+语法：`cxt.font = 'font-style font-variant font-weight font-size/line-height font-family'`
 
-语法：
+如果需要设置字号 `font-size`，需要同事设置 `font-family`。
 
-strokeText(text, x, y, maxWidth)
-复制代码
-text: 字符串，要绘制的内容
-x: 横坐标，文本左边要对齐的坐标（默认左对齐）
-y: 纵坐标，文本底边要对齐的坐标
-maxWidth: 可选参数，表示文本渲染的最大宽度（px），如果文本超出 maxWidth 设置的值，文本会被压缩。
-图片
-45.png
+`cxt.font = '30px 宋体'`
+
+#### strokeText() 描边 
+
+语法：`strokeText(text, x, y, maxWidth)`
+
+- text: `字符串`，要绘制的内容
+- x: `横坐标`，文本左边要对齐的坐标（默认`左对齐`）
+- y: `纵坐标`，文本底边要对齐的坐标
+- maxWidth: 可选参数，表示文本渲染的`最大宽度（px`），如果文本`超出` maxWidth 设置的值，文本会被`压缩`。
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_034" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.font = '60px Arial' // 将字号设置成 60px，方便观察
-  cxt.strokeText('雷猴', 30, 90)
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_034')
+    const cxt = cnv.getContext('2d')
+    cxt.font = '60px Arial' // 将字号设置成 60px，方便观察
+    cxt.strokeText('雷猴', 30, 90)
+  }
+}
 </script>
 ```
-复制代码
-设置描边颜色 strokeStyle
-使用 strokeStyle 设置描边颜色。
+:::
 
-图片
-46.png
+#### strokeStyle 设置描边颜色
+
+:::demo
 ```vue
-<canvas id="c" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
-
+<template>
+<canvas id="canvas_035" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
-
-  cxt.font = '60px Arial' // 将字号设置成 60px，方便观察
-  cxt.strokeStyle = 'pink' // 设置文本描边颜色
-  cxt.strokeText('雷猴', 30, 90)
+export default {
+  name: "canvas",
+  mounted() {
+    const cnv = document.getElementById('canvas_035')
+    const cxt = cnv.getContext('2d')
+    cxt.font = '60px Arial' // 将字号设置成 60px，方便观察
+    cxt.strokeStyle = 'pink' // 设置文本描边颜色
+    cxt.strokeText('雷猴', 30, 90)
+  }
+}
 </script>
 ```
-复制代码
-填充 fillText
+:::
+
+#### fillText 填充
+
 使用 fillText() 可填充文本。
 
 语法和 strokeText() 一样。

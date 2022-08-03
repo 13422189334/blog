@@ -1,7 +1,8 @@
 {
   "scripts": {
     "intall": "yarn install",
-    "docs:dev": "vuepress dev docs --temp .temp  --no-cache",
+    "docs:dev": "vuepress dev docs --temp .temp",
+    "docs:dev:clear": "vuepress dev docs --temp .temp  --no-cache",
     "docs:build": "vuepress build docs"
   },
   "name": "front-end-knowledge",
