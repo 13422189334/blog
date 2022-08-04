@@ -61,7 +61,6 @@ tags:
 </template>
 <script>
 export default {
-  name: "Canvas",
   mounted() {
     // 2、获取 canvas 对象
     const cnv = document.getElementById('canvas_001')
@@ -116,7 +115,6 @@ canvas 元素提供了 `width` 和 `height` 两个属性，可设置它的宽高
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     // 2、获取 canvas 对象
     const cnv = document.getElementById('canvas_002')
@@ -174,7 +172,6 @@ W3C 坐标系 和 数学直角坐标系 的 `X轴` 是`一样的`，只是 `Y轴
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_003')
     const cxt = cnv.getContext('2d')
@@ -196,7 +193,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_004')
     const cxt = cnv.getContext('2d')
@@ -235,7 +231,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_005')
     const cxt = cnv.getContext('2d')
@@ -268,7 +263,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_006')
     const cxt = cnv.getContext('2d')
@@ -304,7 +298,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_007')
     const cxt = cnv.getContext('2d')
@@ -338,7 +331,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_008')
     const cxt = cnv.getContext('2d')
@@ -368,7 +360,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_009')
     const cxt = cnv.getContext('2d')
@@ -401,7 +392,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_010')
     const cxt = cnv.getContext('2d')
@@ -429,7 +419,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_011')
     const cxt = cnv.getContext('2d')
@@ -460,7 +449,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_012')
     const cxt = cnv.getContext('2d')
@@ -488,7 +476,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_013')
     const cxt = cnv.getContext('2d')
@@ -514,7 +501,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_014')
     const cxt = cnv.getContext('2d')
@@ -545,7 +531,6 @@ strokeRect() 和 fillRect() 这两个方法调用后会`立即绘制`；
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_015')
     const cxt = cnv.getContext('2d')
@@ -590,7 +575,6 @@ cxt.fillRect(50, 50, 200, 100)
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_016')
     const cxt = cnv.getContext('2d')
@@ -632,7 +616,6 @@ Canvas 要画多边形，需要使用 `moveTo()` 、 `lineTo()` 和 `closePath()
 
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_017')
     const cxt = cnv.getContext('2d')
@@ -668,7 +651,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_018')
     const cnv1 = document.getElementById('canvas_019')
@@ -713,7 +695,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_021')
     const cxt = cnv.getContext('2d')
@@ -758,7 +739,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_022')
     const cxt = cnv.getContext('2d')
@@ -785,7 +765,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_023')
     const cxt = cnv.getContext('2d')
@@ -808,7 +787,6 @@ cxt.arc 最后一个参数没传，默认是 `false` ，所以是`顺时针`绘�
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_024')
     const cxt = cnv.getContext('2d')
@@ -839,7 +817,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_025')
     const cxt = cnv.getContext('2d')
@@ -883,7 +860,6 @@ arcTo() 方法利用 `开始点`、`控制点`和`结束点`形成的`夹角`，
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_026')
     const cxt = cnv.getContext('2d')
@@ -913,7 +889,6 @@ lineWidth 默认值是 `1` ，默认单位是 `px`。
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_027')
     const cxt = cnv.getContext('2d')
@@ -950,7 +925,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_028')
     const cxt = cnv.getContext('2d')
@@ -982,7 +956,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_029')
     const cxt = cnv.getContext('2d')
@@ -1030,7 +1003,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_030')
     const cxt = cnv.getContext('2d')
@@ -1075,7 +1047,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
   const cnv = document.getElementById('canvas_031')
   const cxt = cnv.getContext('2d')
@@ -1119,7 +1090,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_032')
     const cxt = cnv.getContext('2d')
@@ -1149,7 +1119,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_033')
     const cxt = cnv.getContext('2d')
@@ -1207,7 +1176,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_034')
     const cxt = cnv.getContext('2d')
@@ -1228,7 +1196,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_035')
     const cxt = cnv.getContext('2d')
@@ -1252,7 +1219,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_036')
     const cxt = cnv.getContext('2d')
@@ -1273,7 +1239,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_037')
     const cxt = cnv.getContext('2d')
@@ -1297,7 +1262,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_038')
     const cxt = cnv.getContext('2d')
@@ -1326,7 +1290,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_039')
     const cxt = cnv.getContext('2d')
@@ -1387,7 +1350,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_040')
     const cxt = cnv.getContext('2d')
@@ -1459,7 +1421,6 @@ export default {
 </template>
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_041')
     const cxt = cnv.getContext('2d')
@@ -1498,20 +1459,21 @@ export default {
 
 <script>
 export default {
-  name: "canvas",
   mounted() {
     const cnv = document.getElementById('canvas_042')
     const cxt = cnv.getContext('2d')
     const image = document.getElementById('dogImg')
-    console.log(image)
-    cxt.drawImage(image, 70, 70)
+    image.onload = () => {
+      // 4 使用 drawImage() 方法渲染图片
+      cxt.drawImage(image, 70, 70)
+    }
   }
 }
 </script>
 ```
 :::
 
-因为图片是从 `DOM` 里获取到的，所以一般来说，只要在 `window.onload` 这个生命周期内使用 `drawImage` 都可以`正常渲染`图片。
+因为图片是从 `DOM` 里获取到的，所以一般来说，只要在 `window.onload` 这个生命周期内使用 `drawImage` 都可以`正常渲染`图片。前提是dom元素图片`加载完成`。
 
 #### 设置图片宽高
 
@@ -1521,60 +1483,66 @@ export default {
 
 `drawImage(image, dx, dy, dw, dh)`
 
-
+:::demo
 ```vue
-<canvas id="c" width="500" height="500" style="border: 1px solid #ccc;"></canvas>
+<template>
+<canvas id="canvas_043" width="500" height="200" style="border: 1px solid #ccc;"></canvas>
+</template>
 
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
+export default {
+  mounted() {
+    const cnv = document.getElementById('canvas_043')
+    const cxt = cnv.getContext('2d')
 
-  const image = new Image()
-  image.src = './images/dog.jpg'
+    const image = new Image()
+    image.src = '/assets/knowledge/frontEnd/canvas/KFC_001.jpg'
 
-  image.onload = () => {
-    cxt.drawImage(image, 30, 30, 100, 100)
+    image.onload = () => {
+      cxt.drawImage(image, 30, 30, 100, 100)
+    }
   }
+}
 </script>
 ```
-复制代码
-我把图片的尺寸设为 100px * 100px，图片看上去比之前就小了很多。
+:::
 
-截取图片
-截图图片同样使用drawImage() 方法，只不过传入的参数数量比之前都多，而且顺序也有点不一样了。
+#### 截取图片
 
-drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
-复制代码
-以上参数缺一不可
+截图图片同样使用`drawImage()` 方法，只不过传入的参数`数量`比之前都`多`，而且`顺序`也有点`不一样`了。
 
-image: 图片对象
-sx: 开始截取的横坐标
-sy: 开始截取的纵坐标
-sw: 截取的宽度
-sh: 截取的高度
-dx: 图片左上角的横坐标位置
-dy: 图片左上角的纵坐标位置
-dw: 图片宽度
-dh: 图片高度
-图片
-55.png
+`drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)`
+
+- image: 图片对象
+- sx: 开始截取的横坐标
+- sy: 开始截取的纵坐标
+- sw: 截取的宽度
+- sh: 截取的高度
+- dx: 图片左上角的横坐标位置
+- dy: 图片左上角的纵坐标位置
+- dw: 图片宽度
+- dh: 图片高度
+
+:::demo
 ```vue
-<canvas id="c" width="500" height="500" style="border: 1px solid #ccc;"></canvas>
+<template>
+<canvas id="canvas_044" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
+</template>
 
 <script>
-  const cnv = document.getElementById('c')
-  const cxt = cnv.getContext('2d')
+export default {
+  mounted() {
+    const cnv = document.getElementById('canvas_044')
+    const cxt = cnv.getContext('2d')
 
-  const image = new Image()
-  image.src = './images/dog.jpg'
+    const image = new Image()
+    image.src = '/assets/knowledge/frontEnd/canvas/KFC_001.jpg'
 
-  image.onload = () => {
-    cxt.drawImage(image, 0, 0, 100, 100, 30, 30, 200, 200)
+    image.onload = () => {
+      cxt.drawImage(image, 0, 0, 200, 200, 0, 0, 200, 200)
+    }
   }
+}
 </script>
 ```
-复制代码
-总结
-本文主要讲解了在 Canvas 中绘制一些基础图形，还有一些基础样式设置。
-
-还有更多高级的玩法会在之后的文章中讲到，比如渐变、投影、滤镜等等。
+:::
