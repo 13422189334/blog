@@ -1,55 +1,27 @@
 <template>
-  <div class="tab-container-box">
-    <div class="tab-container top-bar">
-      <div
-        :class="{
-          'tab-container-item': true,
-          btn: true,
-          active: index === handlerTabIndex
-        }"
-        v-for="(item, index) in data"
-        :key="index"
-        @click="handlerTabIndex = index"
-      >
-        <img src="https://docs.deepin.org/assets/image/con2-1.jpg"/>
-        <span>{{ item.typeTitle }}</span>
-      </div>
-    </div>
-
-    <div class="tab-container-content">
-      <div class="tab-container-content-list">
-        <div id="tab-container-content-box" class="tab-container-content-box">
-          <div
-            class="tab-container-content-item btn"
-            v-for="(arrData, aIndex) in rightData"
-            :key="aIndex"
-          >
-            <div class="tab-container-content-item-title" :title-index="`${aIndex + 1} - `">
-              {{ arrData.title + (arrData.arr.length ? `(${arrData.arr.length})`: '') }}
-              <el-popover
-                placement="bottom"
-                width="250"
-                trigger="click"
-              >
-                  <li v-for="i in arrData.arr" :key="i.url">
-                  <router-link :to="i.url">{{ i.name }}</router-link>
-                  </li>
-                <a slot="reference" class="tab-container-content-item-title-handler">查看详情> </a>
-              </el-popover>
-            </div>
-            <div class="tab-container-content-item-sub">{{ arrData.subTitle }}</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="knowledge-menu-box">
+    <el-input
+      placeholder="输入关键字进行过滤"
+      v-model="filterText">
+    </el-input>
+    <el-tree
+      ref="tree"
+      :data="data"
+      :props="defaultProps"
+      :filter-node-method="filterNode"
+      @node-click="handleNodeClick"
+    >
+    </el-tree>
   </div>
 </template>
 
 <script>
+  import { data as menu } from './assets/KnowledgeMenu/data'
   export default {
-    name: 'TabContainer',
+    name: 'KnowledgeMenu',
     data() {
       return {
+        filterText: '',
         handlerTabIndex: 0, // 选中tab的index
         leftData: {}
       }
@@ -57,35 +29,32 @@
     props: {
       data: {
         type: Array,
-        default: () => ([]),
+        default: () => menu,
         remark: '地址数据源'
-      }
-    },
-    computed: {
-      // leftData() {
-      //   const { data, handlerTabIndex } = this
-      //   const arrData = data[handlerTabIndex].arrData
-      //   // 排序 找到arr长度最大的那个显示在左边
-      //   const sortArr = arrData.sort((a, b) => a.arr.length === b.arr.length ? 0 : b.arr.length - a.arr.length)
-      //   return  sortArr[0]
-      // },
-      rightData() {
-        const { data, handlerTabIndex, leftData } = this
-        const arrData = data[handlerTabIndex].arrData
-        // data 移除左边的 就是右边的
-        const set = new Set(arrData)
-        // set.delete(leftData)
-        return Array.from(set)
+      },
+      defaultProps: {
+        type: Object,
+        default: () => ({
+          children: 'children',
+          label: 'label'
+        }),
       }
     },
     watch: {
+      filterText(val) {
+        this.$refs.tree.filter(val);
+      }
     },
     methods: {
-    },
-    mounted() {
-    },
-    beforeDestroy() {
-
+      handleNodeClick({ url = '' }) {
+        if(url) {
+          location.href = url
+        }
+      },
+      filterNode(value, data) {
+        if (!value) return true;
+        return data.label.indexOf(value) !== -1;
+      }
     }
   }
 </script>

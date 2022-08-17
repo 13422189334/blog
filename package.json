@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "intall": "yarn install",
+    "install": "yarn install",
     "docs:dev": "vuepress dev docs --temp .temp",
     "docs:dev:clear": "vuepress dev docs --temp .temp  --no-cache",
     "docs:build": "vuepress build docs"
