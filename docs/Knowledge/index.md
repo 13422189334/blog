@@ -22,5 +22,3 @@ tags:
 
 
 
-<Vssue :title="$title" />
-
