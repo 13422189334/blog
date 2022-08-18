@@ -1,5 +1,14 @@
 export const data = [
   {
+    label: '面试题',
+    children: [
+      {
+        label: 'LRU',
+        url: '/InterviewQuestion/FrontEnd/LRU/'
+      }
+    ]
+  },
+  {
     label: '前端知识库',
     children: [
       {
