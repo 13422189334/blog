@@ -14,6 +14,34 @@ export const data = [
     ]
   },
   {
+    label: '奇奇怪怪的技术',
+    children: [
+      {
+        label: '绘图',
+        children: [
+          {
+            label: 'draw',
+            url: '/Draw/Canvas/'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    label: '面试题',
+    children: [
+      {
+        label: '前端',
+        children: [
+          {
+            label: 'LRU',
+            url: '/InterviewQuestion/FrontEnd/LRU/'
+          }
+        ]
+      }
+    ]
+  },
+  {
     label: '前端知识库',
     children: [
       {
