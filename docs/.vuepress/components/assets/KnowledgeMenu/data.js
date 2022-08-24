@@ -20,8 +20,12 @@ export const data = [
         label: '绘图',
         children: [
           {
-            label: 'draw',
+            label: 'Canvas',
             url: '/Draw/Canvas/'
+          },
+          {
+            label: 'Svg',
+            url: '/Draw/Svg/'
           }
         ]
       }

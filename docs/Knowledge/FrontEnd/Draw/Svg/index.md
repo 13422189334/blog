@@ -25,51 +25,38 @@ SVG 是 `Scalable Vector Graphics` 的缩写，意为`可缩放矢量图形`。�
 4. SVG 使用 `XML` 格式定义图形
 5. SVG是万维网联盟的标准与诸如 `DOM` 和 `XSL` 之类的 `W3C` 标准是一个整体
 
+<!-- more -->
+
 ### 优势
 
-相对于其他格式的图像，SVG的优势有很多：
-
-1. SVG 与 JPEG 和 GIF 图像比起来，尺寸更小，且可压缩性更强。
-2. SVG图像中的文本是可选的，同时也是可搜索的，且可以与 JavaScript 技术一起运行
-3. SVG可在图像质量不下降的情况下被放大和缩小
-4. SVG可被非常多的工具读取和修改（比如文本编辑器）
-5. SVG图像不依赖分辨率，可在任何的分辨率下被高质量地打印
-6. SVG文件是纯粹的XML
-7. SVG是开放的标准
+1. `SVG` 与 `JPEG` 和 `GIF` 图像比起来，`尺寸更小`，且`可压缩性更强`。
+2. SVG图像中的文本是`可选`的，同时也是`可搜索`的，且可以与 `JavaScript` 技术一起运行
+3. SVG可在图像`质量不下降`的情况下被`放大`和`缩小`
+4. SVG可被非常多的工具`读取`和`修改`（比如文本编辑器）
+5. SVG图像`不依赖分辨率`，可在任何的分辨率下被`高质量`地打印
+6. SVG文件是纯粹的`XML`
+7. SVG是`开放的标准`
 
 ### 缺点
 
-SVG复杂度越高渲染速度就会越慢（任何过度使用DOM的应用都不快）
-SVG不适合游戏应用，只能结合Canvas来实现
-SVG不能动态的修改动画内容
-PS: 需要注意的是因为XML和HTML不同，XML是区分大小写的，而SVG是使用XML格式来定义图形，所以在编写SVG的的时候元素和属性必须按标准格式书写。
+1. SVG`复杂度`越`高`渲染速度就会越`慢`（任何过度使用DOM的应用都不快）
+2. SVG`不适合游戏`应用，只能结合`Canvas`来实现
+3. SVG不能动态的`修改动画`内容
 
-浏览器兼容性
-这里直接放一张 Can I Use[3] 的详细兼容表。
+**PS**: 需要注意的是因为`XML`和`HTML`不同，`XML`是区分大小写的，而`SVG`是使用`XML`格式来定义图形，所以在编写SVG的的时候`元素`和`属性`必须按`标准格式`书写。
 
+### 浏览器兼容性
 
+这里直接放一张 Can I Use 的详细兼容表。
 
+<!-- ![pt_000](/assets/knowledge/frontEnd/svg/canIUse.png) -->
 
+<img src="~@assets/knowledge/frontEnd/svg/canIUse.png"/>
 
-图片
-image.png
-以上就是SVG的简介，下面将进入SVG的学习。
+## 语法
 
-语法
 SVG的语法如下：
 
-```html
-  <svg>
-    <circle cx="100" cy="100" r="50"/>
-  </svg>
-```
-
-复制代码
-如上面的语法所示，SVG的绘制其实就是一个SVG标签，然后在标签内绘制你要绘制的内容，比如上面的语法是在SVG标签中绘制了一个圆形(cx、cy为圆的坐标，r为圆的半径)。
-
-代码如下：
-
-:::
 ```vue
 <template>
   <svg>
@@ -77,107 +64,58 @@ SVG的语法如下：
   </svg>
 </template>
 ```
-:::
 
-复制代码
-效果如下：
+如上面的语法所示，SVG的`绘制`其实就是一个`SVG标签`，然后在标签内绘制要绘制的内容，比如上面的语法是在SVG标签中绘制了一个圆形`(cx、cy为圆的坐标，r为圆的半径)`。
 
-图片
-image.png
-属性
-SVG的属性有哪些？
+### 属性
 
-width、height
-width、height设置用来设置SVG的宽高。
+#### width、height `SVG`的`宽高`
 
-举个例子看一下：设置SVG的宽高为300 * 300
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 属性</title>
-</head>
-<body>
+::: demo
+```vue
+<template>
   <svg width="300" height="300">
     <circle cx="100" cy="100" r="100"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果如下：图片
-
-注意：在不设置宽高的情况下，默认为300 * 150，当内部元素大于300 * 150时，大于部分会被隐藏。
-
-举个例子看一下：在坐标为（100， 100）的地方绘制一个半径为100的圆
-
+:::danger
+注意：在`不设置`宽高的情况下，默认为`300 * 150`，当`内部元素`大于`300 * 150`时，大于部分会被隐藏。
 :::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 属性</title>
-</head>
-<body>
+
+在坐标为`（100， 100）`的地方绘制一个`半径`为`100`的`圆`
+
+::: demo
+```vue
+<template>
   <svg>
     <circle cx="100" cy="100" r="100"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
+#### viewBox 可以`显示`的`区域`。
 
-复制代码
-效果如下：
+- 语法：`viewBox="x y w h"`
 
-图片
-image.png
-viewBox
-viewBox 属性定义了SVG中可以显示的区域。
+x、y为`起始点`，w、h为`显示区域`的`宽高`。
 
-语法：viewBox="x y w h" x、y为起始点，w、h为显示区域的宽高。
+- 案例
 
-看字面意思，我觉得你肯定是会理解错的，举个例子看一下：
-
-下面我们将在一个尺寸为300 * 300的SVG中绘制一个坐标为（100, 100）半径为100的圆，同时我们加上viewBox属性为"0 0 100 100"
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 属性</title>
-</head>
-<body>
+::: demo
+```vue
+<template>
   <svg width="300" height="300" viewBox="0 0 100 100">
     <circle cx="100" cy="100" r="100"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
 
-
-复制代码
-效果如下：
-
-图片
-image.png
 如图SVG里面的圆只显示了一部份，原因是viewBox定义了一个：从（0, 0）点开始，宽高为100 * 100的显示区域。而这个100 * 100的显示区域会放到300 * 300(svg宽高)的SVG中去显示，整体就放大了3倍。
 
 version
