@@ -99,11 +99,9 @@ SVG的语法如下：
 
 #### viewBox 可以`显示`的`区域`。
 
-- 语法：`viewBox="x y w h"`
+**语法：** `viewBox="x y w h"`
 
 x、y为`起始点`，w、h为`显示区域`的`宽高`。
-
-- 案例
 
 ::: demo
 ```vue
@@ -115,55 +113,41 @@ x、y为`起始点`，w、h为`显示区域`的`宽高`。
 ```
 :::
 
+如图SVG里面的圆只显示了一部份，原因是`viewBox`定义了一个：从·点开始，宽高为`100 * 100`的显示区域。而这个`100 * 100`的显示区域会放到`300 * 300(svg宽高)`的SVG中去显示，整体就`放大`了`3`倍。
 
-如图SVG里面的圆只显示了一部份，原因是viewBox定义了一个：从（0, 0）点开始，宽高为100 * 100的显示区域。而这个100 * 100的显示区域会放到300 * 300(svg宽高)的SVG中去显示，整体就放大了3倍。
+#### version 指明SVG的版本
 
-version
-version属性用于指明SVG的版本，也就是指明SVG文档应该遵循的规范。version属性纯粹就是一个说明，对渲染或处理没有任何影响。且目前只有1.0 和 1.1这两个版本。
+version属性纯粹就是一个`说明`，对`渲染`或`处理`没有任何影响。且目前只有 `1.0` 和 `1.1` 这两个版本。
 
-示例：
+**语法：** `version="1.1"`
 
-```html
-<svg version="1.1">
-  // ...
-</svg>
-
-```
-
-
-复制代码
+:::danger
 下面是来自维基百科的一些版本信息：
 
-版本 1.x
-SVG 1.0于 2001 年 9 月 4 日成为W3C 推荐标准。
-SVG 1.1 于 2003 年 1 月 14 日成为 W3C 推荐标准。SVG 1.1 规范是模块化的，以便允许将子集定义为配置文件。除此之外，SVG 1.1 和 SVG 1.0 之间几乎没有区别。
-SVG Tiny和SVG Basic（移动 SVG 配置文件）于 2003 年 1 月 14 日成为 W3C 推荐标准。这些被描述为 SVG 1.1 的配置文件。
-SVG Tiny 1.2 于 2008 年 12 月 22 日成为 W3C 推荐标准。它最初是作为计划中的 SVG Full 1.2 的配置文件（后来被 SVG 2 放弃），但后来被重构为独立规范。它通常得不到很好的支持。
-SVG 1.1 第二版，包括所有勘误表和说明，但在 2011 年 8 月 16 日发布的原始 SVG 1.1 没有新功能。
-SVG Tiny 1.2 Portable/Secure，SVG Tiny 1.2 配置文件的更安全子集，于 2020 年 7 月 29 日作为 IETF 草案标准引入。也称为 SVG Tiny P/S。SVG Tiny 1.2 Portable/Secure 是BIMI草案标准的要求。
-版本 2
-SVG 2 删除或弃用了 SVG 1.1 的一些特性，并结合了HTML5和Web 开放字体格式的新特性：
+- 版本 1.x
+1. `SVG 1.0`于 2001 年 9 月 4 日成为 `W3C` 推荐标准。
+2. `SVG 1.1` 于 2003 年 1 月 14 日成为 `W3C` 推荐标准。SVG 1.1 规范是`模块化`的，以便允许将`子集`定义为`配置文件`。除此之外，SVG 1.1 和 SVG 1.0 之间几乎没有区别。
+3. `SVG Tiny` 和 `SVG Basic`（移动 SVG 配置文件）于 2003 年 1 月 14 日成为 `W3C` 推荐标准。这些被描述为 SVG 1.1 的`配置文件`。
+4. `SVG Tiny 1.2` 于 2008 年 12 月 22 日成为 `W3C` 推荐标准。它最初是作为计划中的 `SVG Full 1.2` 的配置文件（后来被 SVG 2 放弃），但后来被重构为`独立规范`。它通常得不到很好的支持。
+5. `SVG 1.1 第二版`，包括所有勘误表和说明，但在 2011 年 8 月 16 日发布的原始 `SVG 1.1` 没有新功能。
+6. `SVG Tiny 1.2 Portable/Secure`，`SVG Tiny 1.2` 配置文件的`更安全`子集，于 2020 年 7 月 29 日作为 `IETF` 草案标准引入。也称为 `SVG Tiny P/S`。`SVG Tiny 1.2 Portable/Secure` 是`BIMI`草案标准的要求。
 
-例如，SVG 2 删除了几个字体元素，例如glyph和altGlyph（由 WOFF 字体格式替换）。
-不推荐使用该xml:space属性以支持 CSS。
-添加了HTML5 功能，例如translate和data-*属性。
-SVG Tiny 1.2 中的文本处理功能被注释为包含在内，但尚未在文本中正式化。其他一些 1.2 特性是精选的。但 SVG 2 通常不是 SVG tiny 1.2 的超集。
-SVG 2 于 2016 年 9 月 15 日进入候选推荐阶段，修订版于 2018 年 8 月 7 日和 2018 年 10 月 4 日发布。最新草案于 2022 年 3 月 21 日发布。
-xmlns和xmlns:xlink
+- 版本 2
+
+1. `SVG 2` 删除了几个`字体元素`，例如`glyph`和altGlyph（由 `WOFF` 字体格式替换）。
+2. 不推荐使用该`xml:space`属性以支持 CSS。
+3. 添加了 `HTML5` 功能，例如 `translate` 和 `data-*` 属性。
+4. `SVG Tiny 1.2` 中的`文本处理功能`被注释为包含在内，但`尚未`在文本中`正式化`。其他一些 `1.2` 特性是`精选`的。但 `SVG 2` 通常 `不是` `SVG tiny 1.2` 的`超集`。
+5. `SVG 2` 于 2016 年 9 月 15 日进入候选推荐阶段，修订版于 2018 年 8 月 7 日和 2018 年 10 月 4 日发布。最新草案于 2022 年 3 月 21 日发布。
+:::
+
+#### xmlns 和 xmlns:xlink
+
 上面我们说过SVG使用XML格式定义图形，SVG文件是纯粹的XML文件。
 
-在XML中，标签和属性属于命名空间，这是为了防止来自不同技术的标签和属性发生冲突。例如在SVG中存在a标签，在HTML中也存在a标签，那么怎么区分这个a标签属于哪一种技术，这就需要使用命名空间了。加入命名空间以后我们就能知道哪一个是svg:a，哪一个又是html:a，这样我们就可以区分出不同的标签和属性。
+在XML中，`标签`和`属性`属于`命名空间`，这是为了防止来自不同技术的`标签`和`属性`发生`冲突`。
 
-xmlns用于声明命名空间（namespace），在此声明之下的所有子标签都属于这个空间内。这里看起来是一个url，但实际上仅仅是一个字符串，这样使用只是惯例。因此很多时候都会被称为”namespace url” 而不是”namespace name”。
-
-当我们在SVG中加入xmlns时，因为它定义了默认命名空间，因此不需要前缀，我们直接在SVG标签中写一个a标签，a标签和UA就知道它是SVG的a标签而不是HTML的a标签
-
-xmlns:xlink 表示前缀为xlink的标签和属性，应该由理解该规范的UA 使用xlink规范 来解释。
-
-注解：UA是User Agent的简称。User Agent是Http协议中的一部分，属于头域的组成部分。通俗地讲UA是一种向访问网站提供你所使用的浏览器类型、操作系统、浏览器内核等信息的标识。通过这个标识，用户所访问的网站可以显示不同的排版，从而为用户提供更好的体验或者进行信息统计。
-
-示例：
-
+- 案例
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -171,181 +155,111 @@ xmlns:xlink 表示前缀为xlink的标签和属性，应该由理解该规范的
 </svg>
 ```
 
+:::danger
+在`SVG`中存在`a标签`，在`HTML`中也存在`a标签`，那么怎么区分这个a标签属于哪一种技术，这就需要使用`命名空间`了。
 
-
-复制代码
-基本图形
-基本图形其实就是我们插入到SVG标签中的元素，如上面示例中的圆形（circle）。
-
-下面我们将依次介绍几个基本图形。
-
-圆形（circle）
-circle 标签能在屏幕上绘制一个圆形
-
-语法：`<circle cx="100" cy="100" r="100"/>`
-
-属性：cx、cy为圆的坐标，r为圆的半径
-
-示例：
-
+加入命名空间以后就能知道哪一个是`svg:a`，哪一个又是`html:a`，这样就可以区分出不同的`标签`和`属性`。
 :::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 基本图形</title>
-</head>
-<body>
+
+##### xmlns
+
+xmlns用于声明`命名空间`（`namespace`），在此声明之下的所有`子标签`都属于这个空间内。这里看起来是一个`url`，但实际上仅仅是一个字符串，这样使用只是惯例。因此很多时候都会被称为 `namespace url` 而不是 `namespace name`。
+
+在SVG中加入xmlns时，因为它定义了`默认命名空间`，因此不需要前缀，直接在SVG标签中写一个a标签，`a标签`和`UA`就知道它是SVG的a标签而不是HTML的a标签
+
+##### xmlns:xlink
+
+`xmlns:xlink` 表示前缀为`xlink`的`标签`和`属性`，应该由理解该规范的 `UA` 使用 `xlink` 规范 来解释。
+
+注解：UA是`User Agent`的简称。`User Agent`是`Http`协议中的一部分，属于`头域`的组成部分。通俗地讲`UA`是一种向`访问网站`提供你所使用的`浏览器类型`、`操作系统`、`浏览器内核`等信息的`标识`。通过这个标识，用户所访问的网站可以显示不同的排版，从而为用户提供更好的`体验`或者进行`信息统计`。
+
+
+### 基本图形
+
+#### 圆形（circle）
+
+**语法：** `<circle cx="100" cy="100" r="100"/>`
+
+`cx`、`cy`为圆的坐标，`r`为圆的半径
+
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <circle cx="100" cy="100" r="100"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
+#### 矩形（rect）
 
-图片
-image.png
-矩形（rect）
-rect标签能在屏幕上绘制一个矩形
+**语法：** `<rect x="0" y="0" rx="5" ry="5" width="300" height="200"/>`
 
-语法：`<rect x="0" y="0" rx="5" ry="5" width="300" height="200"/>`
+x、y为矩形的起`始点坐标`，rx、ry为圆角x、y轴方向的半径， width、height为矩形的宽高
 
-属性：x、y为矩形的起始点坐标，rx、ry为圆角x、y轴方向的半径， width、height为矩形的宽高
-
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 基本图形</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <rect x="0" y="0" rx="5" ry="5" width="300" height="200"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
+#### 椭圆（ellipse）
 
-图片
-image.png
-椭圆（ellipse）
 ellipse标签比circle标签功能更强大，ellipse标签也可以实现圆形的绘制，并且还可以分别缩放圆形的长轴半径和短轴半径，从而达到椭圆的效果。
 
-语法：`<ellipse cx="100" cy="100" rx="100" ry="50"/>`
+**语法：** `<ellipse cx="100" cy="100" rx="100" ry="50"/>`
 
-属性：cx、cy为椭圆的坐标，rx为椭圆的x轴半径、ry为椭圆的y轴半径
+`cx`、`cy`为椭圆的坐标，`rx`为椭圆的x轴半径、`ry`为椭圆的y轴半径
 
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 基本图形</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <ellipse cx="100" cy="100" rx="100" ry="50"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
+#### 线条（line）
 
-图片
-image.png
-线条（line）
-line标签可以根据两点的坐标绘制一条直线
+**语法：** `<line x1="10" x2="50" y1="110" y2="150"/>`
 
-语法：`<line x1="10" x2="50" y1="110" y2="150"/>`
+`x1`、`y1`为`起点`的坐标，`x2`、`y2`为`终点`的坐标
 
-属性：x1、y1为起点的坐标，x2、y2为终点的坐标
-
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 基本图形</title>
-</head>
-<body>
-  <svg width="300" height="300">
+:::demo
+```vue
+<template>
+  <svg width="300" height="200">
     <!-- 不设置样式属性 style 是看不出效果的 -->
     <line x1="50" x2="50" y1="200" y2="50" style="stroke: #000000;"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
+#### 折线（polyline）
 
-图片
-image.png
-折线（polyline）
-polyline标签可以把很多个点链接在一起成为一条折线。
+**语法：** `<polyline points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" />`
 
-语法：`<polyline points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" />`
+points为点集数列，其中每个点都必须包含2个数字，一个是x坐标，一个是y坐标。
 
-属性：points为点集数列，其中每个点都必须包含2个数字，一个是x坐标，一个是y坐标。
-
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 基本图形</title>
-</head>
-<body>
-  <svg width="300" height="300">
+:::demo
+```vue
+<template>
+  <svg width="300" height="200">
     <!-- 不设置样式属性style是看不出效果的 并且polyline默认为填充需要把fill属性设置为none -->
     <polyline points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" fill="none" style="stroke: #000000;" />
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
-
-图片
-image.png
 多边形（polygon）
 polygon标签和polyline标签类似，都是由很多个点链接在一起的。但不同的是polygon路径中的最后一个点和第一个点是默认闭合的。
 
