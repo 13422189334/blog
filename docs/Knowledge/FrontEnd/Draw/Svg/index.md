@@ -210,7 +210,7 @@ x、y为矩形的起`始点坐标`，rx、ry为圆角x、y轴方向的半径， 
 
 #### 椭圆（ellipse）
 
-ellipse标签比circle标签功能更强大，ellipse标签也可以实现圆形的绘制，并且还可以分别缩放圆形的长轴半径和短轴半径，从而达到椭圆的效果。
+`ellipse`标签比`circle`标签功能更强大，`ellipse`标签也可以实现`圆形`的绘制，并且还可以分别缩放圆形的`长轴半径`和`短轴半径`，从而达到`椭圆`的效果。
 
 **语法：** `<ellipse cx="100" cy="100" rx="100" ry="50"/>`
 
@@ -219,8 +219,9 @@ ellipse标签比circle标签功能更强大，ellipse标签也可以实现圆形
 :::demo
 ```vue
 <template>
-  <svg width="300" height="300">
+  <svg width="600" height="200">
     <ellipse cx="100" cy="100" rx="100" ry="50"/>
+    <ellipse cx="400" cy="100" rx="100" ry="100"/>
   </svg>
 </template>
 ```
@@ -247,12 +248,12 @@ ellipse标签比circle标签功能更强大，ellipse标签也可以实现圆形
 
 **语法：** `<polyline points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" />`
 
-points为点集数列，其中每个点都必须包含2个数字，一个是x坐标，一个是y坐标。
+`points`为`点集数列`，其中每个点都必须包含`2个数字`，一个是`x坐标`，一个是`y坐标`。
 
 :::demo
 ```vue
 <template>
-  <svg width="300" height="200">
+  <svg width="300" height="100">
     <!-- 不设置样式属性style是看不出效果的 并且polyline默认为填充需要把fill属性设置为none -->
     <polyline points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" fill="none" style="stroke: #000000;" />
   </svg>
@@ -260,133 +261,87 @@ points为点集数列，其中每个点都必须包含2个数字，一个是x坐
 ```
 :::
 
-多边形（polygon）
-polygon标签和polyline标签类似，都是由很多个点链接在一起的。但不同的是polygon路径中的最后一个点和第一个点是默认闭合的。
+#### 多边形（polygon）
 
-语法：`<polygon points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" />`
+`polygon`标签和`polyline`标签类似，都是由很多个点链接在一起的。但不同的是`polygon`路径中的`最后一个点`和`第一个点`是默认闭合的。
 
-属性：points为点集数列，其中每个点都必须包含2个数字，一个是x坐标，一个是y坐标。
+**语法：** `<polygon points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" />`
 
-示例：和折线（polyline）同样的数据
+`points`为`点集数列`，其中每个点都必须包含`2个数字`，一个是`x坐标`，一个是`y坐标`。
 
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 基本图形</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <!-- 不设置样式属性style是看不出效果的 并且polygon默认为填充需要把fill属性设置为none -->
     <polygon points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" fill="none" style="stroke: #000000;" />
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
+#### 路径（path）
 
-图片
-image.png
-路径（path）
 path标签是所有图形中最复杂的，但他也是最强大的。在SVG中最常用的图形就是path标签，他可以绘制圆形、椭圆、矩形、线条、折线、多边形、贝塞尔曲线等。
 
-语法：`<path d="M50 50 H 200 V 200 H 50 L 50 50"/>`
+**语法：** `<path d="M50 50 H 200 V 200 H 50 L 50 50"/>`
 
-属性：d为一个点集数列以及其它绘制路径的信息。
+d为一个`点集数列`以及其它`绘制路径`的`信息`。
 
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 基本图形</title>
-</head>
-<body>
-  <svg width="300" height="300">
+:::demo
+```vue
+<tempalte>
+  <svg width="200" height="200">
     <path d="M50 50 H 200 V 200 H 50 L 50 50" fill="none" style="stroke: #000000;"/>
   </svg>
-</body>
-</html>
+</tempalte>
 ```
 :::
 
-复制代码
-效果：
+##### 命令
 
-图片
-image.png
-看着上面的例子是不是很懵X？感觉就是一个简单的正方形但是怎么看都看不懂，什么M、H、V和L，根本不知道是啥。
+`path标签`的图形形状是通过`属性d`来定义的，属性d的值是以：`命令 + 参数` 的形式进行组合的，命令又是通过`关键字`来表示的。
 
-下面我们着重说一下路径（path），让我们从此能看懂SVG。
+那么究竟有哪些命令呢？总结了一下概括为以下`10`个命令：
 
-路径（path）
-上面对路径（path）的举例其实已经是一个很简单的例子了，但是呢我们还是发现我们看不懂，下面我们就看看路径（path）里的这个属性d究竟是什么玩意。
+- M = Move to
+- L = Line to
+- H = Horizontal Line to
+- V = Vertical Line to
+- Q = Quadratic Bezier Curve to
+- T = Smooth Quadratic Bezier Curve to
+- C = Curve to
+- S = Smooth Curve to
+- A = Elliptical Arc
+- Z = close path
 
-命令
-path标签的图形形状是通过属性d来定义的，属性d的值是以：命令 + 参数 的形式进行组合的，命令又是通过关键字来表示的。
-
-那么究竟有哪些命令呢？我总结了一下概括为以下10个命令：
-
-M = Move to
-L = Line to
-H = Horizontal Line to
-V = Vertical Line to
-Q = Quadratic Bezier Curve to
-T = Smooth Quadratic Bezier Curve to
-C = Curve to
-S = Smooth Curve to
-A = Elliptical Arc
-Z = close path
-下面我们将命令分为直线命令和曲线命令划分开，依次讲解其含义。
-
-直线命令
-直线命令的意思就是通过两个点画他们之间的直线。
-
-注意：以下所有命令中 大写为绝对定位 小写为相对定位，后续的命令亦如此
-
-M（Move to）
-M命令其实就是把画笔移动到某个点，就好像画笔提起来以后移动到一个新的位置准备开始绘制。但因为仅仅是移动画笔而没有绘制，所以M命令经常出现在路径的起始点，用来指明画笔应该从何处开始绘制。
-
-每一段路径都必须以M命令开头，如果有多个M命令则表示新路径的开始。
-
-语法：M x y 或者 m x y
-
-参数：x、y为坐标
-
-因为M命令只是移动画笔而不画线，所以就先不给出示例，咱们结合下一个命令一起给示例。
-
-L（Line to）
-L命令会绘制一点并且和之前的点（也就是L命令前面的点）连成一条直线。
-
-语法：L x y 或者 l x y
-
-参数：x、y为坐标
-
-示例：
-
+:::danger
+所有命令中，`大写`为`绝对定位`，`小写`为`相对定位`。
 :::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
+
+##### 直线命令
+
+###### M（Move to）
+
+`M`命令其实就是把画笔`移动`到`某个点`，就好像画笔提起来以后移动到一个新的位置准备开始绘制。但因为仅仅是`移动`画笔而`没有绘制`，所以M命令经常出现在路径的`起始点`，用来`指明`画笔应该从`何处`开始`绘制`。
+
+每一段路径都`必须`以`M`命令`开头`，如果有`多个`M命令则表示`新路径`的`开始`。
+
+**语法：** M x y 或者 m x y
+
+x、y为坐标
+
+###### L（Line to）
+
+`L`命令会`绘制一点`并且和之前的点（也就是L命令`前面的点`）连成一条`直线`。
+
+**语法：** L x y 或者 l x y
+
+x、y为坐标
+
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <!-- 从起始点（50， 20）画一条到（250， 20）的直线 -->
     <path d="M50 20 L250 20" style="stroke: #000000;"/>
@@ -400,16 +355,10 @@ L命令会绘制一点并且和之前的点（也就是L命令前面的点）连
     <!-- 多个L命令连续可以省略后面的L命令 -->
     <path d="M50 200 L250 200 250 250 " fill="none" style="stroke: #0000ff;"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
-
-图片
-image.png
 是不是觉得瞬间就明白了还觉得挺有意思？咱们继续看更有意思的。
 
 H（Horizontal Line to）
