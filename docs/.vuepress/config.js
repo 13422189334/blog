@@ -16,7 +16,7 @@ module.exports = (options, context) => ({
   repo: 'https://gitee.com/jin-shaohui/vuepress', // 添加 github 链接
   theme: 'vdoing',
   markdown: {
-    extractHeaders: [ 'h2', 'h3', 'h4', 'h5', 'h6' ]
+    extractHeaders: [ 'h2', 'h3', 'h4', 'h5', 'h6']
   },
   head: [
     ['link', { rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_3077305_pt8umhrn4k9.css' }],  // 网站数据icon

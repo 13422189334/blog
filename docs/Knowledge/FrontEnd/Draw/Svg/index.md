@@ -101,7 +101,9 @@ SVG的语法如下：
 
 **语法：** `viewBox="x y w h"`
 
-x、y为`起始点`，w、h为`显示区域`的`宽高`。
+**属性：**
+- x、y为`起始点`
+- w、h为`显示区域`的`宽高`
 
 ::: demo
 ```vue
@@ -180,7 +182,9 @@ xmlns用于声明`命名空间`（`namespace`），在此声明之下的所有`�
 
 **语法：** `<circle cx="100" cy="100" r="100"/>`
 
-`cx`、`cy`为圆的坐标，`r`为圆的半径
+**属性：**
+- `cx`、`cy`为圆的坐标
+- `r`为圆的半径
 
 :::demo
 ```vue
@@ -196,7 +200,10 @@ xmlns用于声明`命名空间`（`namespace`），在此声明之下的所有`�
 
 **语法：** `<rect x="0" y="0" rx="5" ry="5" width="300" height="200"/>`
 
-x、y为矩形的起`始点坐标`，rx、ry为圆角x、y轴方向的半径， width、height为矩形的宽高
+**属性：**
+- x、y为矩形的起`始点坐标`
+- rx、ry为圆角x、y轴方向的半径
+- width、height为矩形的宽高
 
 :::demo
 ```vue
@@ -214,7 +221,10 @@ x、y为矩形的起`始点坐标`，rx、ry为圆角x、y轴方向的半径， 
 
 **语法：** `<ellipse cx="100" cy="100" rx="100" ry="50"/>`
 
-`cx`、`cy`为椭圆的坐标，`rx`为椭圆的x轴半径、`ry`为椭圆的y轴半径
+**属性：**
+- `cx`、`cy`为椭圆的坐标
+- `rx`为椭圆的x轴半径
+- `ry`为椭圆的y轴半径
 
 :::demo
 ```vue
@@ -231,7 +241,9 @@ x、y为矩形的起`始点坐标`，rx、ry为圆角x、y轴方向的半径， 
 
 **语法：** `<line x1="10" x2="50" y1="110" y2="150"/>`
 
-`x1`、`y1`为`起点`的坐标，`x2`、`y2`为`终点`的坐标
+**属性：**
+- `x1`、`y1`为`起点`的坐标
+- `x2`、`y2`为`终点`的坐标
 
 :::demo
 ```vue
@@ -248,7 +260,8 @@ x、y为矩形的起`始点坐标`，rx、ry为圆角x、y轴方向的半径， 
 
 **语法：** `<polyline points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" />`
 
-`points`为`点集数列`，其中每个点都必须包含`2个数字`，一个是`x坐标`，一个是`y坐标`。
+**属性：**
+- `points`为`点集数列`，其中每个点都必须包含`2个数字`，一个是`x坐标`，一个是`y坐标`。
 
 :::demo
 ```vue
@@ -267,7 +280,8 @@ x、y为矩形的起`始点坐标`，rx、ry为圆角x、y轴方向的半径， 
 
 **语法：** `<polygon points="0 0, 20 40, 70 80, 100 90, 200 30, 250 50" />`
 
-`points`为`点集数列`，其中每个点都必须包含`2个数字`，一个是`x坐标`，一个是`y坐标`。
+**属性：**
+- `points`为`点集数列`，其中每个点都必须包含`2个数字`，一个是`x坐标`，一个是`y坐标`。
 
 :::demo
 ```vue
@@ -286,7 +300,8 @@ path标签是所有图形中最复杂的，但他也是最强大的。在SVG中�
 
 **语法：** `<path d="M50 50 H 200 V 200 H 50 L 50 50"/>`
 
-d为一个`点集数列`以及其它`绘制路径`的`信息`。
+**属性：**
+- d为一个`点集数列`以及其它`绘制路径`的`信息`。
 
 :::demo
 ```vue
@@ -329,7 +344,8 @@ d为一个`点集数列`以及其它`绘制路径`的`信息`。
 
 **语法：** M x y 或者 m x y
 
-x、y为坐标
+**属性：**
+- x、y为坐标
 
 ###### L（Line to）
 
@@ -337,7 +353,8 @@ x、y为坐标
 
 **语法：** L x y 或者 l x y
 
-x、y为坐标
+**属性：**
+- x、y为坐标
 
 :::demo
 ```vue
@@ -359,337 +376,188 @@ x、y为坐标
 ```
 :::
 
-是不是觉得瞬间就明白了还觉得挺有意思？咱们继续看更有意思的。
+###### H（Horizontal Line to）
 
-H（Horizontal Line to）
-H命令可以从之前的点绘制一条水平的直线，H命令可以等价于y值和之前点相同的L命令
+`H`命令可以从之前的点绘制一条`水平`的`直线`，`H`命令可以等价于`y值`和`之前点`相同的`L`命令
 
-语法：H x 或者 h x
+**语法：** H x 或者 h x
 
-参数：x为X轴坐标
+**属性：**
+- x 为X轴坐标
 
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
-  <svg width="300" height="300">
+:::demo
+```vue
+<template>
+  <svg width="300" height="100">
     <!-- 从起始点（50， 20）画一条X轴为250的水平直线 -->
     <path d="M50 20 H250" style="stroke: #000000;"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果为：
+###### V（Vertical Line to）
 
-图片
-image.png
-V（Vertical Line to）
-V命令可以从之前的点绘制一条垂直的直线，V命令可以等价于x值和之前点相同的L命令
+`V`命令可以从之前的点绘制一条`垂直`的`直线`，`V`命令可以等价于`x值`和`之前点`相同的`L`命令
 
-语法：V y 或者 v y
+**语法：** V y 或者 v y
 
-参数：y为Y轴坐标
+**属性：**
+- y 为Y轴坐标
 
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
-  <svg width="300" height="300">
+:::demo
+```vue
+<template>
+  <svg width="300" height="250">
     <!-- 从起始点（50， 20）画一条Y轴为250的垂直直线 -->
     <path d="M50 20 V250" style="stroke: #000000;"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
-
-图片
-image.png
-PS：注意连续的H命令和V命令取大值
-
-示例：
-
+:::danger
+PS：注意连续的`H`命令和`V`命令取`大值`
 :::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
+
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <path d="M50 20 H200 100" style="stroke: #000000;"/>
     <path d="M50 20 V200 100" style="stroke: #ff0000;"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
+###### Z（Close path）
 
-图片
-image.png
-Z（Close path）
-Z命令是一个闭合命令，他会从当前点画一条直线到路径的起始点。
-Z命令因为没有参数所以Z和z效果一样，所以不区分大小写，
+`Z`命令是一个`闭合命令`，会从`当前点`画一条直线到路径的`起始点`。`Z`命令因为`没有参数`所以`Z`和`z`效果一样，所以不区分大小写，
 
-语法：Z 或者 z
+**语法：** Z 或者 z
 
-参数：无
-
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-   <html lang="en">
-   <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>SVG - path</title>
-   </head>
-   <body>
-     <svg width="300" height="300">
-       <path d="M50 20 H200 V200 Z" fill="none" style="stroke: #000000;"/>
-     </svg>
-   </body>
-   </html>
-```
-:::
-
-复制代码
-效果：
-
-图片
-image.png
-曲线命令
-曲线命令顾名思义就是绘制平滑的曲线
-
-Q（Quadratic Bezier Curve to）
-Q命令可以用来绘制一条二次贝塞尔曲线，二次贝塞尔曲线需要一个控制点，用来确定起点和终点的曲线斜率。
-
-语法：Q x1 y1, x y 或者 q x1 y1, x y
-
-参数：x、y为终点位置，x1、y1为控制点。
-
-咦~ 有没有到发现，参数中只有终点没有起点？其实起点就是M命令
-
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
-  <svg width="300px" height="300px">
-    <path d="M50 100 Q 175 200 300 100" fill="none" style="stroke: #ff0000;"/>
+:::demo
+```vue
+<template>
+  <svg width="300" height="300">
+    <path d="M50 20 H200 V200 Z" fill="none" style="stroke: #000000;"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
+##### 曲线命令
 
-复制代码
-效果：
+###### Q（Quadratic Bezier Curve to）
 
-图片
-image.png
-T（Smooth Quadratic Bezier Curve to）
-T命令时一个延长二次贝塞尔曲线的简化命令，T命令可以通过前一个控制点推断出后一个控制点，这也就是为什么T命令只需要一个坐标的原因。
+`Q`命令可以用来绘制一条`二次贝塞尔曲线`，`二次贝塞尔曲线`需要一个`控制点`，用来确定`起点`和`终点`的`曲线斜率`。
 
-需要注意的是T命令的的前面必须有一个Q命令或者其他的T命令。如果T命令单独使用，那么控制点就会被认为和终点是同一个点，所以画出来的将是一条直线
+**语法：** Q x1 y1, x y 或者 q x1 y1, x y
 
-语法：T x y 或者 t x y
+**属性：**
+- x、y为`终点位置`
+- x1、y1为`控制点`
 
-参数：x、y为终点位置。
-
-示例：
-
+:::demo
+```vue
+<template>
+  <svg width="300px" height="200px">
+    <path d="M50 100 Q 175 200 300 100" fill="none" style="stroke: #ff0000"/>
+  </svg>
+</template>
+```
 :::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
+
+###### T（Smooth Quadratic Bezier Curve to）
+
+`T`命令是一个 `延长` `二次贝塞尔曲线`的简化命令，`T`命令可以通过`前一个控制点`推断出`后一个控制点`，这也就是为什么`T`命令只需要`一个坐标`的原因。
+
+需要注意的是`T`命令的的前面必须有一个`Q`命令或者其他的`T`命令。如果`T`命令单独使用，那么`控制点`就会被认为和`终点`是同一个点，所以画出来的将是`一条直线`
+
+**语法：** T x y 或者 t x y
+
+**属性：**
+- x、y为终点位置
+
+:::demo
+```vue
+<template>
   <svg width="600px" height="300px">
     <path d="M50 100 Q 175 200 300 100 T 600 100 " fill="none" style="stroke: #ff0000;"/>
+    <!--上下等同-->
+    <path d="M50 150 Q 175 250 300 150 Q 425 50 600 150 " fill="none" style="stroke: #002aff;"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
+###### C（Curve to）
 
-复制代码
-效果：
+`C`命令可用来绘制一条`三次贝塞尔曲线`，相对于`二次贝塞尔曲线`多了`一个控制点`。
 
-图片
-image.png
-C（Curve to）
-C命令可用来绘制一条三次贝塞尔曲线，相对于二次贝塞尔曲线多了一个控制点。
+**语法：** C x1 y1, x2 y2, x y 或者 c x1 y1, x2 y2, x y
 
-语法：C x1 y1, x2 y2, x y 或者 c x1 y1, x2 y2, x y
+**属性：**
+- x、y为`终点位置`
+- x1、y1为曲线`起始点`的`控制点`
+- x2、y2为`曲线终止`的`控制点`。
 
-参数：x、y为终点位置，x1、y1为曲线起始点的控制点，x2、y2为曲线终止的控制点。
-
-示例：
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <path d="M50 50 C 100 100, 200 100, 250 50" fill="none" style="stroke: #000000;"/>
     <path d="M50 200 C 100 250, 200 150, 250 200" fill="none" style="stroke: #ff0000;"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
-复制代码
-效果：
+###### S（Smooth Curve to）
 
-图片
-image.png
-S（Smooth Curve to）
-三次贝塞尔曲线的S命令和二次贝塞尔曲线的T命令比较相似。S命令也可以用来创建与前面一样的贝塞尔曲线，但如果S命令跟在一个C命令或者另一个S命令的后面，那么它的第一个控制点，就会被假设成前一个控制点的对称点。
+`三次贝塞尔曲线`的`S`命令和`二次贝塞尔曲线`的`T`命令比较相似。`S`命令也可以用来创建与前面一样的`贝塞尔曲线`，但如果`S`命令跟在一个`C`命令或者另一个`S`命令的后面，那么它的第一个`控制点`，就会被假设成前一个`控制点`的`对称点`。
 
-如果S命令单独使用，前面没有C命令或者另一个S命令，那么它的两个控制点就会被假设为同一个点。
+如果S命令单独使用，前面没有`C`命令或者另一个`S`命令，那么它的`两个控制点`就会被假设为`同一个点`。
 
-语法：S x2 y2, x y 或者 s x2 y2, x y
+**语法：** S x2 y2, x y 或者 s x2 y2, x y
 
-参数：x、y为终点位置，x2、y2为曲线终止的控制点。
+**属性：**
+- x、y为终点位置
+- x2、y2为曲线终止的控制点
 
-示例：首先先画一段曲线
-
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300px" height="300px">
     <path d="M10 100 C 40 10, 65 10, 95 100" fill="none" style="stroke: #ff0000;"/>
+    <path d="M10 200 C 40 110, 65 110, 95 200 S 150 290, 180 200" fill="none" style="stroke: #ff0000;"/>
+    <!--上下等同-->
+    <path d="M10 210 C 40 120, 65 120, 95 210 M95 210 C 125 300, 150 300, 180 210" fill="none" style="stroke: #ff0000;"/>
   </svg>
-</body>
-</html>
+</template>
 ```
 :::
 
+`三次贝塞尔曲线`相对于`二次贝塞尔曲线`拥有更大的自由度，但两种曲线能达到的`效果`是差不多的。最终选择使用哪种贝塞尔曲线，通常取决于需求，以及对曲线对称性的依赖程度。
 
-复制代码
-效果如下：
+###### A（Elliptical Arc）
 
-图片
-image.png
-然后我们再加一段S命令看看
+`A`命令用于画`弧形`，它可以截取`圆`或`椭圆`的`弧形`成的曲线
 
-:::
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
-  <svg width="300px" height="300px">
-    <path d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" fill="none" style="stroke: #ff0000;"/>
-  </svg>
-</body>
-</html>
-```
-:::
+**语法：** A rx ry x-axis-rotation large-arc-flag sweep-flag x y 或者 a rx ry x-axis-rotation large-arc-flag sweep-flag x y
 
-复制代码
-效果为：
+**属性：**
+- rx、ry 分别为`X`轴的半径和`Y`轴的半径
+- x-axis-rotation 为弧度在`X`轴的`旋转角度`
+- large-arc-flag 决定弧线是`大于`还是`小于`180度，`0`表示`小角度弧`，`1`表示`大角度弧`
+- sweep-flag 为`弧`的`方向`，`0`表示从起点到终点沿`逆时针`画弧，1表示从起点到终点沿`顺时针`画弧
+- x、y 为弧形的`终点`
 
-图片
-image.png
-三次贝塞尔曲线相对于二次贝塞尔曲线拥有更大的自由度，但两种曲线能达到的效果是差不多的。最终选择使用哪种贝塞尔曲线，通常取决于需求，以及对曲线对称性的依赖程度。
-
-A（Elliptical Arc）
-A命令用于画弧形，它可以截取圆或椭圆的弧形成的曲线
-
-语法： A rx ry x-axis-rotation large-arc-flag sweep-flag x y 或者 a rx ry x-axis-rotation large-arc-flag sweep-flag x y
-
-参数：
-
-rx、ry分别为X轴的半径和Y轴的半径
-x-axis-rotation为弧度在X轴的旋转角度
-large-arc-flag决定弧线是大于还是小于180度，0表示小角度弧，1表示大角度弧
-sweep-flag为弧的方向，0表示从起点到终点沿逆时针画弧，1表示从起点到终点沿顺时针画弧
-x、y为弧形的终点
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - path</title>
-</head>
-<body>
-  <svg width="300px" height="1000px">
+:::demo
+```vue
+<template>
+  <svg width="300px" height="500px">
     <path d="M10 100 50 100  A 30 50 0 0 1 150 100 L 200 100" fill="none" style="stroke: #ff0000"/>
     <!-- 旋转45度的弧（第三个参数） -->
     <path d="M10 200 50 200  A 30 50 45 0 1 150 200 L 200 200" fill="none" style="stroke: #ff0000"/>
@@ -697,110 +565,63 @@ x、y为弧形的终点
     <path d="M10 300 50 300  A 30 50 -45 1 1 150 300 L 200 300" fill="none" style="stroke: #ff0000"/>
     <!-- 0逆时针（第五个参数） -->
     <path d="M10 400 50 400  A 30 50 0 1 0 150 400 L 200 400" fill="none" style="stroke: #ff0000"/>
-
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果为：
+##### 填充和轮廓
 
-图片
-image.png
-填充和轮廓
-在上面的例子中我们经常用这样的属性：
+###### fill
 
-fill="none" style="stroke: #ff0000"
-复制代码
-我想大家看着肯定也会想这是啥玩意？其实这就是我们接下来要说的内容。
+`fill`属性用于`填充`图形的`颜色`
 
-fill
-fill属性用于填充图形的颜色
+**语法：**` fill= "color"` 或者 `style="fill: color"`
 
-语法：fill= "colour" 或者 style="fill: colour"
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - fill</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg>
     <circle cx="80" cy="50" r="50" />
     <circle cx="200" cy="50" r="50" fill="#ff0000"/>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-
-复制代码
-效果：
-
-图片
-image.png
-从上面的示例中可以看出，在不设置fill属性的时候，其实默认是黑色的填充，这也就是为什么上面的很多例子我们设置了 fill='none' 其实就是去掉默认填充。
+从上面的示例中可以看出，在`不设置`fill属性的时候，其实`默认`是`黑色`的填充，这也就是为什么上面的很多例子设置了 `fill='none'` 其实就是去掉默认填充。
 
 fill属性其实还有一些延伸属性：
 
-fill-opacity
-fill-opacity属性用于设置填充颜色的透明度
+###### fill-opacity
 
-示例：
+`fill-opacity`属性用于设置填充颜色的`透明度`
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - fill</title>
-</head>
-<body>
-  <svg width="400" height="400">
+:::demo
+```vue
+<template>
+  <svg width="400" height="250">
     <circle cx="80" cy="50" r="50" />
     <circle cx="200" cy="50" r="50" fill="#ff0000"/>
 
     <circle cx="80" cy="130" r="50" fill="#00ff00"/>
     <circle cx="200" cy="130" r="50" fill="#00ff00" fill-opacity="0.5"/>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+###### fill-rule
 
-图片
-image.png
-fill-rule
-fill-rule属性用来设置复杂形状的填充规则。它有两种填充方式：nonzero 和 evenodd。该属性简单说就是判断某点属于该形状的“内部”还是“外部”。那么判断的规则是什么呢？
+`fill-rule`属性用来设置`复杂形状`的`填充规则`。它有两种填充方式：`nonzero` 和 `evenodd`。该属性简单说就是判断某点属于该形状的`内部`还是`外部`。那么判断的规则是什么呢？
 
-nonzero
-nonzero为默认值，规则为：要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点情况。从0开始计数，路径从左向右（顺时针）穿过射线则计数加1，从右向左（逆时针）穿过射线则计数减1。得出计数结果后，如果结果是0，则认为点在图形外部，否则认为在内部。
+- nonzero
 
-是不是感觉还是有点懵？举个例子看一下。
+nonzero为`默认值`，规则为：要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点情况。从0开始计数，路径从左向右（顺时针）穿过射线则计数加1，从右向左（逆时针）穿过射线则计数减1。得出计数结果后，如果结果是0，则认为点在图形外部，否则认为在内部。
 
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - fill</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="12cm" height="4cm" viewBox="0 0 1200 400">
     <defs>
       <path id="Triangle" d="M 16,0 L -8,9 v-18 z" fill="#66ff66" stroke="none" />
@@ -830,9 +651,10 @@ nonzero为默认值，规则为：要判断一个点是否在图形内，从该�
       <use xlink:href="#Triangle" transform="translate(950,188) rotate(300) translate(49,0) rotate(-90)" overflow="visible"  />
     </g>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
+
 
 复制代码
 PS：上面示例中的绿色三角形只是用来辅助理解的，可以忽略，咱们只需要了解规则是如何填充的就行。
