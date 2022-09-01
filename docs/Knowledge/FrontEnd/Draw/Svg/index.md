@@ -617,7 +617,10 @@ fill属性其实还有一些延伸属性：
 
 - nonzero
 
-nonzero为`默认值`，规则为：要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点情况。从0开始计数，路径从左向右（顺时针）穿过射线则计数加1，从右向左（逆时针）穿过射线则计数减1。得出计数结果后，如果结果是0，则认为点在图形外部，否则认为在内部。
+nonzero为`默认值`，
+
+规则为：要判断一个点是否在图形内，从该点作`任意方向`的一条射线，然后检测`射线`与`图形路径`的`交点`情况。从0开始计数，路径从左向右（`顺时针`）穿过射线则计数`加1`，
+从右向左（`逆时针`）穿过射线则计数`减1`。得出计数结果后，如果结果是`0`，则认为点在图形`外部`，否则认为在`内部`。
 
 :::demo
 ```vue
@@ -655,31 +658,17 @@ nonzero为`默认值`，规则为：要判断一个点是否在图形内，从�
 ```
 :::
 
+:::danger
+PS：示例中的`绿色三角形`只是用来辅助理解的，可以忽略，只需要了解规则是`如何填充`的就行。
+:::
 
-复制代码
-PS：上面示例中的绿色三角形只是用来辅助理解的，可以忽略，咱们只需要了解规则是如何填充的就行。
+- evenodd
 
-效果图：
+规则为：要判断一个点是否在图形内，从该点作`任意方向`的一条射线，然后检测`射线`与`图形路径`的`交点`的`数量`。如果结果是`奇数`则认为点在`内部`，是`偶数`则认为点在`外部`。
 
-图片
-image.png
-evenodd
-规则为：要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点的数量。如果结果是奇数则认为点在内部，是偶数则认为点在外部。
-
-直接看示例吧：
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - fill</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="12cm" height="4cm" viewBox="0 0 1200 400">
     <defs>
       <path id="Triangle" d="M 16,0 L -8,9 v-18 z" fill="#66ff66" stroke="none" />
@@ -709,130 +698,76 @@ evenodd
       <use xlink:href="#Triangle" transform="translate(950,188) rotate(300) translate(49,0) rotate(-90)" overflow="visible"  />
     </g>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-
-复制代码
+:::danger
 PS：上面示例中的绿色三角形只是用来辅助理解的，可以忽略，咱们只需要了解规则是如何填充的就行。
+:::
 
-效果为：
+###### stroke
 
-图片
-image.png
-stroke
-stroke属性用来定义线条、文本或元素轮廓的颜色。
+stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
-语法：stroke="colour" 或者 style="stroke: colour"
+**语法：** `stroke="color"` 或者 `style="stroke: color"`
 
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - stroke</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg>
     <circle cx="80" cy="50" r="50" />
     <circle cx="200" cy="50" r="50" stroke="#ff6666"/>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+###### stroke-width
 
-图片
-image.png
-stroke属性也有一些延伸属性，下面依次介绍一下。
+`stroke-width`属性定义了轮廓的`宽度`
 
-stroke-width
-stroke-width属性定义了轮廓的宽度
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - stroke</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <circle cx="80" cy="50" r="50" />
     <circle cx="200" cy="50" r="50" stroke="#ff6666" />
     <circle cx="80" cy="200" r="50" stroke="#ff6666" stroke-width="5" />
     <circle cx="200" cy="200" r="50" stroke="#ff6666" stroke-width="10"/>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
+###### stroke-opacity
 
-复制代码
-效果：
+`stroke-opacity`属性用于设置轮廓的`透明度`
 
-图片
-image.png
-stroke-opacity
-stroke-opacity属性用于设置轮廓的透明度
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - stroke</title>
-</head>
-<body>
-  <svg width="300" height="500">
+:::demo
+```vue
+<template>
+  <svg width="300" height="300">
     <circle cx="80" cy="50" r="50" />
     <circle cx="200" cy="50" r="50" stroke="#ff6666" />
     <circle cx="80" cy="100" r="10" stroke="#ff6666" stroke-width="50" />
     <circle cx="200" cy="100" r="10" stroke="#ff6666" fill="none" stroke-width="50" stroke-opacity="0.5"/>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
+###### stroke-linecap
 
-复制代码
-效果：
+`stroke-linecap`属性定义了轮廓`终点`的`形状`，该属性有三个值：
 
-图片
-image.png
-stroke-linecap
-stroke-linecap属性定义了轮廓终点的形状，该属性有三个值：
+- butt：默认值，以`直边`结束线段
+- round：以`圆角`结束线段，圆角的半径由`stroke-width（轮廓宽度）`控制的
+- square：也是以`直边`结束线段，但和`butt`不同的是会在结束位置多出一段由`stroke-width（轮廓宽度）`大小控制的长度。
 
-butt：默认值，以直边结束线段
-round：以圆角结束线段，圆角的半径由stroke-width（轮廓宽度）控制的
-square：也是以直边结束线段，但和butt不同的是会在结束位置多出一段由stroke-width（轮廓宽度）大小控制的长度。
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - stroke</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300" height="200">
     <g fill="#ffff00" stroke="#ff0000" stroke-width="10">
       <path stroke-linecap="butt" d="M20 50 l200 0" />
@@ -840,34 +775,21 @@ square：也是以直边结束线段，但和butt不同的是会在结束位置�
       <path stroke-linecap="square" d="M20 150 l200 0" />
     </g>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
+###### stroke-linejoin
 
-复制代码
-效果：
+`stroke-linejoin`属性定义了轮廓`连接处`的`样式`。样式有三种类型：
 
-图片
-image.png
-stroke-linejoin
-stroke-linejoin属性定义了轮廓连接处的样式。样式有三种类型：
+- miter：默认值，表示用方形画笔在连接处形成`尖角`
+- round：用`圆角`连接，实现`平滑`效果
+- bevel：连接处会形成一个`斜面`
 
-miter：默认值，表示用方形画笔在连接处形成尖角
-round：用圆角连接，实现平滑效果
-bevel：连接处会形成一个斜面
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - stroke</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="160" height="280">
     <g fill="none" stroke="#ff0000" stroke-width="20">
       <path d="M40 60 80 20 120 60" stroke-linecap="butt"  stroke-linejoin="miter" />
@@ -875,35 +797,22 @@ bevel：连接处会形成一个斜面
       <path d="M40 220 80 180 120 220" stroke-linecap="square"  stroke-linejoin="bevel" />
     </g>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
+###### stroke-dasharray
 
-复制代码
-效果：
+`stroke-dasharray`属性可以定义轮廓为`虚线`
 
-图片
-image.png
-stroke-dasharray
-stroke-dasharray属性可以定义轮廓为虚线
+**语法：** `stroke-dasharray="xxx"`
 
-语法：stroke-dasharray="xxx"
+**属性：**
+- xxx 为一列数字字符串，对应的是：线段 空格 线段 空格......
 
-参数：xxx为一列数字字符串，对应的是：线段 空格 线段 空格......
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - stroke</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <g fill="#ffff00" stroke="#ff0000" stroke-width="5">
       <path d="M20 50 l200 0" />
@@ -912,31 +821,17 @@ stroke-dasharray属性可以定义轮廓为虚线
       <path stroke-dasharray="10, 5, 20" d="M20 200 l200 0" />
     </g>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
+###### stroke-dashoffset
 
-复制代码
-效果：
+`stroke-dashoffset` 属性用于指定路径`开始`的`距离`。值可为`正值`、`负值`、`百分比`。
 
-图片
-image.png
-stroke-dashoffset
-stroke-dashoffset 属性用于指定路径开始的距离。值可为正值、负值、百分比。
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - stroke</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <g fill="#ffff00" stroke="#ff0000" stroke-width="5" stroke-dasharray="20">
       <path d="M50 50 l200 0" />
@@ -945,31 +840,18 @@ stroke-dashoffset 属性用于指定路径开始的距离。值可为正值、�
       <path d="M50 200 l200 0" stroke-dashoffset="-10" />
     </g>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+###### stroke-miterlimit
 
-图片
-image.png
-stroke-miterlimit
-如果两条线交汇在一起形成一个尖角，而且属性 stroke-linejoin 指定了 miter，斜接有可能扩展到远远超过路径轮廓线的线宽。属性 stroke-miterlimit 对斜接长度和stroke-width的比率强加了一个极限。当极限到达时，交汇处由斜接变成倒角。
+如果两条线交汇在一起形成一个`尖角`，而且属性 `stroke-linejoin` 指定了 `miter`，斜接有可能扩展到远远超过路径轮廓线的线宽。属性 stroke-miterlimit` 对斜接长度和stroke-width的比率强加了一个极限。当极限到达时，交汇处由斜接变成倒角。
 
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - stroke</title>
-</head>
-<body>
-  <svg width="200" height="500">
+:::demo
+```vue
+<template>
+  <svg width="200" height="400">
     <g fill="none" stroke="#ff0000" stroke-width="20">
       <path d="M40 60 80 20 120 60 120 20 150 70" stroke-linejoin="miter" stroke-miterlimit="1" />
       <path d="M40 140 80 100 120 140 120 100 150 150" stroke-linejoin="miter" stroke-miterlimit="2" />
@@ -978,64 +860,37 @@ stroke-miterlimit
       <path d="M40 380 80 340 120 380 120 340 150 390" stroke-linejoin="miter" stroke-miterlimit="5" />
     </g>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果为：
+#### 文字
 
-图片
-image.png
-文字
-SVG中我们不仅可以绘制各种图形，我们还可也以绘制文字。
+##### text
 
-text
-通过text标签我们可以在SVG中添加文字，
+通过`text`标签可以在SVG中`添加文字`，
 
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="300" height="300">
+:::demo
+```vue
+<template>
+  <svg width="300" height="80">
     <text x="50" y="50">Hello Svg !</text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果为：
+##### x和y
 
-图片
-image.png
-从上面的实例我们可以看到，text标签有一些自己的属性，下面我们细说一下text标签的属性。
+`x`和`y`属性决定了文字的`绘制起点`。
 
-x和y
-x和y属性决定了文字的绘制起点。如上面的例子我们就是从坐标（50,50）的位置开始绘制的文字。
-
-但需要注意的是x和y的值可以是一个数列。如果设置为了一个数列则会应用到每一个字符上
+但需要注意的是`x`和`y`的值可以是一个`数列`。如果设置为了一个数列则会应用到`每一个字符`上
 
 示例：
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="300" height="300">
     <text 
       x="30 60 90 120 150 180 210 240 270" 
@@ -1047,15 +902,10 @@ x和y属性决定了文字的绘制起点。如上面的例子我们就是从坐
       Hello Svg !
     </text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果为：
-
-图片
-image.png
 dx和dy
 dx和dy属性与x和y属性不同的是，x和y属性是绝对的坐标，而dx和dy属性是相对于当前位置的偏移量。
 
