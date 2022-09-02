@@ -671,31 +671,31 @@ PS：示例中的`绿色三角形`只是用来辅助理解的，可以忽略，�
 <template>
   <svg width="12cm" height="4cm" viewBox="0 0 1200 400">
     <defs>
-      <path id="Triangle" d="M 16,0 L -8,9 v-18 z" fill="#66ff66" stroke="none" />
+      <path id="Triangle2" d="M 16,0 L -8,9 v-18 z" fill="#66ff66" stroke="none" />
     </defs>
     <g fill-rule="evenodd" fill="#6666ff" stroke="#ff6666" stroke-width="3" >
       <path d="M 250,75 L 323,301 131,161 369,161 177,301 z" />
-      <use xlink:href="#Triangle" transform="translate(306.21 249) rotate(72)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(175.16,193.2) rotate(216)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(314.26,161) rotate(0)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(221.16,268.8) rotate(144)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(233.21,126.98) rotate(288)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(306.21 249) rotate(72)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(175.16,193.2) rotate(216)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(314.26,161) rotate(0)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(221.16,268.8) rotate(144)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(233.21,126.98) rotate(288)" overflow="visible"  />
       <path d="M 600,81 A 107,107 0 0,1 600,295 A 107,107 0 0,1 600,81 z
                 M 600,139 A 49,49 0 0,1 600,237 A 49,49 0 0,1 600,139 z" />
-      <use xlink:href="#Triangle" transform="translate(600,188) rotate(0) translate(107,0) rotate(90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(600,188) rotate(120) translate(107,0) rotate(90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(600,188) rotate(240) translate(107,0) rotate(90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(600,188) rotate(60) translate(49,0) rotate(90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(600,188) rotate(180) translate(49,0) rotate(90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(600,188) rotate(300) translate(49,0) rotate(90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(600,188) rotate(0) translate(107,0) rotate(90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(600,188) rotate(120) translate(107,0) rotate(90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(600,188) rotate(240) translate(107,0) rotate(90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(600,188) rotate(60) translate(49,0) rotate(90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(600,188) rotate(180) translate(49,0) rotate(90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(600,188) rotate(300) translate(49,0) rotate(90)" overflow="visible"  />
       <path d="M 950,81 A 107,107 0 0,1 950,295 A 107,107 0 0,1 950,81 z
                 M 950,139 A 49,49 0 0,0 950,237 A 49,49 0 0,0 950,139 z" />
-      <use xlink:href="#Triangle" transform="translate(950,188) rotate(0) translate(107,0) rotate(90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(950,188) rotate(120) translate(107,0) rotate(90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(950,188) rotate(240) translate(107,0) rotate(90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(950,188) rotate(60) translate(49,0) rotate(-90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(950,188) rotate(180) translate(49,0) rotate(-90)" overflow="visible"  />
-      <use xlink:href="#Triangle" transform="translate(950,188) rotate(300) translate(49,0) rotate(-90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(950,188) rotate(0) translate(107,0) rotate(90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(950,188) rotate(120) translate(107,0) rotate(90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(950,188) rotate(240) translate(107,0) rotate(90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(950,188) rotate(60) translate(49,0) rotate(-90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(950,188) rotate(180) translate(49,0) rotate(-90)" overflow="visible"  />
+      <use xlink:href="#Triangle2" transform="translate(950,188) rotate(300) translate(49,0) rotate(-90)" overflow="visible"  />
     </g>
   </svg>
 </template>
@@ -880,13 +880,11 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 ```
 :::
 
-##### x和y
+###### x 和 y
 
 `x`和`y`属性决定了文字的`绘制起点`。
 
 但需要注意的是`x`和`y`的值可以是一个`数列`。如果设置为了一个数列则会应用到`每一个字符`上
-
-示例：
 
 :::demo
 ```vue
@@ -906,24 +904,16 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 ```
 :::
 
-dx和dy
-dx和dy属性与x和y属性不同的是，x和y属性是绝对的坐标，而dx和dy属性是相对于当前位置的偏移量。
+###### dx 和 dy
 
-参数也可以是一个数列。如果设置为了一个数列则会应用到每一个字符上
+`dx`和`dy`属性与`x`和`y`属性不同的是，`x`和`y`属性是`绝对的坐标`，而`dx`和`dy`属性是相对于当前位置的`偏移量`。
 
-示例：
+参数也可以是一个`数列`。如果设置为了一个数列则会应用到`每一个字符`上
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="500" height="500">
+:::demo
+```vue
+<template>
+  <svg width="500" height="80">
     <text 
       dx="50 10 10 10 10 10 10 10 10" 
       dy="50 20 -20 20 -20 20 -20 20 -20" 
@@ -934,33 +924,20 @@ dx和dy属性与x和y属性不同的是，x和y属性是绝对的坐标，而dx�
       Hello Svg !
     </text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果为：
+###### rotate
 
-图片
-image.png
-rotate
-rotate属性可以把文字旋转一个角度。
+`rotate`属性可以把文字`旋转`一个`角度`。
 
-示例：
+同样的参数也可以是一个`数列`。如果设置为了一个数列则会应用到`每一个字符`上
 
-```html
-
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="500" height="500">
+:::demo
+```vue
+<template>
+  <svg width="500" height="150">
     <text 
       x="50" 
       y="50" 
@@ -971,99 +948,55 @@ rotate属性可以把文字旋转一个角度。
       font-weight="bold" >
       Hello Svg !
     </text>
-  </svg>
-</body>
-</html>
-复制代码
-效果为：
-
-图片
-image.png
-同样的参数也可以是一个数列。如果设置为了一个数列则会应用到每一个字符上
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="550" height="500">
-    <text 
-      dx="50 20 20 20 20 20 20 20 20 20 20" 
-      y="50" 
-      rotate="0 20 40 60 80 100 120 140 160 180 200"
-      fill="#f00" 
-      stroke="#0f0" 
-      font-size="50"
-      font-weight="bold" >
+    <text
+        dx="50 20 20 20 20 20 20 20 20 20 20"
+        y="100"
+        rotate="0 20 40 60 80 100 120 140 160 180 200"
+        fill="#f00"
+        stroke="#0f0"
+        font-size="50"
+        font-weight="bold" >
       Hello Svg !
     </text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果为：
+###### textLength
 
-图片
-image.png
-textLength
-textLength属性给定了一个字符串的计算长度。在文字的长度和textLength属性给定的长度不一致的情况下渲染引擎会精细调整字型的位置。
+`textLength`属性给定了一个`字符串`的`计算长度`。在文字的`长度`和`textLength`属性给定的长度`不一致`的情况下渲染引擎会精细`调整字型的位置`。
 
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="550" height="500">
-    <text x="50" y="50" textLength="150" fill="#f00" stroke="#0f0" font-size="50"font-weight="bold" >
+:::demo
+```vue
+<template>
+  <svg width="550" height="200">
+    <text x="50" y="50" fill="#f00" stroke="#0f0" font-size="50" font-weight="bold" >
       Hello Svg !
     </text>
-    <text  x="50" y="100" textLength="500" fill="#f00" stroke="#0f0" font-size="50" font-weight="bold" >
+    <text x="50" y="110" textLength="150" fill="#f00" stroke="#0f0" font-size="50" font-weight="bold" >
+      Hello Svg !
+    </text>
+    <text  x="50" y="170" textLength="500" fill="#f00" stroke="#0f0" font-size="50" font-weight="bold" >
       Hello Svg !
     </text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果为：
+###### lengthAdjust
 
-图片
-image.png
-lengthAdjust
-lengthadjust属性可以控制文本以什么方式伸展到由_textLength_属性定义的长度。
+`lengthadjust`属性可以控制文本以`什么方式`伸展到由`_textLength_`属性定义的长度。
 
-spacing：只拉伸或压缩间距（文字不变形）
-spacingAndGlyphs：同时拉伸或压缩间距和文字本身（文字变形）
-示例：
+**属性：**
+- spacing：只`拉伸`或`压缩间距`（文字`不变形`）
+- spacingAndGlyphs：同时`拉伸`或`压缩间距`和`文字本身`（文字变形）
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="500" height="500">
+:::demo
+```vue
+<template>
+  <svg width="500" height="250">
     <text  x="50" y="50" textLength="200" lengthadjust="spacing" fill="#f00" stroke="#0f0" font-size="50" font-weight="bold" >
       Welcome to the world of svg ! 
     </text>
@@ -1077,185 +1010,108 @@ spacingAndGlyphs：同时拉伸或压缩间距和文字本身（文字变形）
       Hi svg ! 
     </text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果为：
+###### fill 和 stroke
 
-图片
-image.png
-fill和stroke
-填充和轮廓也都可以应用于文字
+`填充`和`轮廓`也都可以应用于文字
 
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="300" height="300">
+:::demo
+```vue
+<template>
+  <svg width="300" height="100">
     <text x="50" y="50" fill="#f00" stroke="#0f0" font-weight="bold">Hello Svg !</text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果为：
+###### CSS文字属性
 
-图片
-image.png
-CSS文字属性
-一些CSS中的文字样式属性同样也可以应用于SVG的文字中。比如上面例子中我们用到的文字加粗：font-weight 还有很多属性同样也适用，例如：font-size、font-family、font-style、font-variant、font-stretch、font-size-adjust、kerning、letter-spacing、word-spacing、text-decoration等。
+一些`CSS`中的文字样式属性同样也可以应用于SVG的文字中。
 
-示例：
+**例如**：`font-size`、`font-family`、`font-style`、`font-variant`、`font-stretch`、`font-size-adjust`、`kerning`、`letter-spacing`、`word-spacing`、`text-decoration`等。
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="400" height="300">
+:::demo
+```vue
+<template>
+  <svg width="400" height="100">
     <text x="50" y="50" fill="#f00" stroke="#0f0" font-weight="bold" font-size="50" font-family="arial">Hello Svg !</text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+##### tspan
 
-图片
-image.png
-tspan
-tspan标签和text标签一样都可以用来添加文字，但不同的是tspan标签的作用为标记大块文本内的部分内容。比如一段文本其中某个字需要加粗或者颜色不一致，就可以用到tspan标签。
+`tspan`标签和`text`标签一样都可以用来`添加文字`，但不同的是`tspan标`签的作用为标记`大块文本`内的`部分内容`。比如一段文本其中某个字需要`加粗`或者`颜色`不一致，就可以用到`tspan`标签。
 
-tspan标签的属性和text标签一致，上面说道的text标签的属性在tspan标签中也适用。
+`tspan`标签的属性和`text`标签一致，上面说到的text标签的`属性`在tspan标签中也`适用`。
 
-需注意的是tspan标签必须是一个text元素的子元素或别的子元素tspan的子元素。
+需注意的是`tspan`标签`必须`是一个text`元素的`子元素`或别的`子元素tspan`的`子元素`。
 
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="550" height="500">
+:::demo
+```vue
+<template>
+  <svg width="550" height="100">
     <text x="50" y="50" fill="#f00" stroke="#0f0" font-size="50" >
       Hello <tspan fill="#f0f" font-weight="bold"> 小 </tspan> Svg !
     </text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+需要注意的是`tspan`标签的`x`、`y` 和 `dx`、`dy` 会对标签后面的内容造成影响
 
-图片
-image.png
-需要注意的是tspan标签的x、y和 dx、dy 会对标签后面的内容造成影响
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="550" height="500">
+:::demo
+```vue
+<template>
+  <svg width="550" height="150">
     <text x="50" y="50" fill="#f00" stroke="#0f0" font-size="50" >
       Hello <tspan x="150" dy="70" fill="#f0f" font-weight="bold"> 小 </tspan> Svg !
     </text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+##### tref
 
-图片
-image.png
-tref
-tref标签配合xlink:href属性能引用已经定义的文本，实现复制的效果。并且引用之后还可以单独定义他的样式。
+`tref`标签配合`xlink:href`属性能`引用`已经`定义的文本`，实现`复制`的效果。并且引用之后还可以单独定义样式。
 
-但遗憾的是 tref标签是SVG 1.1规范的内容，它已经从SVG 2.0规范中删除了。
+但遗憾的是`tref`标签是`SVG 1.1`规范的内容，它已经从`SVG 2.0`规范中`删除`了。
 
-因此此处咱们可以使用 use标签来代替它，这里说明一下：
+因此此处可以使用`use`标签来代替它，这里说明一下：
 
-defs标签可以定义一些之后绘制中需要重复使用的图形元素，defs是definitions的缩写 。
-use标签可以在SVG文档内读取目标节点，并在别的地方复制使用。
-示例：
+`defs`标签可以定义一些之后绘制中需要`重复使用`的图形元素，`defs`是`definitions`的缩写。 `use`标签可以在SVG文档内`读取目标节点`，并在别的地方`复制使用`。
 
+:::demo
 ```html
-
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="500" height="500">
+<template>
+  <svg width="500" height="200">
     <defs>  
-      <text x="50" y="50" id="text" stroke="#000" font-size="30" >今天天气不错！</text>
+      <text x="50" y="50" id="tref-demo" stroke="#000" font-size="30" >今天天气不错！</text>
     </defs>
     <!-- tref 已废弃 -->
     <!-- <tref x="50" y="100" fill="#f00" xlink:href="#text" /> -->
-    <use x="50" y="100" fill="#f00" xlink:href="#text" />
-    <use x="50" y="150" fill="#0f0" rotate="45" xlink:href="#text" />
+    <use x="50" y="50" fill="#0f0" xlink:href="#tref-demo" />
+    <use x="50" y="100" fill="#0f0" rotate="45" xlink:href="#tref-demo" />
   </svg>
-</body>
-</html>
-复制代码
-效果：
+</template>
+```
+:::
 
-图片
-image.png
-textPath
-textPath标签可以利用它的xlink:href属性取得一个任意路径，并且可以让字符顺着路径渲染。
+##### textPath
 
-示例：
+`textPath`标签可以利用它的`xlink:href`属性取得一个`任意路径`，并且可以让字符顺着路径渲染。
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 文字</title>
-</head>
-<body>
-  <svg width="600" height="500">
+:::demo
+```vue
+<template>
+  <svg width="600" height="200">
     <path id="pathM" d="M 50 50 100 100 200 50 300 100" fill="none" />
     <path id="pathQ" d="M50 100 Q 175 200 300 100 T 600 100" fill="none" />
     <text>
@@ -1265,92 +1121,37 @@ textPath标签可以利用它的xlink:href属性取得一个任意路径，并�
       <textPath xlink:href="#pathQ"> Welcome to the world of SVG ! Welcome to the world of SVG ! </textPath>
     </text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+### 渐变
 
-图片
-image.png
-渐变
-了解渐变的小伙伴都知道，渐变就是从一个颜色过渡到另一个颜色，且渐变都分为两种渐变：线性渐变和径向渐变
-在SVG中渐变依旧如此。
+渐变就是从一个颜色`过渡`到另一个颜色，且渐变都分为`两种`渐变：`线性渐变`和`径向渐变`
+
 但需要注意的是这里我们需要接触两个新的标签：
 
-defs标签用来定义渐变
-stop标签用来定义渐变的颜色坡度，具有三个属性：offset定义渐变开始和结束的位置、stop-color（定义颜色）和stop-opacity（定义透明度）
-线性渐变
-线性渐变（linearGradient）就是沿直线改变颜色。
+- `defs`标签用来定义渐变
+- `stop`标签用来定义渐变的颜色坡度，具有三个属性：`offset`定义渐变开始和结束的位置、`stop-color`（定义颜色）和`stop-opacity`（定义透明度）
 
-语法：
+#### 线性渐变（linearGradient）
 
-```html
-<linearGradient x1="" y1="" x2="" y2="">
-  <stop offset="0%"/>
-  ...
-  <stop offset="20%"/>
-  ...
-  <stop offset="100%"/>
-</linearGradient>
-```
+**语法：** `<linearGradient x1="" y1="" x2="" y2="">`
 
-复制代码
-参数：x1、y1定义线性渐变的起点， x2、y2定义渐变的终点。
+**参数：**
+- `x1`、`y1`定义线性渐变的`起点`
+- `x2`、`y2`定义渐变的`终点`。
 
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 渐变</title>
-</head>
-<body>
-  <svg width="500" height="300">
+:::demo
+```vue
+<template>
+  <svg width="700" height="200">
     <defs>
       <linearGradient id="linearGradient" x1="0" y1="0" x2="100%" y2="0">
         <stop offset="0%" stop-color="rgb(255,255,0)"  />
         <stop offset="100%" stop-color="rgb(255,0,0)" />
       </linearGradient>
-    </defs>
-    <ellipse cx="100" cy="70" rx="100" ry="50" fill="url(#linearGradient)" />
-  </svg>
-</body>
-</html>
-```
-
-
-复制代码
-效果：
-
-图片
-image.png
-改变x1、y1和x2、y2的值可以定义不同方向上的渐变
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 渐变</title>
-</head>
-<body>
-  <svg width="500" height="400">
-    <defs>
-      <linearGradient id="linearGradient" x1="0" y1="0" x2="100%" y2="0">
-        <stop offset="0%" stop-color="rgb(255,255,0)"  />
-        <stop offset="100%" stop-color="rgb(255,0,0)" />
-      </linearGradient>
-      <linearGradient id="linearGradient1" x1="50%" y1="0%" x2="50%" y2="100%">
+      <linearGradient id="linearGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" stop-color="rgb(255,255,0)"  />
         <stop offset="100%" stop-color="rgb(255,0,0)" />
       </linearGradient>
@@ -1360,49 +1161,25 @@ image.png
       </linearGradient>
     </defs>
     <ellipse cx="100" cy="70" rx="100" ry="50" fill="url(#linearGradient)" />
-    <ellipse cx="100" cy="200" rx="100" ry="50" fill="url(#linearGradient1)" />
-    <ellipse cx="100" cy="350" rx="100" ry="50" fill="url(#linearGradient2)" />
+    <ellipse cx="350" cy="70" rx="100" ry="50" fill="url(#linearGradient1)" />
+    <ellipse cx="600" cy="70" rx="100" ry="50" fill="url(#linearGradient2)" />
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+#### 径向渐变（radialGradient）
 
-图片
-image.png
-径向渐变
-径向渐变（radialGradient）其实就是以一个点做放射性的渐变。
+**语法：** `<radialGradient cx="" cy="" r="" fx="" fy="">`
 
-语法：
+**属性：**
+- `cx`、`cy`、`r`分别为圆的`坐标`和`半径`，也就是渐变的`范围`
+- `fx`、`fy`定义渐变的`中心点`，也叫渐变的焦点
 
-```html
-<radialGradient cx="" cy="" r="" fx="" fy="">
-  <stop offset="0%"/>
-  ...
-  <stop offset="20%"/>
-  ...
-  <stop offset="100%"/>
-</radialGradient>
-```
-
-复制代码
-参数：cx、cy、r分别为圆的坐标和半径，也就是渐变的范围，fx、fy定义渐变的中心点，也叫渐变的焦点。
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 渐变</title>
-</head>
-<body>
-  <svg width="500" height="400">
+:::demo
+```vue
+<template>
+  <svg width="700" height="200">
     <defs>
       <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
         <stop offset="0%" stop-color="rgb(255, 255, 0)" />
@@ -1418,271 +1195,140 @@ image.png
       </radialGradient>
     </defs>
     <ellipse cx="100" cy="100" rx="100" ry="50" fill="url(#radialGradient)" />
-    <ellipse cx="100" cy="210" rx="100" ry="50" fill="url(#radialGradient1)" />
-    <ellipse cx="100" cy="320" rx="100" ry="50" fill="url(#radialGradient2)" />
+    <ellipse cx="350" cy="100" rx="100" ry="50" fill="url(#radialGradient1)" />
+    <ellipse cx="600" cy="100" rx="100" ry="50" fill="url(#radialGradient2)" />
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+#### 文字的渐变
 
-图片
-image.png
-不管是线性渐变还是径向渐变，他们不仅可以用于图形还是用于文字
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 渐变</title>
-</head>
-<body>
-  <svg width="500" height="400">
+:::demo
+```vue
+<template>
+  <svg width="600" height="250">
     <defs>
-      <linearGradient id="linearGradient" x1="0" y1="0" x2="100%" y2="0">
+      <linearGradient id="linearGradient3" x1="0" y1="0" x2="100%" y2="0">
         <stop offset="0%" stop-color="rgb(255,255,0)"  />
         <stop offset="100%" stop-color="rgb(255,0,0)" />
       </linearGradient>
-      <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="100%">
+      <radialGradient id="radialGradient3" cx="50%" cy="50%" r="50%" fx="50%" fy="100%">
         <stop offset="0%" stop-color="rgb(255, 255, 0)" />
         <stop offset="100%" stop-color="rgb(255, 0, 0)" />
       </radialGradient>
     </defs>
-    <text fill="url(#linearGradient)" font-size="100" font-family="Verdana" x="50" y="100">SVG</text>
-    <text fill="url(#radialGradient)" font-size="100" font-family="Verdana" x="50" y="200">SVG</text>
+    <text fill="url(#linearGradient3)" font-size="100" font-family="Verdana" x="50" y="100">SVG</text>
+    <text stroke="url(#linearGradient3)" stroke-width="5" fill="none" font-size="100" font-family="Verdana" x="50" y="200">SVG</text>
+    <text fill="url(#radialGradient3)" font-size="100" font-family="Verdana" x="300" y="100">SVG</text>
+    <text stroke="url(#radialGradient3)" stroke-width="5" fill="none" font-size="100" font-family="Verdana" x="300" y="200">SVG</text>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+### 裁剪和蒙层
 
-图片
-image.png
-同样的渐变不仅可以用来填充（fill），还能用来绘制轮廓（stroke）
+#### 裁剪
 
-示例：
+使用`clipPath`标签定义一条裁剪路径，用来裁`剪掉元素的部分内容`。且任何`透明度`的效果都是`无效的`，它只能要么裁剪掉要么不裁剪。
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 渐变</title>
-</head>
-<body>
-  <svg width="500" height="400">
-    <defs>
-      <linearGradient id="linearGradient" x1="0" y1="0" x2="100%" y2="0">
-        <stop offset="0%" stop-color="rgb(255,255,0)"  />
-        <stop offset="100%" stop-color="rgb(255,0,0)" />
-      </linearGradient>
-      <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="100%">
-        <stop offset="0%" stop-color="rgb(255, 255, 0)" />
-        <stop offset="100%" stop-color="rgb(255, 0, 0)" />
-      </radialGradient>
-    </defs>
-    <text stroke-width="5" stroke="url(#linearGradient)" fill="none" font-size="100" font-family="Verdana" x="50" y="100">SVG</text>
-    <text stroke-width="5" stroke="url(#radialGradient)" fill="none" font-size="100" font-family="Verdana" x="50" y="200">SVG</text>
-  </svg>
-</body>
-</html>
-```
-
-复制代码
-效果：
-
-图片
-image.png
-裁剪和蒙层
-裁剪和蒙层是我们在之后的SVG应用中常用的功能之一。总而言之是一些特定场景必不可少的功能。
-
-裁剪
-裁剪的功能主要是使用clipPath标签定义一条裁剪路径，然后用来裁剪掉元素的部分内容。且任何透明度的效果都是无效的，它只能要么裁剪掉要么不裁剪。
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 裁剪</title>
-</head>
-<body>
-  <svg width="300" height="300">
+:::demo
+```vue
+<template>
+  <svg width="300" height="200">
     <defs>
       <clipPath id="clipPath">
         <path d="M10 50 A50 50 0 0 1 100 50 A50 50 0 0 1 190 50 Q210 100 100 200  Q-5 100 10 50 Z" />
       </clipPath>
     </defs>
-  
-    <rect x="0" y="0" width="200" height="200" fill="#f00" clip-path="url(#clipPath)"  />
+    <rect x="0" y="0" width="200" height="200" fill="#fa0" clip-path="url(#clipPath)"  />
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+#### 蒙层
 
-图片
-image.png
-蒙层
-蒙层的功能主要实现标签就是mask标签，他的功能和名字正好相反，他不是用来遮住元素的部分内容，而是用来显示元素中mask标签遮住的内容。他和clipPath标签不同的是他允许使用透明度（透明度为0则无蒙层效果）和灰度值遮罩计算得的软边缘
+蒙层的功能主要实现标签就是`mask`标签，他的功能和名字正好相反，他`不是`用来`遮住元素`的部分内容，而是用来`显示元素`中`mask`标签`遮住的内容`。他和`clipPath`标签`不同`的是允许使用`透明度`（`透明度为0则无蒙层效果`）和`灰度值遮罩`计算得的`软边缘`。
 
-示例：
-
-```html
-<!DOCTYPE html>
-   <html lang="en">
-   <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>SVG - 裁剪</title>
-   </head>
-   <body>
-     <svg width="300" height="300">
-       <defs>
-         <mask id="Mask">
-           <path d="M10 50 A50 50 0 0 1 100 50 A50 50 0 0 1 190 50 Q210 100 100 200  Q-5 100 10 50 Z" fill="#fff" fill-opacity="0.5" />
-         </mask>
-       </defs>
-     
-       <rect x="0" y="0" width="200" height="200" fill="#f00" mask="url(#Mask)" />
-     </svg>
-   </body>
-   </html>
+:::demo
+```vue
+<template>
+   <svg width="300" height="200">
+     <defs>
+       <mask id="Mask">
+         <path d="M10 50 A50 50 0 0 1 100 50 A50 50 0 0 1 190 50 Q210 100 100 200  Q-5 100 10 50 Z" fill="#fff" fill-opacity="0.5" />
+       </mask>
+     </defs>
+     <rect x="0" y="0" width="200" height="200" fill="#f00" mask="url(#Mask)" />
+   </svg>
+</template>
 ```
+:::
 
-复制代码
-效果：
+### 动画
 
-图片
-image.png
-动画
-盼星星盼月亮终于盼到了我们最期待的SVG动画的章节了。因为文章分为两部分发布的，上周末只发布了一些基础的东西，所以就有小伙伴在评论里催动画方面的知识点，这周末咱们就一起来看看。
+#### 基础动画
 
-基础动画
-在做动画之前呢咱们需要先了解一下动画的基础知识。咱们再学习CSS的时候其实都有学过，大概就是平移、缩放、旋转等一些transform属性的一些方法。下面我们依次说一下，就算是做动画之前的一个小复习吧。
+##### translate（平移）
 
-translate（平移）
-translate()方法主要的功能就是用来平移的，把元素从一个地点平移到另一个地点。
+**语法：** `transform="translate(x, y)"`
+**属性：**
+- x为`X轴`上的平移距离
+- y为`Y轴`上的平移距离
 
-语法：transform="translate(x, y)"
-
-参数：x为X轴上的平移距离，y为Y轴上的平移距离，
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 动画</title>
-</head>
-<body>
-  <svg width="500" height="500">
+:::demo
+```vue
+<template>
+  <svg width="500" height="150">
     <rect x="0" y="0" width="100" height="50" fill="#ff770f"/>
     <rect x="0" y="0"  width="100" height="50" fill="#ff770f" transform="translate(100, 50)"/>
     <rect x="0" y="0"  width="100" height="50" fill="#ff770f" transform="translate(200, 100)"/>
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+##### scale（缩放）
 
-图片
-image.png
-scale（缩放）
-scale()方法可以用来缩放元素，通过缩放来控制元素的大小。
+**语法：**  `transform="scale(x, y)"`
+**属性：** 
+- x为`X轴`上的缩放大小
+- y为`Y轴`上的缩放大小
 
-语法：transform="scale(x, y)"
-
-参数：x为X轴上的缩放大小，y为Y轴上的缩放大小，当两个值一样时，写一个值就可以。
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 动画</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="500" height="500">
     <rect x="0" y="0" width="100" height="100" fill="#ff770f"/>
     <rect x="0" y="200"  width="100" height="100" fill="#7e9178" transform="scale(0.5)"/>
     <rect x="0" y="100"  width="100" height="100" fill="#183c78"  transform="scale(1.5)"/>
     <rect x="200" y="100"  width="100" height="100" fill="#cccccc"  transform="scale(1, 0.5)"/>
-
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
-复制代码
-效果：
+##### rotate（旋转）
 
-图片
-image.png
-rotate（旋转）
-rotate()方法可以用来做元素的旋转功能，把元素从一个地点平移到另一个地点。
+**语法：** `transform="rotate(deg)"`
+**参数：** deg为旋转的角度，45度就写45度。
 
-语法：transform="rotate(deg)"
-
-参数：deg为旋转的角度，45度就写45度。
-
-示例：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG - 动画</title>
-</head>
-<body>
+:::demo
+```vue
+<template>
   <svg width="500" height="500">
     <rect x="200" y="0" width="100" height="100" fill="#ff770f"/>
     <rect x="200" y="0" width="100" height="100" fill="#cccccc" transform="rotate(20)"/>
     <rect x="200" y="0" width="100" height="100" fill="#7e9178" transform="rotate(40)"/>
     <rect x="200" y="0" width="100" height="100" fill="#183c78"  transform="rotate(60)"/>
-
   </svg>
-</body>
-</html>
+</template>
 ```
+:::
 
 
-复制代码
-效果：
-
-图片
-image.png
 是不是觉得效果和我们想想中的不一样？我就只想旋转，为什么感觉还发生了位移呢？
 
 其实这是因为元素的旋转中心点是（0, 0）。如果我们想要只是选中而不位移，那么就需要把旋转的中心点设置在元素的中心点。
