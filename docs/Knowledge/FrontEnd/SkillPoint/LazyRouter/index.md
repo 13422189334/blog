@@ -2,10 +2,10 @@
 title: 路由懒加载
 date: 2022-06-14 14:41:41
 permalink: /SkillPoint/LazyRouter/
-categories:
-  - 前端
-tags:
-  - 前端技术点
+category:
+  - VUE SKILL
+tag:
+  - 前端小技巧
 ---
 
 :::danger

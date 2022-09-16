@@ -3,10 +3,10 @@ title: 人民币大写
 lang: zh-CN
 date: 2022-05-16 11:21:30
 permalink: /Java/Utils/RmbUpper
-categories: 
-  - JavaUtils
-tags: 
-  - 
+category: 
+  - Java工具类
+tag: 
+  - Java工具类
 ---
 
 ```java

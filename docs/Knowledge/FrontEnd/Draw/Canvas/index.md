@@ -3,16 +3,16 @@ title: Canvas 入门
 lang: zh-CN
 date: 2022-07-25 16:17:25
 permalink: /Draw/Canvas/
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
-categories: 
+isOriginal: true # 当前文章是否为原创
+sticky: true  # 是否在列表中置顶 ，数字越大，排名越靠前
+star: true # 是否收藏在博客主题的文章列表中。数字越大，排名越靠前
+image: /background/white-001.jpg # 设置预览图 (分享图)
+banner: /background/black-001.jpg # 设置横幅图片 (宽屏分享图)
+category: 
   - Canvas
-tags: 
+tag: 
   - Canvas
 ---
-
 
 ## Canvas 是什么？
 
@@ -37,7 +37,7 @@ tags:
 
 上面的描述可能有点难懂，可以打开 `AntV` 旗下的`图形编辑引擎`做对比。`G6` 是使用 canvas 开发的，`X6` 是使用 svg 开发的。
 
-:::danger
+:::info Tips
 如果要展示的`数据量比较大`，比如一条数据就是一个元素节点，那使用 canvas 会比较合适；如果用户操作的`交互比较多`，而且对`清晰度`有要求（矢量图），那么使用 svg 会比较合适。
 :::
 
@@ -48,7 +48,7 @@ tags:
 - 从 canvas 标签中获取到绘图工具
 - 通过绘图工具，在 canvas 标签上绘制图形
 
-:::demo
+:::vue-demo
 ```vue
 <!-- 1、创建 canvas 元素 -->
 <template>
@@ -98,7 +98,7 @@ canvas 元素提供了 `width` 和 `height` 两个属性，可设置它的宽高
 
 如果使用 css 修改 canvas 的宽高（比如变成 400px * 400px），那宽度就由 `300px 拉伸到 400px`，高度由 `150px 拉伸到 400px`。使用 `js` 获取 canvas 的宽高，此时返回的是 canvas 的`默认值`。最后出现的效果如下所示。
 
-:::demo
+:::vue-demo
 ```vue
 <style>
   #canvas_002 {
@@ -150,7 +150,7 @@ export default {
 
 Canvas 使用的是 W3C 坐标系 ，也就是遵循我们屏幕、报纸的阅读习惯，`从上往下，从左往右`。
 
-<img src="~@assets/knowledge/frontEnd/canvas/KFC_001.jpg" />
+<img :src="$withBase('/assets/knowledge/frontEnd/canvas/KFC_001.jpg')" />
 
 W3C 坐标系 和 数学直角坐标系 的 `X轴` 是`一样的`，只是 `Y轴` 的`方向相反`。
 
@@ -165,7 +165,7 @@ W3C 坐标系 和 数学直角坐标系 的 `X轴` 是`一样的`，只是 `Y轴
 - stroke()：将所有坐标用一条线连起来
 
 
-::: demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_003" style="border: 1px solid #ccc;"></canvas>
@@ -186,7 +186,7 @@ export default {
 :::
 
 ### 多条直线
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_004" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -208,13 +208,13 @@ export default {
 ```
 :::
 
-:::danger
+:::info Tips
 仔细观察一下，为什么两条线的粗细不一样的？
 :::
 
 明明使用的方法都是一样的，只是第二条直线的 `Y轴` 的值是有`小数点`。
 
-<img src="~@assets/knowledge/frontEnd/canvas/KFC_002.jpg" />
+<img :src="$withBase('/assets/knowledge/frontEnd/canvas/KFC_002.jpg')" />
 
 线的`中心点`会和`画布像素点`的底部对齐，所以会线`中间是黑色`的，但由于`一个像素不能再切割`了，所以会有`半个像素`被`染色`，就变成了`浅灰色`。
 
@@ -224,7 +224,7 @@ export default {
 - strokeStyle：线的颜色
 - lineCap：线帽：默认: butt; 圆形: round; 方形: square
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_005" style="border: 1px solid #ccc;"></canvas>
@@ -256,7 +256,7 @@ export default {
 
 在绘制`多条线段`的同时，还要设置线段`样式`，通常需要`开辟新路径`，要不然`样式`之间会`相互污染`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_006" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -291,7 +291,7 @@ export default {
 
 ##### 使用 beginPath() 同时 不设置样式
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_007" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -324,7 +324,7 @@ export default {
 
 ##### 使用 beginPath() 同时 设置样式
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_008" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -353,7 +353,7 @@ export default {
 
 ##### 不使用 beginPath() 同时 设置样式
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_009" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -385,7 +385,7 @@ export default {
 
 和 `直线` 差不多，都是使用 `moveTo()` 、`lineTo()` 和 `stroke()` 方法可以`绘制折线`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_010" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -412,7 +412,7 @@ export default {
 
 #### 线段描绘矩形
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_011" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -442,7 +442,7 @@ export default {
 - strokeRect(x, y, width, height)：描边矩形（x和y是矩形`左上角起点`；`width` 和 `height` 是矩形的`宽高`）
 - strokeStyle 必须写在 strokeRect() 前面，不然样式不生效。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_012" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -469,7 +469,7 @@ export default {
 需要注意的是，`fillStyle` 必须写在 `fillRect()` `之前`，不然样式不生效。
 
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_013" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -494,7 +494,7 @@ export default {
 
  会产生`描边`和`填充`的效果
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_014" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -516,7 +516,7 @@ export default {
 
 #### rect() 生成矩形
 
-:::danger 
+:::info Tips 
 `rect()` 和 `fillRect()` 、`strokeRect()` 的用法差不多，唯一的`区别`是：
 
 strokeRect() 和 fillRect() 这两个方法调用后会`立即绘制`；
@@ -524,7 +524,7 @@ strokeRect() 和 fillRect() 这两个方法调用后会`立即绘制`；
 `rect()` 方法被调用后，`不会立刻绘制矩形`，而是需要调用 `stroke()` 或 `fill()` 辅助渲染。
 :::
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_015" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -568,7 +568,7 @@ cxt.fillRect(50, 50, 200, 100)
 
 #### clearRect() 清空矩形
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_016" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -587,7 +587,7 @@ export default {
 ```
 :::
 
-:::danger
+:::info Tips
 canvas 画布元素是矩形，所以可以通过下面的代码把整个`画布清空`掉。
 
 要清空的区域：从画布`左上角`开始，直到画布的`宽`和画布的`高`为止。
@@ -608,7 +608,7 @@ Canvas 要画多边形，需要使用 `moveTo()` 、 `lineTo()` 和 `closePath()
 需要确定三角形`3个点`的`坐标位置`，然后使用 `stroke()` 或者 `fill()` 方法生成三角形。
 
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_017" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -631,7 +631,7 @@ export default {
 ```
 :::
 
-:::danger
+:::info Tips
 默认情况下`不会自动`从最后一个`点`连接到`起点`。最后一步需要设置一下 `cxt.lineTo(50, 50)` ，让它与 `cxt.moveTo(50, 50)` 一样。这样可以让路径`回到起点`，形成一个`闭合`效果。
 
 但这样做其实是有点问题的，而且也比较麻烦，要记住起始点坐标。
@@ -642,7 +642,7 @@ export default {
 
 如果需要真正闭合，可以使用 `closePath()` 方法自动将`终点`和`起始点`连接起来，此时看上去就正常多了。比如：
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_018" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -688,7 +688,7 @@ export default {
 
 ### 菱形
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_021" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -732,7 +732,7 @@ export default {
 >
 > 注意：绘制圆形之前，`必须`先调用 `beginPath()` 方法！！！在绘制`完成`之后，还需要调用 `closePath()` 方法！！！
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_022" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -758,7 +758,7 @@ export default {
 
 如果使用 `arc()` 方法画圆时，没做到刚好绕完一周（360°）就直接闭合路径，就会出现`半圆`的状态。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_023" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -780,7 +780,7 @@ export default {
 
 cxt.arc 最后一个参数没传，默认是 `false` ，所以是`顺时针`绘制。如果希望半圆的弧面在`上方`，可以将 cxt.arc 最后一个参数设置成 `true`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_024" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -810,7 +810,7 @@ export default {
 
 如果想画一条 `0° ~ 30°` 的弧线，可以这样写
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_025" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -841,7 +841,7 @@ export default {
 
 其中，`(cx, cy)` 也叫`控制点`，`(x2, y2)` 也叫`结束点`。
 
-:::danger
+:::info Tips
 <Badge text="思考"/>
 
 是不是有点奇怪，为什么没有 x1 和 y1 ？
@@ -853,7 +853,7 @@ export default {
 arcTo() 方法利用 `开始点`、`控制点`和`结束点`形成的`夹角`，绘制一段与夹角的两边`相切`并且`半径`为 `radius` 的圆弧。
 :::
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_026" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -882,7 +882,7 @@ export default {
 
 lineWidth 默认值是 `1` ，默认单位是 `px`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_027" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -918,7 +918,7 @@ export default {
 
 ### strokeStyle 线条颜色
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_028" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -949,7 +949,7 @@ export default {
 - square: 方形线帽
 - round: 圆形线帽
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_029" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -996,7 +996,7 @@ export default {
 - round: 圆角
 - bevel: 斜角
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_030" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -1040,7 +1040,7 @@ export default {
 - 有2个值
 - 有3个以上的值
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_031" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -1083,7 +1083,7 @@ export default {
 
 ### fill 填充
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_032" width="300" height="200" style="border: 1px solid #ccc;"></canvas>
@@ -1112,7 +1112,7 @@ export default {
 
 当图形所处的位置，计数器的`结果为0`时，它就`不会`被`填充`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_033" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -1169,7 +1169,7 @@ export default {
 - y: `纵坐标`，文本底边要对齐的坐标
 - maxWidth: 可选参数，表示文本渲染的`最大宽度（px`），如果文本`超出` maxWidth 设置的值，文本会被`压缩`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_034" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -1189,7 +1189,7 @@ export default {
 
 ##### strokeStyle 设置描边颜色
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_035" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -1212,7 +1212,7 @@ export default {
 
 语法：`fillText(text, x, y, maxWidth)`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_036" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -1232,7 +1232,7 @@ export default {
 
 ##### fillStyle 设置填充颜色
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_037" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -1255,7 +1255,7 @@ export default {
 
 `measureText().width` 方法可以获取文本的`长度`，单位是 `px` 。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_038" width="300" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -1283,7 +1283,7 @@ export default {
 - right: `右`对齐。
 - center: `居中`对齐。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_039" width="350" height="350" style="border: 1px solid #ccc;"></canvas>
@@ -1327,7 +1327,7 @@ export default {
 ```
 :::
 
-:::danger 
+:::info Tips 
 从上面的例子看，`start` 和 `left` 的效果好像是一样的，`end` 和 `right` 也好像是一样的。
 
 在大多数情况下，它们的确一样。
@@ -1343,7 +1343,7 @@ export default {
 - middle: 文本基线是 em 方框的`正中`。
 - hanging: 文本基线是`悬挂基线`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_040" width="800" height="300" style="border: 1px solid #ccc;"></canvas>
@@ -1387,7 +1387,7 @@ export default {
 ```
 :::
 
-:::danger
+:::info Tips
 在绘制文字的时候，默认是以文字的左下角作为参考点进行绘制
 :::
 
@@ -1414,7 +1414,7 @@ export default {
 3. 等待图片加载完成
 4. 使用 drawImage() 方法渲染图片
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_041" width="900" height="500" style="border: 1px solid #ccc;"></canvas>
@@ -1444,7 +1444,7 @@ export default {
 
 ##### DOM版
 
-:::demo
+:::vue-demo
 ```vue
 <style>
   #dogImg {
@@ -1483,7 +1483,7 @@ export default {
 
 `drawImage(image, dx, dy, dw, dh)`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_043" width="500" height="200" style="border: 1px solid #ccc;"></canvas>
@@ -1523,7 +1523,7 @@ export default {
 - dw: 图片宽度
 - dh: 图片高度
 
-:::demo
+:::vue-demo
 ```vue
 <template>
 <canvas id="canvas_044" width="300" height="300" style="border: 1px solid #ccc;"></canvas>

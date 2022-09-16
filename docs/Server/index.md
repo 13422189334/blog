@@ -7,14 +7,14 @@ sidebar: true # 不显示侧边栏
 article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
 comment: true # 不显示评论栏
 editLink: true # 不显示编辑按钮
-categories: 
-  - 
-tags: 
-  - 
+category: 
+  - 物联网
+tag: 
+  - 物联网
 ---
 
 ## 远程连接问题
-<img src="~@assets/server/001.jpg" />
+<img :src="$withBase('/assets/server/001.jpg')" />
 
 修改登录客户端，即本地计算机的设置。
 运行gpedit.msc打开本地组策略编辑器，依次展开“计算机配置”->“管理模板”->“系统”->“凭据分配”，选择设置项： 加密 Oracle 修正

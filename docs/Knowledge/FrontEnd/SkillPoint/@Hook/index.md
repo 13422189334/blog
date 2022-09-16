@@ -2,10 +2,10 @@
 title: 父组件里监听子组件的生命周期
 date: 2022-06-14 17:19:46
 permalink: /SkillPoint/@Hook/
-categories:
-  - 前端
-tags:
-  - 前端技术点
+category:
+  - VUE SKILL
+tag:
+  - 前端小技巧
 ---
 
 比如有父组件 Parent 和子组件 Child，如果父组件监听到子组件挂载 mounted 就做一些逻辑处理，常规的写法可能如下：

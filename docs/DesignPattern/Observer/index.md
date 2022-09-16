@@ -3,10 +3,9 @@ title: 观察者模式
 lang: zh-CN
 date: 2022-05-16 11:21:30
 permalink: /DesignPattern/Observer/
-categories: 
+category: 
   - 设计模式
-  - 
-tags: 
+tag: 
   - 很菜的设计模式
 ---
 
@@ -154,4 +153,4 @@ function off(eventName, fn) {
 
 - 最后的结果是：
 
-<img src="~@assets/designPattern/observer/001.jpg">
+<img :src="$withBase('/assets/designPattern/observer/001.jpg')">

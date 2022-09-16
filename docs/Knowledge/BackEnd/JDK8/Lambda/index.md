@@ -7,10 +7,10 @@ sidebar: true # 不显示侧边栏
 article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
 comment: true # 不显示评论栏
 editLink: true # 不显示编辑按钮
-categories: 
+category:
   - JDK8
-tags: 
-  - 
+tag:
+  - JDK8
 ---
 
 Lambda 表达式(lambda expression)是一个匿名函数，Lambda表达式基于数学中的λ演算得名，直接对应于其中的lambda抽象(lambda abstraction)，是一个匿名函数，即没有函数名的函数。
@@ -32,53 +32,53 @@ Lambda 表达式(lambda expression)是一个匿名函数，Lambda表达式基于
 比如我们对Map 的遍历 传统方式遍历如下:
 
 ```java
-  Map<String, String> map = new HashMap<>();
-  map.put("a", "a");
-  map.put("b", "b");
-  map.put("c", "c");
-  map.put("d", "d");
+  Map<String, String> map = new HashMap<>();
+  map.put("a", "a");
+  map.put("b", "b");
+  map.put("c", "c");
+  map.put("d", "d");
 
-  for (String key : map.keySet()) {
-   System.out.println("k=" + key + "，v=" + map.get(key));
-  }
+  for (String key : map.keySet()) {
+   System.out.println("k=" + key + "，v=" + map.get(key));
+  }
 ```
 
 使用Lambda进行遍历:
 
 ```java
-  map.forEach((k, v) -> {
-   System.out.println("k=" + k + "，v=" + v);
- });
+  map.forEach((k, v) -> {
+   System.out.println("k=" + k + "，v=" + v);
+ });
 ```
 
 List也同理，不过List还可以通过双冒号运算符遍历:
 
 ```java
-  List<String> list = new ArrayList<String>();
-  list.add("a");
-  list.add("bb");
-  list.add("ccc");
-  list.add("dddd");
+  List<String> list = new ArrayList<String>();
+  list.add("a");
+  list.add("bb");
+  list.add("ccc");
+  list.add("dddd");
 
-  list.forEach(v -> {
-   System.out.println(v);
-  });
+  list.forEach(v -> {
+   System.out.println(v);
+  });
 
-  list.forEach(System.out::println);
+  list.forEach(System.out::println);
 ```
 
 > Lambda除了在for循环遍历中使用外，它还可以代替匿名的内部类。比如下面这个例子的线程创建:
 
 ```java
- Runnable r1 = new Runnable() {
-  @Override
-  public void run() {
-   System.out.println("普通方式创建!");
-  }
- };
- 
- //使用拉姆达方式创建
- Runnable r2 = ()-> System.out.println("拉姆达方式创建!");
+ Runnable r1 = new Runnable() {
+  @Override
+  public void run() {
+   System.out.println("普通方式创建!");
+  }
+ };
+ 
+ //使用拉姆达方式创建
+ Runnable r2 = ()-> System.out.println("拉姆达方式创建!");
 ```
 
 注: 这个例子中使用Lambda表达式的时候，编译器会自动推断：根据线程类的构造函数签名 Runnable r { }，将该 Lambda 表达式赋Runnable 接口。

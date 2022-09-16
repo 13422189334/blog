@@ -2,10 +2,10 @@
 title: 上下文批量引入
 date: 2022-06-14 16:26:24
 permalink: /SkillPoint/Context/
-categories:
-  - 前端
-tags:
-  - 前端技术点
+category:
+  - VUE SKILL
+tag:
+  - 前端小技巧
 ---
 
 :::danger

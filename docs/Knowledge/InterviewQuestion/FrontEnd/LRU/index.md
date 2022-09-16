@@ -2,10 +2,9 @@
 title: 请使用JS完成一个LRU缓存
 date: 2022-08-18 16:16:37
 permalink: /InterviewQuestion/FrontEnd/LRU/
-categories:
-  - InterviewQuestion
-  - FrontEnd
-tags:
+category:
+  - JS代码题
+tag:
   - 蹩脚的面试题
 ---
 

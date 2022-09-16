@@ -1,0 +1,148 @@
+<template><div><h2 id="什么是-lru" tabindex="-1"><a class="header-anchor" href="#什么是-lru" aria-hidden="true">#</a> 什么是 LRU？</h2>
+<p><code v-pre>LRU</code> 英文全称是 <code v-pre>Least Recently Used</code>，英译过来就是 <code v-pre>最近最少使用</code> 的意思。</p>
+<h3 id="百度百科" tabindex="-1"><a class="header-anchor" href="#百度百科" aria-hidden="true">#</a> 百度百科</h3>
+<p>LRU 是一种常用的页面置换算法，选择 <code v-pre>最近</code> <code v-pre>最久</code> <code v-pre>未使用</code> 的页面予以<code v-pre>淘汰</code>。</p>
+<p>该算法赋予<code v-pre>每个页面</code>一个<code v-pre>访问字段</code>，用来记录一个页面自上次被访问以来所 <code v-pre>经历的时间t</code>，当须淘汰一个页面时，选择现有页面中其 <code v-pre>t</code> 值最大的，即<code v-pre>最近最少使用</code>的页面予以淘汰。</p>
+<h3 id="通俗的解释" tabindex="-1"><a class="header-anchor" href="#通俗的解释" aria-hidden="true">#</a> 通俗的解释</h3>
+<p>假如我们有一块<code v-pre>内存</code>，专门用来缓存我们<code v-pre>最近访问</code>的网页，访问一个<code v-pre>新网页</code>，我们就会往内存中添加一个<code v-pre>网页地址</code>，随着网页的不断增加，内存存满了，这个时候我们就需要考虑删除一些网页了。这个时候我们找到内存中<code v-pre>最早访问</code>的那个网页地址，然后把它<code v-pre>删掉</code>。
+这一整个过程就可以称之为 L<code v-pre>RU</code> 算法。</p>
+<p>虽然上面的解释比较好懂了，但是我们还有很多地方没有考虑到，比如如下几点：</p>
+<ul>
+<li>当我们访问内存中<code v-pre>已经存在</code>的<code v-pre>网址</code>，那么该网址是否需要<code v-pre>更新</code>在内存中的<code v-pre>存储顺序</code>。</li>
+<li>当我们内存中还没有数据的时候，是否需要执行删除操作。</li>
+</ul>
+<h2 id="使用场景" tabindex="-1"><a class="header-anchor" href="#使用场景" aria-hidden="true">#</a> 使用场景</h2>
+<p><code v-pre>LRU</code> 算法使用的场景非常多，这里简单举几个例子即可：</p>
+<ol>
+<li>操作系统底层的内存管理，其中就包括有 LRU 算法</li>
+<li>我们常见的缓存服务，比如 redis 等等</li>
+<li>浏览器的最近浏览记录存储，如下图：</li>
+</ol>
+<p>总之 LRU 算法的运用场景还是蛮多的，所以我们很有必要掌握它。</p>
+<h2 id="梳理-lru-思路" tabindex="-1"><a class="header-anchor" href="#梳理-lru-思路" aria-hidden="true">#</a> 梳理 LRU 思路</h2>
+<h3 id="特点" tabindex="-1"><a class="header-anchor" href="#特点" aria-hidden="true">#</a> 特点</h3>
+<ol>
+<li>需要一块<code v-pre>有限</code>的<code v-pre>存储空间</code>，因为无限的化就没必要使用 <code v-pre>LRU</code> 算法<code v-pre>删除数据</code>了。</li>
+<li><code v-pre>存储空间</code>里面存储的数据需要是<code v-pre>有序的</code>，因为必须要<code v-pre>顺序</code>来<code v-pre>删除数据</code>，所以可以考虑使用 <code v-pre>Array</code>、<code v-pre>Map</code> 数据结构来存储。</li>
+<li>能够<code v-pre>删除</code>或者<code v-pre>添加</code>以及<code v-pre>获取</code>到这块存储空间中的<code v-pre>指定数据</code>。</li>
+<li>存储空间<code v-pre>存满</code>之后，在添加数据时，会自动删除时间<code v-pre>最久远</code>的那条数据。</li>
+</ol>
+<h3 id="实现需求" tabindex="-1"><a class="header-anchor" href="#实现需求" aria-hidden="true">#</a> 实现需求</h3>
+<ol>
+<li>实现一个 <code v-pre>LRUCache</code> 类型，用来充当<code v-pre>存储空间</code></li>
+<li>采用 <code v-pre>Map</code> 数据结构<code v-pre>存储数据</code>，因为它的存取时间复杂度为 <code v-pre>O(1)</code>，数组为 <code v-pre>O(n)</code></li>
+<li>实现 <code v-pre>get</code> 和 <code v-pre>set</code> 方法，用来<code v-pre>获取</code>和<code v-pre>添加</code>数据</li>
+<li>存储空间有<code v-pre>长度限制</code>，所以<code v-pre>无需</code>提供<code v-pre>删除方法</code>，存储满之后，自动删除最久远的那条数据</li>
+<li>当使用 <code v-pre>get</code> 获取数据后，该条数据需要<code v-pre>更新</code>到<code v-pre>最前面</code></li>
+</ol>
+<p>现在已经把 <code v-pre>LRU</code> 算法的特点以及实现思路列了出来，那么接下来就去实现它吧！</p>
+<h2 id="实现" tabindex="-1"><a class="header-anchor" href="#实现" aria-hidden="true">#</a> 实现</h2>
+<p>首先我们定义一个 <code v-pre>LRUCache</code> 类，封装所有的方法和变量。</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">LRUCache</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">lenght</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> lenght<span class="token punctuation">;</span> <span class="token comment">// 存储长度</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 存储数据</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 存储数据，通过键值对的方式</span>
+  <span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+  <span class="token comment">// 获取数据</span>
+  <span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上段代码只是最简单的一个架子，我们需要去实现具体的 <code v-pre>get</code> 和 <code v-pre>set</code> 方法。</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">LRUCache</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">lenght</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> lenght<span class="token punctuation">;</span> <span class="token comment">// 存储长度</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 存储数据</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 存储数据，通过键值对的方式</span>
+  <span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      data<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    data<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token comment">// 如果超出了容量，则需要删除最久的数据</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span>size <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> delKey <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+      data<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>delKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 获取数据</span>
+  <span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+    <span class="token comment">// 未找到</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>data<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> value <span class="token operator">=</span> data<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 获取元素</span>
+    data<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 删除元素</span>
+    data<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 重新插入元素</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上段代码中实现实现了 <code v-pre>get</code> 和 <code v-pre>set</code> 方法，下面说一下这两个方法的<code v-pre>实现思路</code>：</p>
+<p><code v-pre>set</code> 方法：往 <code v-pre>map</code> 里面<code v-pre>添加</code>新数据，如果添加的数据<code v-pre>存在</code>了，则<code v-pre>先删除</code>该条数据，然后<code v-pre>再添加</code>。如果添加数据后<code v-pre>超长</code>了，则需要删除<code v-pre>最久远</code>的一条数据。<code v-pre>data.keys().next().value</code> 便是获取最后一条数据的意思。
+<code v-pre>get</code> 方法：首先从 <code v-pre>map</code> 对象中<code v-pre>拿出</code>该条数据，然后<code v-pre>删除</code>该条数据，最后再重新<code v-pre>插入</code>该条数据，确保将该条数据移动到<code v-pre>最前面</code>。</p>
+<h2 id="测试" tabindex="-1"><a class="header-anchor" href="#测试" aria-hidden="true">#</a> 测试</h2>
+<p>存储数据 set：</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> lruCache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LRUCache</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+lruCache<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'小猪课堂'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+lruCache<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+lruCache<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'sex'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+lruCache<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token number">176</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+lruCache<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'weight'</span><span class="token punctuation">,</span> <span class="token string">'100'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lruCache<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//  LRUCache {length: 5, data: Map(5)}</span>
+<span class="token comment">//    data: Map(5)</span>
+<span class="token comment">//      [[Entries]]</span>
+<span class="token comment">//        0: {"name" => "小猪课堂"}</span>
+<span class="token comment">//        1: {"age" => 22}</span>
+<span class="token comment">//        2: {"sex" => "男"}</span>
+<span class="token comment">//        3: {"height" => 176}</span>
+<span class="token comment">//        4: {"weight" => "100"}</span>
+<span class="token comment">//      size: 5</span>
+<span class="token comment">//      [[Prototype]]: Map</span>
+<span class="token comment">//    length: 5</span>
+<span class="token comment">//    [[Prototype]]: Object</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>继续插入数据，此时会超长，代码如下：</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code>lruCache<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'grade'</span><span class="token punctuation">,</span> <span class="token string">'10000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lruCache<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//  LRUCache {length: 5, data: Map(5)}</span>
+<span class="token comment">//    data: Map(5)</span>
+<span class="token comment">//      [[Entries]]</span>
+<span class="token comment">//        0: {"age" => 22}</span>
+<span class="token comment">//        1: {"sex" => "男"}</span>
+<span class="token comment">//        2: {"height" => 176}</span>
+<span class="token comment">//        3: {"weight" => "100"}</span>
+<span class="token comment">//        4: {"grade" => "10000"}</span>
+<span class="token comment">//      size: 5</span>
+<span class="token comment">//      [[Prototype]]: Map</span>
+<span class="token comment">//    length: 5</span>
+<span class="token comment">//    [[Prototype]]: Object</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时我们发现存储时间最久的 name 已经被移除了，新插入的数据变为了最前面的一个。</p>
+<p>我们使用 <code v-pre>get</code> 获取数据，代码如下：</p>
+<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code>lruCache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'sex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lruCache<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//  LRUCache {length: 5, data: Map(5)}</span>
+<span class="token comment">//    data: Map(5)</span>
+<span class="token comment">//      [[Entries]]</span>
+<span class="token comment">//        0: {"age" => 22}</span>
+<span class="token comment">//        1: {"height" => 176}</span>
+<span class="token comment">//        2: {"weight" => "100"}</span>
+<span class="token comment">//        3: {"grade" => "10000"}</span>
+<span class="token comment">//        4: {"sex" => "男"}</span>
+<span class="token comment">//      size: 5</span>
+<span class="token comment">//      [[Prototype]]: Map</span>
+<span class="token comment">//    length: 5</span>
+<span class="token comment">//    [[Prototype]]: Object</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们发现此时 sex 字段已经跑到最前面去了。</p>
+<h2 id="总结" tabindex="-1"><a class="header-anchor" href="#总结" aria-hidden="true">#</a> 总结</h2>
+<p><code v-pre>LRU</code> 算法其实逻辑非常的简单，明白了原理之后实现起来非常的简单。</p>
+<p>最主要的是需要使用什么<code v-pre>数据结构</code>来<code v-pre>存储数据</code>，因为 <code v-pre>map</code> 的存取非常快，所以采用了它，当然数组其实也可以实现的。还有一些小伙伴使用链表来实现 <code v-pre>LRU</code>，这当然也是可以的。</p>
+</div></template>
+
+

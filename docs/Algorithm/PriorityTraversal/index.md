@@ -2,13 +2,9 @@
 title: 优先遍历算法
 date: 2022-06-24 14:38:26
 permalink: /Algorithm/PriorityTraversal/
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
-categories:
+category:
   - 算法
-tags:
+tag:
   - 很菜的算法
 ---
 
@@ -31,15 +27,13 @@ tags:
 - 此时 3 以及下面的节点遍历完后，回到根节点 1，继续遍历 4，8
 - 完整的遍历顺序图如下：
 
-<img src="~@assets/algorithm/priorityTraversal/pt_001.jpg" />
+<img :src="$withBase('/assets/algorithm/priorityTraversal/pt_001.jpg')" />
 
 另一个利用栈的动图描述：
 
-<img src="~@assets/algorithm/priorityTraversal/pt_002.gif" />
+<img :src="$withBase('/assets/algorithm/priorityTraversal/pt_002.gif')" />
 
-:::danger
-递归实现
-:::
+### 递归实现
 
 ```java
 public static void dfs(TreeNode root) {
@@ -54,9 +48,7 @@ public static void dfs(TreeNode root) {
 }
 ```
 
-:::danger
-迭代实现
-:::
+### 迭代实现
 
 根据深度优先算法的特性，可以使用栈先入后出的特性实现。
 
@@ -90,13 +82,13 @@ public static void dfs(TreeNode root) {
 
 广度优先遍历（Breath First Search，简称 BFS）一层一层遍历，每一层得到的所有新节点，要用队列存储起来以备下一层遍历的时候再遍历。
 
-<img src="~@assets/algorithm/priorityTraversal/pt_003.gif" />
+<img :src="$withBase('/assets/algorithm/priorityTraversal/pt_003.gif')" />
 
 可以看出，遍历的顺序先是 2，3，4，接着是 5，6，7，8，最后是 9，10。属于一层一层遍历。
 
 另一个利用队列的动图描述：
 
-<img src="~@assets/algorithm/priorityTraversal/pt_004.gif" />
+<img :src="$withBase('/assets/algorithm/priorityTraversal/pt_004.gif')" />
 
 深度优先遍历用的是栈，而广度优先遍历要用队列来实现。
 

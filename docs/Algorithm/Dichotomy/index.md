@@ -2,13 +2,9 @@
 title: 二分查找理论
 date: 2022-06-06 16:36:20
 permalink: /Algorithm/Dichotomy/
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
-categories:
+category:
   - 算法
-tags:
+tag:
   - 很菜的算法
 ---
 
@@ -49,9 +45,7 @@ tags:
 
 ## 分类
 
-::: danger
-第一类：数据无重复查找数据
-:::
+### 第一类 - 数据无重复查找数据
 
 位置：0 1 2 3 4 5 6 7 8 9
 
@@ -75,9 +69,7 @@ public int binarySearch(int[] numbers, int target) {
 }
 ```
 
-:::danger
-第二类：数据有重复查找小于该数的最后一个数字的位置
-:::
+### 第二类 - 数据有重复查找小于该数的最后一个数字的位置
 
 位置：0 1 2 3 4 5 6 7 8 9
 
@@ -101,9 +93,7 @@ public int binarySearch(int[] numbers, int target) {
 }
 ```
 
-:::danger
-第三类：数据有重复查找该数字第一次出现的位置
-:::
+### 第三类 - 数据有重复查找该数字第一次出现的位置
 
 位置：0 1 2 3 4 5 6 7 8 9
 
@@ -127,9 +117,7 @@ public int binarySearch(int[] numbers, int target) {
 }
 ```
 
-:::danger
-第四类：数据有重复查找该数字最后一次出现的位置
-:::
+### 第四类 - 数据有重复查找该数字最后一次出现的位置
 
 位置：0 1 2 3 4 5 6 7 8 9
 
@@ -153,9 +141,7 @@ public int binarySearch(int[] numbers, int target) {
 }
 ```
 
-:::danger
-第五类：数据有重复查找第一个大于该数的数字的位置
-:::
+### 第五类 - 数据有重复查找第一个大于该数的数字的位置
 
 位置：0 1 2 3 4 5 6 7 8 9
 
@@ -187,7 +173,7 @@ public int binarySearch(int[] numbers, int target) {
 
 搜索插入位置
 
-:::danger
+:::info Tips
 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
 
 请必须使用时间复杂度为 O(log n) 的算法。
@@ -211,10 +197,8 @@ public int binarySearch(int[] numbers, int target) {
 
 输出: 4
 
-:::danger
-思路与算法
-:::
-
+#### 思路与算法
+    
 假设题意是叫你在排序数组中寻找是否存在一个目标值，那么训练有素的读者肯定立马就能想到利用二分法在 O(\log n)O(logn) 的时间内找到是否存在目标值。但这题还多了个额外的条件，即如果不存在数组中的时候需要返回按顺序插入的位置，那我们还能用二分法么？答案是可以的，我们只需要稍作修改即可。
 
 考虑这个插入的位置 pos，它成立的条件为：
@@ -247,7 +231,7 @@ public int searchInsert(int[] nums, int target) {
 
 ### 有序数组中的单一元素
 
-:::danger
+:::info Tips
 给你一个仅由整数组成的有序数组，其中每个元素都会出现两次，唯有一个数只会出现一次。
 
 请你找出并返回只出现一次的那个数。
@@ -267,9 +251,7 @@ public int searchInsert(int[] nums, int target) {
 
 输出: 10
 
-:::danger
-思路与算法
-:::
+#### 思路与算法
 
 因为找出唯一一个没有重复的数，且其他相同的数只有两个，所以利用二分查找时，根据 mid 和它的前后来进行判断。
 

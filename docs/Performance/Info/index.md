@@ -2,9 +2,9 @@
 title: 浅谈性能优化
 date: 2022-06-30 10:39:48
 permalink: /Performance/info/
-categories: 
+category: 
   - 性能优化
-tags: 
+tag: 
   - 不咋滴的性能优化
 ---
 

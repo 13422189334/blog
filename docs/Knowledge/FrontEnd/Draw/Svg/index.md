@@ -3,13 +3,14 @@ title: Svg 入门
 lang: zh-CN
 date: 2022-08-19 11:33:25
 permalink: /Draw/Svg/
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
-categories: 
+isOriginal: true # 当前文章是否为原创
+sticky: true  # 是否在列表中置顶 ，数字越大，排名越靠前
+star: true # 是否收藏在博客主题的文章列表中。数字越大，排名越靠前
+image: /background/white-001.jpg # 设置预览图 (分享图)
+banner: /background/black-001.jpg # 设置横幅图片 (宽屏分享图)
+category: 
   - Svg
-tags: 
+tag: 
   - Svg
 ---
 
@@ -49,9 +50,7 @@ SVG 是 `Scalable Vector Graphics` 的缩写，意为`可缩放矢量图形`。�
 
 这里直接放一张 Can I Use 的详细兼容表。
 
-<!-- ![pt_000](/assets/knowledge/frontEnd/svg/canIUse.png) -->
-
-<img src="~@assets/knowledge/frontEnd/svg/canIUse.png"/>
+<img :src="$withBase('/assets/knowledge/frontEnd/svg/canIUse.png')"/>
 
 ## 语法
 
@@ -71,7 +70,7 @@ SVG的语法如下：
 
 #### width、height `SVG`的`宽高`
 
-::: demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -81,13 +80,13 @@ SVG的语法如下：
 ```
 :::
 
-:::danger
+:::info Tips
 注意：在`不设置`宽高的情况下，默认为`300 * 150`，当`内部元素`大于`300 * 150`时，大于部分会被隐藏。
 :::
 
 在坐标为`（100， 100）`的地方绘制一个`半径`为`100`的`圆`
 
-::: demo
+:::vue-demo
 ```vue
 <template>
   <svg>
@@ -105,7 +104,7 @@ SVG的语法如下：
 - x、y为`起始点`
 - w、h为`显示区域`的`宽高`
 
-::: demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300" viewBox="0 0 100 100">
@@ -123,7 +122,7 @@ version属性纯粹就是一个`说明`，对`渲染`或`处理`没有任何影�
 
 **语法：** `version="1.1"`
 
-:::danger
+:::info Tips
 下面是来自维基百科的一些版本信息：
 
 - 版本 1.x
@@ -157,7 +156,7 @@ version属性纯粹就是一个`说明`，对`渲染`或`处理`没有任何影�
 </svg>
 ```
 
-:::danger
+:::info Tips
 在`SVG`中存在`a标签`，在`HTML`中也存在`a标签`，那么怎么区分这个a标签属于哪一种技术，这就需要使用`命名空间`了。
 
 加入命名空间以后就能知道哪一个是`svg:a`，哪一个又是`html:a`，这样就可以区分出不同的`标签`和`属性`。
@@ -186,7 +185,7 @@ xmlns用于声明`命名空间`（`namespace`），在此声明之下的所有`�
 - `cx`、`cy`为圆的坐标
 - `r`为圆的半径
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -205,7 +204,7 @@ xmlns用于声明`命名空间`（`namespace`），在此声明之下的所有`�
 - rx、ry为圆角x、y轴方向的半径
 - width、height为矩形的宽高
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -226,7 +225,7 @@ xmlns用于声明`命名空间`（`namespace`），在此声明之下的所有`�
 - `rx`为椭圆的x轴半径
 - `ry`为椭圆的y轴半径
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="600" height="200">
@@ -245,7 +244,7 @@ xmlns用于声明`命名空间`（`namespace`），在此声明之下的所有`�
 - `x1`、`y1`为`起点`的坐标
 - `x2`、`y2`为`终点`的坐标
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="200">
@@ -263,7 +262,7 @@ xmlns用于声明`命名空间`（`namespace`），在此声明之下的所有`�
 **参数：**
 - `points`为`点集数列`，其中每个点都必须包含`2个数字`，一个是`x坐标`，一个是`y坐标`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="100">
@@ -283,7 +282,7 @@ xmlns用于声明`命名空间`（`namespace`），在此声明之下的所有`�
 **参数：**
 - `points`为`点集数列`，其中每个点都必须包含`2个数字`，一个是`x坐标`，一个是`y坐标`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -303,7 +302,7 @@ path标签是所有图形中最复杂的，但他也是最强大的。在SVG中�
 **参数：**
 - d为一个`点集数列`以及其它`绘制路径`的`信息`。
 
-:::demo
+:::vue-demo
 ```vue
 <tempalte>
   <svg width="200" height="200">
@@ -330,7 +329,7 @@ path标签是所有图形中最复杂的，但他也是最强大的。在SVG中�
 - A = Elliptical Arc
 - Z = close path
 
-:::danger
+:::info Tips
 所有命令中，`大写`为`绝对定位`，`小写`为`相对定位`。
 :::
 
@@ -356,7 +355,7 @@ path标签是所有图形中最复杂的，但他也是最强大的。在SVG中�
 **参数：**
 - x、y为坐标
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -385,7 +384,7 @@ path标签是所有图形中最复杂的，但他也是最强大的。在SVG中�
 **参数：**
 - x 为X轴坐标
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="100">
@@ -405,7 +404,7 @@ path标签是所有图形中最复杂的，但他也是最强大的。在SVG中�
 **参数：**
 - y 为Y轴坐标
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="250">
@@ -416,11 +415,11 @@ path标签是所有图形中最复杂的，但他也是最强大的。在SVG中�
 ```
 :::
 
-:::danger
+:::info Tips
 PS：注意连续的`H`命令和`V`命令取`大值`
 :::
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -437,7 +436,7 @@ PS：注意连续的`H`命令和`V`命令取`大值`
 
 **语法：** Z 或者 z
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -459,7 +458,7 @@ PS：注意连续的`H`命令和`V`命令取`大值`
 - x、y为`终点位置`
 - x1、y1为`控制点`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300px" height="200px">
@@ -480,7 +479,7 @@ PS：注意连续的`H`命令和`V`命令取`大值`
 **参数：**
 - x、y为终点位置
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="600px" height="300px">
@@ -503,7 +502,7 @@ PS：注意连续的`H`命令和`V`命令取`大值`
 - x1、y1为曲线`起始点`的`控制点`
 - x2、y2为`曲线终止`的`控制点`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -526,7 +525,7 @@ PS：注意连续的`H`命令和`V`命令取`大值`
 - x、y为终点位置
 - x2、y2为曲线终止的控制点
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300px" height="300px">
@@ -554,7 +553,7 @@ PS：注意连续的`H`命令和`V`命令取`大值`
 - sweep-flag 为`弧`的`方向`，`0`表示从起点到终点沿`逆时针`画弧，1表示从起点到终点沿`顺时针`画弧
 - x、y 为弧形的`终点`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300px" height="500px">
@@ -578,7 +577,7 @@ PS：注意连续的`H`命令和`V`命令取`大值`
 
 **语法：**` fill= "color"` 或者 `style="fill: color"`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg>
@@ -597,7 +596,7 @@ fill属性其实还有一些延伸属性：
 
 `fill-opacity`属性用于设置填充颜色的`透明度`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="400" height="250">
@@ -622,7 +621,7 @@ nonzero为`默认值`，
 规则为：要判断一个点是否在图形内，从该点作`任意方向`的一条射线，然后检测`射线`与`图形路径`的`交点`情况。从0开始计数，路径从左向右（`顺时针`）穿过射线则计数`加1`，
 从右向左（`逆时针`）穿过射线则计数`减1`。得出计数结果后，如果结果是`0`，则认为点在图形`外部`，否则认为在`内部`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="12cm" height="4cm" viewBox="0 0 1200 400">
@@ -658,7 +657,7 @@ nonzero为`默认值`，
 ```
 :::
 
-:::danger
+:::info Tips
 PS：示例中的`绿色三角形`只是用来辅助理解的，可以忽略，只需要了解规则是`如何填充`的就行。
 :::
 
@@ -666,7 +665,7 @@ PS：示例中的`绿色三角形`只是用来辅助理解的，可以忽略，�
 
 规则为：要判断一个点是否在图形内，从该点作`任意方向`的一条射线，然后检测`射线`与`图形路径`的`交点`的`数量`。如果结果是`奇数`则认为点在`内部`，是`偶数`则认为点在`外部`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="12cm" height="4cm" viewBox="0 0 1200 400">
@@ -702,7 +701,7 @@ PS：示例中的`绿色三角形`只是用来辅助理解的，可以忽略，�
 ```
 :::
 
-:::danger
+:::info Tips
 PS：上面示例中的绿色三角形只是用来辅助理解的，可以忽略，咱们只需要了解规则是如何填充的就行。
 :::
 
@@ -712,7 +711,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 **语法：** `stroke="color"` 或者 `style="stroke: color"`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg>
@@ -727,7 +726,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 `stroke-width`属性定义了轮廓的`宽度`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -744,7 +743,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 `stroke-opacity`属性用于设置轮廓的`透明度`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -765,7 +764,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 - round：以`圆角`结束线段，圆角的半径由`stroke-width（轮廓宽度）`控制的
 - square：也是以`直边`结束线段，但和`butt`不同的是会在结束位置多出一段由`stroke-width（轮廓宽度）`大小控制的长度。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="200">
@@ -787,7 +786,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 - round：用`圆角`连接，实现`平滑`效果
 - bevel：连接处会形成一个`斜面`
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="160" height="280">
@@ -810,7 +809,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 **参数：**
 - xxx 为一列数字字符串，对应的是：线段 空格 线段 空格......
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -829,7 +828,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 `stroke-dashoffset` 属性用于指定路径`开始`的`距离`。值可为`正值`、`负值`、`百分比`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -848,7 +847,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 如果两条线交汇在一起形成一个`尖角`，而且属性 `stroke-linejoin` 指定了 `miter`，斜接有可能扩展到远远超过路径轮廓线的线宽。属性 stroke-miterlimit` 对斜接长度和stroke-width的比率强加了一个极限。当极限到达时，交汇处由斜接变成倒角。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="200" height="400">
@@ -870,7 +869,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 通过`text`标签可以在SVG中`添加文字`，
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="80">
@@ -886,7 +885,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 但需要注意的是`x`和`y`的值可以是一个`数列`。如果设置为了一个数列则会应用到`每一个字符`上
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="300">
@@ -910,7 +909,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 参数也可以是一个`数列`。如果设置为了一个数列则会应用到`每一个字符`上
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="500" height="80">
@@ -934,7 +933,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 同样的参数也可以是一个`数列`。如果设置为了一个数列则会应用到`每一个字符`上
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="500" height="150">
@@ -967,7 +966,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 `textLength`属性给定了一个`字符串`的`计算长度`。在文字的`长度`和`textLength`属性给定的长度`不一致`的情况下渲染引擎会精细`调整字型的位置`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="550" height="200">
@@ -993,7 +992,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 - spacing：只`拉伸`或`压缩间距`（文字`不变形`）
 - spacingAndGlyphs：同时`拉伸`或`压缩间距`和`文字本身`（文字变形）
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="500" height="250">
@@ -1018,7 +1017,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 `填充`和`轮廓`也都可以应用于文字
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="100">
@@ -1034,7 +1033,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 **例如**：`font-size`、`font-family`、`font-style`、`font-variant`、`font-stretch`、`font-size-adjust`、`kerning`、`letter-spacing`、`word-spacing`、`text-decoration`等。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="400" height="100">
@@ -1052,7 +1051,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 需注意的是`tspan`标签`必须`是一个text`元素的`子元素`或别的`子元素tspan`的`子元素`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="550" height="100">
@@ -1066,7 +1065,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 需要注意的是`tspan`标签的`x`、`y` 和 `dx`、`dy` 会对标签后面的内容造成影响
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="550" height="150">
@@ -1088,7 +1087,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 `defs`标签可以定义一些之后绘制中需要`重复使用`的图形元素，`defs`是`definitions`的缩写。 `use`标签可以在SVG文档内`读取目标节点`，并在别的地方`复制使用`。
 
-:::demo
+:::vue-demo
 ```html
 <template>
   <svg width="500" height="200">
@@ -1108,7 +1107,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 `textPath`标签可以利用它的`xlink:href`属性取得一个`任意路径`，并且可以让字符顺着路径渲染。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="600" height="200">
@@ -1142,7 +1141,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 - `x1`、`y1`定义线性渐变的`起点`
 - `x2`、`y2`定义渐变的`终点`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="700" height="200">
@@ -1176,7 +1175,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 - `cx`、`cy`、`r`分别为圆的`坐标`和`半径`，也就是渐变的`范围`
 - `fx`、`fy`定义渐变的`中心点`，也叫渐变的焦点
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="700" height="200">
@@ -1204,7 +1203,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 #### 文字的渐变
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="600" height="250">
@@ -1233,7 +1232,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 使用`clipPath`标签定义一条裁剪路径，用来裁`剪掉元素的部分内容`。且任何`透明度`的效果都是`无效的`，它只能要么裁剪掉要么不裁剪。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="300" height="200">
@@ -1252,7 +1251,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 蒙层的功能主要实现标签就是`mask`标签，他的功能和名字正好相反，他`不是`用来`遮住元素`的部分内容，而是用来`显示元素`中`mask`标签`遮住的内容`。他和`clipPath`标签`不同`的是允许使用`透明度`（`透明度为0则无蒙层效果`）和`灰度值遮罩`计算得的`软边缘`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
    <svg width="300" height="200">
@@ -1278,7 +1277,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 - x为`X轴`上的平移距离
 - y为`Y轴`上的平移距离
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="500" height="150">
@@ -1297,7 +1296,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 - x为`X轴`上的缩放大小
 - y为`Y轴`上的缩放大小
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="500" height="300">
@@ -1316,7 +1315,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 **参数：** `deg`为旋转的角度。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="500" height="320">
@@ -1331,7 +1330,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 ##### transform-origin（旋转中心点）
 
-:::danger
+:::info Tips
 元素的`旋转中心点`是`(0, 0)`。如果想要`只是旋转而不位移`，那么就需要把旋转的中心点设置在`元素`的`中心点`。
 
 以上面的例子为例，
@@ -1341,7 +1340,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 但是原地旋转导致部分遮挡，所以稍微调整`初始y坐标`及`中心点y坐标`。
 :::
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="500" height="160">
@@ -1362,7 +1361,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 在SVG中`skew`属性需要分开设置，x轴设置为`skewX`，y轴设置为`skewY`，不能合并起来用，写成 `skew(x, y)` 是**不生效**的。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="700" height="200">
@@ -1381,7 +1380,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 所以CSS3的过渡属性就不好使了，那么想实现动画就只能使用js的定时器（setInterval）来实现。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="500" height="500">
@@ -1416,7 +1415,7 @@ stroke属性用来定义`线条`、`文本`或`元素` `轮廓` 的颜色。
 
 比如需要变换图形：
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg width="500" height="200" fill="orange">
@@ -1447,7 +1446,7 @@ export default {
 
 这里需要用上三个属性：分别是 `stroke`、`stroke-dasharray`、`stroke-dashoffset`。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <svg id="css-demo-svg" width="500" height="50" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -1475,7 +1474,7 @@ export default {
 
 按照这个逻辑搞一个按钮的线条动画吧。
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <div id="css-demo-svg-body">
@@ -1531,7 +1530,7 @@ export default {
 
 把`填充`和`轮廓`弄一些填充，效果就更好看了
 
-:::demo
+:::vue-demo
 ```vue
 <template>
   <div id="css-demo-svg-body2">
@@ -1591,7 +1590,7 @@ export default {
 ```
 :::
 
-:::danger
+:::info Tips
 到此就看完了SVG分别用`js`和`css`来实现`动画`的方法。
 
 那是不是觉得都比较`繁琐`呢？首先想绘制一个复杂的SVG就很复杂，其次用`js`去`变化坐标`也很复杂，用`css`去做`动画`简单点，但实现的动画也相对简单。

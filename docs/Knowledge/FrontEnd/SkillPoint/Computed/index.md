@@ -2,10 +2,10 @@
 title: Computed中使用this
 date: 2022-06-15 10:19:03
 permalink: /SkillPoint/Computed/
-categories:
-  - 前端
-tags:
-  - 前端技术点
+category:
+  - VUE SKILL
+tag:
+  - 前端小技巧
 ---
 
 我们平时在 `computed` 属性中可以通过 `this.xxx` 去拿 `data` 里面的数据和 `methods` 里面的方法，

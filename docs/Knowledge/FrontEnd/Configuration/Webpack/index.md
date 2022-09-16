@@ -3,14 +3,15 @@ title: Webpack
 lang: zh-CN
 date: 2022-05-27 15:54:30
 permalink: /Configuration/Webpack/
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
-categories: 
+isOriginal: true # 当前文章是否为原创
+sticky: true  # 是否在列表中置顶 ，数字越大，排名越靠前
+star: true # 是否收藏在博客主题的文章列表中。数字越大，排名越靠前
+image: /background/white-001.jpg # 设置预览图 (分享图)
+banner: /background/black-001.jpg # 设置横幅图片 (宽屏分享图)
+category: 
   - Webpack
-tags: 
-  - 
+tag: 
+  - Webpack
 ---
 ## 前言
 
@@ -79,16 +80,14 @@ tags:
  5. 输出文件阶段 
 
     整理模块依赖关系，同时将处理后的文件输出到`ouput`的磁盘目录中。
-
-
-
+d
 ## 创建目录
 
 工欲善其事，必先利其器。首先让我们创建一个良好的目录来管理我们需要实现的`Packing tool`吧！
 
 让我们来创建这样一个目录:
 
-![fileDirectory](~@assets/knowledge/frontEnd/webpack/fileDirectory.jpg)
+<img :src="$withBase('/assets/knowledge/frontEnd/configuration/webpack/fileDirectory.jpg')" />
 
 ## 初始化参数阶段
 

@@ -2,9 +2,9 @@
 title: Storage
 date: 2022-06-13 15:07:14
 permalink: /Package/Storage/
-categories:
-  - 前端封装
-tags:
+category:
+  - Storage
+tag:
   - 缓存
 ---
 
@@ -21,7 +21,7 @@ tags:
 
 ## 设计
 
-:::danger
+:::info Tips
 封装之前先梳理下所需功能，并要做成什么样，采用什么样的规范，部分主要代码片段是以 localStorage作为示例。
 :::
 
@@ -54,7 +54,7 @@ const config = {
 
 ### 设置 setStorage
 
-:::danger
+:::info Tips
 Storage 本身是不支持过期时间设置的，要支持设置过期时间，可以效仿 Cookie 的做法，setStorage(key,value,expire) 方法，接收三个参数，第三个参数就是设置过期时间的，用相对时间，单位秒，要对所传参数进行类型检查。
 
 可以设置统一的过期时间，也可以对单个值得过期时间进行单独配置。两种方式按需配置。
@@ -82,7 +82,7 @@ export const setStorage = (key,value,expire=0) => {
 
 ### 获取 getStorage
 
-:::danger
+:::info Tips
 首先要对 key 是否存在进行判断，防止获取不存在的值而报错。对获取方法进一步扩展，只要在有效期内获取 Storage 值，就对过期时间进行续期，如果过期则直接删除该值。并返回 null
 :::
 
@@ -154,7 +154,7 @@ export const clearStorage = () => {
 
 ### 加密、解密
 
-:::danger
+:::info Tips
 加密采用的是 crypto-js
 :::
 
@@ -168,7 +168,7 @@ import CryptoJS from "crypto-js";
 const CryptoJS = require("crypto-js");
 ```
 
-:::danger
+:::info Tips
 对 crypto-js 设置密钥和密钥偏移量，可以采用将一个私钥经 MD5 加密生成16位密钥获得。
 :::
 
@@ -179,7 +179,7 @@ const SECRET_KEY = CryptoJS.enc.Utf8.parse("3333e6e143439161");
 const SECRET_IV = CryptoJS.enc.Utf8.parse("e3bbe7e3ba84431a");
 ```
 
-:::danger
+:::info Tips
 对加密方法进行封装
 :::
 

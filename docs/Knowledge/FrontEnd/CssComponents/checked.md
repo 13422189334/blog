@@ -3,13 +3,13 @@ title: 打钩动画
 lang: zh-CN
 date: 2022-05-16 11:21:30
 permalink: /CssComponent/Checked/
-categories: 
-  - CssComponent
-tags: 
-  - 菜鸡仔的CSS
+category: 
+  - CSS
+tag: 
+  - 很烂的CSS
 ---
 
-::: demo 
+::: vue-demo
 ```vue
 <template>
   <div class="checked-body">

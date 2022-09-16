@@ -3,13 +3,13 @@ title: 流光按钮
 lang: zh-CN
 date: 2022-05-16 11:21:30
 permalink: /CssComponent/streamerButton/
-categories: 
-  - CssComponent
-tags: 
-  - 菜鸡仔的CSS
+category: 
+  - CSS
+tag: 
+  - 很烂的CSS
 ---
 
-::: demo 
+::: vue-demo
 ```html
 <template>
   <div class="button-body">

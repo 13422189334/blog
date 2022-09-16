@@ -2,10 +2,10 @@
 title: 数据冻结
 date: 2022-06-15 10:50:58
 permalink: /SkillPoint/Freeze/
-categories:
-  - 前端
-tags:
-  - 前端技术点
+category:
+  - VUE SKILL
+tag:
+  - 前端小技巧
 ---
 
 :::danger

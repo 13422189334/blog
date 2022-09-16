@@ -2,10 +2,10 @@
 title: 插槽
 date: 2022-06-16 11:30:02
 permalink: /SkillPoint/Slot/
-categories:
-  - 前端
-tags:
-  - 前端技术点
+category:
+  - VUE SKILL
+tag:
+  - 前端小技巧
 ---
 
 ## 默认内容和扩展点

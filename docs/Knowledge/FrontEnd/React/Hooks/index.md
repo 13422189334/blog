@@ -3,9 +3,9 @@ title: 浅谈12个Hooks
 date: 2022-06-27 10:14:21
 permalink: /React/Hooks/
 author: 小杜杜 - 掘金
-categories:
+category:
   - React
-tags:
+tag:
   - React
 ---
 
