@@ -9,7 +9,7 @@ export default hopeTheme({
     url: "https://jin-shaohui.gitee.io",
   },
   iconPrefix: "iconfont icon-",
-  logo: '/logo/logo.jpg',
+  logo: '/logo/logo.gif',
   repo: 'https://gitee.com/jin-shaohui/jin-shaohui',
   repoDisplay: false,
   docsDir: "src",
