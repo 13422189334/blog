@@ -1,0 +1,9 @@
+import{_ as e}from"./_plugin-vue_export-helper.cdc0426e.js";import{o as d,c,b as i}from"./app.d2d9f17b.js";const s={},o=i(`<p>\u6211\u4EEC\u5E73\u65F6\u5728 <code>computed</code> \u5C5E\u6027\u4E2D\u53EF\u4EE5\u901A\u8FC7 <code>this.xxx</code> \u53BB\u62FF <code>data</code> \u91CC\u9762\u7684\u6570\u636E\u548C <code>methods</code> \u91CC\u9762\u7684\u65B9\u6CD5\uFF0C</p><p>\u6216\u8BB8\u8FD8\u4F1A\u901A\u8FC7 <code>this.$store</code> \u53BB\u62FF <code>vuex</code> \u7684 <code>state</code> \u548C <code>commit</code> \u7B49\uFF0C</p><p>\u751A\u81F3\uFF0C\u8FD8\u4F1A\u901A\u8FC7 this.<code>$route</code> \u53BB\u83B7\u53D6\u8DEF\u7531\u91CC\u9762\u7684\u6570\u636E\u3002</p><p>\u5176\u5B9E\uFF0C\u6211\u4EEC\u53EF\u4EE5\u907F\u514D\u8FD9\u4E9B\u4E11\u964B\u7684this\uFF0C\u5B83\u751A\u81F3\u4F1A\u7ED9\u6211\u4EEC\u5E26\u6765\u770B\u4E0D\u89C1\u7684\u6027\u80FD\u95EE\u9898\u3002</p><p>\u5B9E\u73B0\u4E0A\uFF0C\u6211\u4EEC\u901A\u8FC7this\u80FD\u8BBF\u95EE\u5230\u7684\u6570\u636E\uFF0C\u5728computed\u7684\u7B2C\u4E00\u4E2A\u53C2\u6570\u4E0A\u90FD\u80FD\u7ED3\u6784\u51FA\u6765\u3002</p><div class="language-vue ext-vue line-numbers-mode"><pre class="language-vue"><code>export default {
+  computed: {
+    a({$attrs,$route,$store,$listeners,$ref}){
+     // \u8FD8\u80FD\u7ED3\u6784\u5F88\u591A\u5C5E\u6027\uFF0C\u53EF\u81EA\u884C\u6253\u5370\u770B\u770B
+     return 
+   }
+  }
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,6),n=[o];function t(r,a){return d(),c("div",null,n)}const v=e(s,[["render",t],["__file","index.html.vue"]]);export{v as default};

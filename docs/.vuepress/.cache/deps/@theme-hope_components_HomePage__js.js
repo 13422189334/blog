@@ -123,7 +123,7 @@ var HomeHero_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/components/HomePage.js
-import "F:/_ _project/\u81EA\u5DF1/sla-blog/node_modules/vuepress-theme-hope/lib/client/styles/home-page.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/styles/home-page.scss";
 var HomePage_default = defineComponent({
   name: "HopePage",
   setup(_props, { slots }) {

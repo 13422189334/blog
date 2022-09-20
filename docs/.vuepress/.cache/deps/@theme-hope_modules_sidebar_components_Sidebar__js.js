@@ -36,7 +36,7 @@ import "./chunk-XYQ66V4O.js";
 import "./chunk-TH2OHAGX.js";
 
 // node_modules/vuepress-theme-hope/lib/client/modules/sidebar/components/SidebarChild.js
-import "F:/_ _project/\u81EA\u5DF1/sla-blog/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-child.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-child.scss";
 var SidebarChild_default = defineComponent({
   name: "SidebarChild",
   props: {
@@ -62,7 +62,7 @@ var SidebarChild_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/sidebar/components/SidebarGroup.js
-import "F:/_ _project/\u81EA\u5DF1/sla-blog/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-group.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-group.scss";
 var SidebarGroup_default = defineComponent({
   name: "SidebarGroup",
   props: {
@@ -110,7 +110,7 @@ var SidebarGroup_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/sidebar/components/SidebarLinks.js
-import "F:/_ _project/\u81EA\u5DF1/sla-blog/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-links.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-links.scss";
 var SidebarLinks_default = defineComponent({
   name: "SidebarLinks",
   props: {
@@ -138,7 +138,7 @@ var SidebarLinks_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/sidebar/components/Sidebar.js
-import "F:/_ _project/\u81EA\u5DF1/sla-blog/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar.scss";
 var Sidebar_default = defineComponent({
   name: "SideBar",
   setup(_props, { slots }) {
