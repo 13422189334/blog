@@ -1,57 +1,138 @@
 ---
 title: 浏览器缓存
 lang: zh-CN
-date: 2022-06-01 15:27:04
+date: 2022-09-22 10:15:04
 permalink: /Network/BrowserCache/
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
+isOriginal: true # 当前文章是否为原创
+sticky: true  # 是否在列表中置顶 ，数字越大，排名越靠前
+star: true # 是否收藏在博客主题的文章列表中。数字越大，排名越靠前
+image: /background/white-001.jpg # 设置预览图 (分享图)
+banner: /background/black-001.jpg # 设置横幅图片 (宽屏分享图)
 category: 
   - Network
 tag: 
   - 缓存
 ---
 
-# 浏览器缓存
+## 什么是web缓存？
 
-**我们把浏览器缓存问题拆分下，可以从以下几个方面来回答这个问题:**
-- 缓存的类型 (强缓存or协商缓存)
-- 缓存位置 (Service Worker、Memory Cache...)
-- 缓存过程分析
-- 缓存策略的实际场景应用
+`web缓存`主要指的是两部分：`浏览器缓存`和`http缓存`。
+
+http缓存是web缓存的核心，是最难懂的那一部分,也是最重要的那一部分。
+
+浏览器缓存：例如 `localStorage(5M)`、`sessionStorage(5M)`、`cookie(4k)`等等。这些功能主要用于缓存一些必要的数据，比如用户信息。比如需要携带到后端的参数。亦或者是一些列表数据等等。
+
+## 缓存可以解决什么问题？
+
+1. 减少不必要的网络传输，节约宽带（就是`省钱`）
+2. 更快的加载页面（就是`加速`）
+3. 减少服务器负载，避免服务器过载的情况出现。（就是`减载`）
+
+## 缺点是什么？
+
+1. 占内存（有些缓存会被存到内存中）
 
 <!-- more -->
 
-## 缓存的类型
+## http缓存
+
+::: info 官方介绍
+`Web缓存`是可以`自动保存`常见文档副本的 `HTTP设备`。当`Web请求`抵达缓存时，如果本地有`已缓存的`副本，就可以从`本地存储设备`而不是`原始服务器`中提取这个文档。
+:::
+
+```mermaid
+graph LR
+ khd[客户端]
+ fwq[服务器]
+ lx{接受并处理请求} 
+ 
+ khd -- index.html --> fwq 
+ fwq --> lx
+ lx -- 处理好之后返回给客户端 --> khd
+```
+
+服务器需要处理`http`的请求，而缓存，就是为了让服务器`不去处理`这个请求，客户端也可以`拿到数据`。
+
+注意，缓存主要是针对`html`、`css`、`img`等`静态资源`，常规情况下，**不会去缓存一些动态资源**。
+
+### 大纲
+
+**我们把`http缓存`问题拆分下，可以从以下几个方面来回答这个问题:**
+- 缓存的类型 (`强缓存`or`协商缓存`)
+- 缓存位置 (`Service Worker`、`Memory Cache`...)
+- 缓存过程分析
+- 缓存策略的实际场景应用
+
+### 缓存的类型
 
 首先从缓存的类型上来说，可以分为两种: **强缓存** 与 **协商缓存**
 
 强缓存是**不需要发送HTTP请求的，而协商缓存需要**
 
-也就是在发送HTTP请求之前，浏览器会先检查一下强缓存，如果命中直接使用，否则就进入下一步。
+也就是在**发送HTTP请求之前**，浏览器会**先检查**一下`强缓存`，如果命中直接使用，否则就进入下一步。
 
-### 强缓存
+```mermaid
+graph TD
+ ks(开始)
+ llq(浏览器)
+ qq(发起get请求)
+ sfyhc[是否有缓存]
+ dqlaqhc(读取浏览器缓存)
+ sfyEtag[上一次响应头中是否有Etag]
+ dsIfNoneMatch(发起请求请求头带上If-None-Match)
+ sfyLastModified[上一次响应头是否有Last-Modified]
+ dsIfModifiedSince(发起请求请求头带上If-Modified-Since)
+ sf304[状态是否304]
+ llqhc(浏览器缓存)
+ 200(请求相应完成)
+ xshc(协商缓存)
+ 
+ ks --> llq
+ llq --> qq
+ dqlaqhc -- 将缓存返回浏览器 --> llq
+ qq --> sfyhc
+ sfyhc -- 否 --> sfyEtag
+ sfyhc -- 是 --> dqlaqhc
+ sfyEtag -- 是 --> dsIfNoneMatch
+ sfyEtag -- 否 --> sfyLastModified
+ sfyLastModified --> dsIfModifiedSince
+ dsIfNoneMatch --> sf304
+ dsIfModifiedSince --> sf304
+ 
+ sf304 -- 304 --> llqhc
+ llqhc --> llq
+ 
+ 
+ sf304 -- 200 --> 200
+ 200 --> xshc
+```
+
+#### 强缓存
 
 浏览器检查强缓存的方式主要是判断这两个字段:
 
-- HTTP/1.0时期使用的是Expires;
-- HTTP/1.1使用的是Cache-Control;
+- `HTTP/1.0`使用的是`Expires`;
+- `HTTP/1.1`使用的是`Cache-Control`;
 
-#### Expires
+##### Expires
 
-Expires字面意思是 有效期，那么很好理解，它表示的就是一个具体的时间
+Expires字面意思是`有效期`，那么很好理解，它表示的就是一个具体的时间
 
 例如:
 ```http request
-Expires: Wed，Nov 11 2020 08:00:00 GMT
+Expires: Wed,Nov 11 2020 08:00:00 GMT
 ```
+表示这个资源在**2020年11月11日8点**之前，都会去**本地的磁盘（或内存）中读取**，不会去服务器请求。过了这个时间就得**向服务端发请求**了。
 
-表示的就是这个资源在2020年11月11日8点过期，到了过期时间了就得向服务端发请求了。
+::: info 很有意思的是
 
-很有意思的是，若是设置了Expires，但是服务器的时间与浏览器的时间不一致的时候(比如你手动修改了本地的时间)，那么就可能会造成缓存失效，因此这种方式强缓存方式并不是很准确，它也因此在HTTP/1。1中被摒弃了。
+`Expires`过度**依赖本地时间**，如果 **本地与服务器时间不同步**，就会出现资源 **无法被缓存** 或者 **资源永远被缓存** 的情况。
 
-#### Cache-Control
+若是设置了`Expires`，但是 **服务器的时间** 与 **浏览器的时间** **不一致** 的时候(比如你手动修改了本地的时间)，
+
+那么就可能会造成**缓存失效**，因此这种方式强缓存方式并不是很准确，它也因此在`HTTP/1.1`中被**摒弃**了。
+:::
+##### Cache-Control
 摒弃了Expires之后，HTTP/1。1采用了Cache-Control这个重要的规则。  
 它设置的是一个具体的过期时长，其中的一个属性是max-age。
 

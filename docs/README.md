@@ -10,31 +10,27 @@ heroFullScreen: true
 tagline: 谋生的路上不抛弃良知 | 谋爱的路上不丢失尊严
 projects:
 - name: vue3-webpack-music
-  type: link
+  icon: link
   desc: 一个模仿网易云音乐的网站✨
   link: https://jin-shaohui.gitee.io/vue3-webpack-music
-  cover: https://mp.innenu.com/img/inNENU.png
 
 - name: simple-webpack
-  type: project
-  desc: Eval实现简易版webpack❤
+  icon: project
+  desc: Eval实现简易版webpack✨
   link: https://gitee.com/jin-shaohui/simple-webpack
-  cover: https://mp.innenu.com/img/inNENU.png
 
 - name: simple-vue
-  type: link
-  desc: vue数据劫持
+  icon: project
+  desc: vue数据劫持✨
   link: https://gitee.com/jin-shaohui/simple-vue
-  cover: https://mp.innenu.com/img/inNENU.png
 
 - name: simple-promise
-  type: link
-  desc: 简单实现promise
+  icon: project
+  desc: 简单实现promise✨
   link: https://gitee.com/jin-shaohui/simple-promise
-  cover: https://mp.innenu.com/img/inNENU.png
 
 - name: webpack-demo
-  type: project
-  desc: 手写webpack编译流程
+  icon: project
+  desc: 手写webpack编译流程✨
   link: https://gitee.com/jin-shaohui/webpack-demo
 ---

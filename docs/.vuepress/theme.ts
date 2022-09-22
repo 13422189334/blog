@@ -10,6 +10,7 @@ export default hopeTheme({
   },
   iconPrefix: "iconfont icon-",
   logo: '/logo/logo.gif',
+  logoDark: '/logo/logo.gif',
   repo: 'https://gitee.com/jin-shaohui/jin-shaohui',
   repoDisplay: false,
   docsDir: "src",
