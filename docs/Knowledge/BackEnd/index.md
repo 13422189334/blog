@@ -3,8 +3,8 @@ home: true
 hero: true
 heroText: 后端知识库
 tagline: JAVA
-heroImage: ./heroImages/frontEnd-light.jpg
-heroImageDark: ./heroImages/frontEnd-dark.jpg
+heroImage: ./heroImages/backEnd-light.jpg
+heroImageDark: ./heroImages/backEnd-dark.jpg
 heroAlt: 主页图标的替代文字
 actions:
 - text: 快速阅读 💡

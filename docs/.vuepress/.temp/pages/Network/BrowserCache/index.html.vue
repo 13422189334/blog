@@ -1,29 +1,55 @@
-<template><div><h1 id="浏览器缓存" tabindex="-1"><a class="header-anchor" href="#浏览器缓存" aria-hidden="true">#</a> 浏览器缓存</h1>
-<p><strong>我们把浏览器缓存问题拆分下，可以从以下几个方面来回答这个问题:</strong></p>
+<template><div><h2 id="什么是web缓存" tabindex="-1"><a class="header-anchor" href="#什么是web缓存" aria-hidden="true">#</a> 什么是web缓存？</h2>
+<p><code v-pre>web缓存</code>主要指的是两部分：<code v-pre>浏览器缓存</code>和<code v-pre>http缓存</code>。</p>
+<p>http缓存是web缓存的核心，是最难懂的那一部分,也是最重要的那一部分。</p>
+<p>浏览器缓存：例如 <code v-pre>localStorage(5M)</code>、<code v-pre>sessionStorage(5M)</code>、<code v-pre>cookie(4k)</code>等等。这些功能主要用于缓存一些必要的数据，比如用户信息。比如需要携带到后端的参数。亦或者是一些列表数据等等。</p>
+<h2 id="缓存可以解决什么问题" tabindex="-1"><a class="header-anchor" href="#缓存可以解决什么问题" aria-hidden="true">#</a> 缓存可以解决什么问题？</h2>
+<ol>
+<li>减少不必要的网络传输，节约宽带（就是<code v-pre>省钱</code>）</li>
+<li>更快的加载页面（就是<code v-pre>加速</code>）</li>
+<li>减少服务器负载，避免服务器过载的情况出现。（就是<code v-pre>减载</code>）</li>
+</ol>
+<h2 id="缺点是什么" tabindex="-1"><a class="header-anchor" href="#缺点是什么" aria-hidden="true">#</a> 缺点是什么？</h2>
+<ol>
+<li>占内存（有些缓存会被存到内存中）</li>
+</ol>
+<!-- more -->
+<h2 id="http缓存" tabindex="-1"><a class="header-anchor" href="#http缓存" aria-hidden="true">#</a> http缓存</h2>
+<div class="custom-container info">
+<p class="custom-container-title">官方介绍</p>
+<p><code v-pre>Web缓存</code>是可以<code v-pre>自动保存</code>常见文档副本的 <code v-pre>HTTP设备</code>。当<code v-pre>Web请求</code>抵达缓存时，如果本地有<code v-pre>已缓存的</code>副本，就可以从<code v-pre>本地存储设备</code>而不是<code v-pre>原始服务器</code>中提取这个文档。</p>
+</div>
+<Mermaid id="mermaid-382ee1c2" code="graph%20LR%0A%20khd%5B%E5%AE%A2%E6%88%B7%E7%AB%AF%5D%0A%20fwq%5B%E6%9C%8D%E5%8A%A1%E5%99%A8%5D%0A%20lx%7B%E6%8E%A5%E5%8F%97%E5%B9%B6%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%7D%20%0A%20%0A%20khd%20--%20index.html%20--%3E%20fwq%20%0A%20fwq%20--%3E%20lx%0A%20lx%20--%20%E5%A4%84%E7%90%86%E5%A5%BD%E4%B9%8B%E5%90%8E%E8%BF%94%E5%9B%9E%E7%BB%99%E5%AE%A2%E6%88%B7%E7%AB%AF%20--%3E%20khd%0A"></Mermaid><p>服务器需要处理<code v-pre>http</code>的请求，而缓存，就是为了让服务器<code v-pre>不去处理</code>这个请求，客户端也可以<code v-pre>拿到数据</code>。</p>
+<p>注意，缓存主要是针对<code v-pre>html</code>、<code v-pre>css</code>、<code v-pre>img</code>等<code v-pre>静态资源</code>，常规情况下，<strong>不会去缓存一些动态资源</strong>。</p>
+<h3 id="大纲" tabindex="-1"><a class="header-anchor" href="#大纲" aria-hidden="true">#</a> 大纲</h3>
+<p><strong>我们把<code v-pre>http缓存</code>问题拆分下，可以从以下几个方面来回答这个问题:</strong></p>
 <ul>
-<li>缓存的类型 (强缓存or协商缓存)</li>
-<li>缓存位置 (Service Worker、Memory Cache...)</li>
+<li>缓存的类型 (<code v-pre>强缓存</code>or<code v-pre>协商缓存</code>)</li>
+<li>缓存位置 (<code v-pre>Service Worker</code>、<code v-pre>Memory Cache</code>...)</li>
 <li>缓存过程分析</li>
 <li>缓存策略的实际场景应用</li>
 </ul>
-<!-- more -->
-<h2 id="缓存的类型" tabindex="-1"><a class="header-anchor" href="#缓存的类型" aria-hidden="true">#</a> 缓存的类型</h2>
+<h3 id="缓存的类型" tabindex="-1"><a class="header-anchor" href="#缓存的类型" aria-hidden="true">#</a> 缓存的类型</h3>
 <p>首先从缓存的类型上来说，可以分为两种: <strong>强缓存</strong> 与 <strong>协商缓存</strong></p>
 <p>强缓存是<strong>不需要发送HTTP请求的，而协商缓存需要</strong></p>
-<p>也就是在发送HTTP请求之前，浏览器会先检查一下强缓存，如果命中直接使用，否则就进入下一步。</p>
-<h3 id="强缓存" tabindex="-1"><a class="header-anchor" href="#强缓存" aria-hidden="true">#</a> 强缓存</h3>
+<p>也就是在<strong>发送HTTP请求之前</strong>，浏览器会<strong>先检查</strong>一下<code v-pre>强缓存</code>，如果命中直接使用，否则就进入下一步。</p>
+<Mermaid id="mermaid-382ee245" code="graph%20TD%0A%20ks(%E5%BC%80%E5%A7%8B)%0A%20llq(%E6%B5%8F%E8%A7%88%E5%99%A8)%0A%20qq(%E5%8F%91%E8%B5%B7get%E8%AF%B7%E6%B1%82)%0A%20sfyhc%5B%E6%98%AF%E5%90%A6%E6%9C%89%E7%BC%93%E5%AD%98%5D%0A%20dqlaqhc(%E8%AF%BB%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98)%0A%20sfyEtag%5B%E4%B8%8A%E4%B8%80%E6%AC%A1%E5%93%8D%E5%BA%94%E5%A4%B4%E4%B8%AD%E6%98%AF%E5%90%A6%E6%9C%89Etag%5D%0A%20dsIfNoneMatch(%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%B8%A6%E4%B8%8AIf-None-Match)%0A%20sfyLastModified%5B%E4%B8%8A%E4%B8%80%E6%AC%A1%E5%93%8D%E5%BA%94%E5%A4%B4%E6%98%AF%E5%90%A6%E6%9C%89Last-Modified%5D%0A%20dsIfModifiedSince(%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%B8%A6%E4%B8%8AIf-Modified-Since)%0A%20sf304%5B%E7%8A%B6%E6%80%81%E6%98%AF%E5%90%A6304%5D%0A%20llqhc(%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98)%0A%20200(%E8%AF%B7%E6%B1%82%E7%9B%B8%E5%BA%94%E5%AE%8C%E6%88%90)%0A%20xshc(%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98)%0A%20%0A%20ks%20--%3E%20llq%0A%20llq%20--%3E%20qq%0A%20dqlaqhc%20--%20%E5%B0%86%E7%BC%93%E5%AD%98%E8%BF%94%E5%9B%9E%E6%B5%8F%E8%A7%88%E5%99%A8%20--%3E%20llq%0A%20qq%20--%3E%20sfyhc%0A%20sfyhc%20--%20%E5%90%A6%20--%3E%20sfyEtag%0A%20sfyhc%20--%20%E6%98%AF%20--%3E%20dqlaqhc%0A%20sfyEtag%20--%20%E6%98%AF%20--%3E%20dsIfNoneMatch%0A%20sfyEtag%20--%20%E5%90%A6%20--%3E%20sfyLastModified%0A%20sfyLastModified%20--%3E%20dsIfModifiedSince%0A%20dsIfNoneMatch%20--%3E%20sf304%0A%20dsIfModifiedSince%20--%3E%20sf304%0A%20%0A%20sf304%20--%20304%20--%3E%20llqhc%0A%20llqhc%20--%3E%20llq%0A%20%0A%20%0A%20sf304%20--%20200%20--%3E%20200%0A%20200%20--%3E%20xshc%0A"></Mermaid><h4 id="强缓存" tabindex="-1"><a class="header-anchor" href="#强缓存" aria-hidden="true">#</a> 强缓存</h4>
 <p>浏览器检查强缓存的方式主要是判断这两个字段:</p>
 <ul>
-<li>HTTP/1.0时期使用的是Expires;</li>
-<li>HTTP/1.1使用的是Cache-Control;</li>
+<li><code v-pre>HTTP/1.0</code>使用的是<code v-pre>Expires</code>;</li>
+<li><code v-pre>HTTP/1.1</code>使用的是<code v-pre>Cache-Control</code>;</li>
 </ul>
-<h4 id="expires" tabindex="-1"><a class="header-anchor" href="#expires" aria-hidden="true">#</a> Expires</h4>
-<p>Expires字面意思是 有效期，那么很好理解，它表示的就是一个具体的时间</p>
+<h5 id="expires" tabindex="-1"><a class="header-anchor" href="#expires" aria-hidden="true">#</a> Expires</h5>
+<p>Expires字面意思是<code v-pre>有效期</code>，那么很好理解，它表示的就是一个具体的时间</p>
 <p>例如:</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Expires</span><span class="token punctuation">:</span> <span class="token header-value">Wed，Nov 11 2020 08:00:00 GMT</span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>表示的就是这个资源在2020年11月11日8点过期，到了过期时间了就得向服务端发请求了。</p>
-<p>很有意思的是，若是设置了Expires，但是服务器的时间与浏览器的时间不一致的时候(比如你手动修改了本地的时间)，那么就可能会造成缓存失效，因此这种方式强缓存方式并不是很准确，它也因此在HTTP/1。1中被摒弃了。</p>
-<h4 id="cache-control" tabindex="-1"><a class="header-anchor" href="#cache-control" aria-hidden="true">#</a> Cache-Control</h4>
+<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Expires</span><span class="token punctuation">:</span> <span class="token header-value">Wed,Nov 11 2020 08:00:00 GMT</span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>表示这个资源在<strong>2020年11月11日8点</strong>之前，都会去<strong>本地的磁盘（或内存）中读取</strong>，不会去服务器请求。过了这个时间就得<strong>向服务端发请求</strong>了。</p>
+<div class="custom-container info">
+<p class="custom-container-title">很有意思的是</p>
+<p><code v-pre>Expires</code>过度<strong>依赖本地时间</strong>，如果 <strong>本地与服务器时间不同步</strong>，就会出现资源 <strong>无法被缓存</strong> 或者 <strong>资源永远被缓存</strong> 的情况。</p>
+<p>若是设置了<code v-pre>Expires</code>，但是 <strong>服务器的时间</strong> 与 <strong>浏览器的时间</strong> <strong>不一致</strong> 的时候(比如你手动修改了本地的时间)，</p>
+<p>那么就可能会造成<strong>缓存失效</strong>，因此这种方式强缓存方式并不是很准确，它也因此在<code v-pre>HTTP/1.1</code>中被<strong>摒弃</strong>了。</p>
+</div>
+<h5 id="cache-control" tabindex="-1"><a class="header-anchor" href="#cache-control" aria-hidden="true">#</a> Cache-Control</h5>
 <p>摒弃了Expires之后，HTTP/1。1采用了Cache-Control这个重要的规则。<br>
 它设置的是一个具体的过期时长，其中的一个属性是max-age。</p>
 <p>例如🌰:</p>

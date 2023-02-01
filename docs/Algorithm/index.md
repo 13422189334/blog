@@ -3,8 +3,8 @@ home: true
 hero: true
 heroText: 算法
 tagline: 常用算法
-heroImage: ./heroImages/frontEnd-light.jpg
-heroImageDark: ./heroImages/frontEnd-dark.jpg
+heroImage: ./heroImages/algorithm-light.jpg
+heroImageDark: ./heroImages/algorithm-dark.jpg
 permalink: /Algorithm/
 heroAlt: 主页图标的替代文字
 actions:

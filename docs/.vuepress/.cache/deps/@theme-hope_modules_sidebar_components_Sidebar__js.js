@@ -1,28 +1,28 @@
 import {
   DropTransition_default
-} from "./chunk-2GYKIBY5.js";
+} from "./chunk-VC4AEKQI.js";
 import {
   isActiveSidebarItem,
   isMatchedSidebarItem,
   renderChildren,
   renderItem,
   useSidebarItems
-} from "./chunk-SPCKCTUQ.js";
-import "./chunk-BF4OZ22P.js";
+} from "./chunk-O7D2TZ5V.js";
+import "./chunk-BGO7RR2A.js";
 import {
   Icon_default
-} from "./chunk-7NBIKS43.js";
+} from "./chunk-W747GYPW.js";
+import "./chunk-W57TLR7R.js";
 import {
   useThemeLocaleData
-} from "./chunk-UMSPRTGH.js";
-import "./chunk-WVEKK445.js";
+} from "./chunk-QN5N4Q3X.js";
+import "./chunk-3DCDQLB2.js";
 import "./chunk-6QUCW4GD.js";
-import "./chunk-TMJVQBRG.js";
-import "./chunk-LS4IQIE6.js";
+import "./chunk-4Q7REXDD.js";
 import {
   RouterLink,
   useRoute
-} from "./chunk-KHE7BIUW.js";
+} from "./chunk-SWJALXVA.js";
 import "./chunk-YACYAO4R.js";
 import {
   computed,
@@ -31,12 +31,12 @@ import {
   onMounted,
   ref,
   watch
-} from "./chunk-IU5U32L3.js";
+} from "./chunk-3JL2R52N.js";
 import "./chunk-XYQ66V4O.js";
 import "./chunk-TH2OHAGX.js";
 
 // node_modules/vuepress-theme-hope/lib/client/modules/sidebar/components/SidebarChild.js
-import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-child.scss";
+import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-child.scss";
 var SidebarChild_default = defineComponent({
   name: "SidebarChild",
   props: {
@@ -62,7 +62,7 @@ var SidebarChild_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/sidebar/components/SidebarGroup.js
-import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-group.scss";
+import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-group.scss";
 var SidebarGroup_default = defineComponent({
   name: "SidebarGroup",
   props: {
@@ -110,7 +110,7 @@ var SidebarGroup_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/sidebar/components/SidebarLinks.js
-import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-links.scss";
+import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar-links.scss";
 var SidebarLinks_default = defineComponent({
   name: "SidebarLinks",
   props: {
@@ -138,7 +138,7 @@ var SidebarLinks_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/sidebar/components/Sidebar.js
-import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar.scss";
+import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/sidebar/styles/sidebar.scss";
 var Sidebar_default = defineComponent({
   name: "SideBar",
   setup(_props, { slots }) {
