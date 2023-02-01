@@ -1,18 +1,18 @@
 import {
   useRoute
-} from "./chunk-SWJALXVA.js";
+} from "./chunk-KHE7BIUW.js";
 import "./chunk-YACYAO4R.js";
 import {
   defineComponent,
   h,
   ref,
   watch
-} from "./chunk-3JL2R52N.js";
+} from "./chunk-IU5U32L3.js";
 import "./chunk-XYQ66V4O.js";
-import "./chunk-TH2OHAGX.js";
+import "./chunk-BPKF3OQJ.js";
 
 // node_modules/vuepress-theme-hope/lib/client/components/SkipLink.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/styles/skip-link.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/styles/skip-link.scss";
 var SkipLink_default = defineComponent({
   name: "SkipLink",
   props: {

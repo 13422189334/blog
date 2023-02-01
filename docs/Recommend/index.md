@@ -8,13 +8,20 @@ tagline: 推荐好文
 heroAlt: 主页图标的替代文字
 actions:
 - text: 快速阅读 💡
-  link: /Standard/
+  link: /Recommend/CSS/
   type: primary
 
 features:
 - title: Css
 # icon: markdown
   details: Css相关文章
-  link: /FrontEnd/CSS/
+  link: /Recommend/CSS/
 
+- title: 杂七杂八
+  # icon: markdown
+  details: 杂七杂八的链接
+  link: /Recommend/Other/
+  
 ---
+
+

@@ -1,42 +1,40 @@
 import {
-  resolveRepoType
-} from "./chunk-X65K4WPJ.js";
-import {
   useDarkMode
-} from "./chunk-6KW6QE6E.js";
+} from "./chunk-5UWCY6TN.js";
 import {
-  AutoLink_default
-} from "./chunk-BGO7RR2A.js";
-import {
-  Icon_default
-} from "./chunk-W747GYPW.js";
-import {
-  isLinkExternal,
-  isLinkHttp
-} from "./chunk-W57TLR7R.js";
+  resolveRepoType
+} from "./chunk-TQJYOK4F.js";
 import {
   useAutoLink,
+  useFullscreen,
   useMobile,
   usePure,
+  useScrollLock,
   useThemeData,
   useThemeLocaleData
-} from "./chunk-QN5N4Q3X.js";
+} from "./chunk-BDIFSGFY.js";
 import {
   a,
   c
-} from "./chunk-3DCDQLB2.js";
+} from "./chunk-CIMFKLRG.js";
+import {
+  AutoLink_default
+} from "./chunk-EUKLEZSB.js";
+import {
+  Icon_default
+} from "./chunk-I7TDQFIQ.js";
 import {
   client_exports
-} from "./chunk-6QUCW4GD.js";
+} from "./chunk-ANKY43RT.js";
 import {
-  useFullscreen,
-  useScrollLock
-} from "./chunk-4Q7REXDD.js";
+  isLinkExternal,
+  isLinkHttp
+} from "./chunk-LS4IQIE6.js";
 import {
   RouterLink,
   useRoute,
   useRouter
-} from "./chunk-SWJALXVA.js";
+} from "./chunk-KHE7BIUW.js";
 import "./chunk-YACYAO4R.js";
 import {
   Transition,
@@ -49,11 +47,11 @@ import {
   resolveComponent,
   toRef,
   watch
-} from "./chunk-3JL2R52N.js";
+} from "./chunk-IU5U32L3.js";
 import {
   isString
 } from "./chunk-XYQ66V4O.js";
-import "./chunk-TH2OHAGX.js";
+import "./chunk-BPKF3OQJ.js";
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/icons/i18nIcon.js
 var I18nIcon = () => h(a, { name: "i18n" }, () => [
@@ -94,7 +92,7 @@ var SourceIcon = () => h(a, { name: "source" }, () => h("path", {
 SourceIcon.displayName = "SourceIcon";
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/DropdownLink.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/dropdown-link.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/dropdown-link.scss";
 var DropdownLink_default = defineComponent({
   name: "NavbarDropdownLink",
   props: {
@@ -260,7 +258,7 @@ var LanguageDropdown_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/NavbarBrand.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/navbar-brand.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/navbar-brand.scss";
 var NavbarBrand_default = defineComponent({
   name: "NavbarBrand",
   setup() {
@@ -288,7 +286,7 @@ var NavbarBrand_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/NavbarLinks.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/navbar-links.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/navbar-links.scss";
 var NavbarLinks_default = defineComponent({
   name: "NavbarLinks",
   setup() {
@@ -300,7 +298,7 @@ var NavbarLinks_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/NavScreenDropdown.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/nav-screen-dropdown.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/nav-screen-dropdown.scss";
 var NavScreenDropdown_default = defineComponent({
   name: "NavScreenDropdown",
   props: {
@@ -362,7 +360,7 @@ var NavScreenDropdown_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/NavScreenLinks.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/nav-screen-links.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/nav-screen-links.scss";
 var NavScreenLinks_default = defineComponent({
   name: "NavScreenLinks",
   setup() {
@@ -404,7 +402,7 @@ var OutlookIcon2 = () => h(a, { name: "outlook" }, () => [
 OutlookIcon2.displayName = "OutlookIcon";
 
 // node_modules/vuepress-theme-hope/lib/client/modules/outlook/components/AppearanceSwitch.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/appearance-switch.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/appearance-switch.scss";
 var AppearanceSwitch_default = defineComponent({
   name: "AppearanceSwitch",
   setup() {
@@ -441,7 +439,7 @@ var AppearanceSwitch_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/outlook/components/AppearanceMode.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/appearance-switch.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/appearance-switch.scss";
 var AppearanceMode_default = defineComponent({
   name: "AppearanceMode",
   setup() {
@@ -458,7 +456,7 @@ var AppearanceMode_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/outlook/components/ThemeColorPicker.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/theme-color-picker.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/theme-color-picker.scss";
 var ThemeColorPicker_default = defineComponent({
   name: "ThemeColorPicker",
   props: {
@@ -499,7 +497,7 @@ var ThemeColorPicker_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/outlook/components/ThemeColor.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/theme-color-picker.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/theme-color-picker.scss";
 var ThemeColor_default = defineComponent({
   name: "ThemeColor",
   setup() {
@@ -518,7 +516,7 @@ var ThemeColor_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/outlook/components/ToggleFullScreenButton.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/toggle-full-screen-button.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/toggle-full-screen-button.scss";
 var ToggleFullScreenButton_default = defineComponent({
   name: "ToggleFullScreenButton",
   setup() {
@@ -555,7 +553,7 @@ var OutlookSettings_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/NavScreen.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/nav-screen.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/nav-screen.scss";
 var NavScreen_default = defineComponent({
   name: "NavScreen",
   props: {
@@ -602,7 +600,7 @@ var NavScreen_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/outlook/components/OutlookButton.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/outlook-button.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/outlook/styles/outlook-button.scss";
 var OutlookButton_default = defineComponent({
   name: "OutlookButton",
   setup() {
@@ -633,7 +631,7 @@ var OutlookButton_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/ToggleNavbarButton.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/toggle-navbar-button.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/toggle-navbar-button.scss";
 var ToggleNavbarButton = ({ active = false }, { emit }) => h("button", {
   class: ["toggle-navbar-button", { "is-active": active }],
   "aria-label": "Toggle Navbar",
@@ -649,7 +647,7 @@ ToggleNavbarButton.displayName = "ToggleNavbarButton";
 var ToggleNavbarButton_default = ToggleNavbarButton;
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/ToggleSidebarButton.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/toggle-sidebar-button.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/toggle-sidebar-button.scss";
 var ToggleSidebarButton = (_, { emit }) => h("button", {
   class: "toggle-sidebar-button",
   title: "Toggle Sidebar",
@@ -660,7 +658,7 @@ ToggleSidebarButton.emits = ["toggle"];
 var ToggleSidebarButton_default = ToggleSidebarButton;
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/RepoLink.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/repo-link.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/repo-link.scss";
 var RepoLink_default = defineComponent({
   name: "RepoLink",
   components: { BitbucketIcon, GiteeIcon, GitHubIcon, GitlabIcon, SourceIcon },
@@ -687,7 +685,7 @@ var RepoLink_default = defineComponent({
 });
 
 // node_modules/vuepress-theme-hope/lib/client/modules/navbar/components/Navbar.js
-import "E:/\u4E2A\u4EBA/jin-shaohui/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/navbar.scss";
+import "F:/_ _project/\u81EA\u5DF1/vuepress/node_modules/vuepress-theme-hope/lib/client/modules/navbar/styles/navbar.scss";
 var Navbar_default = defineComponent({
   name: "NavBar",
   emits: ["toggle-sidebar"],
