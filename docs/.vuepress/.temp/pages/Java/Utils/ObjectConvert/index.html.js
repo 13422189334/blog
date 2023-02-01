@@ -1,14 +1,1 @@
-export const data = JSON.parse("{\"key\":\"v-f9327926\",\"path\":\"/Java/Utils/ObjectConvert/\",\"title\":\"对象转换\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"对象转换\",\"lang\":\"zh-CN\",\"date\":\"2022-05-16T11:21:30.000Z\",\"permalink\":\"/Java/Utils/ObjectConvert\",\"category\":[\"Java工具类\"],\"tag\":[\"Java工具类\"],\"summary\":\"\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://jin-shaohui.gitee.io/Java/Utils/ObjectConvert/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"繁华中自律，落魄中自愈\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"对象转换\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"Java工具类\"}],[\"meta\",{\"property\":\"article:published_time\",\"content\":\"2022-05-16T11:21:30.000Z\"}]]},\"excerpt\":\"\",\"headers\":[],\"readingTime\":{\"minutes\":1,\"words\":301},\"copyright\":\"著作权归JSH所有\\n基于MIT协议\\n原文链接：https://jin-shaohui.gitee.io/Java/Utils/ObjectConvert/\",\"filePathRelative\":\"Knowledge/BackEnd/Utils/components/objectConvert.md\",\"localizedDate\":\"2022年5月16日\"}")
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
-}
+export const data = JSON.parse("{\"key\":\"v-f9327926\",\"path\":\"/Java/Utils/ObjectConvert/\",\"title\":\"对象转换\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"对象转换\",\"lang\":\"zh-CN\",\"date\":\"2022-05-16T11:21:30.000Z\",\"permalink\":\"/Java/Utils/ObjectConvert\",\"category\":[\"Java工具类\"],\"tag\":[\"Java工具类\"],\"summary\":\"\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://jin-shaohui.gitee.io/Java/Utils/ObjectConvert/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"繁华中自律，落魄中自愈\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"对象转换\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2022-09-16T15:10:28.000Z\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:tag\",\"content\":\"Java工具类\"}],[\"meta\",{\"property\":\"article:published_time\",\"content\":\"2022-05-16T11:21:30.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2022-09-16T15:10:28.000Z\"}]]},\"excerpt\":\"\",\"headers\":[],\"git\":{\"createdTime\":1658475691000,\"updatedTime\":1663341028000,\"contributors\":[{\"name\":\"靳少辉\",\"email\":\"1051131737@qq.com\",\"commits\":2}]},\"readingTime\":{\"minutes\":1,\"words\":301},\"copyright\":\"著作权归JSH所有\\n基于MIT协议\\n原文链接：https://jin-shaohui.gitee.io/Java/Utils/ObjectConvert/\",\"filePathRelative\":\"Knowledge/BackEnd/Utils/components/objectConvert.md\",\"localizedDate\":\"2022年5月16日\"}")

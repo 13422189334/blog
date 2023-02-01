@@ -1,8 +1,8 @@
 import { h } from "vue";
 import { defineClientConfig } from "@vuepress/client";
-import Badge from "E:/个人/jin-shaohui/node_modules/vuepress-plugin-components/lib/client/components/Badge.js";
-import FontIcon from "E:/个人/jin-shaohui/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
-import BackToTop from "E:/个人/jin-shaohui/node_modules/vuepress-plugin-components/lib/client/components/BackToTop.js";
+import Badge from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/components/Badge";
+import FontIcon from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/components/FontIcon";
+import BackToTop from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/components/BackToTop";
 
 
 export default defineClientConfig({
