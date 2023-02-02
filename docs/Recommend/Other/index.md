@@ -61,64 +61,22 @@ tag:
 ## 前端知识库
 
 - https://www.html5iq.com/5feb26ddf72c21052324d0fd.html
-- 连八股文都不懂还指望在前端混下去么  https://juejin.cn/post/7016593221815910408#heading-91
-- 8分钟带你了解V8引擎是如何运行JS   https://www.bilibili.com/video/BV1zV411z7RX?spm_id_from=333.999.0.0
-- 浏览器层合成与页面渲染优化  https://juejin.cn/post/6844903966573068301
-- 手写一个虚拟DOM库，彻底让你理解diff算法  https://mp.weixin.qq.com/s/V_YWbswXoea-Em-l_K97sw
-- 
-- nginx的功能  https://www.kancloud.cn/hiyang/nginx/364780
-
-- 比较全面的 Dockerfile 文件详解！  https://mp.weixin.qq.com/s/36-rfSJ-PF9pk2qLITQQoQ
-
-- 零基础上手低代码，揭秘如何写一个页面设计器  https://mp.weixin.qq.com/s/XaoHrP_-_hpIK8ixEAi1tA
-
-- 每个前端都值得拥有自己的组件库  https://mp.weixin.qq.com/s/TBhMfyTJD3G0pG9TNKU19A
-
-- 拖拽牛逼，轻松实现一个自由拖拽的组件 https://mp.weixin.qq.com/s/vz9CRQaCXsQfl2JLn1sn5g
-
-- 前端开发者应该知道的 Centos/Docker/Nginx/Node/Jenkins 操作(长文，建议收藏)   https://mp.weixin.qq.com/s/Kyr5TBpMpXTBG9wIhmsPHg
-
-- Webpack来了！三心教你实现一个Vue-Cli的「基础搭建」  https://mp.weixin.qq.com/s/vYBuO2lOw0k2dBKx9Uy0yw
-
-- 15个 Webpack 优化点，速度提升70%，体积减小80%！https://mp.weixin.qq.com/s/COzqLGzEOhMlU9MeYAD_6g
-- 一道面试题牵出12个前端硬核知识点，你知道几个？https://mp.weixin.qq.com/s/6PE1knh9gyj41-7yfbfK_Q
-
-
-- Vue + Node.js 从 0 到 1 实现自动化部署工具 https://mp.weixin.qq.com/s/gKb4Hbs3eH1ddyXepunQjg
-
-- 万恶的 eval() ？很少人去了解它~ https://mp.weixin.qq.com/s/k4C4TxFglDfVuUwX_dhpkA
-
-- 三次握手四次挥手 https://zhuanlan.zhihu.com/p/86426969
-
-- 中高级前端工程师都需要熟悉的技能--前端缓存 https://mp.weixin.qq.com/s/u589UJ8zhZiocFxVEzrfpg
-
-- 一文彻底深入搞懂JS事件循环机制（Event Loop）、同步异步、宏任务、微任务、调用堆栈  https://mp.weixin.qq.com/s/R_alNKqlH4yBKrKb-ChEVA
-
-- # 万恶的 eval() ？很少人去了解它~
-
-- https://mp.weixin.qq.com/s/k4C4TxFglDfVuUwX_dhpkA
-
-- # 万恶的 eval() ？很少人去了解它~
-
-- https://mp.weixin.qq.com/s/k4C4TxFglDfVuUwX_dhpkA
-
-- # 万恶的 eval() ？很少人去了解它~
-
-- https://mp.weixin.qq.com/s/k4C4TxFglDfVuUwX_dhpkA
-
-- 这么多年你还在怕正则吗？https://mp.weixin.qq.com/s/-g2W_yrslumyYSBdRk7EPQ
-
--
-
--
-
-
-
-- https://vue3js.cn/
-- https://panjiachen.github.io/vue-element-admin/#/i18n/index
-- https://gitee.com/lyt-top/vue-next-admin
-- https://jin-shaohui.gitee.io/vuepress/
-- 
-
-
-
+- [连八股文都不懂还指望在前端混下去么](https://juejin.cn/post/7016593221815910408#heading-91)  
+- [8分钟带你了解V8引擎是如何运行JS](https://www.bilibili.com/video/BV1zV411z7RX?spm_id_from=333.999.0.0)   
+- [浏览器层合成与页面渲染优化](https://juejin.cn/post/6844903966573068301)  
+- [手写一个虚拟DOM库，彻底让你理解diff算法](https://mp.weixin.qq.com/s/V_YWbswXoea-Em-l_K97sw)  
+- [nginx的功能](https://www.kancloud.cn/hiyang/nginx/364780)  
+- [比较全面的 Dockerfile 文件详解！](https://mp.weixin.qq.com/s/36-rfSJ-PF9pk2qLITQQoQ)  
+- [零基础上手低代码，揭秘如何写一个页面设计器](https://mp.weixin.qq.com/s/XaoHrP_-_hpIK8ixEAi1tA)  
+- [每个前端都值得拥有自己的组件库](https://mp.weixin.qq.com/s/TBhMfyTJD3G0pG9TNKU19A)  
+- [拖拽牛逼，轻松实现一个自由拖拽的组件](https://mp.weixin.qq.com/s/vz9CRQaCXsQfl2JLn1sn5g) 
+- [前端开发者应该知道的 Centos/Docker/Nginx/Node/Jenkins 操作(长文，建议收藏)](https://mp.weixin.qq.com/s/Kyr5TBpMpXTBG9wIhmsPHg)   
+- [Webpack来了！三心教你实现一个Vue-Cli的「基础搭建」](https://mp.weixin.qq.com/s/vYBuO2lOw0k2dBKx9Uy0yw)  
+- [15个 Webpack 优化点，速度提升70%，体积减小80%！](https://mp.weixin.qq.com/s/COzqLGzEOhMlU9MeYAD_6g)
+- [一道面试题牵出12个前端硬核知识点，你知道几个？](https://mp.weixin.qq.com/s/6PE1knh9gyj41-7yfbfK_Q) 
+- [Vue + Node.js 从 0 到 1 实现自动化部署工具](https://mp.weixin.qq.com/s/gKb4Hbs3eH1ddyXepunQjg) 
+- [万恶的 eval() ？很少人去了解它~](https://mp.weixin.qq.com/s/k4C4TxFglDfVuUwX_dhpkA) 
+- [三次握手四次挥手](https://zhuanlan.zhihu.com/p/86426969) 
+- [中高级前端工程师都需要熟悉的技能--前端缓存](https://mp.weixin.qq.com/s/u589UJ8zhZiocFxVEzrfpg) 
+- [一文彻底深入搞懂JS事件循环机制（Event Loop）、同步异步、宏任务、微任务、调用堆栈](https://mp.weixin.qq.com/s/R_alNKqlH4yBKrKb-ChEVA)  
+- [这么多年你还在怕正则吗？](https://mp.weixin.qq.com/s/-g2W_yrslumyYSBdRk7EPQ)
