@@ -42,15 +42,11 @@ features:
   details: 乾坤 - 阿里微前端解决方案
   link: /Micro/QianKun/
 
-- title: VUE2篇
+- title: VUE篇
   icon: Vue
-  details: 包括Vue、Vuex、VueRouter等Vue全家桶相关知识点
-  link: /Vue2/
+  details: 包括Vue2、Vue3相关知识点
+  link: /Vue/
 
-- title: VUE3篇
-  icon: Vue
-  details: 包括源码相关知识点
-  link: /Vue3/
 
 - title: React篇
   icon: React
