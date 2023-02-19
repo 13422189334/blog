@@ -79,7 +79,7 @@ export default hopeTheme({
       imageMark: true,
       imageSize: true,
       mark: true,
-      tasklist: { disabled: true, label: true },
+      tasklist: true,
       include: true,
       tex: true,
       chart: true,
@@ -87,8 +87,6 @@ export default hopeTheme({
       flowchart: true,
       mermaid: true,
       demo: true,
-      presentation: true,
-      vuePlayground: true,
     }
   },
   displayFooter: true,

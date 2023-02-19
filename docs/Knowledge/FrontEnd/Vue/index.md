@@ -13,10 +13,16 @@ tag:
 - VUE
 ---
 
-- -[x] a[^1]
--[] a
+### Vue2
+- [x] [Vue生命周期函数](/Vue2/LifeCycle/)
+- [x] [Vue组件通讯方式](/Vue2/Communicate/)
+- [ ] [待整理问题](/Vue2/Question/)
 
--[] a
+
+### Vue3
+- [x] [工具函数源码解析](/Vue3/ToolFunction/)
 
 
-[^1] ccc
+
+[//]: # (- [x] a[^1])
+[//]: # ([^1]: ccc)
