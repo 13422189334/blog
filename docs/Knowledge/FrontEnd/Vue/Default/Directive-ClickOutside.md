@@ -1,3 +1,26 @@
+---
+title: 点击组件外部
+lang: zh-CN
+date: 2023-02-18 22:14:30
+permalink: /Vue/Directive/ClickOutside/
+category: 
+  - VUE
+tag: 
+  - Directive
+---
+
+## 如何使用
+```html
+<button
+  @click="add"
+  v-click-outside:[capture]="reset"
+  v-click-outside:[capture].mousedown="reset"
+  v-click-outside:[capture].touchstart="reset"
+>测试按钮</button>
+```
+
+## 指令源代码
+```javascript
 const CLICK = 'click';
 const captureInstances = Object.create(null);
 const nonCaptureInstances = Object.create(null);
@@ -217,3 +240,4 @@ export const directive = Object.defineProperties(
 export function install(Vue) {
   Vue.directive('click-outside', directive);
 }
+```

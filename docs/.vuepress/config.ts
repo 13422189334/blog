@@ -1,6 +1,7 @@
 // import { getDirname, path } from '@vuepress/utils'
 import { photoSwipePlugin } from "vuepress-plugin-photo-swipe";
 
+import { getDirname, path } from "@vuepress/utils";
 import theme from './theme'
 // const { homeSidebarB } = require('./ads/index')
 // const { readFileList, readTotalFileWords, readEachFileWords } = require('./webSiteInfo/readFile');
@@ -8,6 +9,8 @@ import { defineUserConfig } from '@vuepress/cli';
 import { hopeTheme } from 'vuepress-theme-hope';
 import { viteBundler } from '@vuepress/bundler-vite'
 import type { HopeThemeOptions } from "vuepress-theme-hope";
+
+const __dirname = getDirname(import.meta.url);
 // import path from 'path'
 //
 // import { fileURLToPath } from 'url'
@@ -42,14 +45,6 @@ export default defineUserConfig({
   //   ['meta', { name: 'referrer', content: 'no-referrer-when-downgrade' }], // 网站数据所需
   //   ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3114978_qe0b39no76.css' }] // 代码块隐藏的icon
   // ],
-  // locales: {
-  //   "/en/": {
-  //     lang: "en-US",
-  //   },
-  //   "/zh/": {
-  //     lang: "zh-CN",
-  //   },
-  // },
   theme,
   plugins: [
     photoSwipePlugin({
@@ -67,6 +62,9 @@ export default defineUserConfig({
   //     }
   //   }
   // },
+  alias: {
+    '@': path.resolve(__dirname, './../../'),
+  }
   // chainWebpack (config) {
     // config.resolve.alias.set('core-js/library/fn', 'core-js/features');
   // }

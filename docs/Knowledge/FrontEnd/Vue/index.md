@@ -13,14 +13,22 @@ tag:
 - VUE
 ---
 
+### 通用
+#### 指令
+- [x] [指令 - 点击外部]( /Vue/Directive/ClickOutside/)
+
+####
+- [ ] [待整理问题](/Vue/Question/)
+
 ### Vue2
 - [x] [Vue生命周期函数](/Vue2/LifeCycle/)
 - [x] [Vue组件通讯方式](/Vue2/Communicate/)
-- [ ] [待整理问题](/Vue2/Question/)
+
 
 
 ### Vue3
 - [x] [工具函数源码解析](/Vue3/ToolFunction/)
+
 
 
 

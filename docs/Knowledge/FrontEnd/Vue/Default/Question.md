@@ -3,7 +3,7 @@ title: Vue相关面试问题
 comment: false
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /Vue2/Question/
+permalink: /Vue/Question/
 category: 
   - Question
 tag:
