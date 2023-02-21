@@ -10,7 +10,7 @@ tag:
 ---
 
 ## 如何使用
-```html
+```
 <button
   @click="add"
   v-click-outside:[capture]="reset"

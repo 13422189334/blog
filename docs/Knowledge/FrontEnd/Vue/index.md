@@ -15,9 +15,13 @@ tag:
 
 ### 通用
 #### 指令
-- [x] [指令 - 点击外部]( /Vue/Directive/ClickOutside/)
+- [x] [指令 - 点击外部](/Vue/Directive/ClickOutside/)
 
-####
+ 
+#### 简单组件封装
+- [x] [组件 - 排序](/Vue/Component/Sort/)
+
+#### 知识点模块
 - [ ] [待整理问题](/Vue/Question/)
 
 ### Vue2

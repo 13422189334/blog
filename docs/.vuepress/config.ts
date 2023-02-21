@@ -1,23 +1,9 @@
-// import { getDirname, path } from '@vuepress/utils'
 import { photoSwipePlugin } from "vuepress-plugin-photo-swipe";
-
 import { getDirname, path } from "@vuepress/utils";
 import theme from './theme'
-// const { homeSidebarB } = require('./ads/index')
-// const { readFileList, readTotalFileWords, readEachFileWords } = require('./webSiteInfo/readFile');
 import { defineUserConfig } from '@vuepress/cli';
-import { hopeTheme } from 'vuepress-theme-hope';
-import { viteBundler } from '@vuepress/bundler-vite'
-import type { HopeThemeOptions } from "vuepress-theme-hope";
-
 const __dirname = getDirname(import.meta.url);
-// import path from 'path'
-//
-// import { fileURLToPath } from 'url'
-//
-// const __filenameNew = fileURLToPath(import.meta.url)
-//
-// const __dirnameNew = path.dirname(__filenameNew)
+
 
 // module.exports = (options, context) => ({
 export default defineUserConfig({
@@ -28,6 +14,7 @@ export default defineUserConfig({
   description: 'Just playing around', // 网站的描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
   head: [
     // 百度站点验证
+    ['link', { rel: 'javascript', href: 'https://cdn.bootcdn.net/ajax/libs/view-design/4.7.0/iview.js' }],
     ["meta", { name: "baidu-site-verification", content: "nGf5yi0Gec" }],
     ["meta", { name: "baidu-site-verification", content: "4H7tszevS8" }],
     [
@@ -51,10 +38,10 @@ export default defineUserConfig({
       // 你的选项
     }),
   ],
-  bundler: viteBundler({
-    viteOptions: {},
-    vuePluginOptions: {},
-  }),
+  // bundler: viteBundler({
+  //   viteOptions: {},
+  //   vuePluginOptions: {},
+  // }),
   // configureWebpack: {
   //   resolve: {
   //     alias: {
