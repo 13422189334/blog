@@ -38,6 +38,11 @@ export default defineUserConfig({
       // 你的选项
     }),
   ],
+  markdown: {
+    headers: {
+      level: [2,3,4]
+    }
+  },
   // bundler: viteBundler({
   //   viteOptions: {},
   //   vuePluginOptions: {},

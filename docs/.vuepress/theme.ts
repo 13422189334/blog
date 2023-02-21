@@ -16,6 +16,7 @@ export default hopeTheme({
   docsDir: "src",
   fullscreen: true, // 全屏
   pure: false,  // 纯净模式
+  rtl: false, // rtl
   themeColor: {
     blue: "#2196f3",
     red: "#f26d6d",
