@@ -82,6 +82,17 @@ export default hopeTheme({
       flowchart: true,
       mermaid: true,
       demo: true,
+      vuePlayground: {
+        // vueVersion: '2.7.14',
+        // defaultVueRuntimeURL: 'https://unpkg.com/@vue/runtime-dom@3.2.47/dist/runtime-dom.esm-browser.js',
+        // defaultVueServerRendererURL: 'https://unpkg.com/@vue/server-renderer@3.2.47/dist/server-renderer.esm-browser.js',
+        autoResize: true,
+        showCompileOutput: true,
+        showImportMap: true,
+        clearConsole: false,
+        layout: 'horizontal',
+        ssr: false
+      },
     }
   },
   displayFooter: true,

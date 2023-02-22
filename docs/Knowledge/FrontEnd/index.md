@@ -43,13 +43,13 @@ features:
   link: /Micro/QianKun/
 
 - title: VUE篇
-  icon: Vue
+  icon: vue
   details: 包括Vue2、Vue3相关知识点
   link: /Vue/
 
 
 - title: React篇
-  icon: React
+  icon: react
   details: 包括React hooks等React相关知识点
   link: /React/
 

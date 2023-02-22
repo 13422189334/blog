@@ -2,7 +2,7 @@ import { photoSwipePlugin } from "vuepress-plugin-photo-swipe";
 import { getDirname, path } from "@vuepress/utils";
 import theme from './theme'
 import { defineUserConfig } from '@vuepress/cli';
-const __dirname = getDirname(import.meta.url);
+// const __dirname = getDirname(import.meta.url);
 
 
 // module.exports = (options, context) => ({
@@ -35,7 +35,8 @@ export default defineUserConfig({
   theme,
   plugins: [
     photoSwipePlugin({
-      // 你的选项
+      delay: 1000,
+      selector: '.theme-hope-content img'
     }),
   ],
   markdown: {
@@ -54,9 +55,9 @@ export default defineUserConfig({
   //     }
   //   }
   // },
-  alias: {
-    '@': path.resolve(__dirname, './../../'),
-  }
+  // alias: {
+  //   '@': path.resolve(__dirname, './../../'),
+  // }
   // chainWebpack (config) {
     // config.resolve.alias.set('core-js/library/fn', 'core-js/features');
   // }
