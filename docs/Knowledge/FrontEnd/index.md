@@ -28,7 +28,7 @@ features:
   link: /Draw/
 
 - title: JS篇
-  icon: js
+  icon: javascript
   details: 这里囊括了JS相关的面试题
   link: /JavaScript/
 
@@ -57,14 +57,4 @@ features:
   icon: liulanqi
   details: 包括浏览器问题、跨域问题、服务器问题等内容
   link: /Network/
-
-- title: 封装篇
-  icon: yingyongfengzhuang
-  details: 包括Axios、Storage、utils等内容
-  link: /Package/
-
-- title: 实用技术篇
-  icon: ziliaoku
-  details: 奇奇怪怪的东西
-  link: /SkillPoint/
 ---

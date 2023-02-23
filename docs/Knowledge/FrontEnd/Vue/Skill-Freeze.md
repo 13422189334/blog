@@ -1,11 +1,11 @@
 ---
 title: 数据冻结
-date: 2022-06-15 10:50:58
-permalink: /SkillPoint/Freeze/
+date: 2023-02-23 09:59:01
+permalink: /Vue/Skill/Freeze/
 category:
-  - VUE SKILL
+  - VUE
 tag:
-  - 前端小技巧
+  - SKILL
 ---
 
 :::danger

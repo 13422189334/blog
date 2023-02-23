@@ -17,10 +17,6 @@ tag:
 #### 指令
 - [x] [指令 - 点击外部](/Vue/Directive/ClickOutside/)
 
- 
-#### 简单组件封装
-- [x] [组件 - 排序](/Vue/Component/Sort/)
-
 #### 知识点模块
 - [ ] [Vue生命周期](/Vue2/LifeCycle/)
 - [x] [Vue组件通讯方式](/Vue2/Communicate/)
@@ -28,6 +24,14 @@ tag:
 
 ### 源码解析
 - [x] [Vue3工具函数源码解析](/Vue3/ToolFunction/)
+
+### 小技巧
+- [x] [懒加载](/Vue/Skill/LazyLoader/)
+- [x] [上下文批量引入](/Vue/Skill/Context/)
+- [x] [hook监听生命周期](/Vue/Skill/@Hook/)
+- [x] [Computed中使用this](/Vue/Skill/Computed/)
+- [x] [父组件通信](/Vue/Skill/Sync/)
+- [x] [插槽](/Vue/Skill/Slot/)
 
 
 [//]: # (- [x] a[^1])

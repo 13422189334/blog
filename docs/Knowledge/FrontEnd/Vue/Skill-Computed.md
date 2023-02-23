@@ -1,11 +1,11 @@
 ---
 title: Computed中使用this
-date: 2022-06-15 10:19:03
-permalink: /SkillPoint/Computed/
+date: 2023-02-23 09:58:16
+permalink: /Vue/Skill/Computed/
 category:
-  - VUE SKILL
+  - VUE
 tag:
-  - 前端小技巧
+  - SKILL
 ---
 
 我们平时在 `computed` 属性中可以通过 `this.xxx` 去拿 `data` 里面的数据和 `methods` 里面的方法，
@@ -16,15 +16,17 @@ tag:
 
 其实，我们可以避免这些丑陋的this，它甚至会给我们带来看不见的性能问题。
 
-实现上，我们通过this能访问到的数据，在computed的第一个参数上都能结构出来。
+实现上，我们通过this能访问到的数据，在 `computed` 的 `第一个参数` 上都能 `解构` 出来。
 
 ```vue
+<script>
 export default {
   computed: {
     a({$attrs,$route,$store,$listeners,$ref}){
-     // 还能结构很多属性，可自行打印看看
-     return 
-   }
+      // 还能结构很多属性，可自行打印看看
+      return
+    }
   }
 }
+</script>
 ```

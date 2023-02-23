@@ -9,9 +9,8 @@ comment: true # 不显示评论栏
 editLink: true # 不显示编辑按钮
 category: 
   - JavaScript
-  - EventLoop
 tag: 
-  - JS执行机制
+  - JavaScript
 ---
 
 # 这一次，彻底弄懂 JavaScript 执行机制
