@@ -8,6 +8,7 @@ export default hopeTheme({
     name: "JSH",
     url: "https://jin-shaohui.gitee.io",
   },
+  // iconAssets: "fontawesome",
   iconPrefix: "iconfont icon-",
   logo: '/logo/logo.gif',
   logoDark: '/logo/logo.gif',

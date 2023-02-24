@@ -1,21 +1,14 @@
 ---
-pageComponent:
-  name: Catalogue
-  data:
-    path: Recommend
-    imgUrl: /404.jpg
-    description: 杂七杂八
-title: 推荐
-comment: false
+title: 其他推荐
 lang: zh-CN
 date: 2023-02-01 16:21:30
+icon: others
 permalink: /Recommend/Other/
 category: 
-  - 推荐好物
+  - 推荐
 tag: 
-  - 推荐好物
+  - 推荐
 ---
-
 
 ## 面试题
 - [leetcode 最常见的 150 道前端面试题](https://mp.weixin.qq.com/s/idLCZ32YvYPqUg83FUJOdA)

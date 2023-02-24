@@ -2,15 +2,11 @@
 title: Lambda
 lang: zh-CN
 date: 2022-05-16 11:26:43
-permalink: /JDK8/Lambda/
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
+permalink: /Java/Lambda/
 category:
-  - JDK8
+  - Java
 tag:
-  - JDK8
+  - Java
 ---
 
 Lambda 表达式(lambda expression)是一个匿名函数，Lambda表达式基于数学中的λ演算得名，直接对应于其中的lambda抽象(lambda abstraction)，是一个匿名函数，即没有函数名的函数。

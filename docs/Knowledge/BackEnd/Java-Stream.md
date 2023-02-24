@@ -2,15 +2,11 @@
 title: Stream
 lang: zh-CN
 date: 2022-05-16 11:26:43
-permalink: /JDK8/Stream/
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
+permalink: /Java/Stream/
 category:
-  - JDK8
+  - Java
 tag:
-  - JDK8
+  - Java
 ---
 
 Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。
