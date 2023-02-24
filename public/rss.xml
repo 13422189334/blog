@@ -6,8 +6,8 @@
     <link>https://jin-shaohui.gitee.io/</link>
     <description>Just playing around</description>
     <language>zh-CN</language>
-    <pubDate>Fri, 24 Feb 2023 13:57:03 GMT</pubDate>
-    <lastBuildDate>Fri, 24 Feb 2023 13:57:03 GMT</lastBuildDate>
+    <pubDate>Fri, 24 Feb 2023 14:31:17 GMT</pubDate>
+    <lastBuildDate>Fri, 24 Feb 2023 14:31:17 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <copyright>MIT Licensed | Copyright © 2019-present JSH</copyright>
@@ -4721,7 +4721,88 @@ d</p>
 <h2> 后语</h2>
 <p>浏览器缓存的内容其实还有很多可以说的，这里主要是总结了一些面试时常问到的，你可以转化成自己的言语来回答面试官。</p>
 ]]></content:encoded>
-      <enclosure url="https://jin-shaohui.gitee.io/background/black-001.jpg" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Storage</title>
+      <link>https://jin-shaohui.gitee.io/Package/Storage/</link>
+      <guid>https://jin-shaohui.gitee.io/Package/Storage/</guid>
+      <source url="https://jin-shaohui.gitee.io/rss.xml">Storage</source>
+      <description>很多人在用 localStorage 或 sessionStorage 的时候喜欢直接用明文存储，直接将信息暴露在浏览器中， 虽然一般场景下都能应付得了且简单粗暴，但特殊需求情况下，比如设置定时功能，就不能实现。 就需要对其进行二次封装，为了在使用上增加些安全感，那加密也必然是少不了的了。 为方便项目使用，特对常规操作进行封装。</description>
+      <category>Storage</category>
+      <pubDate>Mon, 13 Jun 2022 15:07:14 GMT</pubDate>
+      <content:encoded><![CDATA[<p>很多人在用 localStorage 或 sessionStorage 的时候喜欢直接用明文存储，直接将信息暴露在浏览器中，</p>
+<p>虽然一般场景下都能应付得了且简单粗暴，但特殊需求情况下，比如设置定时功能，就不能实现。</p>
+<p>就需要对其进行二次封装，为了在使用上增加些安全感，那加密也必然是少不了的了。</p>
+<p>为方便项目使用，特对常规操作进行封装。</p>
+<!-- more -->
+<h2> 设计</h2>
+<div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>封装之前先梳理下所需功能，并要做成什么样，采用什么样的规范，部分主要代码片段是以 localStorage作为示例。</p>
+</div>
+<ul>
+<li>区分存储类型 type</li>
+<li>自定义名称前缀 prefix</li>
+<li>支持设置过期时间 expire</li>
+<li>支持加密可选，开发环境下未方便调试可关闭加密</li>
+<li>支持数据加密 这里采用 crypto-js 加密 也可使用其他方式</li>
+<li>判断是否支持 Storage isSupportStorage</li>
+<li>设置 setStorage</li>
+<li>获取 getStorage</li>
+<li>是否存在 hasStorage</li>
+<li>获取所有key getStorageKeys</li>
+<li>根据索引获取key getStorageForIndex</li>
+<li>获取localStorage长度 getStorageLength</li>
+<li>获取全部 getAllStorage</li>
+<li>删除 removeStorage</li>
+<li>清空 clearStorage</li>
+</ul>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 设置 setStorage</h3>
+<div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>Storage 本身是不支持过期时间设置的，要支持设置过期时间，可以效仿 Cookie 的做法，setStorage(key,value,expire) 方法，接收三个参数，第三个参数就是设置过期时间的，用相对时间，单位秒，要对所传参数进行类型检查。</p>
+<p>可以设置统一的过期时间，也可以对单个值得过期时间进行单独配置。两种方式按需配置。</p>
+</div>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 获取 getStorage</h3>
+<div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>首先要对 key 是否存在进行判断，防止获取不存在的值而报错。对获取方法进一步扩展，只要在有效期内获取 Storage 值，就对过期时间进行续期，如果过期则直接删除该值。并返回 null</p>
+</div>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 获取所有值</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 删除 removeStorage</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 清空 clearStorage</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 加密、解密</h3>
+<div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>加密采用的是 crypto-js</p>
+</div>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>对 crypto-js 设置密钥和密钥偏移量，可以采用将一个私钥经 MD5 加密生成16位密钥获得。</p>
+</div>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>对加密方法进行封装</p>
+</div>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在存储数据及获取数据中进行使用：</p>
+<p>这里我们主要看下进行加密和解密部分，部分方法在下面代码段中并未展示，<code>请注意，不能直接运行</code>。</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 使用</h3>
+<p>使用的时候你可以通过 import 按需引入，也可以挂载到全局上使用，一般建议少用全局方式或全局变量，为后来接手项目继续开发维护的人，追查代码留条便捷之路！不要为了封装而封装，尽可能基于项目需求和后续的通用，以及使用上的便捷。比如获取全部存储变量，如果你项目上都未曾用到过，倒不如删减掉，留着过年也不见得有多香，不如为减小体积做点贡献！</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3> 完整代码</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>服务相关问题</title>
+      <link>https://jin-shaohui.gitee.io/Network/Question/</link>
+      <guid>https://jin-shaohui.gitee.io/Network/Question/</guid>
+      <source url="https://jin-shaohui.gitee.io/rss.xml">服务相关问题</source>
+      <description>常问问题 一个完整的http请求发生了什么 从浏览器输入url到回车页面渲染出来 这中间发生了什么</description>
+      <category>Question</category>
+      <pubDate>Mon, 16 May 2022 11:26:43 GMT</pubDate>
+      <content:encoded><![CDATA[<h2> 常问问题</h2>
+<h3> 一个完整的http请求发生了什么</h3>
+<h3> 从浏览器输入url到回车页面渲染出来 这中间发生了什么</h3>
+]]></content:encoded>
     </item>
     <item>
       <title>跨域</title>
@@ -4811,88 +4892,6 @@ d</p>
 <div class="language-nginx line-numbers-mode" data-ext="nginx"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> 总结</h2>
 <p>跨域是由浏览器安全限制造成的，解决跨域的办法有三种，一是 <strong>Jsonp</strong> 绕过浏览器安全检测策略，二是从被调用方配置支持跨域的请求头信息，三是从调用方利用反向代理，在 Ngnix 或 Apache 中配置代理域名隐藏跨域。</p>
 ]]></content:encoded>
-    </item>
-    <item>
-      <title>服务相关问题</title>
-      <link>https://jin-shaohui.gitee.io/Network/Question/</link>
-      <guid>https://jin-shaohui.gitee.io/Network/Question/</guid>
-      <source url="https://jin-shaohui.gitee.io/rss.xml">服务相关问题</source>
-      <description>常问问题 一个完整的http请求发生了什么 从浏览器输入url到回车页面渲染出来 这中间发生了什么</description>
-      <category>Question</category>
-      <pubDate>Mon, 16 May 2022 11:26:43 GMT</pubDate>
-      <content:encoded><![CDATA[<h2> 常问问题</h2>
-<h3> 一个完整的http请求发生了什么</h3>
-<h3> 从浏览器输入url到回车页面渲染出来 这中间发生了什么</h3>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Storage</title>
-      <link>https://jin-shaohui.gitee.io/Package/Storage/</link>
-      <guid>https://jin-shaohui.gitee.io/Package/Storage/</guid>
-      <source url="https://jin-shaohui.gitee.io/rss.xml">Storage</source>
-      <description>很多人在用 localStorage 或 sessionStorage 的时候喜欢直接用明文存储，直接将信息暴露在浏览器中， 虽然一般场景下都能应付得了且简单粗暴，但特殊需求情况下，比如设置定时功能，就不能实现。 就需要对其进行二次封装，为了在使用上增加些安全感，那加密也必然是少不了的了。 为方便项目使用，特对常规操作进行封装。</description>
-      <category>Storage</category>
-      <pubDate>Mon, 13 Jun 2022 15:07:14 GMT</pubDate>
-      <content:encoded><![CDATA[<p>很多人在用 localStorage 或 sessionStorage 的时候喜欢直接用明文存储，直接将信息暴露在浏览器中，</p>
-<p>虽然一般场景下都能应付得了且简单粗暴，但特殊需求情况下，比如设置定时功能，就不能实现。</p>
-<p>就需要对其进行二次封装，为了在使用上增加些安全感，那加密也必然是少不了的了。</p>
-<p>为方便项目使用，特对常规操作进行封装。</p>
-<!-- more -->
-<h2> 设计</h2>
-<div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>封装之前先梳理下所需功能，并要做成什么样，采用什么样的规范，部分主要代码片段是以 localStorage作为示例。</p>
-</div>
-<ul>
-<li>区分存储类型 type</li>
-<li>自定义名称前缀 prefix</li>
-<li>支持设置过期时间 expire</li>
-<li>支持加密可选，开发环境下未方便调试可关闭加密</li>
-<li>支持数据加密 这里采用 crypto-js 加密 也可使用其他方式</li>
-<li>判断是否支持 Storage isSupportStorage</li>
-<li>设置 setStorage</li>
-<li>获取 getStorage</li>
-<li>是否存在 hasStorage</li>
-<li>获取所有key getStorageKeys</li>
-<li>根据索引获取key getStorageForIndex</li>
-<li>获取localStorage长度 getStorageLength</li>
-<li>获取全部 getAllStorage</li>
-<li>删除 removeStorage</li>
-<li>清空 clearStorage</li>
-</ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 设置 setStorage</h3>
-<div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>Storage 本身是不支持过期时间设置的，要支持设置过期时间，可以效仿 Cookie 的做法，setStorage(key,value,expire) 方法，接收三个参数，第三个参数就是设置过期时间的，用相对时间，单位秒，要对所传参数进行类型检查。</p>
-<p>可以设置统一的过期时间，也可以对单个值得过期时间进行单独配置。两种方式按需配置。</p>
-</div>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 获取 getStorage</h3>
-<div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>首先要对 key 是否存在进行判断，防止获取不存在的值而报错。对获取方法进一步扩展，只要在有效期内获取 Storage 值，就对过期时间进行续期，如果过期则直接删除该值。并返回 null</p>
-</div>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 获取所有值</h3>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 删除 removeStorage</h3>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 清空 clearStorage</h3>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 加密、解密</h3>
-<div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>加密采用的是 crypto-js</p>
-</div>
-<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>对 crypto-js 设置密钥和密钥偏移量，可以采用将一个私钥经 MD5 加密生成16位密钥获得。</p>
-</div>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>对加密方法进行封装</p>
-</div>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在存储数据及获取数据中进行使用：</p>
-<p>这里我们主要看下进行加密和解密部分，部分方法在下面代码段中并未展示，<code>请注意，不能直接运行</code>。</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 使用</h3>
-<p>使用的时候你可以通过 import 按需引入，也可以挂载到全局上使用，一般建议少用全局方式或全局变量，为后来接手项目继续开发维护的人，追查代码留条便捷之路！不要为了封装而封装，尽可能基于项目需求和后续的通用，以及使用上的便捷。比如获取全部存储变量，如果你项目上都未曾用到过，倒不如删减掉，留着过年也不见得有多香，不如为减小体积做点贡献！</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3> 完整代码</h3>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content:encoded>
     </item>
     <item>
       <title>浅谈12个Hooks</title>

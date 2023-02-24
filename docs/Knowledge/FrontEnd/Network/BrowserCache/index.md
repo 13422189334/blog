@@ -4,9 +4,8 @@ lang: zh-CN
 date: 2022-09-22 10:15:04
 permalink: /Network/BrowserCache/
 isOriginal: true # 当前文章是否为原创
+sticky: true  # 是否在列表中置顶 ，数字越大，排名越靠前
 star: true # 是否收藏在博客主题的文章列表中。数字越大，排名越靠前
-image: /background/white-001.jpg # 设置预览图 (分享图)
-banner: /background/black-001.jpg # 设置横幅图片 (宽屏分享图)
 category: 
   - Network
 tag: 
