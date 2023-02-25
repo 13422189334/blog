@@ -18,11 +18,6 @@ actions:
   link: /Network/Question/
 
 features:
-- title: 浏览器缓存
-  icon: huancun
-  details: 浏览器缓存
-  link: /Network/BrowserCache/
-
 - title: CrossDomain
   icon: yuming
   details: 跨域
