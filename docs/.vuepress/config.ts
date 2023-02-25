@@ -4,7 +4,7 @@ import theme from './theme'
 import { defineUserConfig } from '@vuepress/cli';
 // const __dirname = getDirname(import.meta.url);
 
-
+import { viteBundler } from '@vuepress/bundler-vite'
 // module.exports = (options, context) => ({
 export default defineUserConfig({
   base: '/', // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中
@@ -44,17 +44,14 @@ export default defineUserConfig({
       level: [2,3,4]
     }
   },
-  // bundler: viteBundler({
-  //   viteOptions: {},
-  //   vuePluginOptions: {},
-  // }),
-  // configureWebpack: {
-  //   resolve: {
-  //     alias: {
-  //       '@assets': './public/assets/'
-  //     }
-  //   }
-  // },
+  bundler: viteBundler({
+    viteOptions: {
+      build: {
+        minify: 'terser'
+      }
+    },
+    vuePluginOptions: {},
+  }),
   // alias: {
   //   '@': path.resolve(__dirname, './../../'),
   // }
