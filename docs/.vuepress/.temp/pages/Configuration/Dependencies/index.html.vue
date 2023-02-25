@@ -18,8 +18,8 @@
 <h2 id="nodejs项目" tabindex="-1"><a class="header-anchor" href="#nodejs项目" aria-hidden="true">#</a> Nodejs项目</h2>
 <p><code v-pre>Nodejs</code>项目<code v-pre>上线</code>的话，是<code v-pre>不用打包</code>的，是将整个<code v-pre>完整项目代码</code>扔到<code v-pre>服务器</code>上，然后运行，所以它是<code v-pre>需要</code>区分<code v-pre>dependencies</code>和<code v-pre>devDependencies</code>的。</p>
 <p>因为当它部署到服务器上之后，也就是生产环境之后，它是需要再 <code v-pre>npm install</code> 一次的。</p>
-<div class="custom-container danger">
-<p class="custom-container-title">警告</p>
+<div class="hint-container danger">
+<p class="hint-container-title">警告</p>
 <Badge text="举个例子" type="warning"/> <p>在开发环境的时候，需要做<code v-pre>单元测试</code>，装了单元测试所需要的<code v-pre>依赖包</code>，那么这个包是放在 <code v-pre>dependencies</code> 还是放在 <code v-pre>devDependencies</code> 呢？</p>
 <p>如果放在<code v-pre>devDependencies</code>，那么<code v-pre>开发环境</code>下进行<code v-pre>npm install</code>时是会安装的，而<code v-pre>生产环境</code>下<code v-pre>npm install</code>是不会安装的，这很合理，因为肯定是生产环境测试无误后再上生产环境，所以单元测试所需依赖包<code v-pre>只需要</code>在开发环境安装即可，到了生产环境我并不需要这个包</p>
 <p>如果放在<code v-pre>dependencies</code>，那么<code v-pre>开发环境</code>、<code v-pre>生产环境</code>下进行<code v-pre>npm install</code>时<code v-pre>都</code>是会安装的，这并不合理啊，我生产环境时并不需要用到这些单元测试的包啊！</p>

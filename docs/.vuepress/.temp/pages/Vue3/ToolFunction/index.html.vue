@@ -1,5 +1,5 @@
-<template><div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+<template><div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <p>具体文件是 <code v-pre>shared.cjs.prod.js</code> 和 <code v-pre>shared.cjs.js</code> 文件下针对源码中的工具函数和较冷门知识点的提取分析。</p>
 <p>vue 版本为 3.2.31</p>
 </div>
@@ -9,7 +9,7 @@
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export declare const EMPTY_OBJ: {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export declare const EMPTY_OBJ: {
     readonly [key: string]: any;
 } = __DEV__ ? Object.freeze({}) : {}
 
@@ -20,7 +20,7 @@ export declare const EMPTY_ARR: {
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let emptyObj = Object.freeze({
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let emptyObj = Object.freeze({
   props: {
     name: 'jack',
     age: 12
@@ -51,29 +51,29 @@ console.log('arr1[0].name', arr1[0].name) // rose
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const NOOP = () =&gt; {}
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const NOOP = () =&gt; {}
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let obj = function getName (cb =&gt; NOOP) {}
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let obj = function getName (cb =&gt; NOOP) {}
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="no-返回false常量函数" tabindex="-1"><a class="header-anchor" href="#no-返回false常量函数" aria-hidden="true">#</a> NO 返回false常量函数</h3>
 <p>永远返回 <code v-pre>false</code> 的函数, 就是一个返回 <code v-pre>boolean</code> 值的函数的备选项</p>
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const NO = () =&gt; false
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const NO = () =&gt; false
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="函数定义" tabindex="-1"><a class="header-anchor" href="#函数定义" aria-hidden="true">#</a> 函数定义</h2>
 <h3 id="totypestring-复杂数据类型区分" tabindex="-1"><a class="header-anchor" href="#totypestring-复杂数据类型区分" aria-hidden="true">#</a> toTypeString  复杂数据类型区分</h3>
 <p><code v-pre>toTypeString</code> 主要是返回数据的类型，使用了 <code v-pre>Object.prototype.toString.call</code> 的方法，实现了对复杂数据类型的区分</p>
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const objectToString = Object.prototype.toString;
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const objectToString = Object.prototype.toString;
 const toTypeString = (value) =&gt; objectToString.call(value);
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let arr = []
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let arr = []
 let obj = {}
 let map = new Map()
 let set = new Set()
@@ -86,14 +86,14 @@ console.log(toTypeString(set)) // [object Set]
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const toRawType = (value: unknown): string =&gt; {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const toRawType = (value: unknown): string =&gt; {
   // extract &quot;RawType&quot; from strings like &quot;[object RawType]&quot;
   return toTypeString(value).slice(8, -1)
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const objectToString = Object.prototype.toString
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const objectToString = Object.prototype.toString
 const toTypeString = (value) =&gt; objectToString.call(value)
 
 const toRawType = (value) =&gt; toTypeString(value).slice(8, -1)
@@ -108,30 +108,30 @@ console.log('num', num) // 'Number'
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const onRE = /^on[^a-z]/
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const onRE = /^on[^a-z]/
 export const isOn = (key: string) =&gt; onRE.test(key)
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="ismodellistener-事件名onupdate判断" tabindex="-1"><a class="header-anchor" href="#ismodellistener-事件名onupdate判断" aria-hidden="true">#</a> isModelListener 事件名onUpdate判断</h3>
 <p>检验监听事件名是否是<code v-pre>onUpdate:</code>开头</p>
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const isModelListener = (key: string) =&gt; key.startsWith('onUpdate:')
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const isModelListener = (key: string) =&gt; key.startsWith('onUpdate:')
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><blockquote>
 <p><code v-pre>startsWith</code> 是 <code v-pre>es6</code> 当中的方法，可以获取一个字符串是否以指定的子字符串开头，返回Boolean类型</p>
 </blockquote>
 <ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>console.log(isModeListener('onUpdate:change'))
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>console.log(isModeListener('onUpdate:change'))
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="extend-合并对象" tabindex="-1"><a class="header-anchor" href="#extend-合并对象" aria-hidden="true">#</a> extend 合并对象</h3>
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const extend = Object.assign
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const extend = Object.assign
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let obj1 = {name: 'jack'}
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let obj1 = {name: 'jack'}
 let obj2 = {name: 'rose', age: 18}
 
 let obj = extend(obj1, obj2)
@@ -143,7 +143,7 @@ console.log('obj1', obj1) // { name: 'rose', age: 18 }
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const remove = &lt;T&gt;(arr: T[], el: T) =&gt; {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const remove = &lt;T&gt;(arr: T[], el: T) =&gt; {
   const i = arr.indexOf(el)
   if (i &gt; -1) {
     arr.splice(i, 1)
@@ -152,13 +152,13 @@ console.log('obj1', obj1) // { name: 'rose', age: 18 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let arr = [1, 2, 3]
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let arr = [1, 2, 3]
 remove(arr, 2) // [ 1, 3 ] 'arr数据'
 console.log(arr, 'arr数据')
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <p>axios源码中 <code v-pre>lib/core/interceptorManager.js</code> , 使用以下的方式删除数组中的元素:</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>InterceptorManager.prototype.eject = function eject(id) {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>InterceptorManager.prototype.eject = function eject(id) {
   if (this.handlers[id]) {
     this.handlers[id] = null;
   }
@@ -186,7 +186,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const hasOwnProperty = Object.prototype.hasOwnProperty
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const hasOwnProperty = Object.prototype.hasOwnProperty
 
 /**
  * Vue3 的写法
@@ -203,17 +203,17 @@ export const hasOwn = (
   val: object,
   key: string | symbol
 ): key is never =&gt; hasOwnProperty.call(val, key)
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <ul>
 <li><code v-pre>is</code> 关键字：它被称为类型谓词，用来判断一个变量属于某个接口或类型，比如：</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const isNumber = (val: unknown): val is number =&gt; typeof val === 'number'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const isNumber = (val: unknown): val is number =&gt; typeof val === 'number'
 const isString = (val: unknown): val is string =&gt; typeof val === 'string'
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li><code v-pre>keyof</code> 关键字：用于获取某种类型的所有键，其返回类型是联合类型，比如：</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>interface Person {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>interface Person {
     name: string;
     age: number;
 }
@@ -221,7 +221,7 @@ type K = keyof Person; // &quot;name&quot; | &quot;age&quot;
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li><code v-pre>typeof</code> 关键字：js 中的 typeof 只能获取几种类型，而在 ts 中 typeof 用来获取一个变量声明或对象的类型，比如：</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>interface Person {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>interface Person {
   name: string;
   age: number;
 }
@@ -233,11 +233,11 @@ type Sem = typeof sem; // -&gt; Person
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const isArray = (arg: any) : arg is any[] =&gt; Array.isArray(arg);
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const isArray = (arg: any) : arg is any[] =&gt; Array.isArray(arg);
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const fakeArray = { __proto__: Array.prototype, length: 0 }
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const fakeArray = { __proto__: Array.prototype, length: 0 }
 
 console.log('isArray(fakeArray)', isArray(fakeArray)) // false
 console.log('fakeArray instanceof Array', fakeArray instanceof Array) // true
@@ -245,7 +245,7 @@ console.log('fakeArray instanceof Array', fakeArray instanceof Array) // true
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const isMap = (val: unknown): val is Map&lt;any, any&gt; =&gt; toTypeString(val) === '[object Map]'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const isMap = (val: unknown): val is Map&lt;any, any&gt; =&gt; toTypeString(val) === '[object Map]'
 export const isSet = (val: unknown): val is Set&lt;any&gt; =&gt; toTypeString(val) === '[object Set]'
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="map" tabindex="-1"><a class="header-anchor" href="#map" aria-hidden="true">#</a> Map</h4>
 <p>Map 是一种 <code v-pre>es6</code> 提供的新的一种键值对数据结构的数据类型，相比于对象，它的键不同于对象那种只能是字符串的键，可以是各种类型。</p>
@@ -260,7 +260,7 @@ export const isSet = (val: unknown): val is Set&lt;any&gt; =&gt; toTypeString(va
 <code v-pre>clear</code> 清空所有元素，
 <code v-pre>Array.from</code> 转为普通的二维数组</p>
 </blockquote>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>// 1. 定义一个函数作为键
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>// 1. 定义一个函数作为键
 let fn = function func() { console.log('this is function') }
 let m = new Map([['jack', 100], [fn, '我是函数的值']]) // 形式上, Map类型是二维数组
 
@@ -301,7 +301,7 @@ console.log('清空后的结果', m)
 <blockquote>
 <p><code v-pre>keys</code> 返回包含映射中 <strong>键</strong> 的迭代器对象，<code v-pre>entries</code> 返回包含映射中的 <strong>键值</strong> 的迭代器对象，<code v-pre>values</code> 返回包含映射中的 <strong>值</strong> 的迭代器对象，<code v-pre>forEach</code></p>
 </blockquote>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let fn = function func() { console.log('this is function') }
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let fn = function func() { console.log('this is function') }
 let m = new Map([['jack', 100], [fn, '我是函数的值']])
 m.forEach(item =&gt; {
   console.log('forEach -&gt; item', item)
@@ -377,7 +377,7 @@ for (let value of it) {
 <code v-pre>clear</code> 清空所有元素，
 <code v-pre>Array.from</code> 转为数组</p>
 </blockquote>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>// 1. NaN
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>// 1. NaN
 let set = new Set([NaN, NaN])
 // 尽管NaN !== NaN, 但是, 在Set中仍然被认为是相同的数据
 console.log('NaN === NaN', NaN === NaN) // false
@@ -418,7 +418,7 @@ console.log('set clear --&gt;', set) // set clear --&gt; Set {}
 <blockquote>
 <p>主要有<code v-pre>keys</code>，<code v-pre>entries</code>，<code v-pre>values</code>，<code v-pre>forEach</code></p>
 </blockquote>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>// 1. keys方法
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>// 1. keys方法
 let it = set.keys()
 console.log(it.next().value) // { name: '大明' }
 console.log(it.next().value) // { name: '小明' }
@@ -468,9 +468,9 @@ set.forEach(item =&gt; {
 <ul>
 <li>源码实现 <Badge text="有风险" type="error"/></li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const isDate = (val: unknown): val is Date =&gt; val instanceof Date
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const isDate = (val: unknown): val is Date =&gt; val instanceof Date
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>这么做有一定的漏洞，但一般还是可以判断</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const isDate = (val) =&gt; val instanceof Date
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const isDate = (val) =&gt; val instanceof Date
 let date = new Date()
 let result = isDate({ __proto__: Date.prototype, length: 0 })
 console.log('result', result) // result true
@@ -478,7 +478,7 @@ console.log('result', result) // result true
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const isFunction = (val: unknown): val is Function =&gt; typeof val === 'function'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const isFunction = (val: unknown): val is Function =&gt; typeof val === 'function'
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="isobject-是否对象" tabindex="-1"><a class="header-anchor" href="#isobject-是否对象" aria-hidden="true">#</a> isObject 是否对象</h3>
 <ul>
 <li>注意事项</li>
@@ -490,16 +490,16 @@ console.log('result', result) // result true
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const isObject = (val: unknown): val is Record&lt;any, any&gt; =&gt; val !== null &amp;&amp; typeof val === 'object'
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>// 第1469行代码
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const isObject = (val: unknown): val is Record&lt;any, any&gt; =&gt; val !== null &amp;&amp; typeof val === 'object'
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>// 第1469行代码
 type Record&lt;K extends keyof any, T&gt; = {
     [P in K]: T;
 };
 // 从这里我们可以看出, 键的类型只能从K(第一个泛型参数中得到), 而值的类型只能是T
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Record使用案例:</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>type Animal = 'dog' | 'cat' | 'pig'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>type Animal = 'dog' | 'cat' | 'pig'
 
 interface Info {
   name: string;
@@ -529,43 +529,43 @@ const animalInfo: AnimalInfo = {
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const isPlainObject = (val: unknown): val is object =&gt; toTypeString(val) === '[object Object]'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const isPlainObject = (val: unknown): val is object =&gt; toTypeString(val) === '[object Object]'
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="ispromise-是否promise" tabindex="-1"><a class="header-anchor" href="#ispromise-是否promise" aria-hidden="true">#</a> isPromise 是否Promise</h3>
 <p>判断是否是promise对象，这里要注意的是Promise的类型，typescript 中 <code v-pre>Promise&lt;T&gt;</code> 类型，接受一个<code v-pre>泛型参数T</code>，用以确定这个promise对象最终<code v-pre>resolve的值的类型</code>。</p>
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const isPromise = &lt;T = any&gt;(val: unknown): val is Promise&lt;T&gt; =&gt; isObject(val) &amp;&amp; isFunction(val.then) &amp;&amp; isFunction(val.catch)
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const isPromise = &lt;T = any&gt;(val: unknown): val is Promise&lt;T&gt; =&gt; isObject(val) &amp;&amp; isFunction(val.then) &amp;&amp; isFunction(val.catch)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <p>我们如何控制声明Promise返回值的类型:</p>
 <ul>
 <li>使用这里的泛型方式声明</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let promiseString:Promise&lt;string&gt; = new Promise(resolve =&gt; resolve('123'))
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let promiseString:Promise&lt;string&gt; = new Promise(resolve =&gt; resolve('123'))
 let promiseNumber:Promise&lt;number&gt; = new Promise(resolve =&gt; resolve('123'))
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>单独声明resolve方法</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let promiseString = new Promise((resolve: (params: string) =&gt; void, reject) =&gt; resolve('123'))
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let promiseString = new Promise((resolve: (params: string) =&gt; void, reject) =&gt; resolve('123'))
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></div>
 <h3 id="isintegerkey-是否数字型的字符串" tabindex="-1"><a class="header-anchor" href="#isintegerkey-是否数字型的字符串" aria-hidden="true">#</a> isIntegerKey 是否数字型的字符串</h3>
 <p>主要是用于判断是否是数字型的字符串，形如: '123'，'888' 则为true，'123hello'则为false。</p>
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const isString = (val: unknown): val is string =&gt; typeof val === 'string'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const isString = (val: unknown): val is string =&gt; typeof val === 'string'
 export const isIntegerKey = (key: unknown) =&gt;
   isString(key) &amp;&amp;
   key !== 'NaN' &amp;&amp;
   key[0] !== '-' &amp;&amp;
   '' + parseInt(key, 10) === key
 isIntegerKey('888hello') // false
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <p>parseInt 的第一个参数大家都很熟悉，就是要被转换的字符串，但是第二个出现的概率可能相对偏低，第二个表示的就是<code v-pre>进制</code>，一般<code v-pre>默认是10</code>，也就是十进制！
 这里指明进制数是为了保证在不同的环境下运行结果能保证一致！</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>// 以二进制的方式解析'010'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>// 以二进制的方式解析'010'
 const result = parseInt('010', 2)
 console.log('result', result) // 2
 // 我们都知道，如果 '010'是二进制，那么，转为10进制，就是使用: 0*2^0 + 1*2^1 + 0*2^2 结果自然就是2，同理我们可以知道用三进制来解析：
@@ -573,7 +573,7 @@ const result = parseInt('010', 3) // 结果自然就是3
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><Badge text="思考"/><p>第二个参数的取值最大能达到多少？</p>
 <Badge text="猜测" type="warning"/> <p>我们知道，十进制最大的数也就是9，那么如果我要解析十进制以上的数字呢？
 最常见的就是十六进制。不错，我们会用字母代替！也就是a-z，共26个字母，那么我们大胆猜测下，最大取值，是不是就是36？</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const result = parseInt('010', 36)
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const result = parseInt('010', 36)
 console.log('result', result) // 36
 // 那再往上加一呢:
 const result = parseInt('010', 37)
@@ -585,7 +585,7 @@ console.log('result', result) // NaN
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export function makeMap(
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export function makeMap(
   str: string,
   expectsLowerCase?: boolean
 ): (key: string) =&gt; boolean {
@@ -603,13 +603,13 @@ console.log('result', result) // NaN
 <ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const fn = makeMap('dog,cat,bird')
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const fn = makeMap('dog,cat,bird')
 const result1 = fn('fish')
 console.log(result1) // false, 不存在fish
 const result2 = fn('dog')
 console.log(result2) // true, 存在dog
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <Badge text="思考"/> <p>创建对象为何要用 <code v-pre>Object.create(null)</code> 而不是直接使用 <code v-pre>const map = {}</code></p>
 <Badge text="解答" type="warning"/><p><code v-pre>Object.create(proto, [propertiesObject])</code>，返回一个新的对象。第一个参数<code v-pre>proto</code>，将会被挂在到<code v-pre>新对象的原型对象</code>上。
 第二个参数<code v-pre>propertiesObject</code>，对应了<code v-pre>Object.defineProperties</code>的第二个参数，也就是所谓的属性描述符:</p>
@@ -632,7 +632,7 @@ console.log(result2) // true, 存在dog
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const cacheStringFunction = &lt;T extends (str: string) =&gt; string&gt;(fn: T): T =&gt; {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const cacheStringFunction = &lt;T extends (str: string) =&gt; string&gt;(fn: T): T =&gt; {
   const cache: Record&lt;string, string&gt; = Object.create(null)
   return ((str: string) =&gt; {
     const hit = cache[str]
@@ -642,7 +642,7 @@ console.log(result2) // true, 存在dog
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let fn1 = cacheStringFunction((key) =&gt; {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let fn1 = cacheStringFunction((key) =&gt; {
   console.log('通过了计算得到', key + 'world')
   return key + 'world'
 })
@@ -657,11 +657,11 @@ console.log(fn1('goodbye'))
  * 通过了计算得到 goodbyeworld
  * goodbyeworld
  */
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <Badge text="思考"/><p>为何返回的函数要被<code v-pre>as any</code>？去掉会如何？</p>
 <Badge text="猜测" type="warning"/> <p><code v-pre>(str:string) =&gt; string</code> 是符合 <code v-pre>T</code> 的类型要求，但是，<code v-pre>T</code>也可以是另一种形式的<code v-pre>子类</code>，也就无法保证和参数的类型完全一致。举个例子，假如以下函数不报错：</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let testGenerics = &lt;T extends { length: number }&gt;(params: T, minNum: number): T =&gt;{
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let testGenerics = &lt;T extends { length: number }&gt;(params: T, minNum: number): T =&gt;{
   if (params.length &gt;= minNum) {
     return params
   } else {
@@ -669,7 +669,7 @@ console.log(fn1('goodbye'))
   }
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>那我们直接运行下</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let data = testGenerics([1,2,3], 8)
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let data = testGenerics([1,2,3], 8)
 // 此时的data,讲道理应该是Array类型
 data.slice(0,1) // 直接报错, 因为根本就不是数组!
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div>
@@ -677,18 +677,18 @@ data.slice(0,1) // 直接报错, 因为根本就不是数组!
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>const camelizeRE = /-(\w)/g
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>const camelizeRE = /-(\w)/g
 export const camelize = cacheStringFunction((str: string): string =&gt; {
   return str.replace(camelizeRE, (_, c) =&gt; (c ? c.toUpperCase() : ''))
 })
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let str = 'on-handle-click'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let str = 'on-handle-click'
 const result = camelize(str)
 console.log('result', result) // result onHandleClick
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <p>关于replace的使用: <code v-pre>replace(regexp|substr, newSubStr|function)</code></p>
 <blockquote>
 <p>第一个参数既可以是<code v-pre>字符串</code>，也可以是<code v-pre>正则</code>，总之就是需要<code v-pre>被替换的字符串的文本模式</code>。</p>
@@ -700,25 +700,25 @@ console.log('result', result) // result onHandleClick
 <blockquote>
 <p>$&amp; 用于无分组的情况</p>
 </blockquote>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let str = '史记真是史家之绝唱,无韵之离骚'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let str = '史记真是史家之绝唱,无韵之离骚'
 let result = str.replace('史记', '《$&amp;》') // 这里的$&amp;就是`史记`二字, 也就是用《史记》代替史记
 console.log(result) // 《史记》真是史家之绝唱,无韵之离骚
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
 <p>$` 匹配到的数据的左边字符串</p>
 </blockquote>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let str = '研究一下replace该怎么用'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let str = '研究一下replace该怎么用'
 let result = str.replace('replace', ',$`前端技术') // 这里的 $` === 研究一下，也就是用 ',研究一下前端技术' 代替 'replace' 
 console.log(result) // 研究一下,研究一下前端技术该怎么用
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
 <p>$' 和 $` 相反，代表匹配到的数据的右边字符串</p>
 </blockquote>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let str = '研究一下replace该怎么用'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let str = '研究一下replace该怎么用'
 let result = str.replace('replace', &quot;,vue3$',&quot;) // 此处的 $' === 该怎么用，也就是用 ',vue3该怎么用,' 代替 'replace'
 console.log(result) // 研究一下,vue3该怎么用,该怎么用
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
-<p>$1,$2,<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">3,.....</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">.....</span></span></span></span>n，表示第几个分组</p>
+<p>$1,$2,$3,.....$n，表示第几个分组</p>
 </blockquote>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let str = '西瓜,番薯,大番薯,咸鱼,萝卜,苹果'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let str = '西瓜,番薯,大番薯,咸鱼,萝卜,苹果'
 let result = str.replace(/(西瓜)(.*)(苹果)/, &quot;$1(水果)$2$3(水果)&quot;)
 /**
  * $1 === 西瓜
@@ -729,7 +729,7 @@ console.log('result', result) // 西瓜(水果),番薯,大番薯,咸鱼,萝卜,�
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>函数</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let str = '今年是2022年,时间好快'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let str = '今年是2022年,时间好快'
 let result = str.replace(/(今年).+?(时间).*/g, function () {
   console.log(arguments)
   /**
@@ -742,7 +742,7 @@ let result = str.replace(/(今年).+?(时间).*/g, function () {
 })
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可以得出结论，那就是<code v-pre>有分组</code>的情况下，第二个参数开始就是<code v-pre>依次展示</code>每次分组<code v-pre>匹配到的内容</code>。
 所以，我们回到源码中，此处的<code v-pre>c</code>，实际上就是前面说的每次匹配到的<code v-pre>第一个分组</code>，本案例中依次为：h, c两个，然后将其改为大写，直接return，就能将<code v-pre>-x</code>替换为<code v-pre>X</code>，从而实现我们的目标。</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let str = 'on-handle-click'
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let str = 'on-handle-click'
 let result = str.replace(/-(\w)/g, function () {
   console.log(arguments)
   // { '0': '-h', '1': 'h', '2': 2, '3': 'on-handle-click' }
@@ -754,12 +754,12 @@ let result = str.replace(/-(\w)/g, function () {
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>// compare whether a value has changed, accounting for NaN.
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>// compare whether a value has changed, accounting for NaN.
 export const hasChanged = (value: any, oldValue: any): boolean =&gt; !Object.is(value, oldValue)
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <p>可能有人感到疑问，两个值是否不同还需要封装？多此一举，我直接 <code v-pre>a !== b</code> 不就行了？我们来看几个例子：</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>// +0 和 -0问题
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>// +0 和 -0问题
 console.log(+0 === -0) // true
 Object.is(+0, -0) // false
 
@@ -767,7 +767,7 @@ Object.is(+0, -0) // false
 console.log(NaN === NaN) // false
 Object.is(NaN, NaN) // true
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>由此可以看出，<code v-pre>Object.is</code>可以弥补 <code v-pre>正负0</code> 和 <code v-pre>NaN</code> 比较上存在的问题。MDN网站上还提供了一个<code v-pre>polyfill</code>：</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>Object.is = function () {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>Object.is = function () {
 	 // 如果两个值不同(有可能是正负0)
   if (x === y) {
     return x !== 0 || 1/x === 1/y
@@ -790,7 +790,7 @@ console.log('+0 === -0 --&gt;', Object.is(+0, -0))
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const def = (obj: object, key: string | symbol, value: any) =&gt; {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const def = (obj: object, key: string | symbol, value: any) =&gt; {
   Object.defineProperty(obj, key, {
     configurable: true,
     enumerable: false,
@@ -800,7 +800,7 @@ console.log('+0 === -0 --&gt;', Object.is(+0, -0))
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>使用案例</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>let person = {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>let person = {
   name: 'human',
   age: 100
 }
@@ -812,7 +812,7 @@ console.log('person --&gt; ', person)
  *  */ 
 console.log('gender --&gt; ', person.gender) // male
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>测试可枚举性，按照我们之前说的<code v-pre>for...in</code>，<code v-pre>Object.keys</code>，<code v-pre>JSON.stringify</code>三种方法</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>// for...in
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>// for...in
 for (let key in person) {
   console.log('key', key)
   /**
@@ -828,8 +828,8 @@ console.log('JSON.stringify(person)', JSON.stringify(person))
 // Object.keys(person)
 console.log('Object.keys(person)', Object.keys(person))
 // [ 'name', 'age' ]
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <p>属性描述符可以细分为<code v-pre>数据描述符</code>和<code v-pre>存取描述符</code>。注意，configurable 和 enumerable既是数据描述符又是存取描述符。除了这两个属性之外，其他不同的描述符不得共用！</p>
 <p>数据描述符：<code v-pre>writable</code> 只有writable为true的时候，该属性才能被改变值。 <code v-pre>value</code> 属性的值</p>
 <p>存取描述符： <code v-pre>get</code>，<code v-pre>set</code></p>
@@ -838,18 +838,18 @@ console.log('Object.keys(person)', Object.keys(person))
 <ul>
 <li>源码实现</li>
 </ul>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>export const toNumber = (val: any): any =&gt; {
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>export const toNumber = (val: any): any =&gt; {
   const n = parseFloat(val)
   return isNaN(n) ? val : n
 }
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="custom-container info">
-<p class="custom-container-title">Tips</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
 <p>isNaN一看字面意思就知道: 判断一个值是否为NaN. 但他有一些怪异行为, 例如:</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>isNaN(undefined) // true
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>isNaN(undefined) // true
 isNaN('undefined') // true
 isNaN('haha') // true
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>很明显, 这个方法关心的根本不是一个值是否是NaN, 它似乎更关心一个值是否无法被转为数字! 所以, 我们有了Number.isNaN</p>
-<div class="language-TypeScript ext-TypeScript line-numbers-mode"><pre v-pre class="language-TypeScript"><code>Number.isNaN(undefined) // false
+<div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><pre v-pre class="language-TypeScript"><code>Number.isNaN(undefined) // false
 Number.isNaN('undefined') // false
 Number.isNaN('haha') // false
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>所以, 一定要注意了, <code v-pre>isNaN</code>和<code v-pre>Number.isNaN</code>不是一回事!</p>

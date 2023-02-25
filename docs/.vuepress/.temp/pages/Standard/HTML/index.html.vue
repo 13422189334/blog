@@ -2,17 +2,17 @@
 <!-- more -->
 <h2 id="通用" tabindex="-1"><a class="header-anchor" href="#通用" aria-hidden="true">#</a> 通用</h2>
 <h3 id="【强制】-使用-html5-的-doctype-来启用标准模式-建议使用大写的-doctype。" tabindex="-1"><a class="header-anchor" href="#【强制】-使用-html5-的-doctype-来启用标准模式-建议使用大写的-doctype。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 使用 HTML5 的 doctype 来启用标准模式，建议使用大写的 DOCTYPE。</h3>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="【推荐】在-html-标签上设置正确的-lang-属性。" tabindex="-1"><a class="header-anchor" href="#【推荐】在-html-标签上设置正确的-lang-属性。" aria-hidden="true">#</a> <code v-pre>【推荐】</code>在 html 标签上设置正确的 <strong>lang</strong> 属性。</h3>
 <blockquote>
 <p>为什么？有助于提高页面的可访问性，如：让语音合成工具确定其所应该采用的发音，令翻译工具确定其翻译语言等。</p>
 </blockquote>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zh-CN<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>zh-CN<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="【强制】-页面必须使用精简形式-明确指定字符编码。指定字符编码的-meta-必须是-head-的第一个直接子元素。" tabindex="-1"><a class="header-anchor" href="#【强制】-页面必须使用精简形式-明确指定字符编码。指定字符编码的-meta-必须是-head-的第一个直接子元素。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 页面必须使用精简形式，明确指定字符编码。指定字符编码的 <code v-pre>meta</code> 必须是 <code v-pre>head</code> 的第一个直接子元素。</h3>
 <blockquote>
 <p>为什么？见 <a href="https://www.w3school.com.cn/html5/att_script_charset.asp" target="_blank" rel="noopener noreferrer">HTML5 Charset能用吗<ExternalLinkIcon/></a>一文。</p>
 </blockquote>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     ......
@@ -22,7 +22,7 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="【强制】-css-和-javascript-引入" tabindex="-1"><a class="header-anchor" href="#【强制】-css-和-javascript-引入" aria-hidden="true">#</a> <code v-pre>【强制】</code> CSS 和 JavaScript 引入</h3>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>page.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>page.css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="【建议】-引入-css-和-javascript-时无须指明-type-属性。" tabindex="-1"><a class="header-anchor" href="#【建议】-引入-css-和-javascript-时无须指明-type-属性。" aria-hidden="true">#</a> <code v-pre>【建议】</code> 引入 CSS 和 JavaScript 时无须指明 type 属性。</h3>
 <blockquote>
 <p>为什么？text/css 和 text/javascript 是 type 的默认值。</p>
@@ -31,18 +31,18 @@
 <blockquote>
 <p>为什么？将 <code v-pre>script</code> 放在页面中间将阻断页面的渲染。出于性能方面的考虑，如非必要，请遵守此条建议。</p>
 </blockquote>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
    <span class="token comment">&lt;!-- a lot of elements --></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>init-behavior.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="【建议】-移动环境或只针对现代浏览器设计的-web-应用-如果引用外部资源的-url-协议部分与页面相同-建议省略协议前缀。" tabindex="-1"><a class="header-anchor" href="#【建议】-移动环境或只针对现代浏览器设计的-web-应用-如果引用外部资源的-url-协议部分与页面相同-建议省略协议前缀。" aria-hidden="true">#</a> <code v-pre>【建议】</code> 移动环境或只针对现代浏览器设计的 Web 应用，如果引用外部资源的 URL 协议部分与页面相同，建议省略协议前缀。</h3>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>//s1.bdstatic.com/cache/static/jquery-1.10.2.min_f2fb5194.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>//s1.bdstatic.com/cache/static/jquery-1.10.2.min_f2fb5194.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/cache/static/jquery-1.10.2.min_f2fb5194.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="【强制】-页面必须包含-title-标签声明标题。且-title-必须作为-head-的直接子元素-并紧随-charset-声明之后。" tabindex="-1"><a class="header-anchor" href="#【强制】-页面必须包含-title-标签声明标题。且-title-必须作为-head-的直接子元素-并紧随-charset-声明之后。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 页面必须包含 title 标签声明标题。且 title 必须作为 head 的直接子元素，并紧随 charset 声明之后。</h3>
 <blockquote>
 <p>title 中如果包含 ASCII 之外的字符，浏览器需要知道字符编码类型才能进行解码，否则可能导致乱码。</p>
 </blockquote>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>页面标题<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
@@ -55,7 +55,7 @@
 <li>使用 <code v-pre>link</code> 指定 favicon。</li>
 </ol>
 </blockquote>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>shortcut icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>path/to/favicon.ico<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>shortcut icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>path/to/favicon.ico<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="【建议】-若页面欲对移动设备友好-需指定页面的-viewport。" tabindex="-1"><a class="header-anchor" href="#【建议】-若页面欲对移动设备友好-需指定页面的-viewport。" aria-hidden="true">#</a> <code v-pre>【建议】</code> 若页面欲对移动设备友好，需指定页面的 <code v-pre>viewport</code>。</h3>
 <blockquote>
 <p>viewport meta tag 可以设置可视区域的宽度和初始缩放大小，避免在移动设备上出现页面展示不正常。
@@ -77,7 +77,7 @@
 <blockquote>
 <p>为什么？因为这个能确保你不会改变你的初始值，重复引用会导致 bug 并且使代码变得难以理解。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 
@@ -88,7 +88,7 @@
 <blockquote>
 <p>为什么？因为 <code v-pre>let</code> 是块级作用域，而 <code v-pre>var</code> 是函数级作用域。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   count <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -100,7 +100,7 @@
   count <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="注意-let-和-const-都是块级作用域。" tabindex="-1"><a class="header-anchor" href="#注意-let-和-const-都是块级作用域。" aria-hidden="true">#</a> 注意：<code v-pre>let</code> 和 <code v-pre>const</code> 都是块级作用域。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// const 和 let 都只存在于它被定义的那个块级作用域。</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// const 和 let 都只存在于它被定义的那个块级作用域。</span>
 <span class="token punctuation">{</span>
   <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -109,7 +109,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="对象" tabindex="-1"><a class="header-anchor" href="#对象" aria-hidden="true">#</a> 对象</h3>
 <h4 id="【强制】-使用字面值创建对象。eslint-no-new-object" tabindex="-1"><a class="header-anchor" href="#【强制】-使用字面值创建对象。eslint-no-new-object" aria-hidden="true">#</a> <code v-pre>【强制】</code> 使用字面值创建对象。eslint: <a href="http://eslint.org/docs/rules/no-new-object.html" target="_blank" rel="noopener noreferrer"><code v-pre>no-new-object</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> item <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -118,7 +118,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？因为这可以使你在同一个地方定义所有对象属性。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">getKey</span><span class="token punctuation">(</span><span class="token parameter">k</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">getKey</span><span class="token punctuation">(</span><span class="token parameter">k</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">a key named </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>k<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
@@ -136,7 +136,7 @@ obj<span class="token punctuation">[</span><span class="token function">getKey</
   <span class="token punctuation">[</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token string">'enabled'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用对象方法简写。eslint-object-shorthand" tabindex="-1"><a class="header-anchor" href="#【强制】-用对象方法简写。eslint-object-shorthand" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用对象方法简写。eslint: <a href="http://eslint.org/docs/rules/object-shorthand.html" target="_blank" rel="noopener noreferrer"><code v-pre>object-shorthand</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> atom <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
 
@@ -158,7 +158,7 @@ obj<span class="token punctuation">[</span><span class="token function">getKey</
 <blockquote>
 <p>为什么？因为这样写的更少且可读性更高。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> lukeSkywalker <span class="token operator">=</span> <span class="token string">'Luke Skywalker'</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> lukeSkywalker <span class="token operator">=</span> <span class="token string">'Luke Skywalker'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
 <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -173,7 +173,7 @@ obj<span class="token punctuation">[</span><span class="token function">getKey</
 <blockquote>
 <p>为什么？因为这样能更方便地知道有哪些属性用了缩写。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> anakinSkywalker <span class="token operator">=</span> <span class="token string">'Anakin Skywalker'</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> anakinSkywalker <span class="token operator">=</span> <span class="token string">'Anakin Skywalker'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> lukeSkywalker <span class="token operator">=</span> <span class="token string">'Luke Skywalker'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
@@ -199,7 +199,7 @@ obj<span class="token punctuation">[</span><span class="token function">getKey</
 <blockquote>
 <p>为什么？通常我们认为这种方式主观上更易读。不仅优化了代码高亮，而且也更容易被许多 JS 引擎优化。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> bad <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token string-property property">'foo'</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
   <span class="token string-property property">'bar'</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
@@ -216,7 +216,7 @@ obj<span class="token punctuation">[</span><span class="token function">getKey</
 <blockquote>
 <p>为什么？在一些有问题的对象上，这些方法可能会被屏蔽掉，如：<code v-pre>{ hasOwnProperty: false }</code> 或空对象 <code v-pre>Object.create(null)</code></p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>object<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -229,7 +229,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">import</span> has <span class="token keyword">from</span> <span class="token string">'has'</span><span class="token punctuation">;</span> <span class="token comment">// https://www.npmjs.com/package/has</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">has</span><span class="token punctuation">(</span>object<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-对象浅拷贝时-更推荐使用扩展运算符-即-运算符-而不是-object-assign-。获取对象指定的几个属性时-用对象的-rest-解构运算符-即-运算符-更好。eslint-prefer-object-spread" tabindex="-1"><a class="header-anchor" href="#【强制】-对象浅拷贝时-更推荐使用扩展运算符-即-运算符-而不是-object-assign-。获取对象指定的几个属性时-用对象的-rest-解构运算符-即-运算符-更好。eslint-prefer-object-spread" aria-hidden="true">#</a> <code v-pre>【强制】</code> 对象浅拷贝时，更推荐使用扩展运算符（即 <code v-pre>...</code> 运算符），而不是 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="noopener noreferrer"><code v-pre>Object.assign</code> <ExternalLinkIcon/></a>。获取对象指定的几个属性时，用对象的 rest 解构运算符（即 <code v-pre>...</code> 运算符）更好。eslint: <a href="https://eslint.org/docs/rules/prefer-object-spread" target="_blank" rel="noopener noreferrer"><code v-pre>prefer-object-spread</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// very bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// very bad</span>
 <span class="token keyword">const</span> original <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> copy <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span>original<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">c</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// this mutates `original` ಠ_ಠ</span>
 <span class="token keyword">delete</span> copy<span class="token punctuation">.</span>a<span class="token punctuation">;</span> <span class="token comment">// so does this</span>
@@ -247,13 +247,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">const</span> <span class="token punctuation">{</span> a<span class="token punctuation">,</span> <span class="token operator">...</span>noA <span class="token punctuation">}</span> <span class="token operator">=</span> copy<span class="token punctuation">;</span> <span class="token comment">// noA => { b: 2, c: 3 }</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="数组" tabindex="-1"><a class="header-anchor" href="#数组" aria-hidden="true">#</a> 数组</h3>
 <h4 id="【强制】-用字面量创建数组。eslint-no-array-constructor" tabindex="-1"><a class="header-anchor" href="#【强制】-用字面量创建数组。eslint-no-array-constructor" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用字面量创建数组。eslint: <a href="http://eslint.org/docs/rules/no-array-constructor.html" target="_blank" rel="noopener noreferrer"><code v-pre>no-array-constructor</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用-array-push代替直接向数组中添加一个值。" tabindex="-1"><a class="header-anchor" href="#【强制】-用-array-push代替直接向数组中添加一个值。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank" rel="noopener noreferrer">Array#push<ExternalLinkIcon/></a>代替直接向数组中添加一个值。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> someStack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> someStack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
 someStack<span class="token punctuation">[</span>someStack<span class="token punctuation">.</span>length<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'abracadabra'</span><span class="token punctuation">;</span>
@@ -261,7 +261,7 @@ someStack<span class="token punctuation">[</span>someStack<span class="token pun
 <span class="token comment">// good</span>
 someStack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'abracadabra'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用扩展运算符做数组浅拷贝-类似上面的对象浅拷贝。" tabindex="-1"><a class="header-anchor" href="#【强制】-用扩展运算符做数组浅拷贝-类似上面的对象浅拷贝。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用扩展运算符做数组浅拷贝，类似上面的对象浅拷贝。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> len <span class="token operator">=</span> items<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
 <span class="token keyword">const</span> itemsCopy <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> i<span class="token punctuation">;</span>
@@ -273,7 +273,7 @@ someStack<span class="token punctuation">.</span><span class="token function">pu
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> itemsCopy <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>items<span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用-运算符而不是-array-from来将一个可迭代的对象转换成数组。" tabindex="-1"><a class="header-anchor" href="#【强制】-用-运算符而不是-array-from来将一个可迭代的对象转换成数组。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用 <code v-pre>...</code> 运算符而不是 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener noreferrer"><code v-pre>Array.from</code><ExternalLinkIcon/></a>来将一个可迭代的对象转换成数组。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> foo <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> foo <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> nodes <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -281,7 +281,7 @@ someStack<span class="token punctuation">.</span><span class="token function">pu
 <span class="token comment">// best</span>
 <span class="token keyword">const</span> nodes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>foo<span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用-array-from将一个类数组对象转成一个数组。" tabindex="-1"><a class="header-anchor" href="#【强制】-用-array-from将一个类数组对象转成一个数组。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener noreferrer"><code v-pre>Array.from</code><ExternalLinkIcon/></a>将一个类数组对象转成一个数组。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> arrLike <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token operator">:</span> <span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span> <span class="token string">'bar'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">:</span> <span class="token string">'baz'</span><span class="token punctuation">,</span> <span class="token literal-property property">length</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> arrLike <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token operator">:</span> <span class="token string">'foo'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">:</span> <span class="token string">'bar'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token operator">:</span> <span class="token string">'baz'</span><span class="token punctuation">,</span> <span class="token literal-property property">length</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arrLike<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -289,13 +289,13 @@ someStack<span class="token punctuation">.</span><span class="token function">pu
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>arrLike<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用-array-from而不是-运算符去做-map-遍历。-因为这样可以避免创建一个临时数组。" tabindex="-1"><a class="header-anchor" href="#【强制】-用-array-from而不是-运算符去做-map-遍历。-因为这样可以避免创建一个临时数组。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用 <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener noreferrer"><code v-pre>Array.from</code><ExternalLinkIcon/></a>而不是 <code v-pre>...</code> 运算符去做 map 遍历。 因为这样可以避免创建一个临时数组。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> baz <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>foo<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> baz <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>foo<span class="token punctuation">,</span> bar<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-在数组方法的回调函数中使用-return-语句。如果函数体由一条返回一个表达式的语句组成-并且这个表达式没有副作用-这个时候可以忽略-return-详见-7-2。eslint-array-callback-return" tabindex="-1"><a class="header-anchor" href="#【强制】-在数组方法的回调函数中使用-return-语句。如果函数体由一条返回一个表达式的语句组成-并且这个表达式没有副作用-这个时候可以忽略-return-详见-7-2。eslint-array-callback-return" aria-hidden="true">#</a> <code v-pre>【强制】</code> 在数组方法的回调函数中使用 return 语句。如果函数体由一条返回一个表达式的语句组成，并且这个表达式没有副作用， 这个时候可以忽略 return，详见 <a href="http://fe.dev.kdshc.com/docs.html#arrows--implicit-return" target="_blank" rel="noopener noreferrer">7.2<ExternalLinkIcon/></a>。eslint: <a href="http://eslint.org/docs/rules/array-callback-return" target="_blank" rel="noopener noreferrer"><code v-pre>array-callback-return</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// good</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// good</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> y <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> x <span class="token operator">*</span> y<span class="token punctuation">;</span>
@@ -337,7 +337,7 @@ inbox<span class="token punctuation">.</span><span class="token function">filter
   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-如果一个数组有很多行-在数组的-后和-前断行。请看下面示例" tabindex="-1"><a class="header-anchor" href="#【强制】-如果一个数组有很多行-在数组的-后和-前断行。请看下面示例" aria-hidden="true">#</a> <code v-pre>【强制】</code> 如果一个数组有很多行，在数组的 <code v-pre>[</code> 后和 <code v-pre>]</code> 前断行。请看下面示例：</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -374,7 +374,7 @@ inbox<span class="token punctuation">.</span><span class="token function">filter
 <p>为什么？解构使您不必为这些属性创建临时引用，并且避免重复引用对象。重复引用对象将造成代码重复、增加阅读次数、提高犯错概率。
 Destructuring objects also provides a single site of definition of the object structure that is used in the block, rather than requiring reading the entire block to determine what is used.</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">getFullName</span><span class="token punctuation">(</span><span class="token parameter">user</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> firstName <span class="token operator">=</span> user<span class="token punctuation">.</span>firstName<span class="token punctuation">;</span>
   <span class="token keyword">const</span> lastName <span class="token operator">=</span> user<span class="token punctuation">.</span>lastName<span class="token punctuation">;</span>
@@ -393,7 +393,7 @@ Destructuring objects also provides a single site of definition of the object st
   <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>firstName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>lastName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用数组解构。eslint-prefer-destructuring" tabindex="-1"><a class="header-anchor" href="#【强制】-用数组解构。eslint-prefer-destructuring" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用数组解构。eslint: <a href="https://eslint.org/docs/rules/prefer-destructuring" target="_blank" rel="noopener noreferrer"><code v-pre>prefer-destructuring</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
 <span class="token keyword">const</span> first <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -405,7 +405,7 @@ Destructuring objects also provides a single site of definition of the object st
 <blockquote>
 <p>为什么？你可以在后期添加新的属性或者变换变量的顺序而不会破坏原有的引用。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">processInput</span><span class="token punctuation">(</span><span class="token parameter">input</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// 然后就是见证奇迹的时刻</span>
   <span class="token keyword">return</span> <span class="token punctuation">[</span>left<span class="token punctuation">,</span> right<span class="token punctuation">,</span> top<span class="token punctuation">,</span> bottom<span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -424,7 +424,7 @@ Destructuring objects also provides a single site of definition of the object st
 <span class="token keyword">const</span> <span class="token punctuation">{</span> left<span class="token punctuation">,</span> top <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">processInput</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="字符串" tabindex="-1"><a class="header-anchor" href="#字符串" aria-hidden="true">#</a> 字符串</h3>
 <h4 id="【强制】-字符串应使用单引号-。eslint-quotes" tabindex="-1"><a class="header-anchor" href="#【强制】-字符串应使用单引号-。eslint-quotes" aria-hidden="true">#</a> <code v-pre>【强制】</code> 字符串应使用单引号 <code v-pre>''</code> 。eslint: <a href="https://eslint.org/docs/rules/quotes.html" target="_blank" rel="noopener noreferrer"><code v-pre>quotes</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">"Capt. Janeway"</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -434,7 +434,7 @@ Destructuring objects also provides a single site of definition of the object st
 <blockquote>
 <p>为什么？字符串折行增加编写难度且不易被搜索。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> errorMessage <span class="token operator">=</span> <span class="token string">'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
@@ -451,7 +451,7 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？模板字符串更具可读性、多行语法更简洁以及更方便插入变量到字符串里头。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token string">'How are you, '</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">'?'</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -475,7 +475,7 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？反斜线可读性差，因此仅当必要时才使用它。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token string">'\'this\' \i\s \"quoted\"'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -494,8 +494,8 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？函数声明会发生提升，这意味着在一个文件里函数很容易在其被定义之前就被引用了。这样伤害了代码可读性和可维护性。如果你发现一个函数又大又复杂，且这个函数妨碍了这个文件其他部分的理解性，你应当单独把这个函数提取成一个单独的模块。不管这个名字是不是由一个确定的变量推断出来的，别忘了给表达式清晰的命名（这在现代浏览器和类似 babel 编译器中很常见）。这消除了由匿名函数在错误调用栈产生的所有假设。 (<a href="https://github.com/airbnb/javascript/issues/794" target="_blank" rel="noopener noreferrer">讨论 <ExternalLinkIcon/></a>)</p>
 </blockquote>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>> 译者注：这一段可能不是很好理解，简单来说就是使用函数声明会发生提升（即在函数被声明之前就可以使用），使用匿名函数会导致难以追踪错误。[这一段英文原文在这](https://github.com/airbnb/javascript#functions)。
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>> 译者注：这一段可能不是很好理解，简单来说就是使用函数声明会发生提升（即在函数被声明之前就可以使用），使用匿名函数会导致难以追踪错误。[这一段英文原文在这](https://github.com/airbnb/javascript#functions)。
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">}</span>
@@ -515,13 +515,13 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>立即执行函数：Immediately Invoked Function expression = IIFE。 为什么？一个立即调用的函数表达式是一个单元 - 把它和它的调用者（圆括号）包裹起来，使代码读起来更清晰。 另外，在模块化世界里，你几乎用不着 IIFE。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// immediately-invoked function expression (IIFE)</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// immediately-invoked function expression (IIFE)</span>
 <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Welcome to the Internet. Please follow me.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-不要在非函数块-if、while-等-内声明函数。把这个函数分配给一个变量。浏览器会允许你这样做-但不同浏览器的解析方式不同-这是一个坏消息。eslint-no-loop-func" tabindex="-1"><a class="header-anchor" href="#【强制】-不要在非函数块-if、while-等-内声明函数。把这个函数分配给一个变量。浏览器会允许你这样做-但不同浏览器的解析方式不同-这是一个坏消息。eslint-no-loop-func" aria-hidden="true">#</a> <code v-pre>【强制】</code> 不要在非函数块（<code v-pre>if</code>、<code v-pre>while</code> 等）内声明函数。把这个函数分配给一个变量。浏览器会允许你这样做，但不同浏览器的解析方式不同，这是一个坏消息。eslint: <a href="http://eslint.org/docs/rules/no-loop-func.html" target="_blank" rel="noopener noreferrer"><code v-pre>no-loop-func</code><ExternalLinkIcon/></a></h4>
 <p><em>注意</em>*：ECMA-262 中对块（<code v-pre>block</code>）的定义是： 一系列的语句。但是函数声明不是一个语句， 函数表达式是一个语句。</p>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>currentUser<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Nope.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -536,7 +536,7 @@ fast.'</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-不要用-arguments-命名参数。他的优先级高于每个函数作用域自带的-arguments-对象-这会导致函数自带的-arguments-值被覆盖。" tabindex="-1"><a class="header-anchor" href="#【强制】-不要用-arguments-命名参数。他的优先级高于每个函数作用域自带的-arguments-对象-这会导致函数自带的-arguments-值被覆盖。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 不要用 <code v-pre>arguments</code> 命名参数。他的优先级高于每个函数作用域自带的 <code v-pre>arguments</code> 对象，这会导致函数自带的 <code v-pre>arguments</code> 值被覆盖。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> options<span class="token punctuation">,</span> arguments</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">}</span>
@@ -549,7 +549,7 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？<code v-pre>...</code> 明确你想用哪个参数。而且收集参数是真数组，而不是类似数组的 <code v-pre>arguments</code>。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">concatenateAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> args <span class="token operator">=</span> <span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> args<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -560,7 +560,7 @@ fast.'</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> args<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】用默认参数语法而不是在函数里对参数重新赋值。" tabindex="-1"><a class="header-anchor" href="#【推荐】用默认参数语法而不是在函数里对参数重新赋值。" aria-hidden="true">#</a> <code v-pre>【推荐】</code>用默认参数语法而不是在函数里对参数重新赋值。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// really bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// really bad</span>
 <span class="token keyword">function</span> <span class="token function">handleThings</span><span class="token punctuation">(</span><span class="token parameter">opts</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// 不！我们不该修改 arguments</span>
   <span class="token comment">// 第二：如果 opts 的值为 false, 它会被赋值为 {}</span>
@@ -585,7 +585,7 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？他会令人迷惑不解，比如下面这个，a 到底等于几，这个需要想一下。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token parameter">a <span class="token operator">=</span> b<span class="token operator">++</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -595,7 +595,7 @@ fast.'</span><span class="token punctuation">;</span>
 <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 3</span>
 <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 3</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】把默认参数赋值放在最后。eslint-default-param-last" tabindex="-1"><a class="header-anchor" href="#【推荐】把默认参数赋值放在最后。eslint-default-param-last" aria-hidden="true">#</a> <code v-pre>【推荐】</code>把默认参数赋值放在最后。eslint: <a href="https://eslint.org/docs/rules/default-param-last" target="_blank" rel="noopener noreferrer"><code v-pre>default-param-last</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">handleThings</span><span class="token punctuation">(</span><span class="token parameter">opts <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">}</span>
@@ -608,7 +608,7 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？以这种方式创建函数将类似于字符串 eval()，存在漏洞。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">var</span> add <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'return a + b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// still bad</span>
@@ -617,7 +617,7 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？统一性好，而且在你添加/删除一个名字的时候不需要添加/删除空格。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token function-variable function">g</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token function-variable function">h</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -629,7 +629,7 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？操作参数对象对原始调用者会导致意想不到的副作用。就是不要改参数的数据结构，保留参数原始值和数据结构。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   obj<span class="token punctuation">.</span>key <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -642,7 +642,7 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？参数重新赋值会导致意外行为，尤其是对 <code v-pre>arguments</code>。这也会导致优化问题，特别是在 V8 引擎里。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
   <span class="token comment">// ...</span>
@@ -666,7 +666,7 @@ fast.'</span><span class="token punctuation">;</span>
 <blockquote>
 <p>为什么？这样更清晰，你不必提供上下文（即指定 this 值），而且你不能轻易地用 <code v-pre>apply</code> 来组成 <code v-pre>new</code>。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>console<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -680,7 +680,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">// good</span>
 <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">[</span><span class="token number">2016</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-调用或者编写一个包含多个参数的函数的缩进-应该像这个指南里的其他多行代码写法一样——即每行只包含一个参数-每行逗号结尾。" tabindex="-1"><a class="header-anchor" href="#【强制】-调用或者编写一个包含多个参数的函数的缩进-应该像这个指南里的其他多行代码写法一样——即每行只包含一个参数-每行逗号结尾。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 调用或者编写一个包含多个参数的函数的缩进，应该像这个指南里的其他多行代码写法一样——即每行只包含一个参数，每行逗号结尾。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token parameter">bar<span class="token punctuation">,</span>
              baz<span class="token punctuation">,</span>
              quux</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -715,7 +715,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>什么时候不用箭头函数：如果你的函数逻辑较复杂，你应该把它单独写入一个命名函数里头。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> y <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> x <span class="token operator">*</span> y<span class="token punctuation">;</span>
@@ -730,7 +730,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？语法糖，当多个函数链在一起的时候好读。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">number</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> nextNumber <span class="token operator">=</span> number <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
   <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">A string containing the </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>nextNumber<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
@@ -772,7 +772,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？这样能清晰地显示函数的开始位置和结束位置。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token punctuation">[</span><span class="token string">'get'</span><span class="token punctuation">,</span> <span class="token string">'post'</span><span class="token punctuation">,</span> <span class="token string">'put'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">httpMethod</span> <span class="token operator">=></span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>
     httpMagicObjectWithAVeryLongName<span class="token punctuation">,</span>
     httpMethod
@@ -790,7 +790,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？当你想要添加或删除参数时能比较省事。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">x</span> <span class="token operator">=></span> x <span class="token operator">*</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -819,7 +819,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token keyword">return</span> x <span class="token operator">*</span> y<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】避免箭头函数-和比较操作符-混淆-eslint-no-confusing-arrow" tabindex="-1"><a class="header-anchor" href="#【推荐】避免箭头函数-和比较操作符-混淆-eslint-no-confusing-arrow" aria-hidden="true">#</a> <code v-pre>【推荐】</code>避免箭头函数（<code v-pre>=&gt;</code>）和比较操作符（<code v-pre>&lt;=</code>, <code v-pre>&gt;=</code>）混淆. eslint: <a href="http://eslint.org/docs/rules/no-confusing-arrow" target="_blank" rel="noopener noreferrer"><code v-pre>no-confusing-arrow</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> <span class="token function-variable function">itemHeight</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=></span> item<span class="token punctuation">.</span>height <span class="token operator">&lt;=</span> <span class="token number">256</span> <span class="token operator">?</span> item<span class="token punctuation">.</span>largeSize <span class="token operator">:</span> item<span class="token punctuation">.</span>smallSize<span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
@@ -834,7 +834,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token keyword">return</span> height <span class="token operator">&lt;=</span> <span class="token number">256</span> <span class="token operator">?</span> largeSize <span class="token operator">:</span> smallSize<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】使箭头函数体有一个清晰的返回。-eslint-implicit-arrow-linebreak" tabindex="-1"><a class="header-anchor" href="#【推荐】使箭头函数体有一个清晰的返回。-eslint-implicit-arrow-linebreak" aria-hidden="true">#</a> <code v-pre>【推荐】</code>使箭头函数体有一个清晰的返回。 eslint: <a href="https://eslint.org/docs/rules/implicit-arrow-linebreak" target="_blank" rel="noopener noreferrer"><code v-pre>implicit-arrow-linebreak</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token punctuation">(</span><span class="token parameter">foo</span><span class="token punctuation">)</span> <span class="token operator">=></span>
   bar<span class="token punctuation">;</span>
 
@@ -852,7 +852,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？<code v-pre>class</code> 语法更简洁更易理解。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">Queue</span><span class="token punctuation">(</span><span class="token parameter">contents <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>queue <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>contents<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -877,7 +877,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？它是一种内置的方法来继承原型功能而不破坏 <code v-pre>instanceof</code>。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> inherits <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'inherits'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">PeekableQueue</span><span class="token punctuation">(</span><span class="token parameter">contents</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">Queue</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> contents<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -894,7 +894,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】方法可以返回-this-来实现链式调用。" tabindex="-1"><a class="header-anchor" href="#【推荐】方法可以返回-this-来实现链式调用。" aria-hidden="true">#</a> <code v-pre>【推荐】</code>方法可以返回 <code v-pre>this</code> 来实现链式调用。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token class-name">Jedi</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">jump</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>jumping <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
@@ -926,7 +926,7 @@ luke<span class="token punctuation">.</span><span class="token function">setHeig
 luke<span class="token punctuation">.</span><span class="token function">jump</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">setHeight</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-自己写-tostring-方法是可以的-但需要保证它可以正常工作且没有副作用。" tabindex="-1"><a class="header-anchor" href="#【强制】-自己写-tostring-方法是可以的-但需要保证它可以正常工作且没有副作用。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 自己写 <code v-pre>toString()</code> 方法是可以的，但需要保证它可以正常工作且没有副作用。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Jedi</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Jedi</span> <span class="token punctuation">{</span>
   <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> options<span class="token punctuation">.</span>name <span class="token operator">||</span> <span class="token string">'no name'</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
@@ -940,7 +940,7 @@ luke<span class="token punctuation">.</span><span class="token function">jump</s
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-如果没有特别定义-类有默认的构造方法。一个空的构造函数或只是代表父类的构造函数是不需要写的。-eslint-no-useless-constructor" tabindex="-1"><a class="header-anchor" href="#【强制】-如果没有特别定义-类有默认的构造方法。一个空的构造函数或只是代表父类的构造函数是不需要写的。-eslint-no-useless-constructor" aria-hidden="true">#</a> <code v-pre>【强制】</code> 如果没有特别定义，类有默认的构造方法。一个空的构造函数或只是代表父类的构造函数是不需要写的。 eslint: <a href="http://eslint.org/docs/rules/no-useless-constructor" target="_blank" rel="noopener noreferrer"><code v-pre>no-useless-constructor</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">class</span> <span class="token class-name">Jedi</span> <span class="token punctuation">{</span>
   <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
@@ -968,7 +968,7 @@ luke<span class="token punctuation">.</span><span class="token function">jump</s
 <blockquote>
 <p>为什么？重复定义类成员只会使用最后一个被定义的 —— 重复本身也是一个 bug.</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span>
   <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
   <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
@@ -984,7 +984,7 @@ luke<span class="token punctuation">.</span><span class="token function">jump</s
   <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】除非外部库或框架需要使用特定的非静态方法-否则类方法应该使用-this-或被写成静态方法。-作为一个实例方法表明它应该根据实例的属性有不同的行为。eslint-class-methods-use-this" tabindex="-1"><a class="header-anchor" href="#【推荐】除非外部库或框架需要使用特定的非静态方法-否则类方法应该使用-this-或被写成静态方法。-作为一个实例方法表明它应该根据实例的属性有不同的行为。eslint-class-methods-use-this" aria-hidden="true">#</a> <code v-pre>【推荐】</code>除非外部库或框架需要使用特定的非静态方法，否则类方法应该使用 <code v-pre>this</code> 或被写成静态方法。 作为一个实例方法表明它应该根据实例的属性有不同的行为。eslint: <a href="https://eslint.org/docs/rules/class-methods-use-this" target="_blank" rel="noopener noreferrer"><code v-pre>class-methods-use-this</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span>
   <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'bar'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1016,7 +1016,7 @@ luke<span class="token punctuation">.</span><span class="token function">jump</s
 <blockquote>
 <p>为什么？模块化是未来，让我们现在就开启未来吧。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> AirbnbStyleGuide <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./AirbnbStyleGuide'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> AirbnbStyleGuide<span class="token punctuation">.</span>es6<span class="token punctuation">;</span>
 
@@ -1031,7 +1031,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <blockquote>
 <p>为什么？这确保你有单个默认的导出。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> AirbnbStyleGuide <span class="token keyword">from</span> <span class="token string">'./AirbnbStyleGuide'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -1040,7 +1040,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <blockquote>
 <p>为什么？虽然只写一行很简洁，但是使用明确 <code v-pre>import</code> 和明确的 <code v-pre>export</code> 来保证一致性。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token comment">// filename es6.js</span>
 <span class="token keyword">export</span> <span class="token punctuation">{</span> es6 <span class="token keyword">as</span> <span class="token keyword">default</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./AirbnbStyleGuide'</span><span class="token punctuation">;</span>
 
@@ -1052,7 +1052,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <blockquote>
 <p>为什么？多行导入同一路径将使代码变得难以维护。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">import</span> foo <span class="token keyword">from</span> <span class="token string">'foo'</span><span class="token punctuation">;</span>
 <span class="token comment">// … 其他导入 … //</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> named1<span class="token punctuation">,</span> named2 <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'foo'</span><span class="token punctuation">;</span>
@@ -1069,7 +1069,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <blockquote>
 <p>为什么？变化通常都是需要避免，特别是当你要输出可变的绑定。虽然在某些场景下可能需要这种技术，但总的来说应该导出常量。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">let</span> foo <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token punctuation">{</span> foo <span class="token punctuation">}</span>
 
@@ -1080,7 +1080,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <blockquote>
 <p>为什么？鼓励使用更多文件，每个文件只导出一次，这样可读性和可维护性更好。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
 <span class="token comment">// good</span>
@@ -1089,7 +1089,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 <blockquote>
 <p>为什么？因为 <code v-pre>import</code> 会被提升到代码最前面运行，因此将他们放在最前面以防止发生意外行为。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">import</span> foo <span class="token keyword">from</span> <span class="token string">'foo'</span><span class="token punctuation">;</span>
 foo<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1104,7 +1104,7 @@ foo<span class="token punctuation">.</span><span class="token function">init</sp
 <blockquote>
 <p>为什么？花括号与样式指南中每个其他花括号块遵循相同的缩进规则，逗号也是。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>longNameA<span class="token punctuation">,</span> longNameB<span class="token punctuation">,</span> longNameC<span class="token punctuation">,</span> longNameD<span class="token punctuation">,</span> longNameE<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'path'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -1119,7 +1119,7 @@ foo<span class="token punctuation">.</span><span class="token function">init</sp
 <blockquote>
 <p>为什么？一旦用 Webpack 语法在 import 里会把代码耦合到模块绑定器。最好是在 <code v-pre>webpack.config.js</code> 里写 webpack loader 语法</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">import</span> fooSass <span class="token keyword">from</span> <span class="token string">'css!sass!foo.scss'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> barCss <span class="token keyword">from</span> <span class="token string">'style!css!bar.css'</span><span class="token punctuation">;</span>
 
@@ -1134,7 +1134,7 @@ foo<span class="token punctuation">.</span><span class="token function">init</sp
 <blockquote>
 <p>用数组的这些迭代方法： <code v-pre>map()</code> / <code v-pre>every()</code> / <code v-pre>filter()</code> / <code v-pre>find()</code> / <code v-pre>findIndex()</code> / <code v-pre>reduce()</code> / <code v-pre>some()</code> / ... , 用对象的这些方法 <code v-pre>Object.keys()</code> / <code v-pre>Object.values()</code> / <code v-pre>Object.entries()</code> 去产生一个数组，这样你就能去遍历对象了。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
 <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -1172,7 +1172,7 @@ numbers<span class="token punctuation">.</span><span class="token function">forE
 <blockquote>
 <p>为什么？<code v-pre>function</code> 和 <code v-pre>*</code> 是同一概念关键字 - <code v-pre>*</code>不是<code v-pre>function</code>的修饰符，<code v-pre>function*</code> 是一个和<code v-pre>function</code> 不一样的独特结构。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token operator">*</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">}</span>
@@ -1227,7 +1227,7 @@ numbers<span class="token punctuation">.</span><span class="token function">forE
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="属性" tabindex="-1"><a class="header-anchor" href="#属性" aria-hidden="true">#</a> 属性</h3>
 <h4 id="【强制】-访问属性时使用点符号。eslint-dot-notation" tabindex="-1"><a class="header-anchor" href="#【强制】-访问属性时使用点符号。eslint-dot-notation" aria-hidden="true">#</a> <code v-pre>【强制】</code> 访问属性时使用点符号。eslint: <a href="http://eslint.org/docs/rules/dot-notation.html" target="_blank" rel="noopener noreferrer"><code v-pre>dot-notation</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> luke <span class="token operator">=</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> luke <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">jedi</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1238,7 +1238,7 @@ numbers<span class="token punctuation">.</span><span class="token function">forE
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> isJedi <span class="token operator">=</span> luke<span class="token punctuation">.</span>jedi<span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-当使用变量获取属性时用方括号-。" tabindex="-1"><a class="header-anchor" href="#【强制】-当使用变量获取属性时用方括号-。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 当使用变量获取属性时用方括号 <code v-pre>[]</code>。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> luke <span class="token operator">=</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> luke <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">jedi</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">28</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1249,14 +1249,14 @@ numbers<span class="token punctuation">.</span><span class="token function">forE
 
 <span class="token keyword">const</span> isJedi <span class="token operator">=</span> <span class="token function">getProp</span><span class="token punctuation">(</span><span class="token string">'jedi'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-做幂运算时用幂操作符-。eslint-no-restricted-properties" tabindex="-1"><a class="header-anchor" href="#【强制】-做幂运算时用幂操作符-。eslint-no-restricted-properties" aria-hidden="true">#</a> <code v-pre>【强制】</code> 做幂运算时用幂操作符 <code v-pre>**</code> 。eslint: <a href="https://eslint.org/docs/rules/no-restricted-properties" target="_blank" rel="noopener noreferrer"><code v-pre>no-restricted-properties</code> <ExternalLinkIcon/></a>.</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> binary <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> binary <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token number">10</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="变量" tabindex="-1"><a class="header-anchor" href="#变量" aria-hidden="true">#</a> 变量</h3>
 <h4 id="【强制】-使用-const-或-let-声明变量。不这样做会导致全局变量。我们想要避免污染全局命名空间。地球超人也这样警告我们-译者注-可能是一个冷笑话-。-eslint-no-undef-prefer-const" tabindex="-1"><a class="header-anchor" href="#【强制】-使用-const-或-let-声明变量。不这样做会导致全局变量。我们想要避免污染全局命名空间。地球超人也这样警告我们-译者注-可能是一个冷笑话-。-eslint-no-undef-prefer-const" aria-hidden="true">#</a> <code v-pre>【强制】</code> 使用 <code v-pre>const</code> 或 <code v-pre>let</code> 声明变量。不这样做会导致全局变量。我们想要避免污染全局命名空间。地球超人也这样警告我们（译者注：可能是一个冷笑话）。 eslint: <a href="http://eslint.org/docs/rules/no-undef" target="_blank" rel="noopener noreferrer"><code v-pre>no-undef</code> <ExternalLinkIcon/></a><a href="http://eslint.org/docs/rules/prefer-const" target="_blank" rel="noopener noreferrer"><code v-pre>prefer-const</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 superPower <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SuperPower</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -1265,7 +1265,7 @@ superPower <span class="token operator">=</span> <span class="token keyword">new
 <blockquote>
 <p>为什么？这种方式很容易去声明新的变量，你不用去考虑把 <code v-pre>;</code> 调换成 <code v-pre>,</code>，或者引入一个只有标点的不同的变化（译者注：这里说的应该是在 Git 提交代码时显示的变化）。这种做法也可以是你在调试的时候单步每个声明语句，而不是一下跳过所有声明。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token function">getItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     goSportsTeam <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     dragonball <span class="token operator">=</span> <span class="token string">'z'</span><span class="token punctuation">;</span>
@@ -1284,7 +1284,7 @@ superPower <span class="token operator">=</span> <span class="token keyword">new
 <blockquote>
 <p>为什么？在你需要分配一个新的变量，而这个变量依赖之前分配过的变量的时候，这种做法是有帮助的。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">let</span> i<span class="token punctuation">,</span> len<span class="token punctuation">,</span> dragonball<span class="token punctuation">,</span>
     items <span class="token operator">=</span> <span class="token function">getItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     goSportsTeam <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
@@ -1306,7 +1306,7 @@ superPower <span class="token operator">=</span> <span class="token keyword">new
 <blockquote>
 <p>为什么？<code v-pre>let</code> 和 <code v-pre>const</code> 都是块级作用域而不是函数级作用域。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad - 不必要的函数调用。</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad - 不必要的函数调用。</span>
 <span class="token keyword">function</span> <span class="token function">checkName</span><span class="token punctuation">(</span><span class="token parameter">hasName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1342,7 +1342,7 @@ superPower <span class="token operator">=</span> <span class="token keyword">new
 <blockquote>
 <p>为什么？链式声明变量会创建隐式全局变量。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// JavaScript 将这一段解释为</span>
   <span class="token comment">// let a = ( b = ( c = 1 ) );</span>
@@ -1370,7 +1370,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？根据 eslint 文档，一元增量和减量语句受到自动分号插入的影响，并且可能会导致应用程序中的值递增或递减的静默错误。 使用 <code v-pre>num + = 1</code> 而不是 <code v-pre>num ++</code> 或 <code v-pre>num ++</code> 语句也是含义清晰的。 禁止一元增量和减量语句还会阻止您无意地预增/预减值，这也会导致程序出现意外行为。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code>  <span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code>  <span class="token comment">// bad</span>
 
   <span class="token keyword">const</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -1400,7 +1400,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？在 <code v-pre>=</code> 附近换行容易混淆这个赋值语句。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span>
   <span class="token function">superLongLongLongLongLongLongLongLongFunctionName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1419,7 +1419,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？一个声明了但未使用的变量更像是由于重构未完成产生的错误。这种在代码中出现的变量会使阅读者迷惑。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 
 <span class="token keyword">var</span> some_unused_var <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
 
@@ -1452,7 +1452,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 <span class="token comment">// 'coords' 现在就是一个没有 'type' 属性的 'data' 对象</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="提升" tabindex="-1"><a class="header-anchor" href="#提升" aria-hidden="true">#</a> 提升</h3>
 <h4 id="var-声明会被提前到离他最近的作用域的最前面-但是它的赋值语句并没有提前。const-和-let-被赋予了新的概念-暂时性死区-。-重要的是要知道为什么-typeof-不再安全" tabindex="-1"><a class="header-anchor" href="#var-声明会被提前到离他最近的作用域的最前面-但是它的赋值语句并没有提前。const-和-let-被赋予了新的概念-暂时性死区-。-重要的是要知道为什么-typeof-不再安全" aria-hidden="true">#</a> <code v-pre>var</code> 声明会被提前到离他最近的作用域的最前面，但是它的赋值语句并没有提前。<code v-pre>const</code> 和 <code v-pre>let</code> 被赋予了新的概念 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let" target="_blank" rel="noopener noreferrer">暂时性死区 <ExternalLinkIcon/></a>。 重要的是要知道为什么 <a href="http://es-discourse.com/t/why-typeof-is-no-longer-safe/15" target="_blank" rel="noopener noreferrer">typeof 不再安全 <ExternalLinkIcon/></a>.</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// 我们知道这个不会工作，假设没有定义全局的 notDefined</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// 我们知道这个不会工作，假设没有定义全局的 notDefined</span>
 <span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>notDefined<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => throws a ReferenceError</span>
 <span class="token punctuation">}</span>
@@ -1479,7 +1479,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token keyword">const</span> declaredButNotAssigned <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-匿名函数表达式和-var-情况相同。" tabindex="-1"><a class="header-anchor" href="#【强制】-匿名函数表达式和-var-情况相同。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 匿名函数表达式和 <code v-pre>var</code> 情况相同。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>anonymous<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => undefined</span>
 
   <span class="token function">anonymous</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => TypeError anonymous is not a function</span>
@@ -1490,7 +1490,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="已命名函数表达式提升他的变量名-不是函数名或函数体。" tabindex="-1"><a class="header-anchor" href="#已命名函数表达式提升他的变量名-不是函数名或函数体。" aria-hidden="true">#</a> 已命名函数表达式提升他的变量名，不是函数名或函数体。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>named<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => undefined</span>
 
   <span class="token function">named</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => TypeError named is not a function</span>
@@ -1513,7 +1513,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="函数声明则提升了函数名和函数体。" tabindex="-1"><a class="header-anchor" href="#函数声明则提升了函数名和函数体。" aria-hidden="true">#</a> 函数声明则提升了函数名和函数体。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">example</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">superPower</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// => Flying</span>
 
   <span class="token keyword">function</span> <span class="token function">superPower</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -1552,12 +1552,12 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 </ul>
 </li>
 </ul>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// true</span>
   <span class="token comment">// 数组（即使是空数组）是对象，对象会计算成 true</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】布尔值要用缩写-而字符串和数字要明确使用比较操作符。" tabindex="-1"><a class="header-anchor" href="#【推荐】布尔值要用缩写-而字符串和数字要明确使用比较操作符。" aria-hidden="true">#</a> <code v-pre>【推荐】</code>布尔值要用缩写，而字符串和数字要明确使用比较操作符。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>isValid <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">}</span>
@@ -1591,7 +1591,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 <blockquote>
 <p>为什么？词法声明在整个 <code v-pre>switch</code> 的代码块里都可见，但是只有当其被分配后才会初始化，仅当这个 <code v-pre>case</code> 被执行时才被初始化。当多个 <code v-pre>case</code> 分句试图定义同一个对象时就会出现问题。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">switch</span> <span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
     <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -1632,7 +1632,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-三元表达式不应该嵌套-通常是单行表达式。eslint-rules-no-nested-ternary" tabindex="-1"><a class="header-anchor" href="#【强制】-三元表达式不应该嵌套-通常是单行表达式。eslint-rules-no-nested-ternary" aria-hidden="true">#</a> <code v-pre>【强制】</code> 三元表达式不应该嵌套，通常是单行表达式。eslint rules: <a href="http://eslint.org/docs/rules/no-nested-ternary.html" target="_blank" rel="noopener noreferrer"><code v-pre>no-nested-ternary</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> maybe1 <span class="token operator">></span> maybe2
   <span class="token operator">?</span> <span class="token string">"bar"</span>
   <span class="token operator">:</span> value1 <span class="token operator">></span> value2 <span class="token operator">?</span> <span class="token string">"baz"</span> <span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
@@ -1649,7 +1649,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 
 <span class="token keyword">const</span> foo <span class="token operator">=</span> maybe1 <span class="token operator">></span> maybe2 <span class="token operator">?</span> <span class="token string">'bar'</span> <span class="token operator">:</span> maybeNull<span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-避免不必要的三元表达式。eslint-rules-no-unneeded-ternary" tabindex="-1"><a class="header-anchor" href="#【强制】-避免不必要的三元表达式。eslint-rules-no-unneeded-ternary" aria-hidden="true">#</a> <code v-pre>【强制】</code> 避免不必要的三元表达式。eslint rules: <a href="http://eslint.org/docs/rules/no-unneeded-ternary.html" target="_blank" rel="noopener noreferrer"><code v-pre>no-unneeded-ternary</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> a <span class="token operator">?</span> a <span class="token operator">:</span> b<span class="token punctuation">;</span>
 <span class="token keyword">const</span> bar <span class="token operator">=</span> c <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> baz <span class="token operator">=</span> c <span class="token operator">?</span> <span class="token boolean">false</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
@@ -1662,7 +1662,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 <blockquote>
 <p>为什么？这提高了可读性，并且明确了开发者的意图。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> a <span class="token operator">&amp;&amp;</span> b <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> c <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> d <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
@@ -1689,7 +1689,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 <span class="token keyword">const</span> bar <span class="token operator">=</span> a <span class="token operator">+</span> b <span class="token operator">/</span> c <span class="token operator">*</span> d<span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="块" tabindex="-1"><a class="header-anchor" href="#块" aria-hidden="true">#</a> 块</h3>
 <h4 id="【强制】-用大括号包裹多行代码块。-eslint-nonblock-statement-body-position" tabindex="-1"><a class="header-anchor" href="#【强制】-用大括号包裹多行代码块。-eslint-nonblock-statement-body-position" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用大括号包裹多行代码块。 eslint: <a href="https://eslint.org/docs/rules/nonblock-statement-body-position" target="_blank" rel="noopener noreferrer"><code v-pre>nonblock-statement-body-position</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>test<span class="token punctuation">)</span>
   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
@@ -1709,7 +1709,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-if-表达式的-else和-if-的右大括号在一行。eslint-brace-style" tabindex="-1"><a class="header-anchor" href="#【强制】-if-表达式的-else和-if-的右大括号在一行。eslint-brace-style" aria-hidden="true">#</a> <code v-pre>【强制】</code> <code v-pre>if</code> 表达式的 <code v-pre>else</code>和 <code v-pre>if</code> 的右大括号在一行。eslint: <a href="http://eslint.org/docs/rules/brace-style.html" target="_blank" rel="noopener noreferrer"><code v-pre>brace-style</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>test<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">thing1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token function">thing2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1726,7 +1726,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token function">thing3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-如果-if-语句中总是需要用-return-返回-那后续的-else-就不需要写了。-if-块中包含-return-它后面的-else-if-块中也包含了-return-这个时候就可以把-return-分到多个-if-语句块中。-eslint-no-else-return" tabindex="-1"><a class="header-anchor" href="#【强制】-如果-if-语句中总是需要用-return-返回-那后续的-else-就不需要写了。-if-块中包含-return-它后面的-else-if-块中也包含了-return-这个时候就可以把-return-分到多个-if-语句块中。-eslint-no-else-return" aria-hidden="true">#</a> <code v-pre>【强制】</code> 如果 <code v-pre>if</code> 语句中总是需要用 <code v-pre>return</code> 返回，那后续的 <code v-pre>else</code> 就不需要写了。 <code v-pre>if</code> 块中包含 <code v-pre>return</code>， 它后面的 <code v-pre>else if</code> 块中也包含了 <code v-pre>return</code>， 这个时候就可以把 <code v-pre>return</code> 分到多个 <code v-pre>if</code> 语句块中。 eslint: <a href="https://eslint.org/docs/rules/no-else-return" target="_blank" rel="noopener noreferrer"><code v-pre>no-else-return</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> x<span class="token punctuation">;</span>
@@ -1789,7 +1789,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 <blockquote>
 <p>为什么？把逻辑操作符放在行首是让操作符的对齐方式和链式函数保持一致。这提高了可读性，也让复杂逻辑更清晰。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>foo <span class="token operator">===</span> <span class="token number">123</span> <span class="token operator">||</span> bar <span class="token operator">===</span> <span class="token string">'abc'</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">doesItLookGoodWhenItBecomesThatLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isThisReallyHappening</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">thing1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -1836,7 +1836,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token function">thing1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】不要用选择操作符代替控制语句。" tabindex="-1"><a class="header-anchor" href="#【推荐】不要用选择操作符代替控制语句。" aria-hidden="true">#</a> <code v-pre>【推荐】</code>不要用选择操作符代替控制语句。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token operator">!</span>isRunning <span class="token operator">&amp;&amp;</span> <span class="token function">startRunning</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -1845,7 +1845,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="注释" tabindex="-1"><a class="header-anchor" href="#注释" aria-hidden="true">#</a> 注释</h3>
 <h4 id="【强制】-多行注释用-。" tabindex="-1"><a class="header-anchor" href="#【强制】-多行注释用-。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 多行注释用 <code v-pre>/** ... */</code>。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token comment">// make() returns a new element</span>
 <span class="token comment">// based on the passed in tag name</span>
 <span class="token comment">//</span>
@@ -1870,7 +1870,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token keyword">return</span> element<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-单行注释用-将单行注释放在被注释区域上面。如果注释不是在第一行-那么注释前面就空一行。" tabindex="-1"><a class="header-anchor" href="#【强制】-单行注释用-将单行注释放在被注释区域上面。如果注释不是在第一行-那么注释前面就空一行。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 单行注释用 <code v-pre>//</code>，将单行注释放在被注释区域上面。如果注释不是在第一行，那么注释前面就空一行。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> active <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>  <span class="token comment">// is current tab</span>
 
 <span class="token comment">// good</span>
@@ -1904,7 +1904,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token keyword">return</span> type<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-所有注释开头空一格-方便阅读。eslint-spaced-comment" tabindex="-1"><a class="header-anchor" href="#【强制】-所有注释开头空一格-方便阅读。eslint-spaced-comment" aria-hidden="true">#</a> <code v-pre>【强制】</code> 所有注释开头空一格，方便阅读。eslint: <a href="http://eslint.org/docs/rules/spaced-comment" target="_blank" rel="noopener noreferrer"><code v-pre>spaced-comment</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token comment">//is current tab</span>
 <span class="token keyword">const</span> active <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
 
@@ -1937,7 +1937,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-在你的注释前使用-fixme-或-todo-前缀-这有助于其他开发人员快速理解你指出的需要修复的问题-或者您建议需要实现的问题的解决方案。-这些不同于常规注释-它们是有明确含义的。fixme-需要修复这个问题或todo-需要实现的功能。" tabindex="-1"><a class="header-anchor" href="#【强制】-在你的注释前使用-fixme-或-todo-前缀-这有助于其他开发人员快速理解你指出的需要修复的问题-或者您建议需要实现的问题的解决方案。-这些不同于常规注释-它们是有明确含义的。fixme-需要修复这个问题或todo-需要实现的功能。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 在你的注释前使用 <code v-pre>FIXME</code> 或 <code v-pre>TODO</code> 前缀，这有助于其他开发人员快速理解你指出的需要修复的问题， 或者您建议需要实现的问题的解决方案。 这些不同于常规注释，它们是有明确含义的。<code v-pre>FIXME：需要修复这个问题</code>或<code v-pre>TODO：需要实现的功能</code>。</h4>
 <h4 id="【强制】-用-fixme-给问题做注释。" tabindex="-1"><a class="header-anchor" href="#【强制】-用-fixme-给问题做注释。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用 <code v-pre>// FIXME:</code> 给问题做注释。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Calculator</span> <span class="token keyword">extends</span> <span class="token class-name">Abacus</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Calculator</span> <span class="token keyword">extends</span> <span class="token class-name">Abacus</span> <span class="token punctuation">{</span>
   <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1946,7 +1946,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用-todo-去注释问题的解决方案。" tabindex="-1"><a class="header-anchor" href="#【强制】-用-todo-去注释问题的解决方案。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用 <code v-pre>// TODO:</code> 去注释问题的解决方案。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Calculator</span> <span class="token keyword">extends</span> <span class="token class-name">Abacus</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Calculator</span> <span class="token keyword">extends</span> <span class="token class-name">Abacus</span> <span class="token punctuation">{</span>
   <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1956,7 +1956,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="空格" tabindex="-1"><a class="header-anchor" href="#空格" aria-hidden="true">#</a> 空格</h3>
 <h4 id="【强制】-一个缩进使用两个空格。eslint-indent" tabindex="-1"><a class="header-anchor" href="#【强制】-一个缩进使用两个空格。eslint-indent" aria-hidden="true">#</a> <code v-pre>【强制】</code> 一个缩进使用两个空格。eslint: <a href="http://eslint.org/docs/rules/indent.html" target="_blank" rel="noopener noreferrer"><code v-pre>indent</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 ∙∙∙∙<span class="token keyword">const</span> name<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -1971,7 +1971,7 @@ z <span class="token operator">=</span> z <span class="token operator">+</span> 
 ∙∙<span class="token keyword">const</span> name<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】在大括号前空一格。eslint-space-before-blocks" tabindex="-1"><a class="header-anchor" href="#【推荐】在大括号前空一格。eslint-space-before-blocks" aria-hidden="true">#</a> <code v-pre>【推荐】</code>在大括号前空一格。eslint: <a href="http://eslint.org/docs/rules/space-before-blocks.html" target="_blank" rel="noopener noreferrer"><code v-pre>space-before-blocks</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'test'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -1993,7 +1993,7 @@ dog<span class="token punctuation">.</span><span class="token function">set</spa
   <span class="token literal-property property">breed</span><span class="token operator">:</span> <span class="token string">'Bernese Mountain Dog'</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】在控制语句-if-while-等-的圆括号前空一格。在函数调用和定义时-参数列表和函数名之间不空格。-eslint-keyword-spacing" tabindex="-1"><a class="header-anchor" href="#【推荐】在控制语句-if-while-等-的圆括号前空一格。在函数调用和定义时-参数列表和函数名之间不空格。-eslint-keyword-spacing" aria-hidden="true">#</a> <code v-pre>【推荐】</code>在控制语句（<code v-pre>if</code>, <code v-pre>while</code> 等）的圆括号前空一格。在函数调用和定义时，参数列表和函数名之间不空格。 eslint: <a href="http://eslint.org/docs/rules/keyword-spacing.html" target="_blank" rel="noopener noreferrer"><code v-pre>keyword-spacing</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">if</span><span class="token punctuation">(</span>isJedi<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token function">fight</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2013,26 +2013,26 @@ dog<span class="token punctuation">.</span><span class="token function">set</spa
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Swooosh!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】用空格来隔开运算符。eslint-space-infix-ops" tabindex="-1"><a class="header-anchor" href="#【推荐】用空格来隔开运算符。eslint-space-infix-ops" aria-hidden="true">#</a> <code v-pre>【推荐】</code>用空格来隔开运算符。eslint: <a href="http://eslint.org/docs/rules/space-infix-ops.html" target="_blank" rel="noopener noreferrer"><code v-pre>space-infix-ops</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> x<span class="token operator">=</span>y<span class="token operator">+</span><span class="token number">5</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> x <span class="token operator">=</span> y <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】文件结尾空一行。eslint-eol-last" tabindex="-1"><a class="header-anchor" href="#【推荐】文件结尾空一行。eslint-eol-last" aria-hidden="true">#</a> <code v-pre>【推荐】</code>文件结尾空一行。eslint: <a href="https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md" target="_blank" rel="noopener noreferrer"><code v-pre>eol-last</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> es6 <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./AirbnbStyleGuide'</span><span class="token punctuation">;</span>
   <span class="token comment">// ...</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> es6<span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> es6 <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./AirbnbStyleGuide'</span><span class="token punctuation">;</span>
   <span class="token comment">// ...</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> es6<span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// good</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// good</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> es6 <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./AirbnbStyleGuide'</span><span class="token punctuation">;</span>
   <span class="token comment">// ...</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> es6<span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-当出现长的方法链式调用时-2个-用缩进。用点开头强调该行是一个方法调用-而不是一个新的语句。eslint-newline-per-chained-callno-whitespace-before-property" tabindex="-1"><a class="header-anchor" href="#【强制】-当出现长的方法链式调用时-2个-用缩进。用点开头强调该行是一个方法调用-而不是一个新的语句。eslint-newline-per-chained-callno-whitespace-before-property" aria-hidden="true">#</a> <code v-pre>【强制】</code> 当出现长的方法链式调用时（&gt;2个）用缩进。用点开头强调该行是一个方法调用，而不是一个新的语句。eslint: <a href="http://eslint.org/docs/rules/newline-per-chained-call" target="_blank" rel="noopener noreferrer"><code v-pre>newline-per-chained-call</code><ExternalLinkIcon/></a><a href="http://eslint.org/docs/rules/no-whitespace-before-property" target="_blank" rel="noopener noreferrer"><code v-pre>no-whitespace-before-property</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#items'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">'.selected'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">highlight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">'.open'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">updateCount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
@@ -2070,7 +2070,7 @@ dog<span class="token punctuation">.</span><span class="token function">set</spa
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> leds <span class="token operator">=</span> stage<span class="token punctuation">.</span><span class="token function">selectAll</span><span class="token punctuation">(</span><span class="token string">'.led'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】在一个代码块后下一条语句前空一行。" tabindex="-1"><a class="header-anchor" href="#【推荐】在一个代码块后下一条语句前空一行。" aria-hidden="true">#</a> <code v-pre>【推荐】</code>在一个代码块后下一条语句前空一行。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> bar<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2123,7 +2123,7 @@ dog<span class="token punctuation">.</span><span class="token function">set</spa
 
 <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-不要用空白行填充块。eslint-padded-blocks" tabindex="-1"><a class="header-anchor" href="#【强制】-不要用空白行填充块。eslint-padded-blocks" aria-hidden="true">#</a> <code v-pre>【强制】</code> 不要用空白行填充块。eslint: <a href="http://eslint.org/docs/rules/padded-blocks.html" target="_blank" rel="noopener noreferrer"><code v-pre>padded-blocks</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2151,7 +2151,7 @@ dog<span class="token punctuation">.</span><span class="token function">set</spa
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-不要在代码之间使用多个空白行填充。eslint-no-multiple-empty-lines" tabindex="-1"><a class="header-anchor" href="#【强制】-不要在代码之间使用多个空白行填充。eslint-no-multiple-empty-lines" aria-hidden="true">#</a> <code v-pre>【强制】</code> 不要在代码之间使用多个空白行填充。eslint: <a href="https://eslint.org/docs/rules/no-multiple-empty-lines" target="_blank" rel="noopener noreferrer"><code v-pre>no-multiple-empty-lines</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
   <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">fullName<span class="token punctuation">,</span> email<span class="token punctuation">,</span> birthday</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>fullName <span class="token operator">=</span> fullName<span class="token punctuation">;</span>
@@ -2199,7 +2199,7 @@ dog<span class="token punctuation">.</span><span class="token function">set</spa
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-圆括号里不要加空格。eslint-space-in-parens" tabindex="-1"><a class="header-anchor" href="#【强制】-圆括号里不要加空格。eslint-space-in-parens" aria-hidden="true">#</a> <code v-pre>【强制】</code> 圆括号里不要加空格。eslint: <a href="http://eslint.org/docs/rules/space-in-parens.html" target="_blank" rel="noopener noreferrer"><code v-pre>space-in-parens</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span> <span class="token parameter">foo</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> foo<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2219,7 +2219,7 @@ dog<span class="token punctuation">.</span><span class="token function">set</spa
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-方括号里不要加空格。-eslint-array-bracket-spacing" tabindex="-1"><a class="header-anchor" href="#【强制】-方括号里不要加空格。-eslint-array-bracket-spacing" aria-hidden="true">#</a> <code v-pre>【强制】</code> 方括号里不要加空格。 eslint: <a href="http://eslint.org/docs/rules/array-bracket-spacing.html" target="_blank" rel="noopener noreferrer"><code v-pre>array-bracket-spacing</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">[</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -2227,7 +2227,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-花括号里加空格-。eslint-object-curly-spacing" tabindex="-1"><a class="header-anchor" href="#【强制】-花括号里加空格-。eslint-object-curly-spacing" aria-hidden="true">#</a> <code v-pre>【强制】</code> 花括号里加空格 。eslint: <a href="http://eslint.org/docs/rules/object-curly-spacing.html" target="_blank" rel="noopener noreferrer"><code v-pre>object-curly-spacing</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">clark</span><span class="token operator">:</span> <span class="token string">'kent'</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">// good</span>
@@ -2236,7 +2236,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <blockquote>
 <p>为什么？这样确保可读性和可维护性。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> foo <span class="token operator">=</span> jsonData <span class="token operator">&amp;&amp;</span> jsonData<span class="token punctuation">.</span>foo <span class="token operator">&amp;&amp;</span> jsonData<span class="token punctuation">.</span>foo<span class="token punctuation">.</span>bar <span class="token operator">&amp;&amp;</span> jsonData<span class="token punctuation">.</span>foo<span class="token punctuation">.</span>bar<span class="token punctuation">.</span>baz <span class="token operator">&amp;&amp;</span> jsonData<span class="token punctuation">.</span>foo<span class="token punctuation">.</span>bar<span class="token punctuation">.</span>baz<span class="token punctuation">.</span>quux <span class="token operator">&amp;&amp;</span> jsonData<span class="token punctuation">.</span>foo<span class="token punctuation">.</span>bar<span class="token punctuation">.</span>baz<span class="token punctuation">.</span>quux<span class="token punctuation">.</span>xyzzy<span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
@@ -2259,7 +2259,7 @@ $<span class="token punctuation">.</span><span class="token function">ajax</span
   <span class="token punctuation">.</span><span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Congratulations!'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'You have failed this city.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-作为语句的花括号内也要加空格-——-后和-前都需要空格。-eslint-block-spacing" tabindex="-1"><a class="header-anchor" href="#【强制】-作为语句的花括号内也要加空格-——-后和-前都需要空格。-eslint-block-spacing" aria-hidden="true">#</a> <code v-pre>【强制】</code> 作为语句的花括号内也要加空格 —— <code v-pre>{</code> 后和 <code v-pre>}</code> 前都需要空格。 eslint: <a href="https://eslint.org/docs/rules/block-spacing" target="_blank" rel="noopener noreferrer"><code v-pre>block-spacing</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span> bar <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
 
@@ -2267,7 +2267,7 @@ $<span class="token punctuation">.</span><span class="token function">ajax</span
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>foo<span class="token punctuation">)</span> <span class="token punctuation">{</span> bar <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-前不要空格-后需要空格。-eslint-comma-spacing" tabindex="-1"><a class="header-anchor" href="#【强制】-前不要空格-后需要空格。-eslint-comma-spacing" aria-hidden="true">#</a> <code v-pre>【强制】</code> <code v-pre>,</code> 前不要空格， <code v-pre>,</code> 后需要空格。 eslint: <a href="https://eslint.org/docs/rules/comma-spacing" target="_blank" rel="noopener noreferrer"><code v-pre>comma-spacing</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>bar <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span> <span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
@@ -2275,7 +2275,7 @@ $<span class="token punctuation">.</span><span class="token function">ajax</span
 <span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> bar <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-计算属性内要空格。参考上述花括号和中括号的规则。-eslint-computed-property-spacing" tabindex="-1"><a class="header-anchor" href="#【强制】-计算属性内要空格。参考上述花括号和中括号的规则。-eslint-computed-property-spacing" aria-hidden="true">#</a> <code v-pre>【强制】</code> 计算属性内要空格。参考上述花括号和中括号的规则。 eslint: <a href="https://eslint.org/docs/rules/computed-property-spacing" target="_blank" rel="noopener noreferrer"><code v-pre>computed-property-spacing</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 obj<span class="token punctuation">[</span>foo <span class="token punctuation">]</span>
 obj<span class="token punctuation">[</span> <span class="token string">'foo'</span><span class="token punctuation">]</span>
 <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">[</span> b <span class="token punctuation">]</span><span class="token operator">:</span> a<span class="token punctuation">}</span>
@@ -2287,7 +2287,7 @@ obj<span class="token punctuation">[</span><span class="token string">'foo'</spa
 <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>b<span class="token punctuation">]</span><span class="token operator">:</span> a <span class="token punctuation">}</span>
 obj<span class="token punctuation">[</span>foo<span class="token punctuation">[</span>bar<span class="token punctuation">]</span><span class="token punctuation">]</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-调用函数时-函数名和小括号之间不要空格。-eslint-func-call-spacing" tabindex="-1"><a class="header-anchor" href="#【强制】-调用函数时-函数名和小括号之间不要空格。-eslint-func-call-spacing" aria-hidden="true">#</a> <code v-pre>【强制】</code> 调用函数时，函数名和小括号之间不要空格。 eslint: <a href="https://eslint.org/docs/rules/func-call-spacing" target="_blank" rel="noopener noreferrer"><code v-pre>func-call-spacing</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token function">func</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token function">func</span>
@@ -2296,7 +2296,7 @@ obj<span class="token punctuation">[</span>foo<span class="token punctuation">[<
 <span class="token comment">// good</span>
 <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】在对象的字面量属性中-key-和-value-之间要有空格。-eslint-key-spacing" tabindex="-1"><a class="header-anchor" href="#【推荐】在对象的字面量属性中-key-和-value-之间要有空格。-eslint-key-spacing" aria-hidden="true">#</a> <code v-pre>【推荐】</code>在对象的字面量属性中， <code v-pre>key</code> 和 <code v-pre>value</code> 之间要有空格。 eslint: <a href="https://eslint.org/docs/rules/key-spacing" target="_blank" rel="noopener noreferrer"><code v-pre>key-spacing</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string-property property">"foo"</span> <span class="token operator">:</span> <span class="token number">42</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string-property property">"foo"</span><span class="token operator">:</span><span class="token number">42</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
@@ -2304,7 +2304,7 @@ obj<span class="token punctuation">[</span>foo<span class="token punctuation">[<
 <span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string-property property">"foo"</span><span class="token operator">:</span> <span class="token number">42</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-行末不要空格。-eslint-no-trailing-spaces" tabindex="-1"><a class="header-anchor" href="#【强制】-行末不要空格。-eslint-no-trailing-spaces" aria-hidden="true">#</a> <code v-pre>【强制】</code> 行末不要空格。 eslint: <a href="https://eslint.org/docs/rules/no-trailing-spaces" target="_blank" rel="noopener noreferrer"><code v-pre>no-trailing-spaces</code><ExternalLinkIcon/></a></h4>
 <h4 id="【强制】-避免出现多个空行。-在文件末尾只允许空一行。避免在文件开始处出现空行。eslint-no-multiple-empty-lines" tabindex="-1"><a class="header-anchor" href="#【强制】-避免出现多个空行。-在文件末尾只允许空一行。避免在文件开始处出现空行。eslint-no-multiple-empty-lines" aria-hidden="true">#</a> <code v-pre>【强制】</code> 避免出现多个空行。 在文件末尾只允许空一行。避免在文件开始处出现空行。eslint: <a href="https://eslint.org/docs/rules/no-multiple-empty-lines" target="_blank" rel="noopener noreferrer"><code v-pre>no-multiple-empty-lines</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad - multiple empty lines</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad - multiple empty lines</span>
 <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
 
@@ -2325,7 +2325,7 @@ obj<span class="token punctuation">[</span>foo<span class="token punctuation">[<
 <span class="token keyword">var</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="逗号" tabindex="-1"><a class="header-anchor" href="#逗号" aria-hidden="true">#</a> 逗号</h3>
 <h4 id="【强制】-不要前置逗号。eslint-comma-style" tabindex="-1"><a class="header-anchor" href="#【强制】-不要前置逗号。eslint-comma-style" aria-hidden="true">#</a> <code v-pre>【强制】</code> 不要前置逗号。eslint: <a href="http://eslint.org/docs/rules/comma-style.html" target="_blank" rel="noopener noreferrer"><code v-pre>comma-style</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> story <span class="token operator">=</span> <span class="token punctuation">[</span>
     once
   <span class="token punctuation">,</span> upon
@@ -2358,7 +2358,7 @@ obj<span class="token punctuation">[</span>foo<span class="token punctuation">[<
 <blockquote>
 <p>为什么？这使 git diffs 更简洁。此外，像Babel这样的转换器会删除转换代码中的额外的逗号，这意味着你不必担心旧版浏览器中的 <a href="https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md#commas" target="_blank" rel="noopener noreferrer">结尾逗号问题 <ExternalLinkIcon/></a>。</p>
 </blockquote>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>// bad - 没有结尾逗号的 git diff
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>// bad - 没有结尾逗号的 git diff
 const hero = {
      firstName: 'Florence',
 -    lastName: 'Nightingale'
@@ -2372,7 +2372,7 @@ const hero = {
      lastName: 'Nightingale',
 +    inventorOf: ['coxcomb chart', 'modern nursing'],
 };
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> hero <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">firstName</span><span class="token operator">:</span> <span class="token string">'Dana'</span><span class="token punctuation">,</span>
   <span class="token literal-property property">lastName</span><span class="token operator">:</span> <span class="token string">'Scully'</span>
@@ -2446,7 +2446,7 @@ const hero = {
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="类型转换与强制转换" tabindex="-1"><a class="header-anchor" href="#类型转换与强制转换" aria-hidden="true">#</a> 类型转换与强制转换</h3>
 <h4 id="【强制】-在语句开始执行强制类型转换。" tabindex="-1"><a class="header-anchor" href="#【强制】-在语句开始执行强制类型转换。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 在语句开始执行强制类型转换。</h4>
 <h4 id="【强制】-字符串-eslint-no-new-wrappers" tabindex="-1"><a class="header-anchor" href="#【强制】-字符串-eslint-no-new-wrappers" aria-hidden="true">#</a> <code v-pre>【强制】</code> 字符串: eslint: <a href="https://eslint.org/docs/rules/no-new-wrappers" target="_blank" rel="noopener noreferrer"><code v-pre>no-new-wrappers</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// => this.reviewScore = 9;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// => this.reviewScore = 9;</span>
 
 <span class="token comment">// bad</span>
 <span class="token keyword">const</span> totalScore <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>reviewScore<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// typeof totalScore is "object" not "string"</span>
@@ -2463,7 +2463,7 @@ const hero = {
 <blockquote>
 <p>为什么？函数 <code v-pre>parseInt</code> 会根据指定的基数将字符串转换为数字。字符串开头的空白字符将会被忽略，如果参数基数（第二个参数）为 <code v-pre>undefined</code> 或者 <code v-pre>0</code> ，除非字符串开头为 <code v-pre>0x</code> 或 <code v-pre>0X</code>（十六进制），会默认假设为 <code v-pre>10</code>。这个差异来自 ECMAScript 3，它不鼓励（但是允许）解释八进制。在 2013 年之前，一些实现不兼容这种行为。因为我们需要支持旧浏览器，所以应当始终指定进制。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> inputValue <span class="token operator">=</span> <span class="token string">'4'</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> inputValue <span class="token operator">=</span> <span class="token string">'4'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
 <span class="token keyword">const</span> val <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Number</span><span class="token punctuation">(</span>inputValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2483,18 +2483,18 @@ const hero = {
 <span class="token comment">// good</span>
 <span class="token keyword">const</span> val <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>inputValue<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-请在注释中解释为什么要用移位运算和你在做什么。无论你做什么狂野的事-比如由于-parseint-是你的性能瓶颈导致你一定要用移位运算。说明这个是因为-性能原因-。" tabindex="-1"><a class="header-anchor" href="#【强制】-请在注释中解释为什么要用移位运算和你在做什么。无论你做什么狂野的事-比如由于-parseint-是你的性能瓶颈导致你一定要用移位运算。说明这个是因为-性能原因-。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 请在注释中解释为什么要用移位运算和你在做什么。无论你做什么狂野的事，比如由于 <code v-pre>parseInt</code> 是你的性能瓶颈导致你一定要用移位运算。说明这个是因为 <a href="https://jsperf.com/coercion-vs-casting/3" target="_blank" rel="noopener noreferrer">性能原因 <ExternalLinkIcon/></a>。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// good</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// good</span>
 <span class="token doc-comment comment">/**
  * parseInt 是代码运行慢的原因
  * 用 Bitshifting 将字符串转成数字使代码运行效率大幅提升
  */</span>
 <span class="token keyword">const</span> val <span class="token operator">=</span> inputValue <span class="token operator">>></span> <span class="token number">0</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-注意-用移位运算要小心。数字是用-64-位-表示的-但移位运算常常返回的是32为整形source-。移位运算对大于-32-位的整数会导致意外行为。discussion-最大的-32-位整数是-2-147-483-647" tabindex="-1"><a class="header-anchor" href="#【强制】-注意-用移位运算要小心。数字是用-64-位-表示的-但移位运算常常返回的是32为整形source-。移位运算对大于-32-位的整数会导致意外行为。discussion-最大的-32-位整数是-2-147-483-647" aria-hidden="true">#</a> <code v-pre>【强制】</code> <strong>注意:</strong> 用移位运算要小心。数字是用 <a href="https://es5.github.io/#x4.3.19" target="_blank" rel="noopener noreferrer">64-位 <ExternalLinkIcon/></a>表示的，但移位运算常常返回的是32为整形<a href="https://es5.github.io/#x11.7" target="_blank" rel="noopener noreferrer">source <ExternalLinkIcon/></a>)。移位运算对大于 32 位的整数会导致意外行为。<a href="https://github.com/airbnb/javascript/issues/109" target="_blank" rel="noopener noreferrer">Discussion <ExternalLinkIcon/></a>. 最大的 32 位整数是 2,147,483,647:</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token number">2147483647</span> <span class="token operator">>></span> <span class="token number">0</span> <span class="token comment">//=> 2147483647</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token number">2147483647</span> <span class="token operator">>></span> <span class="token number">0</span> <span class="token comment">//=> 2147483647</span>
 <span class="token number">2147483648</span> <span class="token operator">>></span> <span class="token number">0</span> <span class="token comment">//=> -2147483648</span>
 <span class="token number">2147483649</span> <span class="token operator">>></span> <span class="token number">0</span> <span class="token comment">//=> -2147483647</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-布尔-eslint-no-new-wrappers" tabindex="-1"><a class="header-anchor" href="#【强制】-布尔-eslint-no-new-wrappers" aria-hidden="true">#</a> <code v-pre>【强制】</code> 布尔: eslint: <a href="https://eslint.org/docs/rules/no-new-wrappers" target="_blank" rel="noopener noreferrer"><code v-pre>no-new-wrappers</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
 <span class="token keyword">const</span> hasAge <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Boolean</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2506,7 +2506,7 @@ const hero = {
 <span class="token keyword">const</span> hasAge <span class="token operator">=</span> <span class="token operator">!</span><span class="token operator">!</span>age<span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="命名规范" tabindex="-1"><a class="header-anchor" href="#命名规范" aria-hidden="true">#</a> 命名规范</h3>
 <h4 id="【强制】-避免用一个字母命名-让你的命名有意义。eslint-id-length" tabindex="-1"><a class="header-anchor" href="#【强制】-避免用一个字母命名-让你的命名有意义。eslint-id-length" aria-hidden="true">#</a> <code v-pre>【强制】</code> 避免用一个字母命名，让你的命名有意义。eslint: <a href="http://eslint.org/docs/rules/id-length" target="_blank" rel="noopener noreferrer"><code v-pre>id-length</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">q</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">}</span>
@@ -2516,7 +2516,7 @@ const hero = {
   <span class="token comment">// ...</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用小驼峰命名法来命名你的对象、函数、实例。eslint-camelcase" tabindex="-1"><a class="header-anchor" href="#【强制】-用小驼峰命名法来命名你的对象、函数、实例。eslint-camelcase" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用小驼峰命名法来命名你的对象、函数、实例。eslint: <a href="http://eslint.org/docs/rules/camelcase.html" target="_blank" rel="noopener noreferrer"><code v-pre>camelcase</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> OBJEcttsssss <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> this_is_my_object <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
@@ -2525,7 +2525,7 @@ const hero = {
 <span class="token keyword">const</span> thisIsMyObject <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">thisIsMyFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-用大驼峰命名法来命名类。eslint-new-cap" tabindex="-1"><a class="header-anchor" href="#【强制】-用大驼峰命名法来命名类。eslint-new-cap" aria-hidden="true">#</a> <code v-pre>【强制】</code> 用大驼峰命名法来命名类。eslint: <a href="http://eslint.org/docs/rules/new-cap.html" target="_blank" rel="noopener noreferrer"><code v-pre>new-cap</code><ExternalLinkIcon/></a></h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">user</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> options<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2548,7 +2548,7 @@ const hero = {
 <blockquote>
 <p>为什么？JavaScript 没有私有属性或私有方法的概念。尽管前置下划线通常的概念上意味着私有，事实上，这些属性是完全公有的，因此这部分也是你的 API 的内容。这一概念可能会导致开发者误以为更改这个不会导致崩溃或者不需要测试。如果你想要什么东西变成私有，那就不要让它在这里出现。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span>__firstName__ <span class="token operator">=</span> <span class="token string">'Panda'</span><span class="token punctuation">;</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span>firstName_ <span class="token operator">=</span> <span class="token string">'Panda'</span><span class="token punctuation">;</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span>_firstName <span class="token operator">=</span> <span class="token string">'Panda'</span><span class="token punctuation">;</span>
@@ -2556,7 +2556,7 @@ const hero = {
 <span class="token comment">// good</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> <span class="token string">'Panda'</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-不要保存引用-this-用箭头函数或-函数绑定——function-bind。" tabindex="-1"><a class="header-anchor" href="#【强制】-不要保存引用-this-用箭头函数或-函数绑定——function-bind。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 不要保存引用 <code v-pre>this</code>，用箭头函数或 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener noreferrer">函数绑定——Function#bind<ExternalLinkIcon/></a>。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -2579,7 +2579,7 @@ const hero = {
   <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-export-default-导出模块a-则这个文件名也叫-a-import-时候的参数也叫-a。-大小写完全一致。" tabindex="-1"><a class="header-anchor" href="#【强制】-export-default-导出模块a-则这个文件名也叫-a-import-时候的参数也叫-a。-大小写完全一致。" aria-hidden="true">#</a> <code v-pre>【强制】</code> <code v-pre>export default</code> 导出模块A，则这个文件名也叫 <code v-pre>A.*</code>， <code v-pre>import</code> 时候的参数也叫 <code v-pre>A</code>。 大小写完全一致。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// file 1 contents</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// file 1 contents</span>
 <span class="token keyword">class</span> <span class="token class-name">CheckBox</span> <span class="token punctuation">{</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">}</span>
@@ -2610,13 +2610,13 @@ const hero = {
 <span class="token keyword">import</span> insideDirectory <span class="token keyword">from</span> <span class="token string">'./insideDirectory'</span><span class="token punctuation">;</span> <span class="token comment">// camelCase export/import/directory name/implicit "index"</span>
 <span class="token comment">// ^ supports both insideDirectory.js and insideDirectory/index.js</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-当你-export-default-一个函数时-函数名用小驼峰-文件名需要和函数名一致。" tabindex="-1"><a class="header-anchor" href="#【强制】-当你-export-default-一个函数时-函数名用小驼峰-文件名需要和函数名一致。" aria-hidden="true">#</a> <code v-pre>【强制】</code>  当你 export-default 一个函数时，函数名用小驼峰，文件名需要和函数名一致。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">makeStyleGuide</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">makeStyleGuide</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// ...</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> makeStyleGuide<span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】当你-export-一个结构体-类-单例-函数库-对象-时用大驼峰。" tabindex="-1"><a class="header-anchor" href="#【推荐】当你-export-一个结构体-类-单例-函数库-对象-时用大驼峰。" aria-hidden="true">#</a> <code v-pre>【推荐】</code>当你 export 一个结构体/类/单例/函数库/对象 时用大驼峰。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> AirbnbStyleGuide <span class="token operator">=</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">const</span> AirbnbStyleGuide <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">es6</span><span class="token operator">:</span> <span class="token punctuation">{</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -2626,7 +2626,7 @@ const hero = {
 <blockquote>
 <p>为什么？名字都是给人读的，不是为了去适应计算机算法。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">import</span> SmsContainer <span class="token keyword">from</span> <span class="token string">'./containers/SmsContainer'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
@@ -2671,7 +2671,7 @@ const hero = {
 <p>那导出的对象呢？ —— 大写变量处在 <code v-pre>export</code> 的最高级(例如：<code v-pre>EXPORTED_OBJECT.key</code>) 并且他包含的所有子属性都是不可变的。（译者注：即导出的变量是全大写的，但他的属性不用大写）</p>
 </li>
 </ul>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">const</span> <span class="token constant">PRIVATE_VARIABLE</span> <span class="token operator">=</span> <span class="token string">'should not be unnecessarily uppercased within a file'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// bad</span>
@@ -2703,7 +2703,7 @@ const hero = {
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="get-set-访问器" tabindex="-1"><a class="header-anchor" href="#get-set-访问器" aria-hidden="true">#</a> Get-Set 访问器</h3>
 <h4 id="【强制】-不需要使用属性的访问器函数。" tabindex="-1"><a class="header-anchor" href="#【强制】-不需要使用属性的访问器函数。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 不需要使用属性的访问器函数。</h4>
 <h4 id="【强制】-不要使用-javascript-的-getters-setters-因为他们会产生副作用-并且难以测试、维护和理解。相反的-你可以用-getval-和-setval-hello-去创造你自己的访问器函数。" tabindex="-1"><a class="header-anchor" href="#【强制】-不要使用-javascript-的-getters-setters-因为他们会产生副作用-并且难以测试、维护和理解。相反的-你可以用-getval-和-setval-hello-去创造你自己的访问器函数。" aria-hidden="true">#</a> <code v-pre>【强制】</code> 不要使用 JavaScript 的 getters/setters，因为他们会产生副作用，并且难以测试、维护和理解。相反的，你可以用 <code v-pre>getVal()</code> 和 <code v-pre>setVal('hello')</code> 去创造你自己的访问器函数。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">class</span> <span class="token class-name">Dragon</span> <span class="token punctuation">{</span>
   <span class="token keyword">get</span> <span class="token function">age</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// ...</span>
@@ -2725,7 +2725,7 @@ const hero = {
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】如果属性-方法是-boolean-用-isval-或-hasval-。" tabindex="-1"><a class="header-anchor" href="#【推荐】如果属性-方法是-boolean-用-isval-或-hasval-。" aria-hidden="true">#</a> <code v-pre>【推荐】</code>如果属性/方法是 <code v-pre>boolean</code>， 用 <code v-pre>isVal()</code> 或 <code v-pre>hasVal()</code>。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dragon<span class="token punctuation">.</span><span class="token function">age</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -2735,7 +2735,7 @@ const hero = {
   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【推荐】用-get-和-set-函数是可以的-但是要一起用。" tabindex="-1"><a class="header-anchor" href="#【推荐】用-get-和-set-函数是可以的-但是要一起用。" aria-hidden="true">#</a> <code v-pre>【推荐】</code>用 <code v-pre>get()</code> 和 <code v-pre>set()</code> 函数是可以的，但是要一起用。</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Jedi</span> <span class="token punctuation">{</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Jedi</span> <span class="token punctuation">{</span>
   <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> lightsaber <span class="token operator">=</span> options<span class="token punctuation">.</span>lightsaber <span class="token operator">||</span> <span class="token string">'blue'</span><span class="token punctuation">;</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'lightsaber'</span><span class="token punctuation">,</span> lightsaber<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2751,7 +2751,7 @@ const hero = {
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="事件" tabindex="-1"><a class="header-anchor" href="#事件" aria-hidden="true">#</a> 事件</h3>
 <h4 id="【强制】-当传递数据载荷给事件时-不论是-dom-还是像-backbone-这样有很多属性的事件-。这使得后续的贡献者-程序员-向这个事件添加更多的数据时不用去找或者更新每个处理器。例如" tabindex="-1"><a class="header-anchor" href="#【强制】-当传递数据载荷给事件时-不论是-dom-还是像-backbone-这样有很多属性的事件-。这使得后续的贡献者-程序员-向这个事件添加更多的数据时不用去找或者更新每个处理器。例如" aria-hidden="true">#</a> <code v-pre>【强制】</code> 当传递数据载荷给事件时（不论是 DOM 还是像 Backbone 这样有很多属性的事件）。这使得后续的贡献者（程序员）向这个事件添加更多的数据时不用去找或者更新每个处理器。例如：</h4>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">trigger</span><span class="token punctuation">(</span><span class="token string">'listingUpdated'</span><span class="token punctuation">,</span> listing<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// ...</span>
@@ -2775,7 +2775,7 @@ const hero = {
 <blockquote>
 <p>为什么？全局 <code v-pre>isNaN</code> 强制把非数字转成数字， 然后对于任何强转后为 <code v-pre>NaN</code> 的变量都返回 <code v-pre>true</code> 如果你想用这个功能，就显式的用它。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token string">'1.2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
 <span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token string">'1.2.3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
 
@@ -2786,7 +2786,7 @@ Number<span class="token punctuation">.</span><span class="token function">isNaN
 <blockquote>
 <p>Why? 理由同上，会把一个非数字变量强转成数字，然后做判断。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// bad</span>
 <span class="token function">isFinite</span><span class="token punctuation">(</span><span class="token string">'2e3'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
 
 <span class="token comment">// good</span>
@@ -2796,7 +2796,7 @@ Number<span class="token punctuation">.</span><span class="token function">isFin
 <p><em>BEM的意思就是块（block）、元素（element）、修饰符（modifier）,是由Yandex团队提出的一种前端命名方法论。这种巧妙的命名方法让你的CSS类对其他开发者来说更加透明而且更有意义。BEM命名约定更加严格，而且包含更多的信息，它们用于一个团队开发一个耗时的大项目</em></p>
 <h3 id="命名约定的模式" tabindex="-1"><a class="header-anchor" href="#命名约定的模式" aria-hidden="true">#</a> 命名约定的模式</h3>
 <h4 id="【强制】-命名约定的模式如下" tabindex="-1"><a class="header-anchor" href="#【强制】-命名约定的模式如下" aria-hidden="true">#</a> <code v-pre>【强制】</code> 命名约定的模式如下</h4>
-<div class="language-css ext-css line-numbers-mode"><pre v-pre class="language-css"><code>  <span class="token selector">.block</span> <span class="token punctuation">{</span>
+<div class="language-css line-numbers-mode" data-ext="css"><pre v-pre class="language-css"><code>  <span class="token selector">.block</span> <span class="token punctuation">{</span>
      <span class="token comment">/*styles*/</span> 
   <span class="token punctuation">}</span> 
   
@@ -2810,20 +2810,20 @@ Number<span class="token punctuation">.</span><span class="token function">isFin
   <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="块-1" tabindex="-1"><a class="header-anchor" href="#块-1" aria-hidden="true">#</a> 块</h3>
 <h4 id="【强制】-一个块就是一个组件-如" tabindex="-1"><a class="header-anchor" href="#【强制】-一个块就是一个组件-如" aria-hidden="true">#</a> <code v-pre>【强制】</code> 一个块就是一个组件，如：</h4>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token comment">&lt;!-- innerhtml --></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>对应的css</p>
-<div class="language-css ext-css line-numbers-mode"><pre v-pre class="language-css"><code>  <span class="token selector">.form</span> <span class="token punctuation">{</span>
+<div class="language-css line-numbers-mode" data-ext="css"><pre v-pre class="language-css"><code>  <span class="token selector">.form</span> <span class="token punctuation">{</span>
     <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>
   <span class="token punctuation">}</span> 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="修饰符" tabindex="-1"><a class="header-anchor" href="#修饰符" aria-hidden="true">#</a> 修饰符</h3>
 <h4 id="【强制】-修饰符是改变某个块的外观的标志。要使用修饰符-可以将-modifier-添加到块中。从上面的form示例继续命名" tabindex="-1"><a class="header-anchor" href="#【强制】-修饰符是改变某个块的外观的标志。要使用修饰符-可以将-modifier-添加到块中。从上面的form示例继续命名" aria-hidden="true">#</a> <code v-pre>【强制】</code> 修饰符是改变某个块的外观的标志。要使用修饰符，可以将 --modifier 添加到块中。从上面的form示例继续命名</h4>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form form--red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form form--red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token comment">&lt;!-- innerhtml --></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>对应的css</p>
-<div class="language-css ext-css line-numbers-mode"><pre v-pre class="language-css"><code>  <span class="token selector">.form</span> <span class="token punctuation">{</span>
+<div class="language-css line-numbers-mode" data-ext="css"><pre v-pre class="language-css"><code>  <span class="token selector">.form</span> <span class="token punctuation">{</span>
     <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>
   <span class="token punctuation">}</span> 
 
@@ -2839,11 +2839,11 @@ Number<span class="token punctuation">.</span><span class="token function">isFin
 <li>你能立即知道哪些东西是一个子元素。</li>
 </ol>
 </blockquote>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form form--red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form form--red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form__row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>form__row<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>对应的css</p>
-<div class="language-css ext-css line-numbers-mode"><pre v-pre class="language-css"><code>  <span class="token selector">.form</span> <span class="token punctuation">{</span>
+<div class="language-css line-numbers-mode" data-ext="css"><pre v-pre class="language-css"><code>  <span class="token selector">.form</span> <span class="token punctuation">{</span>
     <span class="token property">display</span><span class="token punctuation">:</span>block<span class="token punctuation">;</span>
   <span class="token punctuation">}</span> 
 
@@ -2855,8 +2855,8 @@ Number<span class="token punctuation">.</span><span class="token function">isFin
     <span class="token property">width</span><span class="token punctuation">:</span>100%
   <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="【强制】-永远不应该链式命名-bem-元素。通过以下两种方式绕过长长的-bem-链式命名" tabindex="-1"><a class="header-anchor" href="#【强制】-永远不应该链式命名-bem-元素。通过以下两种方式绕过长长的-bem-链式命名" aria-hidden="true">#</a> <code v-pre>【强制】</code> 永远不应该链式命名 BEM 元素。通过以下两种方式绕过长长的 BEM 链式命名：</h4>
-<div class="custom-container danger">
-<p class="custom-container-title">警告</p>
+<div class="hint-container danger">
+<p class="hint-container-title">警告</p>
 <ol>
 <li>
 <p>只把子子元素链接到有意义的</p>
@@ -2866,7 +2866,7 @@ Number<span class="token punctuation">.</span><span class="token function">isFin
 </li>
 </ol>
 </div>
-<div class="language-html ext-html line-numbers-mode"><pre v-pre class="language-html"><code>  <span class="token comment">&lt;!-- bad --></span>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code>  <span class="token comment">&lt;!-- bad --></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span>  <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form__row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form__row__input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -2886,7 +2886,7 @@ Number<span class="token punctuation">.</span><span class="token function">isFin
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>row__input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-css ext-css line-numbers-mode"><pre v-pre class="language-css"><code><span class="token comment">/*bad*/</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-css line-numbers-mode" data-ext="css"><pre v-pre class="language-css"><code><span class="token comment">/*bad*/</span>
 <span class="token selector">.form__row__input</span> <span class="token punctuation">{</span>
   <span class="token comment">/* styles */</span> 
 <span class="token punctuation">}</span>

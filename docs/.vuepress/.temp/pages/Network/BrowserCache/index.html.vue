@@ -14,11 +14,11 @@
 </ol>
 <!-- more -->
 <h2 id="http缓存" tabindex="-1"><a class="header-anchor" href="#http缓存" aria-hidden="true">#</a> http缓存</h2>
-<div class="custom-container info">
-<p class="custom-container-title">官方介绍</p>
+<div class="hint-container info">
+<p class="hint-container-title">官方介绍</p>
 <p><code v-pre>Web缓存</code>是可以<code v-pre>自动保存</code>常见文档副本的 <code v-pre>HTTP设备</code>。当<code v-pre>Web请求</code>抵达缓存时，如果本地有<code v-pre>已缓存的</code>副本，就可以从<code v-pre>本地存储设备</code>而不是<code v-pre>原始服务器</code>中提取这个文档。</p>
 </div>
-<Mermaid id="mermaid-382ee1c2" code="graph%20LR%0A%20khd%5B%E5%AE%A2%E6%88%B7%E7%AB%AF%5D%0A%20fwq%5B%E6%9C%8D%E5%8A%A1%E5%99%A8%5D%0A%20lx%7B%E6%8E%A5%E5%8F%97%E5%B9%B6%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%7D%20%0A%20%0A%20khd%20--%20index.html%20--%3E%20fwq%20%0A%20fwq%20--%3E%20lx%0A%20lx%20--%20%E5%A4%84%E7%90%86%E5%A5%BD%E4%B9%8B%E5%90%8E%E8%BF%94%E5%9B%9E%E7%BB%99%E5%AE%A2%E6%88%B7%E7%AB%AF%20--%3E%20khd%0A"></Mermaid><p>服务器需要处理<code v-pre>http</code>的请求，而缓存，就是为了让服务器<code v-pre>不去处理</code>这个请求，客户端也可以<code v-pre>拿到数据</code>。</p>
+<Mermaid id="mermaid-51" code="eJxLL0osyFDwCeJSyM5IiX66btGzju3PV6+P5VJIKy+Mfjan92nXwqczVwD5ORXVz/qWPu2f/nTntqdLWp5PaHuxfvuzjU21ClxACNStoKurkJmXklqhl1GSmwPk2YHMAMqBSBAvpwJkCkgZRP/TpXuf7Ox+OqHvxf4pT2fPe757Jtx+sHqgmVwAyvVMDw=="></Mermaid><p>服务器需要处理<code v-pre>http</code>的请求，而缓存，就是为了让服务器<code v-pre>不去处理</code>这个请求，客户端也可以<code v-pre>拿到数据</code>。</p>
 <p>注意，缓存主要是针对<code v-pre>html</code>、<code v-pre>css</code>、<code v-pre>img</code>等<code v-pre>静态资源</code>，常规情况下，<strong>不会去缓存一些动态资源</strong>。</p>
 <h3 id="大纲" tabindex="-1"><a class="header-anchor" href="#大纲" aria-hidden="true">#</a> 大纲</h3>
 <p><strong>我们把<code v-pre>http缓存</code>问题拆分下，可以从以下几个方面来回答这个问题:</strong></p>
@@ -32,7 +32,7 @@
 <p>首先从缓存的类型上来说，可以分为两种: <strong>强缓存</strong> 与 <strong>协商缓存</strong></p>
 <p>强缓存是<strong>不需要发送HTTP请求的，而协商缓存需要</strong></p>
 <p>也就是在<strong>发送HTTP请求之前</strong>，浏览器会<strong>先检查</strong>一下<code v-pre>强缓存</code>，如果命中直接使用，否则就进入下一步。</p>
-<Mermaid id="mermaid-382ee245" code="graph%20TD%0A%20ks(%E5%BC%80%E5%A7%8B)%0A%20llq(%E6%B5%8F%E8%A7%88%E5%99%A8)%0A%20qq(%E5%8F%91%E8%B5%B7get%E8%AF%B7%E6%B1%82)%0A%20sfyhc%5B%E6%98%AF%E5%90%A6%E6%9C%89%E7%BC%93%E5%AD%98%5D%0A%20dqlaqhc(%E8%AF%BB%E5%8F%96%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98)%0A%20sfyEtag%5B%E4%B8%8A%E4%B8%80%E6%AC%A1%E5%93%8D%E5%BA%94%E5%A4%B4%E4%B8%AD%E6%98%AF%E5%90%A6%E6%9C%89Etag%5D%0A%20dsIfNoneMatch(%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%B8%A6%E4%B8%8AIf-None-Match)%0A%20sfyLastModified%5B%E4%B8%8A%E4%B8%80%E6%AC%A1%E5%93%8D%E5%BA%94%E5%A4%B4%E6%98%AF%E5%90%A6%E6%9C%89Last-Modified%5D%0A%20dsIfModifiedSince(%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%B8%A6%E4%B8%8AIf-Modified-Since)%0A%20sf304%5B%E7%8A%B6%E6%80%81%E6%98%AF%E5%90%A6304%5D%0A%20llqhc(%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98)%0A%20200(%E8%AF%B7%E6%B1%82%E7%9B%B8%E5%BA%94%E5%AE%8C%E6%88%90)%0A%20xshc(%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98)%0A%20%0A%20ks%20--%3E%20llq%0A%20llq%20--%3E%20qq%0A%20dqlaqhc%20--%20%E5%B0%86%E7%BC%93%E5%AD%98%E8%BF%94%E5%9B%9E%E6%B5%8F%E8%A7%88%E5%99%A8%20--%3E%20llq%0A%20qq%20--%3E%20sfyhc%0A%20sfyhc%20--%20%E5%90%A6%20--%3E%20sfyEtag%0A%20sfyhc%20--%20%E6%98%AF%20--%3E%20dqlaqhc%0A%20sfyEtag%20--%20%E6%98%AF%20--%3E%20dsIfNoneMatch%0A%20sfyEtag%20--%20%E5%90%A6%20--%3E%20sfyLastModified%0A%20sfyLastModified%20--%3E%20dsIfModifiedSince%0A%20dsIfNoneMatch%20--%3E%20sf304%0A%20dsIfModifiedSince%20--%3E%20sf304%0A%20%0A%20sf304%20--%20304%20--%3E%20llqhc%0A%20llqhc%20--%3E%20llq%0A%20%0A%20%0A%20sf304%20--%20200%20--%3E%20200%0A%20200%20--%3E%20xshc%0A"></Mermaid><h4 id="强缓存" tabindex="-1"><a class="header-anchor" href="#强缓存" aria-hidden="true">#</a> 强缓存</h4>
+<Mermaid id="mermaid-98" code="eJyFUj1PwlAU3fsrOtahCVFnJx1IxEU34tCUlhIJWNtBN3QwiJJiQIPBmJgYcBDRRKRREv8Mt+3P8L6PPlohcenr7T33nPvOafFIO7TkvU1JPnAUmNZgcLkiyeWyrQRjLxrU4e4Za9tWwLuOxpOi4UajSfB+hh8d88TS80F3BK1+cH8RTtsw7O5LcsEua7alK9HoG7xbQcP6bG7L1Yr5md+Y+bXg5RHaTfjqwNPHzB8KOgIhZE7W3KlWjJzm6hZfgm3AnjgFfh+psqZKcCoFMpVtzXFz1ULJLBmFJWpCiuDUGMg143K3VNGNf3RjrErBVHsts54PG59B7ZSpYI3EaCv6sujIaiaDbhHasOeT5V6vgnoLG8cO4qHpwc25AJOkZFXdIGyUkhY2vnPjsZbhjQ9EPx3oPQjJ+aDN5miIPEs62OrH30kCiQ5ehHa4isgx1UumlUIkeJOxLOQkaFIB/PkPOBOauiSsZJNHQRZgB708WZ4eczdSUIyDdvCk2dCCRCH9Ap+iYSw="></Mermaid><h4 id="强缓存" tabindex="-1"><a class="header-anchor" href="#强缓存" aria-hidden="true">#</a> 强缓存</h4>
 <p>浏览器检查强缓存的方式主要是判断这两个字段:</p>
 <ul>
 <li><code v-pre>HTTP/1.0</code>使用的是<code v-pre>Expires</code>;</li>
@@ -41,10 +41,10 @@
 <h5 id="expires" tabindex="-1"><a class="header-anchor" href="#expires" aria-hidden="true">#</a> Expires</h5>
 <p>Expires字面意思是<code v-pre>有效期</code>，那么很好理解，它表示的就是一个具体的时间</p>
 <p>例如:</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Expires</span><span class="token punctuation">:</span> <span class="token header-value">Wed,Nov 11 2020 08:00:00 GMT</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Expires</span><span class="token punctuation">:</span> <span class="token header-value">Wed,Nov 11 2020 08:00:00 GMT</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>表示这个资源在<strong>2020年11月11日8点</strong>之前，都会去<strong>本地的磁盘（或内存）中读取</strong>，不会去服务器请求。过了这个时间就得<strong>向服务端发请求</strong>了。</p>
-<div class="custom-container info">
-<p class="custom-container-title">很有意思的是</p>
+<div class="hint-container info">
+<p class="hint-container-title">很有意思的是</p>
 <p><code v-pre>Expires</code>过度<strong>依赖本地时间</strong>，如果 <strong>本地与服务器时间不同步</strong>，就会出现资源 <strong>无法被缓存</strong> 或者 <strong>资源永远被缓存</strong> 的情况。</p>
 <p>若是设置了<code v-pre>Expires</code>，但是 <strong>服务器的时间</strong> 与 <strong>浏览器的时间</strong> <strong>不一致</strong> 的时候(比如你手动修改了本地的时间)，</p>
 <p>那么就可能会造成<strong>缓存失效</strong>，因此这种方式强缓存方式并不是很准确，它也因此在<code v-pre>HTTP/1.1</code>中被<strong>摒弃</strong>了。</p>
@@ -53,10 +53,10 @@
 <p>摒弃了Expires之后，HTTP/1。1采用了Cache-Control这个重要的规则。<br>
 它设置的是一个具体的过期时长，其中的一个属性是max-age。</p>
 <p>例如🌰:</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Cache-Control</span><span class="token punctuation">:</span> <span class="token header-value">max-age=300</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Cache-Control</span><span class="token punctuation">:</span> <span class="token header-value">max-age=300</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>表示的是这个资源在响应之后的300s内过期，也就是5分钟之内再次获取这个资源会直接使用缓存。</p>
 <p>Cache-Control不仅仅有max-age 这一个属性，其实它有很多的用法，你甚至可以采用组合的方式:</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Cache-Control</span><span class="token punctuation">:</span> <span class="token header-value">public,max-age=300</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Cache-Control</span><span class="token punctuation">:</span> <span class="token header-value">public,max-age=300</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>上面用法的意思是响应可以被任何对象(客户端，代理服务器等)缓存，且过期时长为5分钟。
 (因为一个请求经历的不仅仅是客户端(浏览器)和目标服务器，它中间有可能会经过不同的代理服务器)</p>
 <p>下面来例举一些常用的指令:</p>
@@ -227,12 +227,12 @@
 <p>说了这么多缓存策略，那么在实际使用上来说，我们一般是怎样使用它的呢?</p>
 <p><strong>不常变化的资源</strong></p>
 <p>对于不常变化的资源:</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Cache-Control</span><span class="token punctuation">:</span> <span class="token header-value">max-age=31536000</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Cache-Control</span><span class="token punctuation">:</span> <span class="token header-value">max-age=31536000</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>通常是给Cache-Control设置成一个很大的值，(31536000，一年)。 这个也很好理解，不常变化的资源，直接让它使用缓存就是了。</p>
 <p>但是有时候为了解决更新的问题，我们需要在文件名中添加上hash，版本号等动态字段，这样就达到了更改引用URL 的目的。</p>
 <p><strong>常变化的资源</strong></p>
 <p>经常变化的资源，我们进行以下配置:</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Cache-Control</span><span class="token punctuation">:</span> <span class="token header-value">no-cache</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token header"><span class="token header-name keyword">Cache-Control</span><span class="token punctuation">:</span> <span class="token header-value">no-cache</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>设置成以上配置，使得浏览器每次都请求服务器，然后配合ETag或者Last-Modified来验证资源是否有效。</p>
 <h2 id="后语" tabindex="-1"><a class="header-anchor" href="#后语" aria-hidden="true">#</a> 后语</h2>
 <p>浏览器缓存的内容其实还有很多可以说的，这里主要是总结了一些面试时常问到的，你可以转化成自己的言语来回答面试官。</p>

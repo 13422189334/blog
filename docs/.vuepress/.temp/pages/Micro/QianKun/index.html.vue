@@ -152,7 +152,7 @@
 <blockquote>
 <p>注意：子应用沙箱中的 proxy 对象（第 62 行）可以简单理解为子应用的 window 全局对象（代码如下），子应用对全局属性的操作就是对该 proxy 对象属性的操作，带着这份理解继续往下看吧。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// 子应用脚本文件的执行过程：</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// 子应用脚本文件的执行过程：</span>
 <span class="token function">eval</span><span class="token punctuation">(</span>
   <span class="token comment">// 这里将 proxy 作为 window 参数传入</span>
   <span class="token comment">// 子应用的全局对象就是该子应用沙箱的 proxy 对象</span>
@@ -217,7 +217,7 @@
 <blockquote>
 <p>注意：子应用沙箱中的 proxy 对象可以简单理解为子应用的 window 全局对象（代码如下），子应用对全局属性的操作就是对该 proxy 对象属性的操作，带着这份理解继续往下看吧。</p>
 </blockquote>
-<div class="language-javascript ext-js line-numbers-mode"><pre v-pre class="language-javascript"><code><span class="token comment">// 子应用脚本文件的执行过程：</span>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// 子应用脚本文件的执行过程：</span>
 <span class="token function">eval</span><span class="token punctuation">(</span>
   <span class="token comment">// 这里将 proxy 作为 window 参数传入</span>
   <span class="token comment">// 子应用的全局对象就是该子应用沙箱的 proxy 对象</span>

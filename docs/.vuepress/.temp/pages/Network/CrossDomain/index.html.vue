@@ -1,6 +1,6 @@
 <template><div><p>白话解释：所谓跨域其实就是浏览器对我们发送的接口请求进行拦截，不允许我们直接访问，浏览器就像是一个中间桥梁，它说让我们通过就让通过，它说不让通过那就通过不了。</p>
 <h2 id="发生跨域的三个必要条件" tabindex="-1"><a class="header-anchor" href="#发生跨域的三个必要条件" aria-hidden="true">#</a> 发生跨域的三个必要条件：</h2>
-<p>一般情况，我们己的项目地址和接口地址的域名不同时，如：https://localhost:9527，也许会不假思索的就能回答出：<strong>不同协议，不同域名，不同端口</strong>。没有问题，但并不准确，我更倾向于把这三个叫 <strong>跨域的三要素</strong> ，那什么是跨域形成的必要条件呢？</p>
+<p>一般情况，我们己的项目地址和接口地址的域名不同时，如：<a href="https://localhost:9527" target="_blank" rel="noopener noreferrer">https://localhost:9527<ExternalLinkIcon/></a>，也许会不假思索的就能回答出：<strong>不同协议，不同域名，不同端口</strong>。没有问题，但并不准确，我更倾向于把这三个叫 <strong>跨域的三要素</strong> ，那什么是跨域形成的必要条件呢？</p>
 <blockquote>
 <p>浏览器限制： 即浏览器对跨域行为进行检测和阻止</p>
 <p>触发跨域的三要素之一： 即协议、域名和端口三个条件满足其一</p>
@@ -13,7 +13,7 @@
 <ul>
 <li>第一种就是<strong>被调用方（即后端）解决</strong>：调用方在浏览器直接将请求发送至被调用方，被调用方处理完成后，在请求响应中添加基于http协议关于跨域请求的一些规定，就是在http响应头中添加Access-Control-Allow-Origin等一些配置允许跨域访问。这种解决方法是基于解决跨域的思路，修改的是被调用方的HTTP服务器，我们在浏览器中能看到有调用方的url，也有被调用方的url。</li>
 </ul>
-<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token comment">// 允许跨域的域名，设置*表示允许除带Cookies信息的所有域名</span>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token comment">// 允许跨域的域名，设置*表示允许除带Cookies信息的所有域名</span>
 response<span class="token punctuation">.</span><span class="token function">addHeader</span><span class="token punctuation">(</span><span class="token string">"Access-Control-Allow-Origin"</span><span class="token punctuation">,</span> <span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>第二种就是<strong>调用方（即前端）解决</strong>：这是基于隐藏跨域的解决办法。调用方通过一个代理服务器（Nginx）转发请求到被调用方的中间服务器，浏览器看到请求都是来自同一个域，就不会报跨域问题了。这种方式是基于隐藏跨域的思路，修改的是调用方的HTTP服务器(调用方的请求url是经过调用方的 Nginx 做反向代理转换转换的，目的就是为了和‘’被调用方”的域名端口一致)，在浏览器中也就只能看到调用方的url。</li>
@@ -59,7 +59,7 @@ response<span class="token punctuation">.</span><span class="token function">add
 <li><strong>举个例子</strong></li>
 </ul>
 <p>我们在本地搭起来了一个后端项目，端口号为8080；同时搭建了一个前端项目，端口号为9527。那这个时候我们直接调用后端接口的时候，前后端分离的原因导致我们需要跨域请求 。因此，在应用服务器端的响应头需要添加允许跨域的设置，即如下：</p>
-<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Override</span>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Override</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doFilter</span><span class="token punctuation">(</span><span class="token class-name">ServletRequest</span> request<span class="token punctuation">,</span> <span class="token class-name">ServletResponse</span> response<span class="token punctuation">,</span> <span class="token class-name">FilterChain</span> chain<span class="token punctuation">)</span>
   <span class="token keyword">throws</span> <span class="token class-name">IOException</span><span class="token punctuation">,</span> <span class="token class-name">ServletException</span> <span class="token punctuation">{</span>
 
@@ -87,7 +87,7 @@ response<span class="token punctuation">.</span><span class="token function">add
 <li>打开允许Cookie的设置，即Access-Control-Allow-Credentials: true</li>
 </ol>
 <p>但是这又带出了另一个问题，就是只能支持一个域名的跨域，怎么办？其实该变量可以通过调用方的请求头信息获取，解决办法如下：</p>
-<div class="language-java ext-java line-numbers-mode"><pre v-pre class="language-java"><code><span class="token class-name">HttpServletRequest</span> req <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">HttpServletRequset</span><span class="token punctuation">)</span> request<span class="token punctuation">;</span>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token class-name">HttpServletRequest</span> req <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">HttpServletRequset</span><span class="token punctuation">)</span> request<span class="token punctuation">;</span>
 <span class="token class-name">String</span> origin <span class="token operator">=</span>  req<span class="token punctuation">.</span><span class="token function">getHeader</span><span class="token punctuation">(</span><span class="token char">'Origin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span>StringUtils</span><span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// 带cookie的时候origin必须是全匹配，不能使用 *</span>
@@ -100,8 +100,8 @@ response<span class="token punctuation">.</span><span class="token function">add
 <p><strong>正向代理：</strong> 利用代理客户端去请求服务器，从而隐藏了真实的客户端，服务器并不知道客户端是谁，这种代理方式称作正向代理，其代理的对象是客户端</p>
 <p><strong>反向代理:</strong> 反向代理隐藏了真正的服务端。举个例子，我们只知道敲下www.baidu.com时就能访问百度搜索页面，然而背后成千上万的服务器到底是哪一台正在为我们服务我们并不知道，这种隐藏了服务器端的代理方式称作反向代理，其代理的是服务器端。软件层面上常用Ngnix来做反向代理服务器，他的性能很好，用来做负载均衡。</p>
 </blockquote>
-<p>为了实现反向代理，我们需要在 Ngnix中配置一个代理域名，或者称为一个网址demo.com，就像百度成千上万的服务器使用用一个代理网址www.baidu.com一样。ngnix的配置信息如下</p>
-<div class="language-nginx ext-nginx line-numbers-mode"><pre v-pre class="language-nginx"><code><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+<p>为了实现反向代理，我们需要在 Ngnix中配置一个代理域名，<a href="http://xn--demo-k84fui0dy35fh5wuq8c4mmu4b.com" target="_blank" rel="noopener noreferrer">或者称为一个网址demo.com<ExternalLinkIcon/></a>，就像百度成千上万的服务器使用用一个代理网址www.baidu.com一样。ngnix的配置信息如下</p>
+<div class="language-nginx line-numbers-mode" data-ext="nginx"><pre v-pre class="language-nginx"><code><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
   <span class="token directive"><span class="token keyword">listen</span> <span class="token number">80</span></span><span class="token punctuation">;</span>
   <span class="token directive"><span class="token keyword">server_name:</span> demo.com</span><span class="token punctuation">;</span> <span class="token comment"># 请求域名是demo.com，端口是80的，都会被nginx做代理</span>
   <span class="token comment"># http://demo.com/api/test 就会跳转到http://localhost:8080/test/</span>

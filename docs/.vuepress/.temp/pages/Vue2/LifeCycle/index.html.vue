@@ -1,20 +1,20 @@
 <template><div><h1 id="前言" tabindex="-1"><a class="header-anchor" href="#前言" aria-hidden="true">#</a> 前言</h1>
 <p>每个Vue实例再被创建之前，都会经过一系列的初始化过程，这个过程被称之为vue的生命周期。</p>
 <p>下面这张官网的图，想必大家都熟悉，那让我们一步一步的分析，并最后验证一下。</p>
-<img :src="$withBase('/assets/knowledge/frontEnd/vue/lifeCycle/vueLifecycle.png')" alt="vueLifecycle" style="zoom:50%;" />
+<img :src="$withBase('/assets/knowledge/frontEnd/vue/lifeCycle/vueLifecycle.png')" alt="vueLifecycle" style="zoom:30%;" />
 <p>图中可以看到在一整个生命周期中会有很多的钩子函数，不同的钩子函数提供给我们在vue生命周期不同的时刻进行的操作, 那么我们先列出所有的钩子函数，然后我们再一一详解：</p>
 <!-- more -->
 <blockquote>
-<p>结合 <RouterLink to="/Knowledge/FrontEnd/Vue2/LifeCycle/demo.html">生命周期案例</RouterLink> ，F12看控制台更容易理解。</p>
+<p>结合下面的Vue生命周期案例，F12看控制台更容易理解。</p>
 </blockquote>
-<ul>
-<li><strong>beforeCreate（创建前）</strong> 此阶段为实例初始化之后，此时的数据观察和事件机制都未形成，不能获得DOM节点。</li>
-</ul>
+<VuePlayground title="Vue%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A1%88%E4%BE%8B" key="565dbeb4" settings="%7B%7D" files="eyJBcHAudnVlIjoiPHRlbXBsYXRlPlxuICA8ZGl2IHJlZj1cImxpZmVDeWNsZVwiPlxuICAgIDxoMT57eyBtZXNzYWdlICsgJyAgLS0tIOi%2FmeaYr%2BWcqG91dGVyIEhUTUzkuK3nmoQnIH19PC9oMT5cbiAgICA8YnV0dG9uIEBjbGljaz1cIm1lc3NhZ2UrK1wiPuiHquWinu%2B8jOmqjOivgXVwZGF0ZTwvYnV0dG9uPlxuICA8L2Rpdj5cbjwvdGVtcGxhdGU%2BXG5cbjxzY3JpcHQ%2BXG5leHBvcnQgZGVmYXVsdCB7XG4gIGRhdGEoKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIG1lc3NhZ2U6IDBcbiAgICB9XG4gIH0sXG4gIGJlZm9yZUNyZWF0ZSgpICB7XG4gICAgY29uc29sZS5ncm91cCgnLS0tLS0tYmVmb3JlQ3JlYXRl5Yib5bu65YmN54q25oCBLS0tLS0tJyk7XG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJyAsICdlbCAgICAgOiAnICsgdGhpcy4kZWwpOyAvL3VuZGVmaW5lZFxuICAgIGNvbnNvbGUubG9nKCclYyVzJywgJ2NvbG9yOnJlZCcsJ2RhdGEgICA6ICcgKyB0aGlzLiRkYXRhKTsgLy91bmRlZmluZWRcbiAgICBjb25zb2xlLmxvZygnJWMlcycsICdjb2xvcjpyZWQnLCdtZXNzYWdlOiAnICsgdGhpcy5tZXNzYWdlKTsgLy91bmRlZmluZWRcbiAgfSxcbiAgY3JlYXRlZCgpICB7XG4gICAgY29uc29sZS5ncm91cCgnLS0tLS0tY3JlYXRlZOWIm%2BW7uuWujOavleeKtuaAgS0tLS0tLScpO1xuICAgIGNvbnNvbGUubG9nKCclYyVzJywgJ2NvbG9yOnJlZCcsJ2VsICAgICA6ICcgKyB0aGlzLiRlbCk7IC8vdW5kZWZpbmVkXG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJywnZGF0YSAgIDogJyArIHRoaXMuJGRhdGEpOyAvL%2BW3suiiq%2BWIneWni%2BWMllxuICAgIGNvbnNvbGUubG9nKCclYyVzJywgJ2NvbG9yOnJlZCcsJ21lc3NhZ2U6ICcgKyB0aGlzLm1lc3NhZ2UpOyAvL%2BW3suiiq%2BWIneWni%2BWMllxuICB9LFxuICBiZWZvcmVNb3VudCgpICB7XG4gICAgY29uc29sZS5ncm91cCgnLS0tLS0tYmVmb3JlTW91bnTmjILovb3liY3nirbmgIEtLS0tLS0nKTtcbiAgICBjb25zb2xlLmxvZygnJWMlcycsICdjb2xvcjpyZWQnLCdlbCAgICAgOiAnICsgdGhpcy4kZWwpOyAvL%2BW3suiiq%2BWIneWni%2BWMllxuICAgIGNvbnNvbGUubG9nKHRoaXMuJGVsKTtcbiAgICBjb25zb2xlLmxvZygnJWMlcycsICdjb2xvcjpyZWQnLCdkYXRhICAgOiAnICsgdGhpcy4kZGF0YSk7IC8v5bey6KKr5Yid5aeL5YyWXG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJywnbWVzc2FnZTogJyArIHRoaXMubWVzc2FnZSk7IC8v5bey6KKr5Yid5aeL5YyWXG4gIH0sXG4gIG1vdW50ZWQoKSB7XG4gICAgY29uc29sZS5ncm91cCgnLS0tLS0tbW91bnRlZCDmjILovb3nu5PmnZ%2FnirbmgIEtLS0tLS0nKTtcbiAgICBjb25zb2xlLmxvZygnJWMlcycsICdjb2xvcjpyZWQnLCdlbCAgICAgOiAnICsgdGhpcy4kZWwpOyAvL%2BW3suiiq%2BWIneWni%2BWMllxuICAgIGNvbnNvbGUubG9nKHRoaXMuJGVsKTtcbiAgICBjb25zb2xlLmxvZygnJWMlcycsICdjb2xvcjpyZWQnLCdkYXRhICAgOiAnICsgdGhpcy4kZGF0YSk7IC8v5bey6KKr5Yid5aeL5YyWXG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJywnbWVzc2FnZTogJyArIHRoaXMubWVzc2FnZSk7IC8v5bey6KKr5Yid5aeL5YyWXG4gIH0sXG4gIGJlZm9yZVVwZGF0ZSgpIHtcbiAgICBjb25zb2xlLmdyb3VwKCdiZWZvcmVVcGRhdGUg5pu05paw5YmN54q25oCBPT09PT09PT09PT09PT0944CLJyk7XG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJywnZWwgICAgIDogJyArIHRoaXMuJGVsKTtcbiAgICBjb25zb2xlLmxvZyh0aGlzLiRlbCk7XG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJywnZGF0YSAgIDogJyArIHRoaXMuJGRhdGEpO1xuICAgIGNvbnNvbGUubG9nKCclYyVzJywgJ2NvbG9yOnJlZCcsJ21lc3NhZ2U6ICcgKyB0aGlzLm1lc3NhZ2UpO1xuICB9LFxuICB1cGRhdGVkKCkge1xuICAgIGNvbnNvbGUuZ3JvdXAoJ3VwZGF0ZWQg5pu05paw5a6M5oiQ54q25oCBPT09PT09PT09PT09PT0944CLJyk7XG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJywnZWwgICAgIDogJyArIHRoaXMuJGVsKTtcbiAgICBjb25zb2xlLmxvZyh0aGlzLiRlbCk7XG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJywnZGF0YSAgIDogJyArIHRoaXMuJGRhdGEpO1xuICAgIGNvbnNvbGUubG9nKCclYyVzJywgJ2NvbG9yOnJlZCcsJ21lc3NhZ2U6ICcgKyB0aGlzLm1lc3NhZ2UpO1xuICB9LFxuICBiZWZvcmVEZXN0cm95KCkge1xuICAgIGNvbnNvbGUuZ3JvdXAoJ2JlZm9yZURlc3Ryb3kg6ZSA5q%2BB5YmN54q25oCBPT09PT09PT09PT09PT0944CLJyk7XG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJywnZWwgICAgIDogJyArIHRoaXMuJGVsKTtcbiAgICBjb25zb2xlLmxvZyh0aGlzLiRlbCk7XG4gICAgY29uc29sZS5sb2coJyVjJXMnLCAnY29sb3I6cmVkJywnZGF0YSAgIDogJyArIHRoaXMuJGRhdGEpO1xuICAgIGNvbnNvbGUubG9nKCclYyVzJywgJ2NvbG9yOnJlZCcsJ21lc3NhZ2U6ICcgKyB0aGlzLm1lc3NhZ2UpO1xuICB9LFxuICBkZXN0cm95ZWQoKSB7XG4gICAgY29uc29sZS5ncm91cCgnZGVzdHJveWVkIOmUgOavgeWujOaIkOeKtuaAgT09PT09PT09PT09PT09PeOAiycpO1xuICAgIGNvbnNvbGUubG9nKCclYyVzJywgJ2NvbG9yOnJlZCcsJ2VsICAgICA6ICcgKyB0aGlzLiRlbCk7XG4gICAgY29uc29sZS5sb2codGhpcy4kZWwpO1xuICAgIGNvbnNvbGUubG9nKCclYyVzJywgJ2NvbG9yOnJlZCcsJ2RhdGEgICA6ICcgKyB0aGlzLiRkYXRhKTtcbiAgICBjb25zb2xlLmxvZygnJWMlcycsICdjb2xvcjpyZWQnLCdtZXNzYWdlOiAnICsgdGhpcy5tZXNzYWdlKVxuICB9XG59XG48L3NjcmlwdD5cbiJ9">
+</VuePlayground>
+<h2 id="beforecreate-创建前" tabindex="-1"><a class="header-anchor" href="#beforecreate-创建前" aria-hidden="true">#</a> beforeCreate（创建前）</h2>
+<p>此阶段为实例初始化之后，此时的数据观察和事件机制都未形成，不能获得DOM节点。</p>
 <p>在 <strong>beforeCreate</strong> 和 <strong>created</strong> 生命周期之间，进行 <strong>初始化事件，进行数据的观测</strong> ，这时候我们可以看到在created钩子的时候数据已经和data中的属性进行绑定（其中在data中的属性值发生改变的时候，视图也会相对应改变，即所谓的双向绑定）。</p>
 <p>注意事项：此时并没有el</p>
-<ul>
-<li><strong>created（创建后）</strong> 此阶段vue实例已经创建，仍然不能获取DOM元素。</li>
-</ul>
+<h2 id="created-创建后" tabindex="-1"><a class="header-anchor" href="#created-创建后" aria-hidden="true">#</a> created（创建后）</h2>
+<p>此阶段vue实例已经创建，仍然不能获取DOM元素。</p>
 <p>在 <strong>created</strong> 和 <strong>beforeMount</strong> 生命周期之间，发生的事情相对比较多，结合官网给出的生命周期图可以分析下：</p>
 <img :src="$withBase('/assets/knowledge/frontEnd/vue/lifeCycle/createdToBeforeMount.png')" alt="createdToBeforeMount" style="zoom:50%;" />
 <p>首先会判断对象是否有 <strong>el</strong> 。如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上调用vm.$mount(el)。</p>
@@ -37,22 +37,22 @@
 <p>vue中还有一个 <strong>render 函数</strong> ，它是以createElement作为参数，然后做渲染操作，而且我们可以直接嵌入JSX，可以看到页面中渲染的是： <strong>render function</strong> 。若没有 <strong>rennder 函数</strong> ，则观察demo中的template参数，在有这个参数的时候，页面渲染出来的结果为 <strong>Vue的生命周期 --- 这是在template中的</strong> ，若注释掉 <strong>template</strong> 参数，则页面渲染结果为 <strong>Vue的生命周期 --- 这是在outer HTML中的</strong> ，证明以上三点结论。</p>
 </blockquote>
 <p>同时，也可以从侧面解释为什么 <strong>Has 'el' option</strong> 要在 <strong>Has 'template' option</strong> 之前，因为vue需要通过 <strong>el</strong> 去找到对应的 <strong>outer html</strong> ，最终可得出优先级结论：<strong>render函数选项 &gt; template选项 &gt; outer HTML</strong></p>
-<ul>
-<li><strong>beforeMount（载入前）</strong> 此阶段，依然得不到具体的DOM元素，但vue挂载的根节点已经创建，下面vue对DOM的操作将围绕这个根元素继续进行。</li>
-</ul>
+<h2 id="beforemount-载入前" tabindex="-1"><a class="header-anchor" href="#beforemount-载入前" aria-hidden="true">#</a> beforeMount（载入前）</h2>
+<p>此阶段，依然得不到具体的DOM元素，但vue挂载的根节点已经创建，下面vue对DOM的操作将围绕这个根元素继续进行。</p>
 <img :src="$withBase('/assets/knowledge/frontEnd/vue/lifeCycle/beforeMountToMounted.png')" alt="beforeMountToMounted" style="zoom:50%;" />
 <p>在 <strong>beforeMount</strong> 和 <strong>mounted</strong> 生命周期之间，可以看到此时是给vue实例对象添加 <strong>$el成员</strong> ，并且替换掉挂载的DOM元素。</p>
 <blockquote>
 <p>demo中控制台打印的日志可以看出生命周期在 <strong>beforeMount</strong> 之前时 <strong>el</strong> 是undefined。</p>
 <p>同时，我们可以看下控制台打印的日志，<strong>beforeMount</strong> 和 <strong>mounted</strong> 两个生命周期上的 <strong>el</strong> ，在beforeMount时h1中还是使用 <strong>{{ message + '  --- 这是在outer HTML中的' }}</strong> 进行占位，因为此时还有挂在到页面上，还是JavaScript中的虚拟DOM形式存在的。在mounted之后可以看到h1中的内容发生了变化。</p>
 </blockquote>
-<ul>
-<li><strong>mounted（载入后）</strong> 此阶段数据和DOM都已被渲染出来。</li>
-<li><strong>beforeUpdate（更新前）</strong> 此阶段，vue遵循数据驱动DOM的原则；函数在数据更新后虽然没立即更新数据，但是DOM中的数据会在Vue双向数据绑定的作用下改变。</li>
-<li><strong>updated（更新后）</strong> 此阶段DOM会和更改过的内容同步。</li>
-<li><strong>beforeDestroy（销毁前）</strong></li>
-<li><strong>destroyed（销毁后）</strong></li>
-</ul>
+<h2 id="mounted-载入后" tabindex="-1"><a class="header-anchor" href="#mounted-载入后" aria-hidden="true">#</a> mounted（载入后）</h2>
+<p>此阶段数据和DOM都已被渲染出来。</p>
+<h2 id="beforeupdate-更新前" tabindex="-1"><a class="header-anchor" href="#beforeupdate-更新前" aria-hidden="true">#</a> beforeUpdate（更新前）</h2>
+<p>此阶段，vue遵循数据驱动DOM的原则；函数在数据更新后虽然没立即更新数据，但是DOM中的数据会在Vue双向数据绑定的作用下改变。</p>
+<h2 id="updated-更新后" tabindex="-1"><a class="header-anchor" href="#updated-更新后" aria-hidden="true">#</a> updated（更新后）</h2>
+<p>此阶段DOM会和更改过的内容同步。</p>
+<h2 id="beforedestroy-销毁前" tabindex="-1"><a class="header-anchor" href="#beforedestroy-销毁前" aria-hidden="true">#</a> beforeDestroy（销毁前）</h2>
+<h2 id="destroyed-销毁后" tabindex="-1"><a class="header-anchor" href="#destroyed-销毁后" aria-hidden="true">#</a> destroyed（销毁后）</h2>
 </div></template>
 
 

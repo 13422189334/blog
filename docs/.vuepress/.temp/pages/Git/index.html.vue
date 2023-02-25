@@ -66,35 +66,35 @@ Git是一个分布式代码管理工具，在讨论分布式之前避免不了�
 <h3 id="提交相关" tabindex="-1"><a class="header-anchor" href="#提交相关" aria-hidden="true">#</a> 提交相关</h3>
 <p>前面我们提到过，想要对代码进行提交必须得先加入到暂存区，Git中是通过命令 add 实现</p>
 <h4 id="添加某个文件到暂存区" tabindex="-1"><a class="header-anchor" href="#添加某个文件到暂存区" aria-hidden="true">#</a> 添加某个文件到暂存区</h4>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> <span class="token function">add</span> 文件路径 
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> <span class="token function">add</span> 文件路径 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="添加所有文件到暂存区" tabindex="-1"><a class="header-anchor" href="#添加所有文件到暂存区" aria-hidden="true">#</a> 添加所有文件到暂存区</h4>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>同时Git也提供了撤销<strong>工作区</strong>和<strong>暂存区</strong>命令</p>
 <h4 id="撤销工作区改动" tabindex="-1"><a class="header-anchor" href="#撤销工作区改动" aria-hidden="true">#</a> 撤销工作区改动</h4>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> checkout -- 文件名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> checkout -- 文件名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="清空暂存区" tabindex="-1"><a class="header-anchor" href="#清空暂存区" aria-hidden="true">#</a> 清空暂存区</h4>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> reset HEAD 文件名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> reset HEAD 文件名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="提交" tabindex="-1"><a class="header-anchor" href="#提交" aria-hidden="true">#</a> 提交</h4>
 <p>将改动文件加入到暂存区后就可以进行提交了，提交后会生成一个新的提交节点，具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"该节点的描述信息"</span>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"该节点的描述信息"</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="分支相关" tabindex="-1"><a class="header-anchor" href="#分支相关" aria-hidden="true">#</a> 分支相关</h3>
 <h4 id="创建分支" tabindex="-1"><a class="header-anchor" href="#创建分支" aria-hidden="true">#</a> 创建分支</h4>
 <p>创建一个分支后该分支会与HEAD指向同一节点，说通俗点就是HEAD指向哪创建的新分支就指向哪，命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> branch 分支名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> branch 分支名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="切换分支" tabindex="-1"><a class="header-anchor" href="#切换分支" aria-hidden="true">#</a> 切换分支</h4>
 <p>当切换分支后，默认情况下HEAD会指向当前分支，即HEAD间接指向当前分支指向的节点</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> checkout 分支名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> checkout 分支名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>同时也可以创建一个分支后立即切换，命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> checkout <span class="token parameter variable">-b</span> 分支名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> checkout <span class="token parameter variable">-b</span> 分支名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="删除分支" tabindex="-1"><a class="header-anchor" href="#删除分支" aria-hidden="true">#</a> 删除分支</h4>
 <p>为了保证仓库分支的简洁，当某个分支完成了它的使命后应该被删除。比如前面所说的单独开一个分支完成某个功能，当这个功能被合并到主分支后应该将这个分支及时删除。</p>
 <p>删除命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> branch <span class="token parameter variable">-d</span> 分支名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> branch <span class="token parameter variable">-d</span> 分支名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="合并相关" tabindex="-1"><a class="header-anchor" href="#合并相关" aria-hidden="true">#</a> 合并相关</h3>
 <p>关于合并的命令是最难掌握同时也是最重要的。我们常用的合并命令大概有三个merge、rebase、cherry-pick</p>
 <h4 id="合并-merge" tabindex="-1"><a class="header-anchor" href="#合并-merge" aria-hidden="true">#</a> 合并 merge</h4>
 <p>merge是最常用的合并命令，它可以将某个分支或者某个节点的代码合并至当前分支。具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> merge 分支名/节点哈希值
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> merge 分支名/节点哈希值
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>如果需要合并的分支完全领先于当前分支，如图所示</p>
 <img :src="$withBase('/assets/git/3-1.jpg')" alt="3-1" style="zoom: 50%;" />
 <p>由于分支ft-1完全领先分支ft-2即ft-1完全包含ft-2，所以ft-2执行了“git merge ft-1”后会触发fast forward(快速合并)，此时两个分支指向同一节点，这是最理想的状态。但是实际开发中我们往往碰到是是下面这种情况：如图3-2(左)</p>
@@ -106,7 +106,7 @@ Git是一个分布式代码管理工具，在讨论分布式之前避免不了�
 </blockquote>
 <h4 id="变基-rebase" tabindex="-1"><a class="header-anchor" href="#变基-rebase" aria-hidden="true">#</a> 变基 rebase</h4>
 <p>rebase也是一种合并指令，命令行如下：</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>git rebase 分支名/节点哈希值
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>git rebase 分支名/节点哈希值
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>与merge不同的是rebase合并看起来不会产生新的节点(实际上是会产生的，只是做了一次复制)，而是将需要合并的节点直接累加 如图</p>
 <img :src="$withBase('/assets/git/3-3.jpg')" alt="3-3" style="zoom: 50%;" />
 <p>当左边示意图的ft-1.0执行了git rebase master后会将C4节点复制一份到C3后面，也就是C4'，C4与C4'相对应，但是哈希值却不一样。</p>
@@ -128,31 +128,31 @@ Git是一个分布式代码管理工具，在讨论分布式之前避免不了�
 <p>对于网络上一些只用rebase的观点，作者表示不太认同，如果不同分支的合并使用rebase可能需要重复解决冲突，这样就得不偿失了。但如果是本地推到远程并对应的是同一条分支可以优先考虑rebase。所以我的观点是 根据不同场景合理搭配使用merge和rebase，如果觉得都行那优先使用rebase</p>
 <h4 id="筛选合并-cherry-pick" tabindex="-1"><a class="header-anchor" href="#筛选合并-cherry-pick" aria-hidden="true">#</a> 筛选合并 cherry-pick</h4>
 <p>cherry-pick的合并不同于merge和rebase，它可以选择某几个节点进行合并，如图</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> cherry-pick 节点哈希值
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> cherry-pick 节点哈希值
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><img :src="$withBase('/assets/git/3-4.jpg')" alt="3-4" style="zoom: 50%;" />
 <p>假设当前分支是master，执行了git cherry-pick C3(哈希值)，C4(哈希值)命令后会直接将C3、C4节点抓过来放在后面，对应C3'和C4'</p>
 <h3 id="回退相关" tabindex="-1"><a class="header-anchor" href="#回退相关" aria-hidden="true">#</a> 回退相关</h3>
 <h4 id="分离head" tabindex="-1"><a class="header-anchor" href="#分离head" aria-hidden="true">#</a> 分离HEAD</h4>
 <p>在默认情况下HEAD是指向分支的，但也可以将HEAD从分支上取下来直接指向某个节点，此过程就是分离HEAD，具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> checkout 节点哈希值
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> checkout 节点哈希值
 //也可以直接脱离分支指向当前节点
 <span class="token function">git</span> checkout <span class="token parameter variable">--detach</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>由于哈希值是一串很长很长的乱码，在实际操作中使用哈希值分离HEAD很麻烦，所以Git也提供了HEAD基于某一特殊位置(分支/HEAD)直接指向前一个或前N个节点的命令，也即相对引用，如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code>//HEAD分离并指向前一个节点
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>//HEAD分离并指向前一个节点
 <span class="token function">git</span> checkout 分支名/HEAD^
 
 //HEAD分离并指向前N个节点
 <span class="token function">git</span> checkout 分支名～N
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>将HEAD分离出来指向节点有什么用呢？举个例子：如果开发过程发现之前的提交有问题，此时可以将HEAD指向对应的节点，修改完毕后再提交，此时你肯定不希望再生成一个新的节点，而你只需在提交时加上--amend即可，具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> commit <span class="token parameter variable">--amend</span>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> commit <span class="token parameter variable">--amend</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="回退" tabindex="-1"><a class="header-anchor" href="#回退" aria-hidden="true">#</a> 回退</h4>
 <p>回退场景在平时开发中还是比较常见的，比如你巴拉巴拉写了一大堆代码然后提交，后面发现写的有问题，于是你想将代码回到前一个提交，这种场景可以通过reset解决，具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code>//回退N个提交
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>//回退N个提交
 <span class="token function">git</span> reset HEAD~N
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>reset和相对引用很像，区别是reset会使分支和HEAD一并回退。</p>
 <h3 id="远程相关" tabindex="-1"><a class="header-anchor" href="#远程相关" aria-hidden="true">#</a> 远程相关</h3>
 <p>当我们接触一个新项目时，第一件事情肯定是要把它的代码拿下来，在Git中可以通过clone从远程仓库复制一份代码到本地，具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> clone 仓库地址
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> clone 仓库地址
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>前面的章节我也有提到过，clone不仅仅是复制代码，它还会把远程仓库的引用(分支/HEAD)一并取下保存在本地，如图所示：</p>
 <img :src="$withBase('/assets/git/3-5.jpg')" alt="3-5" style="zoom: 50%;" />
 <p>其中origin/master和origin/ft-1为远程仓库的分支，而远程的这些引用状态是不会实时更新到本地的，比如远程仓库origin/master分支增加了一次提交，此时本地是感知不到的，所以本地的origin/master分支依旧指向C4节点。我们可以通过fetch命令来手动更新远程仓库状态</p>
@@ -162,16 +162,16 @@ Git是一个分布式代码管理工具，在讨论分布式之前避免不了�
 </blockquote>
 <h4 id="下载-fetch" tabindex="-1"><a class="header-anchor" href="#下载-fetch" aria-hidden="true">#</a> 下载 fetch</h4>
 <p>说的通俗一点，fetch命令就是一次下载操作，它会将远程新增加的节点以及引用(分支/HEAD)的状态下载到本地，具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> fetch 远程仓库地址/分支名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> fetch 远程仓库地址/分支名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="拉取-pull" tabindex="-1"><a class="header-anchor" href="#拉取-pull" aria-hidden="true">#</a> 拉取 pull</h4>
 <p>pull命令可以从远程仓库的某个引用拉取代码，具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> pull 远程分支名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> pull 远程分支名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>其实pull的本质就是fetch+merge，首先更新远程仓库所有状态到本地，随后再进行合并。合并完成后本地分支会指向最新节点</p>
 <p>另外pull命令也可以通过rebase进行合并，具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> pull <span class="token parameter variable">--rebase</span> 远程分支名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> pull <span class="token parameter variable">--rebase</span> 远程分支名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="推送-push" tabindex="-1"><a class="header-anchor" href="#推送-push" aria-hidden="true">#</a> 推送 push</h4>
 <p>push命令可以将本地提交推送至远程，具体命令如下：</p>
-<div class="language-bash ext-sh line-numbers-mode"><pre v-pre class="language-bash"><code><span class="token function">git</span> push 远程分支名
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> push 远程分支名
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>如果直接push可能会失败，因为可能存在冲突，所以在push之前往往会先pull一下，如果存在冲突本地解决。push成功后本地的远程分支引用会更新，与本地分支指向同一节点</p>
 <h2 id="综上所述" tabindex="-1"><a class="header-anchor" href="#综上所述" aria-hidden="true">#</a> 综上所述</h2>
 <ul>

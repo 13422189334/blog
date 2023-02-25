@@ -8,32 +8,32 @@
 <p>“一个芝士蛋糕，一杯拿铁，两条吸管，谢谢”，我对前台的服务员说，然后我们找了个角落坐了下来。</p>
 <h2 id="level-0-面向前台" tabindex="-1"><a class="header-anchor" href="#level-0-面向前台" aria-hidden="true">#</a> Level 0 - 面向前台</h2>
 <p>“刚才我们向前台点了一杯拿铁，这个过程可以用这段文字来描述”，说着，我在纸上写下了这段JSON，虽然Ta不知道什么叫JSON，但理解这段文字对于英语专业8级的Ta，实在再简单不过。</p>
-<div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+<div class="language-json line-numbers-mode" data-ext="json"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"addOrder"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"orderName"</span><span class="token operator">:</span> <span class="token string">"latte"</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“我们通过这段文字，告诉前台，新增一笔订单，订单是一杯拿铁咖啡”，接着，前台给我们返回这么一串回复：</p>
-<div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+<div class="language-json line-numbers-mode" data-ext="json"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"orderId"</span><span class="token operator">:</span> <span class="token string">"123456"</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“订单ID？还是订单编号？”</p>
 <p>“恩恩，就是订单编号”</p>
 <p>“那我们就等着前台喊订单123456的客户可以取餐了，然后就可以开吃了！”</p>
 <p>“哈哈，你真聪明，不过，在这之前，假设我们有一张会员卡，我们想查询一下这张会员卡的余额，这时候，要向前台发起另一个询问”，我继续在纸上写着：</p>
-<div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+<div class="language-json line-numbers-mode" data-ext="json"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"queryBalance"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"cardId"</span><span class="token operator">:</span> <span class="token string">"886333"</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“查询卡号为886333的卡的余额？”</p>
 <p>“真棒！接着，查询的结果返回来了”</p>
-<div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+<div class="language-json line-numbers-mode" data-ext="json"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"balance"</span><span class="token operator">:</span> <span class="token string">"0"</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“切，没钱......”</p>
 <p>“哈哈，没钱，现在我们要跟前台说，这杯咖啡不要了”，我在纸上写到：</p>
-<div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+<div class="language-json line-numbers-mode" data-ext="json"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"deleteOrder"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"orderId"</span><span class="token operator">:</span> <span class="token string">"123456"</span>
   <span class="token punctuation">}</span>
@@ -43,7 +43,7 @@
 <p>“现在这家咖啡店越做越大，来喝咖啡的人越来越多，单靠前台显然是不行的，店主决定进行分工，每个资源都有专人负责，我们可以直接面向资源操作。”</p>
 <p>&quot;面向资源？”</p>
 <p>“是的，比如还是下单，请求的内容不变，但是我们多了一条消息”，我在纸上画出这次的模型：</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>/orders
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>/orders
 {
  "addOrder": {
    "orderName": "latte"
@@ -53,11 +53,11 @@
 <p>“这个表示我们这个请求是发给哪个资源的，订单是一种资源，我们可以理解为是咖啡厅专门管理订单的人，他可以帮我们处理所有有关订单的操作，包括新增订单、修改订单、取消订单等操作”</p>
 <p>“Soga...”</p>
 <p>“接着还是会返回订单的编号给我们”</p>
-<div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+<div class="language-json line-numbers-mode" data-ext="json"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"orderId"</span><span class="token operator">:</span> <span class="token string">"123456"</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“下面，我们还是要查询会员卡余额，这次请求的资源变成了cards”</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>/cards
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>/cards
 {
   "queryBalance": {
     "cardId": "886333"
@@ -65,7 +65,7 @@
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“接下来是取消订单”</p>
 <p>“这个我会”，说着，Ta抢走我手上的笔，在纸上写了起来：</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>/orders
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>/orders
 {
   "deleteOrder": {
     "orderId": "123456"
@@ -76,37 +76,37 @@
 <p>“其他种类的请求，比如查询类的，用 <strong>GET</strong> 表示，删除类的，用 <strong>DELETE</strong> 表示”</p>
 <p>“还有修改类的，修改分为两种，这个第一种，如果修改，无论发送多少次，最后一次修改后的资源，总是和第一次修改后的一样，比如将拿铁改为猫屎，那么用 <strong>PUT</strong> 表示；第二种，如果这个修改，每次修改都会让这个资源和前一次的不一样，比如是加一杯咖啡，那么这种请求用 <strong>PATCH</strong> 或者 <strong>POST</strong> 表示”，一口气讲了这么多，发现Ta有点似懂非懂。</p>
 <p>“来，我们再来重复上面那个过程，来一杯拿铁”，我边说边画着：</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>POST /orders
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>POST /orders
 {
   "orderName": "latte"
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>&quot;请求的内容简洁多啦，不用告诉店员是addOrder，看到POST就知道是新增&quot;，Ta听的很认真，理解的也很透彻。</p>
 <p>&quot;恩恩，返回的内容还是一样&quot;</p>
-<div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+<div class="language-json line-numbers-mode" data-ext="json"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"orderId"</span><span class="token operator">:</span> <span class="token string">"123456"</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“接着是查询会员卡余额，这次也简化了很多”</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>GET /cards
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>GET /cards
 {
   "cardId": "886333"
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“这个请求我们还可以进一步优化为这样”</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>GET /cards/886333
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>GET /cards/886333
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>“Soga，直接把要查询的卡号写在后面了”</p>
 <p>“没错，接着，取消订单”</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>DELETE /orders/123456
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>DELETE /orders/123456
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="level-3-完美服务" tabindex="-1"><a class="header-anchor" href="#level-3-完美服务" aria-hidden="true">#</a> Level 3 - 完美服务</h2>
 <p>“忽然有一天，有个顾客抱怨说，他买了咖啡后，不知道要怎么取消订单，咖啡厅一个店员回了一句，你不会看我们的宣传单吗，上面不写着：</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>DELETE /orders/{orderId}
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>DELETE /orders/{orderId}
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>顾客反问道，谁会去看那个啊，店员不服，又说到，你瞎了啊你......据说后面两人吵着吵着还打了起来...”</p>
 <p>“噗，真是悲剧...”</p>
 <p>“有了这次教训，店长决定，顾客下了单之后，不仅给他们返回订单的编号，还给顾客返回所有可以对这个订单做的操作，比如告诉用户如何删除订单。现在，我们还是发出请求，请求内容和上一次一样”</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>POST /orders
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>POST /orders
 {
   "orderName": "latte"
 }
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“但是这次返回时多了些内容”</p>
-<div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+<div class="language-json line-numbers-mode" data-ext="json"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"orderId"</span><span class="token operator">:</span> <span class="token string">"123456"</span><span class="token punctuation">,</span>
   <span class="token property">"link"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"rel"</span><span class="token operator">:</span> <span class="token string">"cancel"</span><span class="token punctuation">,</span>
@@ -114,7 +114,7 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>“这次返回时多了一项link信息，里面包含了一个rel属性和url属性，rel是relationship的意思，这里的关系是cancel，url则告诉你如何执行这个cancel操作，接着你就可以这样子来取消订单啦”</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>DELETE /orders/123456
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>DELETE /orders/123456
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>“哈哈，这服务真是贴心，以后再也不用担心店员和顾客打起来了”</p>
 <p>“订单123456的客户可以取餐了”，伴随着咖啡厅的广播，我们吃起了下午茶，一杯拿铁，两支吸管......</p>
 <h2 id="说明" tabindex="-1"><a class="header-anchor" href="#说明" aria-hidden="true">#</a> 说明</h2>
@@ -149,7 +149,7 @@
 <h4 id="动词-宾语" tabindex="-1"><a class="header-anchor" href="#动词-宾语" aria-hidden="true">#</a> 动词 + 宾语</h4>
 <p>RESTful 的核心思想就是，客户端发出的数据操作指令都是&quot;动词 + 宾语&quot;的结构。比如: <strong>GET /articles</strong> 这个命令，GET是动词，/articles是宾语。</p>
 <p>动词通常就是五种 HTTP 方法，对应 CRUD 操作。</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>- GET：读取（Read）
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>- GET：读取（Read）
 - POST：新建（Create）
 - PUT：更新（Update）
 - PATCH：更新（Update），通常是部分更新
@@ -158,12 +158,12 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="动词的覆盖" tabindex="-1"><a class="header-anchor" href="#动词的覆盖" aria-hidden="true">#</a> 动词的覆盖</h4>
 <p>有些客户端只能使用 GET 和 POST 这两种方法。服务器必须接受 POST 模拟其他三个方法（PUT、PATCH、DELETE）。</p>
 <p>这时，客户端发出的 HTTP 请求，要加上 <strong>X-HTTP-Method-Override</strong> 属性，告诉服务器应该使用哪一个动词，覆盖POST方法。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">POST</span> <span class="token request-target url">/api/Person/4</span> <span class="token http-version property">HTTP/1.1</span></span>  
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">POST</span> <span class="token request-target url">/api/Person/4</span> <span class="token http-version property">HTTP/1.1</span></span>  
 <span class="token header"><span class="token header-name keyword">X-HTTP-Method-Override</span><span class="token punctuation">:</span> <span class="token header-value">PUT</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>上面代码中，X-HTTP-Method-Override 指定本次请求的方法是PUT，而不是POST。</p>
 <h4 id="宾语必须是名词" tabindex="-1"><a class="header-anchor" href="#宾语必须是名词" aria-hidden="true">#</a> 宾语必须是名词</h4>
 <p>宾语就是 API 的 URL，是 HTTP 动词作用的对象。它应该是名词，不能是动词。比如: <strong>/articles</strong> 这个 URL 就是正确的，而下面的 URL 不是名词，所以都是错误的。</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>/getAllCars
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>/getAllCars
 /createNewCar
 /deleteAllRedCars
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="复数-url" tabindex="-1"><a class="header-anchor" href="#复数-url" aria-hidden="true">#</a> 复数 URL</h4>
@@ -172,19 +172,19 @@
 <p>为了统一起见，建议都使用复数 URL，比如 <strong>GET /articles/2</strong> 要好于 <strong>GET /article/2</strong> 。</p>
 <h4 id="避免多级-url" tabindex="-1"><a class="header-anchor" href="#避免多级-url" aria-hidden="true">#</a> 避免多级 URL</h4>
 <p>常见的情况是，资源需要多级分类，因此很容易写出多级的 URL，比如获取某个作者的某一类文章。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/authors/12/categories/2</span> <span class="token http-version property">HTTP/1.1</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/authors/12/categories/2</span> <span class="token http-version property">HTTP/1.1</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>这种 URL 不利于扩展，语义也不明确，往往要想一会，才能明白含义。</p>
 <p>更好的做法是，除了第一级，其他级别都用查询字符串表达。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/authors/12?categories=2</span> <span class="token http-version property">HTTP/1.1</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/authors/12?categories=2</span> <span class="token http-version property">HTTP/1.1</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>下面是另一个例子，查询已发布的文章。你可能会设计成下面的 URL。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/articles/published</span> <span class="token http-version property">HTTP/1.1</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/articles/published</span> <span class="token http-version property">HTTP/1.1</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>查询字符串的写法明显更好。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/articles?published=true</span> <span class="token http-version property">HTTP/1.1</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/articles?published=true</span> <span class="token http-version property">HTTP/1.1</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="状态码" tabindex="-1"><a class="header-anchor" href="#状态码" aria-hidden="true">#</a> 状态码</h3>
 <h4 id="状态码必须精确" tabindex="-1"><a class="header-anchor" href="#状态码必须精确" aria-hidden="true">#</a> 状态码必须精确</h4>
 <p>客户端的每一次请求，服务器都必须给出回应。回应包括 <strong>HTTP 状态码</strong> 和 <strong>数据</strong> 两部分。</p>
 <p>HTTP 状态码就是一个三位数，分成五个类别。</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>- 1xx：相关信息
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>- 1xx：相关信息
 - 2xx：操作成功
 - 3xx：重定向
 - 4xx：客户端错误
@@ -193,14 +193,14 @@
 <p>API 不需要1xx状态码，下面介绍其他四类状态码的精确含义。</p>
 <h4 id="_2xx-状态码" tabindex="-1"><a class="header-anchor" href="#_2xx-状态码" aria-hidden="true">#</a> 2xx 状态码</h4>
 <p>200状态码表示操作成功，但是不同的方法可以返回更精确的状态码。</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>- GET: 200 OK
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>- GET: 200 OK
 - POST: 201 Created
 - PUT: 200 OK
 - PATCH: 200 OK
 - DELETE: 204 No Content
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上面代码中，POST返回201状态码，表示生成了新的资源；DELETE返回204状态码，表示资源已经不存在。</p>
 <p>此外，202 Accepted状态码表示服务器已经收到请求，但还未进行处理，会在未来再处理，通常用于异步操作。下面是一个例子。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">202</span> <span class="token reason-phrase string">Accepted</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">202</span> <span class="token reason-phrase string">Accepted</span></span>
 
 {
   "task": {
@@ -211,11 +211,11 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_3xx-状态码" tabindex="-1"><a class="header-anchor" href="#_3xx-状态码" aria-hidden="true">#</a> 3xx 状态码</h4>
 <p>API 用不到301状态码（永久重定向）和302状态码（暂时重定向，307也是这个含义），因为它们可以由应用级别返回，浏览器会直接跳转，API 级别可以不考虑这两种情况。</p>
 <p>API 用到的3xx状态码，主要是303 See Other，表示参考另一个 URL。它与302和307的含义一样，也是&quot;暂时重定向&quot;，区别在于 <strong>302和307用于GET请求</strong> ，而 <strong>303用于POST、PUT和DELETE请求</strong>。收到303以后，浏览器不会自动跳转，而会让用户自己决定下一步怎么办。下面是一个例子。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">303</span> <span class="token reason-phrase string">See Other</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">303</span> <span class="token reason-phrase string">See Other</span></span>
 <span class="token header"><span class="token header-name keyword">Location</span><span class="token punctuation">:</span> <span class="token header-value">/api/orders/12345</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_4xx-状态码" tabindex="-1"><a class="header-anchor" href="#_4xx-状态码" aria-hidden="true">#</a> 4xx 状态码</h4>
 <p>4xx状态码表示客户端错误，主要有下面几种。</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>400 Bad Request：服务器不理解客户端的请求，未做任何处理。
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>400 Bad Request：服务器不理解客户端的请求，未做任何处理。
 401 Unauthorized：用户未提供身份验证凭据，或者没有通过身份验证。
 403 Forbidden：用户通过了身份验证，但是不具有访问资源所需的权限。
 404 Not Found：所请求的资源不存在，或不可用。
@@ -226,17 +226,17 @@
 429 Too Many Requests：客户端的请求次数超过限额。
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_5xx-状态码" tabindex="-1"><a class="header-anchor" href="#_5xx-状态码" aria-hidden="true">#</a> 5xx 状态码</h4>
 <p>5xx状态码表示服务端错误。一般来说，API 不会向用户透露服务器的详细信息，所以只要两个状态码就够了。</p>
-<div class="language-text ext-text line-numbers-mode"><pre v-pre class="language-text"><code>500 Internal Server Error：客户端请求有效，服务器处理时发生了意外。
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>500 Internal Server Error：客户端请求有效，服务器处理时发生了意外。
 503 Service Unavailable：服务器无法处理请求，一般用于网站维护状态。
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="服务器回应" tabindex="-1"><a class="header-anchor" href="#服务器回应" aria-hidden="true">#</a> 服务器回应</h3>
 <h4 id="不要返回纯本文" tabindex="-1"><a class="header-anchor" href="#不要返回纯本文" aria-hidden="true">#</a> 不要返回纯本文</h4>
 <p>API 返回的数据格式，不应该是纯文本，而应该是一个 JSON 对象，因为这样才能返回标准的结构化数据。所以，服务器回应的 HTTP 头的 <strong>Content-Type</strong> 属性要设为 <strong>application/json</strong>。</p>
 <p>客户端请求时，也要明确告诉服务器，可以接受 JSON 格式，即请求的 HTTP 头的ACCEPT属性也要设成application/json。下面是一个例子。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/orders/2</span> <span class="token http-version property">HTTP/1.1</span></span> 
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/orders/2</span> <span class="token http-version property">HTTP/1.1</span></span> 
 <span class="token header"><span class="token header-name keyword">Accept</span><span class="token punctuation">:</span> <span class="token header-value">application/json</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="发生错误时-不要返回-200-状态码" tabindex="-1"><a class="header-anchor" href="#发生错误时-不要返回-200-状态码" aria-hidden="true">#</a> 发生错误时，不要返回 200 状态码</h4>
 <p>有一种不恰当的做法是，即使发生错误，也返回200状态码，把错误信息放在数据体里面，就像下面这样。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">200</span> <span class="token reason-phrase string">OK</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">200</span> <span class="token reason-phrase string">OK</span></span>
 <span class="token header"><span class="token header-name keyword">Content-Type</span><span class="token punctuation">:</span> <span class="token header-value">application/json</span></span>
 <span class="token application-json">
 <span class="token punctuation">{</span>
@@ -247,7 +247,7 @@
 <span class="token punctuation">}</span>
 </span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上面代码中，解析数据体以后，才能得知操作失败。</p>
 <p>这张做法实际上取消了状态码，这是完全不可取的。正确的做法是，状态码反映发生的错误，具体的错误信息放在数据体里面返回。下面是一个例子。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">400</span> <span class="token reason-phrase string">Bad Request</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">400</span> <span class="token reason-phrase string">Bad Request</span></span>
 <span class="token header"><span class="token header-name keyword">Content-Type</span><span class="token punctuation">:</span> <span class="token header-value">application/json</span></span>
 <span class="token application-json">
 <span class="token punctuation">{</span>
@@ -259,18 +259,18 @@
 </span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="提供链接" tabindex="-1"><a class="header-anchor" href="#提供链接" aria-hidden="true">#</a> 提供链接</h4>
 <p>API 的使用者未必知道，URL 是怎么设计的。一个解决方法就是，在回应中，给出相关链接，便于下一步操作。这样的话，用户只要记住一个 URL，就可以发现其他的 URL。这种方法叫做 HATEOAS。</p>
 <blockquote>
-<p>举例来说，GitHub 的 API 都在 api.github.com 这个域名。访问它，就可以得到其他 URL。</p>
+<p>举例来说，GitHub 的 API 都在 <a href="http://api.github.com" target="_blank" rel="noopener noreferrer">api.github.com<ExternalLinkIcon/></a> 这个域名。访问它，就可以得到其他 URL。</p>
 </blockquote>
-<div class="language-json ext-json line-numbers-mode"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
+<div class="language-json line-numbers-mode" data-ext="json"><pre v-pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">"feeds_url"</span><span class="token operator">:</span> <span class="token string">"https://api.github.com/feeds"</span><span class="token punctuation">,</span>
   <span class="token property">"followers_url"</span><span class="token operator">:</span> <span class="token string">"https://api.github.com/user/followers"</span><span class="token punctuation">,</span>
   <span class="token property">"following_url"</span><span class="token operator">:</span> <span class="token string">"https://api.github.com/user/following{/target}"</span><span class="token punctuation">,</span>
   <span class="token property">"gists_url"</span><span class="token operator">:</span> <span class="token string">"https://api.github.com/gists{/gist_id}"</span><span class="token punctuation">,</span>
   <span class="token property">"hub_url"</span><span class="token operator">:</span> <span class="token string">"https://api.github.com/hub"</span>
 <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上面的回应中，挑一个 URL 访问，又可以得到别的 URL。对于用户来说，不需要记住 URL 设计，只要从 api.github.com 一步步查找就可以了。</p>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上面的回应中，挑一个 URL 访问，又可以得到别的 URL。对于用户来说，不需要记住 URL 设计，只要从 <a href="http://api.github.com" target="_blank" rel="noopener noreferrer">api.github.com<ExternalLinkIcon/></a> 一步步查找就可以了。</p>
 <p>HATEOAS 的格式没有统一规定，上面例子中，GitHub 将它们与其他属性放在一起。更好的做法应该是，将相关链接与其他属性分开。</p>
-<div class="language-http ext-http line-numbers-mode"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">200</span> <span class="token reason-phrase string">OK</span></span>
+<div class="language-http line-numbers-mode" data-ext="http"><pre v-pre class="language-http"><code><span class="token response-status"><span class="token http-version property">HTTP/1.1</span> <span class="token status-code number">200</span> <span class="token reason-phrase string">OK</span></span>
 <span class="token header"><span class="token header-name keyword">Content-Type</span><span class="token punctuation">:</span> <span class="token header-value">application/json</span></span>
 <span class="token application-json">
 <span class="token punctuation">{</span>

@@ -1,14 +1,18 @@
-import { h } from "vue";
 import { defineClientConfig } from "@vuepress/client";
-import Badge from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/components/Badge";
-import FontIcon from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/components/FontIcon";
-import BackToTop from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/components/BackToTop";
+import { hasGlobalComponent } from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/shared.js";
+import { h } from "vue";
 
+import Badge from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/components/Badge.js";
+import FontIcon from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
+import BackToTop from "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/components/BackToTop.js";
+
+
+import "F:/_ _project/自己/vuepress/node_modules/vuepress-plugin-components/lib/client/styles/sr-only.scss";
 
 export default defineClientConfig({
   enhance: ({ app }) => {
-    app.component("Badge", Badge);
-    app.component("FontIcon", FontIcon);
+    if(!hasGlobalComponent("Badge")) app.component("Badge", Badge);
+    if(!hasGlobalComponent("FontIcon")) app.component("FontIcon", FontIcon);
     
   },
   setup: () => {

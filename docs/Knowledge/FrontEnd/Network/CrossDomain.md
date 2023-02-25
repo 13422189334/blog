@@ -3,10 +3,6 @@ title: 跨域
 lang: zh-CN
 date: 2022-06-01 15:28:16
 permalink: /Network/CrossDomain/
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
 category: 
   - Network
 tag: 
