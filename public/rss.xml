@@ -6,8 +6,8 @@
     <link>https://jin-shaohui.gitee.io/</link>
     <description>Just playing around</description>
     <language>zh-CN</language>
-    <pubDate>Sat, 25 Feb 2023 06:51:16 GMT</pubDate>
-    <lastBuildDate>Sat, 25 Feb 2023 06:51:16 GMT</lastBuildDate>
+    <pubDate>Sat, 25 Feb 2023 07:06:26 GMT</pubDate>
+    <lastBuildDate>Sat, 25 Feb 2023 07:06:26 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
     <copyright>MIT Licensed | Copyright © 2019-present JSH</copyright>
@@ -16,30 +16,437 @@
       <url>https://jin-shaohui.gitee.io/logo/logo.gif</url>
       <link>https://jin-shaohui.gitee.io/</link>
     </image>
+    <category>JavaScript</category>
+    <category>Network</category>
+    <category>Question</category>
     <category>算法</category>
     <category>设计模式</category>
     <category>性能优化</category>
     <category>推荐</category>
     <category>Java</category>
-    <category>JavaScript</category>
-    <category>Question</category>
     <category>VUE</category>
     <category>VUE3</category>
-    <category>Network</category>
     <category>前端规范</category>
     <category>RESTful</category>
     <category>ECMAScript</category>
     <category>Canvas</category>
     <category>Svg</category>
-    <category>JS代码题</category>
     <category>PackageJson</category>
     <category>Webpack</category>
     <category>CSS</category>
     <category>微前端</category>
-    <category>React</category>
     <category>Storage</category>
+    <category>React</category>
     <category>服务器</category>
     <category>Git</category>
+    <item>
+      <title>请使用JS完成一个LRU缓存</title>
+      <link>https://jin-shaohui.gitee.io/JavaScript/LRU/</link>
+      <guid>https://jin-shaohui.gitee.io/JavaScript/LRU/</guid>
+      <source url="https://jin-shaohui.gitee.io/rss.xml">请使用JS完成一个LRU缓存</source>
+      <description>什么是 LRU？ LRU 英文全称是 Least Recently Used，英译过来就是 最近最少使用 的意思。 百度百科 LRU 是一种常用的页面置换算法，选择 最近 最久 未使用 的页面予以淘汰。 该算法赋予每个页面一个访问字段，用来记录一个页面自上次被访问以来所 经历的时间t，当须淘汰一个页面时，选择现有页面中其 t 值最大的，即最近最少使用的页面予以淘汰。</description>
+      <category>JavaScript</category>
+      <pubDate>Sat, 25 Feb 2023 14:57:37 GMT</pubDate>
+      <content:encoded><![CDATA[<h2> 什么是 LRU？</h2>
+<p><code>LRU</code> 英文全称是 <code>Least Recently Used</code>，英译过来就是 <code>最近最少使用</code> 的意思。</p>
+<h3> 百度百科</h3>
+<p>LRU 是一种常用的页面置换算法，选择 <code>最近</code> <code>最久</code> <code>未使用</code> 的页面予以<code>淘汰</code>。</p>
+<p>该算法赋予<code>每个页面</code>一个<code>访问字段</code>，用来记录一个页面自上次被访问以来所 <code>经历的时间t</code>，当须淘汰一个页面时，选择现有页面中其 <code>t</code> 值最大的，即<code>最近最少使用</code>的页面予以淘汰。</p>
+<h3> 通俗的解释</h3>
+<p>假如我们有一块<code>内存</code>，专门用来缓存我们<code>最近访问</code>的网页，访问一个<code>新网页</code>，我们就会往内存中添加一个<code>网页地址</code>，随着网页的不断增加，内存存满了，这个时候我们就需要考虑删除一些网页了。这个时候我们找到内存中<code>最早访问</code>的那个网页地址，然后把它<code>删掉</code>。
+这一整个过程就可以称之为 L<code>RU</code> 算法。</p>
+<p>虽然上面的解释比较好懂了，但是我们还有很多地方没有考虑到，比如如下几点：</p>
+<ul>
+<li>当我们访问内存中<code>已经存在</code>的<code>网址</code>，那么该网址是否需要<code>更新</code>在内存中的<code>存储顺序</code>。</li>
+<li>当我们内存中还没有数据的时候，是否需要执行删除操作。</li>
+</ul>
+<h2> 使用场景</h2>
+<p><code>LRU</code> 算法使用的场景非常多，这里简单举几个例子即可：</p>
+<ol>
+<li>操作系统底层的内存管理，其中就包括有 LRU 算法</li>
+<li>我们常见的缓存服务，比如 redis 等等</li>
+<li>浏览器的最近浏览记录存储，如下图：</li>
+</ol>
+<p>总之 LRU 算法的运用场景还是蛮多的，所以我们很有必要掌握它。</p>
+<h2> 梳理 LRU 思路</h2>
+<h3> 特点</h3>
+<ol>
+<li>需要一块<code>有限</code>的<code>存储空间</code>，因为无限的化就没必要使用 <code>LRU</code> 算法<code>删除数据</code>了。</li>
+<li><code>存储空间</code>里面存储的数据需要是<code>有序的</code>，因为必须要<code>顺序</code>来<code>删除数据</code>，所以可以考虑使用 <code>Array</code>、<code>Map</code> 数据结构来存储。</li>
+<li>能够<code>删除</code>或者<code>添加</code>以及<code>获取</code>到这块存储空间中的<code>指定数据</code>。</li>
+<li>存储空间<code>存满</code>之后，在添加数据时，会自动删除时间<code>最久远</code>的那条数据。</li>
+</ol>
+<h3> 实现需求</h3>
+<ol>
+<li>实现一个 <code>LRUCache</code> 类型，用来充当<code>存储空间</code></li>
+<li>采用 <code>Map</code> 数据结构<code>存储数据</code>，因为它的存取时间复杂度为 <code>O(1)</code>，数组为 <code>O(n)</code></li>
+<li>实现 <code>get</code> 和 <code>set</code> 方法，用来<code>获取</code>和<code>添加</code>数据</li>
+<li>存储空间有<code>长度限制</code>，所以<code>无需</code>提供<code>删除方法</code>，存储满之后，自动删除最久远的那条数据</li>
+<li>当使用 <code>get</code> 获取数据后，该条数据需要<code>更新</code>到<code>最前面</code></li>
+</ol>
+<p>现在已经把 <code>LRU</code> 算法的特点以及实现思路列了出来，那么接下来就去实现它吧！</p>
+<h2> 实现</h2>
+<p>首先我们定义一个 <code>LRUCache</code> 类，封装所有的方法和变量。</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上段代码只是最简单的一个架子，我们需要去实现具体的 <code>get</code> 和 <code>set</code> 方法。</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上段代码中实现实现了 <code>get</code> 和 <code>set</code> 方法，下面说一下这两个方法的<code>实现思路</code>：</p>
+<p><code>set</code> 方法：往 <code>map</code> 里面<code>添加</code>新数据，如果添加的数据<code>存在</code>了，则<code>先删除</code>该条数据，然后<code>再添加</code>。如果添加数据后<code>超长</code>了，则需要删除<code>最久远</code>的一条数据。<code>data.keys().next().value</code> 便是获取最后一条数据的意思。
+<code>get</code> 方法：首先从 <code>map</code> 对象中<code>拿出</code>该条数据，然后<code>删除</code>该条数据，最后再重新<code>插入</code>该条数据，确保将该条数据移动到<code>最前面</code>。</p>
+<h2> 测试</h2>
+<p>存储数据 set：</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>继续插入数据，此时会超长，代码如下：</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时我们发现存储时间最久的 name 已经被移除了，新插入的数据变为了最前面的一个。</p>
+<p>我们使用 <code>get</code> 获取数据，代码如下：</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们发现此时 sex 字段已经跑到最前面去了。</p>
+<h2> 总结</h2>
+<p><code>LRU</code> 算法其实逻辑非常的简单，明白了原理之后实现起来非常的简单。</p>
+<p>最主要的是需要使用什么<code>数据结构</code>来<code>存储数据</code>，因为 <code>map</code> 的存取非常快，所以采用了它，当然数组其实也可以实现的。还有一些小伙伴使用链表来实现 <code>LRU</code>，这当然也是可以的。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>浏览器缓存</title>
+      <link>https://jin-shaohui.gitee.io/Network/BrowserCache/</link>
+      <guid>https://jin-shaohui.gitee.io/Network/BrowserCache/</guid>
+      <source url="https://jin-shaohui.gitee.io/rss.xml">浏览器缓存</source>
+      <description>什么是web缓存？ web缓存主要指的是两部分：浏览器缓存和http缓存。 http缓存是web缓存的核心，是最难懂的那一部分,也是最重要的那一部分。 浏览器缓存：例如 localStorage(5M)、sessionStorage(5M)、cookie(4k)等等。这些功能主要用于缓存一些必要的数据，比如用户信息。比如需要携带到后端的参数。亦或者是一些列表数据等等。 缓存可以解决什么问题？ 减少不必要的网络传输，节约宽带（就是省钱） 更快的加载页面（就是加速） 减少服务器负载，避免服务器过载的情况出现。（就是减载） 缺点是什么？ 占内存（有些缓存会被存到内存中）</description>
+      <category>Network</category>
+      <pubDate>Thu, 22 Sep 2022 10:15:04 GMT</pubDate>
+      <content:encoded><![CDATA[<h2> 什么是web缓存？</h2>
+<p><code>web缓存</code>主要指的是两部分：<code>浏览器缓存</code>和<code>http缓存</code>。</p>
+<p>http缓存是web缓存的核心，是最难懂的那一部分,也是最重要的那一部分。</p>
+<p>浏览器缓存：例如 <code>localStorage(5M)</code>、<code>sessionStorage(5M)</code>、<code>cookie(4k)</code>等等。这些功能主要用于缓存一些必要的数据，比如用户信息。比如需要携带到后端的参数。亦或者是一些列表数据等等。</p>
+<h2> 缓存可以解决什么问题？</h2>
+<ol>
+<li>减少不必要的网络传输，节约宽带（就是<code>省钱</code>）</li>
+<li>更快的加载页面（就是<code>加速</code>）</li>
+<li>减少服务器负载，避免服务器过载的情况出现。（就是<code>减载</code>）</li>
+</ol>
+<h2> 缺点是什么？</h2>
+<ol>
+<li>占内存（有些缓存会被存到内存中）</li>
+</ol>
+<!-- more -->
+<h2> http缓存</h2>
+<div class="hint-container info">
+<p class="hint-container-title">官方介绍</p>
+<p><code>Web缓存</code>是可以<code>自动保存</code>常见文档副本的 <code>HTTP设备</code>。当<code>Web请求</code>抵达缓存时，如果本地有<code>已缓存的</code>副本，就可以从<code>本地存储设备</code>而不是<code>原始服务器</code>中提取这个文档。</p>
+</div>
+<p>服务器需要处理<code>http</code>的请求，而缓存，就是为了让服务器<code>不去处理</code>这个请求，客户端也可以<code>拿到数据</code>。</p>
+<p>注意，缓存主要是针对<code>html</code>、<code>css</code>、<code>img</code>等<code>静态资源</code>，常规情况下，<strong>不会去缓存一些动态资源</strong>。</p>
+<h3> 大纲</h3>
+<p><strong>我们把<code>http缓存</code>问题拆分下，可以从以下几个方面来回答这个问题:</strong></p>
+<ul>
+<li>缓存的类型 (<code>强缓存</code>or<code>协商缓存</code>)</li>
+<li>缓存位置 (<code>Service Worker</code>、<code>Memory Cache</code>...)</li>
+<li>缓存过程分析</li>
+<li>缓存策略的实际场景应用</li>
+</ul>
+<h3> 缓存的类型</h3>
+<p>首先从缓存的类型上来说，可以分为两种: <strong>强缓存</strong> 与 <strong>协商缓存</strong></p>
+<p>强缓存是<strong>不需要发送HTTP请求的，而协商缓存需要</strong></p>
+<p>也就是在<strong>发送HTTP请求之前</strong>，浏览器会<strong>先检查</strong>一下<code>强缓存</code>，如果命中直接使用，否则就进入下一步。</p>
+<h4> 强缓存</h4>
+<p>浏览器检查强缓存的方式主要是判断这两个字段:</p>
+<ul>
+<li><code>HTTP/1.0</code>使用的是<code>Expires</code>;</li>
+<li><code>HTTP/1.1</code>使用的是<code>Cache-Control</code>;</li>
+</ul>
+<h5> Expires</h5>
+<p>Expires字面意思是<code>有效期</code>，那么很好理解，它表示的就是一个具体的时间</p>
+<p>例如:</p>
+<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>表示这个资源在<strong>2020年11月11日8点</strong>之前，都会去<strong>本地的磁盘（或内存）中读取</strong>，不会去服务器请求。过了这个时间就得<strong>向服务端发请求</strong>了。</p>
+<div class="hint-container info">
+<p class="hint-container-title">很有意思的是</p>
+<p><code>Expires</code>过度<strong>依赖本地时间</strong>，如果 <strong>本地与服务器时间不同步</strong>，就会出现资源 <strong>无法被缓存</strong> 或者 <strong>资源永远被缓存</strong> 的情况。</p>
+<p>若是设置了<code>Expires</code>，但是 <strong>服务器的时间</strong> 与 <strong>浏览器的时间</strong> <strong>不一致</strong> 的时候(比如你手动修改了本地的时间)，</p>
+<p>那么就可能会造成<strong>缓存失效</strong>，因此这种方式强缓存方式并不是很准确，它也因此在<code>HTTP/1.1</code>中被<strong>摒弃</strong>了。</p>
+</div>
+<h5> Cache-Control</h5>
+<p>摒弃了Expires之后，HTTP/1。1采用了Cache-Control这个重要的规则。<br>
+它设置的是一个具体的过期时长，其中的一个属性是max-age。</p>
+<p>例如🌰:</p>
+<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>表示的是这个资源在响应之后的300s内过期，也就是5分钟之内再次获取这个资源会直接使用缓存。</p>
+<p>Cache-Control不仅仅有max-age&nbsp;这一个属性，其实它有很多的用法，你甚至可以采用组合的方式:</p>
+<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>上面用法的意思是响应可以被任何对象(客户端，代理服务器等)缓存，且过期时长为5分钟。
+(因为一个请求经历的不仅仅是客户端(浏览器)和目标服务器，它中间有可能会经过不同的代理服务器)</p>
+<p>下面来例举一些常用的指令:</p>
+<ul>
+<li>public: 客户端和代理服务器都可以缓存。</li>
+</ul>
+<blockquote>
+<p>响应可以被中间任何的一个节点缓存，比如一个请求要经历 Browser -&gt; proxy1 -&gt; proxy2 -&gt; Server，中间的代理(proxy)可以缓存资源。 下次再请求同一资源的时候，浏览器就会直接到proxy1中拿缓存的东西而不必向proxy2拿。</p>
+</blockquote>
+<ul>
+<li>private: 这个是Cache-Control默认的取值，只有客户端可以缓存，中间节点不允许缓存。</li>
+</ul>
+<blockquote>
+<p>在 Browser -&gt; proxy1 -&gt; proxy2 -&gt; Server 这个过程中，代理(proxy)不会缓存任何数据，当Browser再次请求时，proxy会把Server返回的数据发送给Brower，做好请求转发，而不是给自己缓存的数据。</p>
+</blockquote>
+<ul>
+<li>no-cache: 表示不进行强缓存验证，而是用协商缓存来验证。</li>
+<li>no-store: 所有内容都不会被缓存，不进行强缓存，也不进行协商缓存。</li>
+<li>max-age: 表示在多久之后过期，比如max-age=300表示在300s后缓存内容失效。</li>
+<li>s-max-age: 它的作用和max-age很像， 不过max-age 用于普通缓存，而s-max-age用于代理缓存，且s-max-age的优先级更高。</li>
+<li>max-stale: 能容忍的最大过期时间。</li>
+</ul>
+<blockquote>
+<p>max-stale指令表示客户端愿意接收一个已经过期了的响应。</p>
+</blockquote>
+<ul>
+<li>min-fresh：能够容忍的最小新鲜度。</li>
+</ul>
+<blockquote>
+<p>min-fresh表示客户端不愿意接受新鲜度不多于当前的age加上min-fresh设定的时间之和的响应。</p>
+</blockquote>
+<p>基于上面的这些指令，我们可以将它们进行组合，达到多个目的， 不同的效果。
+有一张来自<a href="https://www.jianshu.com/p/54cc04190252" target="_blank" rel="noopener noreferrer">《浪里行舟-深入理解浏览器的缓存机制》</a>中的图表述的非常好:</p>
+
+<h4> Expires和Cache-control的对比</h4>
+<ul>
+<li>Expires产于HTTP/1。0，Cache-control产于HTTP/1。1;</li>
+<li>Expires设置的是一个具体的时间，Cache-control&nbsp;可以设置具体时常还有其它的属性;</li>
+<li>两者同时存在，Cache-control的优先级更高;</li>
+<li>在不支持HTTP/1。1的环境下，Expires就会发挥作用，所以先阶段的存在是为了做一些兼容的处理。</li>
+</ul>
+<h3> 协商缓存</h3>
+<p>在上面我们已经介绍了强缓存，它是不需要发送HTTP请求的，若是强缓存失效，则会进入协商缓存。</p>
+<p>协商缓存概括来说 就是浏览器会携带缓存标识(tag)向服务器发送请求，服务器会根据缓存标识(tag)来决定是否使用缓存。</p>
+<p>所以对于服务器的返回结果会有这两种情况:</p>
+<ul>
+<li>协商缓存生效，返回304和Not Modified(空的响应体)</li>
+<li>协商缓存失效，返回200和请求结果</li>
+</ul>
+<p>而刚刚提到的这个缓存标识(tag)也是有两种。</p>
+<p>分为Last-Modified和 ETag。</p>
+<h4> Last-Modified 和 If-Modified-Since</h4>
+<p>从字面意思上我们可以看出，Last-Modified表示的是资源的最后修改时间，因此其中一种协商缓存判断的就是最后修改时间。</p>
+<p>那它具体是怎样实现的呢?</p>
+<p>其实使用Last-Modified进行协商缓存会经过以下几步:</p>
+<ol>
+<li>浏览器第一次向服务器请求这个资源</li>
+<li>服务器在返回这个资源的时候，在response header中添加Last-Modified的header，值为该资源在服务器上最后的修改时间</li>
+<li>浏览器接收到后缓存文件和这个header</li>
+<li>当下次浏览器再次请求这个资源的时候， 检测到有Last-Modified这个header，就会在请求头中添加If-Modified-Since这个header，该值就是Last-Modified</li>
+<li>服务器再次接收到该资源的请求，则根据If-Modified-Since与服务器中的这个资源的最后修改时间做对比</li>
+<li>对比结果相同则返回304和一个空的响应体，告诉浏览器从自己(浏览器)的缓存中拿</li>
+<li>对比结果不同(If-Modified-Since &lt; 服务器资源最后修改时间)，则表示资源被修改了，则返回200和最新的资源文件(当然还包括最新的Last-Modefied)</li>
+</ol>
+
+<h4> ETag 与 If-None-Match</h4>
+<p>ETag其实与Last-Modefied的原理差不多，不过它不是根据资源的最后修改时间来判断的，而是通过一个唯一的标识。</p>
+<p>在浏览器请求服务器资源的时候，服务器会根据当前文件的内容，给文件生成一个唯一的标识，若是文件发生了改变，则这个标识就会改变。</p>
+<p>服务器会将这个标识ETag放到响应体的header中与请求的资源一起返回给浏览器，而浏览器同样也会缓存文件与这个header。</p>
+<p>在下一次再次加载该资源时，浏览器会将刚刚缓存的ETag放到请求体头部(request header)的If-None-Match里发送给服务器。</p>
+<p>同样的服务器接收到了之后与该资源自身的ETag做对比，如果一致，则表示该资源未发生改变，则直接返回304知会客户端直接使用本地缓存即可。 若是不一致，则返回200和最新的资源文件(当然还包括最新的ETag)</p>
+<p>如下图:</p>
+
+<h4> 两者对比</h4>
+<p>在进行对比之前，我们先来看看两者都有什么优缺点呢?</p>
+<p>首先对于Last-Modified:</p>
+<ul>
+<li>若是本地打开了缓存文件，并没有进行修改，也还是会改变最后修改时间，导致缓存失败;</li>
+<li>由于Last-Modified是以秒来计时的，若是某个文件在一秒内被修改了很多次，那么这时候的 Last-Modified 并没有体现出修改了。</li>
+</ul>
+<p>然后对于ETag:</p>
+<ul>
+<li>性能上的不足,只要文件发生改变,ETag就会发生改变。  ETag需要服务器通过算法来计算出一个hash值。</li>
+</ul>
+<p><strong>总结，所以对于两种协商缓存:</strong></p>
+<ul>
+<li>准确度上ETag更强;</li>
+<li>性能上Last-Modified更好;</li>
+<li>两者都支持的话，ETag优先级更高。</li>
+</ul>
+<h2> 缓存位置</h2>
+<p>在上面我们已经介绍完了缓存的类型，但是之前也提到过了，若是命中了强缓存或者服务器返回了304之后，
+要浏览器从缓存中过去资源，那这些缓存具体是存储在哪里呢?</p>
+<p>从优先级上来说分为以下四种:</p>
+<ul>
+<li>Service Worker</li>
+<li>Memory Cache</li>
+<li>Disk Cache</li>
+<li>Push Cache</li>
+</ul>
+<h3> Service Worker</h3>
+<p>Service Worker是运行在浏览器背后的独立线程，也就是说它脱离了浏览器的窗体，无法直接访问DOM。
+功能上主要是能实现: 离线缓存、消息推送、网络代理等。比如离线缓存就是Service Worker Cache。</p>
+<p>简单来说，它有以下几个特点:</p>
+<ul>
+<li>借鉴了Web Worker的思路</li>
+<li>使用Service Worker会涉及到请求拦截，所以需要用HTTPS协议来保证安全，传输协议必须是HTTPS</li>
+<li>与浏览器其它内建的缓存机制不同，它可以让我们自由的控制缓存哪些文件、如何匹配读取缓存，且缓存是持续性的</li>
+<li>Service Worker同时也是PWA的重要实现机制</li>
+</ul>
+<h3> Memory Cache</h3>
+<p>从命名上来说，Memory Cache就是内存中的缓存，存储的主要是当前页面已经抓取到的资源，
+比如页面上已经下载的样式、脚本、图片等。</p>
+<p>Memory Cache的特点:</p>
+<ul>
+<li>读取效率快，可是缓存持续时间短，会随着进程的释放而释放(一旦关闭Tab页面，就被释放了，还有可能在没关闭之前，排在前面的缓存就失效了，例如一个页面的缓存占用了超级多的内存)</li>
+<li>几乎所有的请求资源都能进入memory Cache，细分来说主要分为preloader和preload这两块。</li>
+<li>在从memory Cache读取缓存时，浏览器会忽视Cache-Control中的一些max-age、no-cache等头部配置，除非设置了no-store这个头部配置。</li>
+</ul>
+<p><strong>preloader</strong></p>
+<p>上面提到的preloader是页面优化的常见手段之一，它的作用主要是用于在浏览器打开一个网页的时候,能够一边解析执行js/css，一边去请求下一个资源，而这些被 preloader 请求来的资源就会被放入 memory Cache 中，供之后的解析执行操作使用。</p>
+<p><strong>preload</strong></p>
+<p>preload与preloader仅两个字母之差，它能显式指定预加载的资源，这些资源也会被放进memory Cache中，例如<link rel="preload"></p>
+<h3> Disk Cache</h3>
+<p>Disk Cache，也叫做HTTP Cache，是存储在硬盘上的缓存，所以它是持久存储，是实际存在于文件系统中的。</p>
+<p>从存储效率上说，它比内存缓存慢，但是优势在于存储容量更大，且存储时长更长。</p>
+<p>在所有浏览器缓存中，Disk Cache是覆盖面最大的。 它会根据前面我们提到的HTTP header中的缓存字段来判断哪些资源需要缓存，哪些资源不需要请求而直接使用，哪些已经过期了需要重新请求获取。</p>
+<p>若是命中了缓存之后，浏览器会从硬盘中直接读取资源，虽然没有从内存中读取的快，但是却是比网络缓存快。</p>
+<p>前面提到的强缓存和协商缓存也是属于Disk Cache，它们最终都存储在硬盘里。</p>
+<p><strong>Memory Cache与Disk Cache两者的对比:</strong></p>
+<ul>
+<li>比较大的JS、CSS文件会被丢硬盘中存储，反之则存储在内存中</li>
+<li>当前系统内存使用率比较高的时候，文件优先进入磁盘</li>
+</ul>
+<h3> Push Cache</h3>
+<p>Push Cache(推送缓存)，它是浏览器缓存的最后一段防线，当以上三种缓存都没有命中的时候，它才会被使用。</p>
+<p>我所知道的，它只会在会话(Session)中存在，一旦会话结束它就会被释放，并且缓存时间也很短暂，在Chrome浏览器中只有5分钟。</p>
+<p>另外由于它是 HTTP/2 中的内容，因此在国内不是很普及，这里贴上一个比较好的总结:</p>
+<ul>
+<li>所有的资源都能被推送，并且能够被缓存,但是 Edge 和 Safari 浏览器支持相对比较差</li>
+<li>可以推送 no-cache 和 no-store 的资源</li>
+<li>一旦连接被关闭，Push Cache 就被释放</li>
+<li>多个页面可以使用同一个HTTP/2的连接，也就可以使用同一个Push Cache。这主要还是依赖浏览器的实现而定，出于对性能的考虑，有的浏览器会对相同域名但不同的tab标签使用同一个HTTP连接。</li>
+<li>Push Cache 中的缓存只能被使用一次</li>
+<li>浏览器可以拒绝接受已经存在的资源推送</li>
+<li>你可以给其他域名推送资源</li>
+</ul>
+<h2> 缓存过程分析</h2>
+<p>上面已经向大家介绍了缓存类型已经缓存的位置，那么浏览器具体的一个缓存行径是怎样的呢?</p>
+<p>从浏览器发起HTTP请求到获得请求结果，可以分为以下几个过程:</p>
+<ol>
+<li>浏览器第一次发起HTTP请求，在浏览器缓存中没有发现请求的缓存结果和缓存标识</li>
+<li>因此向服务器发起HTTP请求，获得该请求的结果还有缓存规则(也就是Last-Modified 或者ETag)</li>
+<li>浏览器把响应内容存入Disk Cache，把响应内容的引用存入Memory Cache</li>
+<li>把响应内容存入 Service Worker 的 Cache Storage (如果 Service Worker 的脚本调用了 cache.put())</li>
+</ol>
+<p>下一次请求相同资源的时候:</p>
+<ol>
+<li>调用Service Worker 的fetch事件响应</li>
+<li>查看memory Cache</li>
+<li>查看disk Cache。 这里细分为:</li>
+</ol>
+<blockquote>
+<p>有强缓存且未失效，则使用强缓存，不请求服务器，返回的状态码都是200
+有强缓存且已失效，使用协商缓存判断，是返回304还是200(读取缓存还是重新获取)</p>
+</blockquote>
+<h2> 缓存策略的实际场景应用</h2>
+<p>说了这么多缓存策略，那么在实际使用上来说，我们一般是怎样使用它的呢?</p>
+<p><strong>不常变化的资源</strong></p>
+<p>对于不常变化的资源:</p>
+<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>通常是给Cache-Control设置成一个很大的值，(31536000，一年)。 这个也很好理解，不常变化的资源，直接让它使用缓存就是了。</p>
+<p>但是有时候为了解决更新的问题，我们需要在文件名中添加上hash，版本号等动态字段，这样就达到了更改引用URL 的目的。</p>
+<p><strong>常变化的资源</strong></p>
+<p>经常变化的资源，我们进行以下配置:</p>
+<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>设置成以上配置，使得浏览器每次都请求服务器，然后配合ETag或者Last-Modified来验证资源是否有效。</p>
+<h2> 后语</h2>
+<p>浏览器缓存的内容其实还有很多可以说的，这里主要是总结了一些面试时常问到的，你可以转化成自己的言语来回答面试官。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>跨域</title>
+      <link>https://jin-shaohui.gitee.io/Network/CrossDomain/</link>
+      <guid>https://jin-shaohui.gitee.io/Network/CrossDomain/</guid>
+      <source url="https://jin-shaohui.gitee.io/rss.xml">跨域</source>
+      <description>白话解释：所谓跨域其实就是浏览器对我们发送的接口请求进行拦截，不允许我们直接访问，浏览器就像是一个中间桥梁，它说让我们通过就让通过，它说不让通过那就通过不了。 发生跨域的三个必要条件： 一般情况，我们己的项目地址和接口地址的域名不同时，如：https://localhost:9527，也许会不假思索的就能回答出：不同协议，不同域名，不同端口。没有问题，但并不准确，我更倾向于把这三个叫 跨域的三要素 ，那什么是跨域形成的必要条件呢？ 浏览器限制： 即浏览器对跨域行为进行检测和阻止 触发跨域的三要素之一： 即协议、域名和端口三个条件满足其一 发起的是xhr请求： 即发起的是 XMLHttpRequest 类型的请求。</description>
+      <category>Network</category>
+      <pubDate>Wed, 01 Jun 2022 15:28:16 GMT</pubDate>
+      <content:encoded><![CDATA[<p>白话解释：所谓跨域其实就是浏览器对我们发送的接口请求进行拦截，不允许我们直接访问，浏览器就像是一个中间桥梁，它说让我们通过就让通过，它说不让通过那就通过不了。</p>
+<h2> 发生跨域的三个必要条件：</h2>
+<p>一般情况，我们己的项目地址和接口地址的域名不同时，如：<a href="https://localhost:9527" target="_blank" rel="noopener noreferrer">https://localhost:9527</a>，也许会不假思索的就能回答出：<strong>不同协议，不同域名，不同端口</strong>。没有问题，但并不准确，我更倾向于把这三个叫 <strong>跨域的三要素</strong> ，那什么是跨域形成的必要条件呢？</p>
+<blockquote>
+<p>浏览器限制： 即浏览器对跨域行为进行检测和阻止</p>
+<p>触发跨域的三要素之一： 即协议、域名和端口三个条件满足其一</p>
+<p>发起的是xhr请求： 即发起的是 XMLHttpRequest 类型的请求。</p>
+</blockquote>
+<!-- more -->
+<h2> 如何解决跨域？</h2>
+<p>为了更好的理解这个知识点，我们先回顾一下一个普通项目的交互关系。客户端有各种各样的请求发送给中间服务器Apache / Nginx，中间服务器在接收到请求之后，判断如果是静态资源（img，js插件等）则直接返回客户端，如果是交互资源（例如访问@RequestMapping里的方法）则转发至应用服务器上。</p>
+<p>现在大部分公司项目采用前后端分离的开发模式，使得客户端和服务器端通常都在不同服务器上，这种模式解决跨域主要有两种思路：</p>
+<ul>
+<li>第一种就是<strong>被调用方（即后端）解决</strong>：调用方在浏览器直接将请求发送至被调用方，被调用方处理完成后，在请求响应中添加基于http协议关于跨域请求的一些规定，就是在http响应头中添加Access-Control-Allow-Origin等一些配置允许跨域访问。这种解决方法是基于解决跨域的思路，修改的是被调用方的HTTP服务器，我们在浏览器中能看到有调用方的url，也有被调用方的url。</li>
+</ul>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>第二种就是<strong>调用方（即前端）解决</strong>：这是基于隐藏跨域的解决办法。调用方通过一个代理服务器（Nginx）转发请求到被调用方的中间服务器，浏览器看到请求都是来自同一个域，就不会报跨域问题了。这种方式是基于隐藏跨域的思路，修改的是调用方的HTTP服务器(调用方的请求url是经过调用方的 Nginx 做反向代理转换转换的，目的就是为了和‘’被调用方”的域名端口一致)，在浏览器中也就只能看到调用方的url。</li>
+</ul>
+<h3> 补充后端解决跨域问题</h3>
+<p>如果是在被调用方解决跨域问题，被调用方解决支持跨域办法如下：</p>
+<ol>
+<li>在应用服务器端实现</li>
+<li>在Ngnix上配置</li>
+<li>在Apache上配置</li>
+<li>Spring框架解决</li>
+</ol>
+<p>虽然有4种方案，但是这4种方案的本质都是一样的，最终的目的是在响应头增加字段。浏览器在执行跨域请求时，如果遇到是简单请求，则先执行后判断；如果是非简单请求，则先使用OPTION向服务器发起一个预检请求 <strong>preflight request</strong> ，从而获知服务器是否允许该跨域访问，如果允许，就在此发起带真实数据的请求，否则不发起。这就实现了对被调用方的数据安全保护，也是跨域问题设计所在的目的之一。</p>
+<blockquote>
+<p>在介绍简单/非简单请求前，我们要了解什么是 Content-Type，<strong>Content-Type是指http/https发送信息至服务器时的内容编码类型</strong></p>
+</blockquote>
+<p><strong>【常见简单请求】</strong></p>
+<ol>
+<li>
+<p>GET</p>
+</li>
+<li>
+<p>HEAD</p>
+</li>
+<li>
+<p>POST</p>
+</li>
+</ol>
+<p>且它的Content-Type为text/plain（普通文本类型）或multipart/form-data（多媒体数据/表单数据）或application/x-www-form-urlencoded中的一种</p>
+<p><strong>【常见非简单请求】</strong></p>
+<ol>
+<li>PUT</li>
+<li>DELETE</li>
+<li>OPTIONS</li>
+<li>发送Json格式的Ajax请求[常为post]</li>
+<li>带自定义Header信息的Ajax请求</li>
+<li>CONNECT</li>
+<li>TRACE</li>
+<li>PATCH</li>
+</ol>
+<p>当浏览器发现发起的是一个跨域的请求时，它会向请求头里增加一个Origin字段，当请求被响应时，浏览器会检查响应头里有没有设置允许跨域的信息，如果没有，它就会报错。同理，如果给请求增加头信息，那么加入的信息也会作为跨域检查的信息。</p>
+<ul>
+<li><strong>举个例子</strong></li>
+</ul>
+<p>我们在本地搭起来了一个后端项目，端口号为8080；同时搭建了一个前端项目，端口号为9527。那这个时候我们直接调用后端接口的时候，前后端分离的原因导致我们需要跨域请求 。因此，在应用服务器端的响应头需要添加允许跨域的设置，即如下：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这时候，我们就可以在响应头Response Headers里观察到 <strong>Access-Control-Allow-Origin</strong> 和 <strong>Access-Control-Allow-Methods</strong> 信息，这代表跨域就被成功允许了。</p>
+<ul>
+<li><strong>还有一种特殊情况</strong></li>
+</ul>
+<p>带有Cookie的请求还需要注意一下两点才能实现跨域：</p>
+<ol>
+<li>Access-Control-Allow-Origin的值不能为 <strong>'*'</strong> 而是必须是精准匹配，因此需要添上具体的域名</li>
+<li>打开允许Cookie的设置，即Access-Control-Allow-Credentials: true</li>
+</ol>
+<p>但是这又带出了另一个问题，就是只能支持一个域名的跨域，怎么办？其实该变量可以通过调用方的请求头信息获取，解决办法如下：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>对于需要增加请求头信息解决方案与此类似</p>
+<p><strong>调用方解决跨域：反向代理</strong></p>
+<p>当被调用方无法帮助解决处理跨域问题时，调用方也可以自己解决处理。其实现的办法就是利用反向代理</p>
+<blockquote>
+<p><strong>正向代理：</strong> 利用代理客户端去请求服务器，从而隐藏了真实的客户端，服务器并不知道客户端是谁，这种代理方式称作正向代理，其代理的对象是客户端</p>
+<p><strong>反向代理:</strong> 反向代理隐藏了真正的服务端。举个例子，我们只知道敲下www.baidu.com时就能访问百度搜索页面，然而背后成千上万的服务器到底是哪一台正在为我们服务我们并不知道，这种隐藏了服务器端的代理方式称作反向代理，其代理的是服务器端。软件层面上常用Ngnix来做反向代理服务器，他的性能很好，用来做负载均衡。</p>
+</blockquote>
+<p>为了实现反向代理，我们需要在 Ngnix中配置一个代理域名，<a href="http://xn--demo-k84fui0dy35fh5wuq8c4mmu4b.com" target="_blank" rel="noopener noreferrer">或者称为一个网址demo.com</a>，就像百度成千上万的服务器使用用一个代理网址www.baidu.com一样。ngnix的配置信息如下</p>
+<div class="language-nginx line-numbers-mode" data-ext="nginx"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> 总结</h2>
+<p>跨域是由浏览器安全限制造成的，解决跨域的办法有三种，一是 <strong>Jsonp</strong> 绕过浏览器安全检测策略，二是从被调用方配置支持跨域的请求头信息，三是从调用方利用反向代理，在 Ngnix 或 Apache 中配置代理域名隐藏跨域。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>服务相关问题</title>
+      <link>https://jin-shaohui.gitee.io/Network/Question/</link>
+      <guid>https://jin-shaohui.gitee.io/Network/Question/</guid>
+      <source url="https://jin-shaohui.gitee.io/rss.xml">服务相关问题</source>
+      <description>常问问题 一个完整的http请求发生了什么 从浏览器输入url到回车页面渲染出来 这中间发生了什么</description>
+      <category>Question</category>
+      <pubDate>Mon, 16 May 2022 11:26:43 GMT</pubDate>
+      <content:encoded><![CDATA[<h2> 常问问题</h2>
+<h3> 一个完整的http请求发生了什么</h3>
+<h3> 从浏览器输入url到回车页面渲染出来 这中间发生了什么</h3>
+]]></content:encoded>
+    </item>
     <item>
       <title>二分查找理论</title>
       <link>https://jin-shaohui.gitee.io/Algorithm/Dichotomy/</link>
@@ -1065,6 +1472,10 @@ Stream API可以极大提高Java程序员的生产力，让程序员写出高效
 <ul class="task-list-container">
 <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" id="task-item-2" checked="checked" disabled="disabled"><label class="task-list-item-label" for="task-item-2"> <a href="/JavaScript/Jsonp/" target="blank">Jsonp</a></label></li>
 </ul>
+<h3> 代码题</h3>
+<ul class="task-list-container">
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" id="task-item-3" checked="checked" disabled="disabled"><label class="task-list-item-label" for="task-item-3"> <a href="/JavaScript/LRU/" target="blank">请使用JS完成一个LRU缓存</a></label></li>
+</ul>
 ]]></content:encoded>
     </item>
     <item>
@@ -1857,249 +2268,6 @@ Mixins：则是在引入组件之后与组件中的对象和方法进行合并�
 <div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>很明显, 这个方法关心的根本不是一个值是否是NaN, 它似乎更关心一个值是否无法被转为数字! 所以, 我们有了Number.isNaN</p>
 <div class="language-TypeScript line-numbers-mode" data-ext="TypeScript"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>所以, 一定要注意了, <code>isNaN</code>和<code>Number.isNaN</code>不是一回事!</p>
 </div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>浏览器缓存</title>
-      <link>https://jin-shaohui.gitee.io/Network/BrowserCache/</link>
-      <guid>https://jin-shaohui.gitee.io/Network/BrowserCache/</guid>
-      <source url="https://jin-shaohui.gitee.io/rss.xml">浏览器缓存</source>
-      <description>什么是web缓存？ web缓存主要指的是两部分：浏览器缓存和http缓存。 http缓存是web缓存的核心，是最难懂的那一部分,也是最重要的那一部分。 浏览器缓存：例如 localStorage(5M)、sessionStorage(5M)、cookie(4k)等等。这些功能主要用于缓存一些必要的数据，比如用户信息。比如需要携带到后端的参数。亦或者是一些列表数据等等。 缓存可以解决什么问题？ 减少不必要的网络传输，节约宽带（就是省钱） 更快的加载页面（就是加速） 减少服务器负载，避免服务器过载的情况出现。（就是减载） 缺点是什么？ 占内存（有些缓存会被存到内存中）</description>
-      <category>Network</category>
-      <pubDate>Thu, 22 Sep 2022 10:15:04 GMT</pubDate>
-      <content:encoded><![CDATA[<h2> 什么是web缓存？</h2>
-<p><code>web缓存</code>主要指的是两部分：<code>浏览器缓存</code>和<code>http缓存</code>。</p>
-<p>http缓存是web缓存的核心，是最难懂的那一部分,也是最重要的那一部分。</p>
-<p>浏览器缓存：例如 <code>localStorage(5M)</code>、<code>sessionStorage(5M)</code>、<code>cookie(4k)</code>等等。这些功能主要用于缓存一些必要的数据，比如用户信息。比如需要携带到后端的参数。亦或者是一些列表数据等等。</p>
-<h2> 缓存可以解决什么问题？</h2>
-<ol>
-<li>减少不必要的网络传输，节约宽带（就是<code>省钱</code>）</li>
-<li>更快的加载页面（就是<code>加速</code>）</li>
-<li>减少服务器负载，避免服务器过载的情况出现。（就是<code>减载</code>）</li>
-</ol>
-<h2> 缺点是什么？</h2>
-<ol>
-<li>占内存（有些缓存会被存到内存中）</li>
-</ol>
-<!-- more -->
-<h2> http缓存</h2>
-<div class="hint-container info">
-<p class="hint-container-title">官方介绍</p>
-<p><code>Web缓存</code>是可以<code>自动保存</code>常见文档副本的 <code>HTTP设备</code>。当<code>Web请求</code>抵达缓存时，如果本地有<code>已缓存的</code>副本，就可以从<code>本地存储设备</code>而不是<code>原始服务器</code>中提取这个文档。</p>
-</div>
-<p>服务器需要处理<code>http</code>的请求，而缓存，就是为了让服务器<code>不去处理</code>这个请求，客户端也可以<code>拿到数据</code>。</p>
-<p>注意，缓存主要是针对<code>html</code>、<code>css</code>、<code>img</code>等<code>静态资源</code>，常规情况下，<strong>不会去缓存一些动态资源</strong>。</p>
-<h3> 大纲</h3>
-<p><strong>我们把<code>http缓存</code>问题拆分下，可以从以下几个方面来回答这个问题:</strong></p>
-<ul>
-<li>缓存的类型 (<code>强缓存</code>or<code>协商缓存</code>)</li>
-<li>缓存位置 (<code>Service Worker</code>、<code>Memory Cache</code>...)</li>
-<li>缓存过程分析</li>
-<li>缓存策略的实际场景应用</li>
-</ul>
-<h3> 缓存的类型</h3>
-<p>首先从缓存的类型上来说，可以分为两种: <strong>强缓存</strong> 与 <strong>协商缓存</strong></p>
-<p>强缓存是<strong>不需要发送HTTP请求的，而协商缓存需要</strong></p>
-<p>也就是在<strong>发送HTTP请求之前</strong>，浏览器会<strong>先检查</strong>一下<code>强缓存</code>，如果命中直接使用，否则就进入下一步。</p>
-<h4> 强缓存</h4>
-<p>浏览器检查强缓存的方式主要是判断这两个字段:</p>
-<ul>
-<li><code>HTTP/1.0</code>使用的是<code>Expires</code>;</li>
-<li><code>HTTP/1.1</code>使用的是<code>Cache-Control</code>;</li>
-</ul>
-<h5> Expires</h5>
-<p>Expires字面意思是<code>有效期</code>，那么很好理解，它表示的就是一个具体的时间</p>
-<p>例如:</p>
-<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>表示这个资源在<strong>2020年11月11日8点</strong>之前，都会去<strong>本地的磁盘（或内存）中读取</strong>，不会去服务器请求。过了这个时间就得<strong>向服务端发请求</strong>了。</p>
-<div class="hint-container info">
-<p class="hint-container-title">很有意思的是</p>
-<p><code>Expires</code>过度<strong>依赖本地时间</strong>，如果 <strong>本地与服务器时间不同步</strong>，就会出现资源 <strong>无法被缓存</strong> 或者 <strong>资源永远被缓存</strong> 的情况。</p>
-<p>若是设置了<code>Expires</code>，但是 <strong>服务器的时间</strong> 与 <strong>浏览器的时间</strong> <strong>不一致</strong> 的时候(比如你手动修改了本地的时间)，</p>
-<p>那么就可能会造成<strong>缓存失效</strong>，因此这种方式强缓存方式并不是很准确，它也因此在<code>HTTP/1.1</code>中被<strong>摒弃</strong>了。</p>
-</div>
-<h5> Cache-Control</h5>
-<p>摒弃了Expires之后，HTTP/1。1采用了Cache-Control这个重要的规则。<br>
-它设置的是一个具体的过期时长，其中的一个属性是max-age。</p>
-<p>例如🌰:</p>
-<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>表示的是这个资源在响应之后的300s内过期，也就是5分钟之内再次获取这个资源会直接使用缓存。</p>
-<p>Cache-Control不仅仅有max-age&nbsp;这一个属性，其实它有很多的用法，你甚至可以采用组合的方式:</p>
-<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>上面用法的意思是响应可以被任何对象(客户端，代理服务器等)缓存，且过期时长为5分钟。
-(因为一个请求经历的不仅仅是客户端(浏览器)和目标服务器，它中间有可能会经过不同的代理服务器)</p>
-<p>下面来例举一些常用的指令:</p>
-<ul>
-<li>public: 客户端和代理服务器都可以缓存。</li>
-</ul>
-<blockquote>
-<p>响应可以被中间任何的一个节点缓存，比如一个请求要经历 Browser -&gt; proxy1 -&gt; proxy2 -&gt; Server，中间的代理(proxy)可以缓存资源。 下次再请求同一资源的时候，浏览器就会直接到proxy1中拿缓存的东西而不必向proxy2拿。</p>
-</blockquote>
-<ul>
-<li>private: 这个是Cache-Control默认的取值，只有客户端可以缓存，中间节点不允许缓存。</li>
-</ul>
-<blockquote>
-<p>在 Browser -&gt; proxy1 -&gt; proxy2 -&gt; Server 这个过程中，代理(proxy)不会缓存任何数据，当Browser再次请求时，proxy会把Server返回的数据发送给Brower，做好请求转发，而不是给自己缓存的数据。</p>
-</blockquote>
-<ul>
-<li>no-cache: 表示不进行强缓存验证，而是用协商缓存来验证。</li>
-<li>no-store: 所有内容都不会被缓存，不进行强缓存，也不进行协商缓存。</li>
-<li>max-age: 表示在多久之后过期，比如max-age=300表示在300s后缓存内容失效。</li>
-<li>s-max-age: 它的作用和max-age很像， 不过max-age 用于普通缓存，而s-max-age用于代理缓存，且s-max-age的优先级更高。</li>
-<li>max-stale: 能容忍的最大过期时间。</li>
-</ul>
-<blockquote>
-<p>max-stale指令表示客户端愿意接收一个已经过期了的响应。</p>
-</blockquote>
-<ul>
-<li>min-fresh：能够容忍的最小新鲜度。</li>
-</ul>
-<blockquote>
-<p>min-fresh表示客户端不愿意接受新鲜度不多于当前的age加上min-fresh设定的时间之和的响应。</p>
-</blockquote>
-<p>基于上面的这些指令，我们可以将它们进行组合，达到多个目的， 不同的效果。
-有一张来自<a href="https://www.jianshu.com/p/54cc04190252" target="_blank" rel="noopener noreferrer">《浪里行舟-深入理解浏览器的缓存机制》</a>中的图表述的非常好:</p>
-
-<h4> Expires和Cache-control的对比</h4>
-<ul>
-<li>Expires产于HTTP/1。0，Cache-control产于HTTP/1。1;</li>
-<li>Expires设置的是一个具体的时间，Cache-control&nbsp;可以设置具体时常还有其它的属性;</li>
-<li>两者同时存在，Cache-control的优先级更高;</li>
-<li>在不支持HTTP/1。1的环境下，Expires就会发挥作用，所以先阶段的存在是为了做一些兼容的处理。</li>
-</ul>
-<h3> 协商缓存</h3>
-<p>在上面我们已经介绍了强缓存，它是不需要发送HTTP请求的，若是强缓存失效，则会进入协商缓存。</p>
-<p>协商缓存概括来说 就是浏览器会携带缓存标识(tag)向服务器发送请求，服务器会根据缓存标识(tag)来决定是否使用缓存。</p>
-<p>所以对于服务器的返回结果会有这两种情况:</p>
-<ul>
-<li>协商缓存生效，返回304和Not Modified(空的响应体)</li>
-<li>协商缓存失效，返回200和请求结果</li>
-</ul>
-<p>而刚刚提到的这个缓存标识(tag)也是有两种。</p>
-<p>分为Last-Modified和 ETag。</p>
-<h4> Last-Modified 和 If-Modified-Since</h4>
-<p>从字面意思上我们可以看出，Last-Modified表示的是资源的最后修改时间，因此其中一种协商缓存判断的就是最后修改时间。</p>
-<p>那它具体是怎样实现的呢?</p>
-<p>其实使用Last-Modified进行协商缓存会经过以下几步:</p>
-<ol>
-<li>浏览器第一次向服务器请求这个资源</li>
-<li>服务器在返回这个资源的时候，在response header中添加Last-Modified的header，值为该资源在服务器上最后的修改时间</li>
-<li>浏览器接收到后缓存文件和这个header</li>
-<li>当下次浏览器再次请求这个资源的时候， 检测到有Last-Modified这个header，就会在请求头中添加If-Modified-Since这个header，该值就是Last-Modified</li>
-<li>服务器再次接收到该资源的请求，则根据If-Modified-Since与服务器中的这个资源的最后修改时间做对比</li>
-<li>对比结果相同则返回304和一个空的响应体，告诉浏览器从自己(浏览器)的缓存中拿</li>
-<li>对比结果不同(If-Modified-Since &lt; 服务器资源最后修改时间)，则表示资源被修改了，则返回200和最新的资源文件(当然还包括最新的Last-Modefied)</li>
-</ol>
-
-<h4> ETag 与 If-None-Match</h4>
-<p>ETag其实与Last-Modefied的原理差不多，不过它不是根据资源的最后修改时间来判断的，而是通过一个唯一的标识。</p>
-<p>在浏览器请求服务器资源的时候，服务器会根据当前文件的内容，给文件生成一个唯一的标识，若是文件发生了改变，则这个标识就会改变。</p>
-<p>服务器会将这个标识ETag放到响应体的header中与请求的资源一起返回给浏览器，而浏览器同样也会缓存文件与这个header。</p>
-<p>在下一次再次加载该资源时，浏览器会将刚刚缓存的ETag放到请求体头部(request header)的If-None-Match里发送给服务器。</p>
-<p>同样的服务器接收到了之后与该资源自身的ETag做对比，如果一致，则表示该资源未发生改变，则直接返回304知会客户端直接使用本地缓存即可。 若是不一致，则返回200和最新的资源文件(当然还包括最新的ETag)</p>
-<p>如下图:</p>
-
-<h4> 两者对比</h4>
-<p>在进行对比之前，我们先来看看两者都有什么优缺点呢?</p>
-<p>首先对于Last-Modified:</p>
-<ul>
-<li>若是本地打开了缓存文件，并没有进行修改，也还是会改变最后修改时间，导致缓存失败;</li>
-<li>由于Last-Modified是以秒来计时的，若是某个文件在一秒内被修改了很多次，那么这时候的 Last-Modified 并没有体现出修改了。</li>
-</ul>
-<p>然后对于ETag:</p>
-<ul>
-<li>性能上的不足,只要文件发生改变,ETag就会发生改变。  ETag需要服务器通过算法来计算出一个hash值。</li>
-</ul>
-<p><strong>总结，所以对于两种协商缓存:</strong></p>
-<ul>
-<li>准确度上ETag更强;</li>
-<li>性能上Last-Modified更好;</li>
-<li>两者都支持的话，ETag优先级更高。</li>
-</ul>
-<h2> 缓存位置</h2>
-<p>在上面我们已经介绍完了缓存的类型，但是之前也提到过了，若是命中了强缓存或者服务器返回了304之后，
-要浏览器从缓存中过去资源，那这些缓存具体是存储在哪里呢?</p>
-<p>从优先级上来说分为以下四种:</p>
-<ul>
-<li>Service Worker</li>
-<li>Memory Cache</li>
-<li>Disk Cache</li>
-<li>Push Cache</li>
-</ul>
-<h3> Service Worker</h3>
-<p>Service Worker是运行在浏览器背后的独立线程，也就是说它脱离了浏览器的窗体，无法直接访问DOM。
-功能上主要是能实现: 离线缓存、消息推送、网络代理等。比如离线缓存就是Service Worker Cache。</p>
-<p>简单来说，它有以下几个特点:</p>
-<ul>
-<li>借鉴了Web Worker的思路</li>
-<li>使用Service Worker会涉及到请求拦截，所以需要用HTTPS协议来保证安全，传输协议必须是HTTPS</li>
-<li>与浏览器其它内建的缓存机制不同，它可以让我们自由的控制缓存哪些文件、如何匹配读取缓存，且缓存是持续性的</li>
-<li>Service Worker同时也是PWA的重要实现机制</li>
-</ul>
-<h3> Memory Cache</h3>
-<p>从命名上来说，Memory Cache就是内存中的缓存，存储的主要是当前页面已经抓取到的资源，
-比如页面上已经下载的样式、脚本、图片等。</p>
-<p>Memory Cache的特点:</p>
-<ul>
-<li>读取效率快，可是缓存持续时间短，会随着进程的释放而释放(一旦关闭Tab页面，就被释放了，还有可能在没关闭之前，排在前面的缓存就失效了，例如一个页面的缓存占用了超级多的内存)</li>
-<li>几乎所有的请求资源都能进入memory Cache，细分来说主要分为preloader和preload这两块。</li>
-<li>在从memory Cache读取缓存时，浏览器会忽视Cache-Control中的一些max-age、no-cache等头部配置，除非设置了no-store这个头部配置。</li>
-</ul>
-<p><strong>preloader</strong></p>
-<p>上面提到的preloader是页面优化的常见手段之一，它的作用主要是用于在浏览器打开一个网页的时候,能够一边解析执行js/css，一边去请求下一个资源，而这些被 preloader 请求来的资源就会被放入 memory Cache 中，供之后的解析执行操作使用。</p>
-<p><strong>preload</strong></p>
-<p>preload与preloader仅两个字母之差，它能显式指定预加载的资源，这些资源也会被放进memory Cache中，例如<link rel="preload"></p>
-<h3> Disk Cache</h3>
-<p>Disk Cache，也叫做HTTP Cache，是存储在硬盘上的缓存，所以它是持久存储，是实际存在于文件系统中的。</p>
-<p>从存储效率上说，它比内存缓存慢，但是优势在于存储容量更大，且存储时长更长。</p>
-<p>在所有浏览器缓存中，Disk Cache是覆盖面最大的。 它会根据前面我们提到的HTTP header中的缓存字段来判断哪些资源需要缓存，哪些资源不需要请求而直接使用，哪些已经过期了需要重新请求获取。</p>
-<p>若是命中了缓存之后，浏览器会从硬盘中直接读取资源，虽然没有从内存中读取的快，但是却是比网络缓存快。</p>
-<p>前面提到的强缓存和协商缓存也是属于Disk Cache，它们最终都存储在硬盘里。</p>
-<p><strong>Memory Cache与Disk Cache两者的对比:</strong></p>
-<ul>
-<li>比较大的JS、CSS文件会被丢硬盘中存储，反之则存储在内存中</li>
-<li>当前系统内存使用率比较高的时候，文件优先进入磁盘</li>
-</ul>
-<h3> Push Cache</h3>
-<p>Push Cache(推送缓存)，它是浏览器缓存的最后一段防线，当以上三种缓存都没有命中的时候，它才会被使用。</p>
-<p>我所知道的，它只会在会话(Session)中存在，一旦会话结束它就会被释放，并且缓存时间也很短暂，在Chrome浏览器中只有5分钟。</p>
-<p>另外由于它是 HTTP/2 中的内容，因此在国内不是很普及，这里贴上一个比较好的总结:</p>
-<ul>
-<li>所有的资源都能被推送，并且能够被缓存,但是 Edge 和 Safari 浏览器支持相对比较差</li>
-<li>可以推送 no-cache 和 no-store 的资源</li>
-<li>一旦连接被关闭，Push Cache 就被释放</li>
-<li>多个页面可以使用同一个HTTP/2的连接，也就可以使用同一个Push Cache。这主要还是依赖浏览器的实现而定，出于对性能的考虑，有的浏览器会对相同域名但不同的tab标签使用同一个HTTP连接。</li>
-<li>Push Cache 中的缓存只能被使用一次</li>
-<li>浏览器可以拒绝接受已经存在的资源推送</li>
-<li>你可以给其他域名推送资源</li>
-</ul>
-<h2> 缓存过程分析</h2>
-<p>上面已经向大家介绍了缓存类型已经缓存的位置，那么浏览器具体的一个缓存行径是怎样的呢?</p>
-<p>从浏览器发起HTTP请求到获得请求结果，可以分为以下几个过程:</p>
-<ol>
-<li>浏览器第一次发起HTTP请求，在浏览器缓存中没有发现请求的缓存结果和缓存标识</li>
-<li>因此向服务器发起HTTP请求，获得该请求的结果还有缓存规则(也就是Last-Modified 或者ETag)</li>
-<li>浏览器把响应内容存入Disk Cache，把响应内容的引用存入Memory Cache</li>
-<li>把响应内容存入 Service Worker 的 Cache Storage (如果 Service Worker 的脚本调用了 cache.put())</li>
-</ol>
-<p>下一次请求相同资源的时候:</p>
-<ol>
-<li>调用Service Worker 的fetch事件响应</li>
-<li>查看memory Cache</li>
-<li>查看disk Cache。 这里细分为:</li>
-</ol>
-<blockquote>
-<p>有强缓存且未失效，则使用强缓存，不请求服务器，返回的状态码都是200
-有强缓存且已失效，使用协商缓存判断，是返回304还是200(读取缓存还是重新获取)</p>
-</blockquote>
-<h2> 缓存策略的实际场景应用</h2>
-<p>说了这么多缓存策略，那么在实际使用上来说，我们一般是怎样使用它的呢?</p>
-<p><strong>不常变化的资源</strong></p>
-<p>对于不常变化的资源:</p>
-<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>通常是给Cache-Control设置成一个很大的值，(31536000，一年)。 这个也很好理解，不常变化的资源，直接让它使用缓存就是了。</p>
-<p>但是有时候为了解决更新的问题，我们需要在文件名中添加上hash，版本号等动态字段，这样就达到了更改引用URL 的目的。</p>
-<p><strong>常变化的资源</strong></p>
-<p>经常变化的资源，我们进行以下配置:</p>
-<div class="language-http line-numbers-mode" data-ext="http"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>设置成以上配置，使得浏览器每次都请求服务器，然后配合ETag或者Last-Modified来验证资源是否有效。</p>
-<h2> 后语</h2>
-<p>浏览器缓存的内容其实还有很多可以说的，这里主要是总结了一些面试时常问到的，你可以转化成自己的言语来回答面试官。</p>
 ]]></content:encoded>
     </item>
     <item>
@@ -3791,69 +3959,6 @@ Destructuring objects also provides a single site of definition of the object st
       <enclosure url="https://jin-shaohui.gitee.io/background/black-001.jpg" type="image/jpeg"/>
     </item>
     <item>
-      <title>请使用JS完成一个LRU缓存</title>
-      <link>https://jin-shaohui.gitee.io/InterviewQuestion/FrontEnd/LRU/</link>
-      <guid>https://jin-shaohui.gitee.io/InterviewQuestion/FrontEnd/LRU/</guid>
-      <source url="https://jin-shaohui.gitee.io/rss.xml">请使用JS完成一个LRU缓存</source>
-      <description>什么是 LRU？ LRU 英文全称是 Least Recently Used，英译过来就是 最近最少使用 的意思。 百度百科 LRU 是一种常用的页面置换算法，选择 最近 最久 未使用 的页面予以淘汰。 该算法赋予每个页面一个访问字段，用来记录一个页面自上次被访问以来所 经历的时间t，当须淘汰一个页面时，选择现有页面中其 t 值最大的，即最近最少使用的页面予以淘汰。</description>
-      <category>JS代码题</category>
-      <pubDate>Thu, 18 Aug 2022 16:16:37 GMT</pubDate>
-      <content:encoded><![CDATA[<h2> 什么是 LRU？</h2>
-<p><code>LRU</code> 英文全称是 <code>Least Recently Used</code>，英译过来就是 <code>最近最少使用</code> 的意思。</p>
-<h3> 百度百科</h3>
-<p>LRU 是一种常用的页面置换算法，选择 <code>最近</code> <code>最久</code> <code>未使用</code> 的页面予以<code>淘汰</code>。</p>
-<p>该算法赋予<code>每个页面</code>一个<code>访问字段</code>，用来记录一个页面自上次被访问以来所 <code>经历的时间t</code>，当须淘汰一个页面时，选择现有页面中其 <code>t</code> 值最大的，即<code>最近最少使用</code>的页面予以淘汰。</p>
-<h3> 通俗的解释</h3>
-<p>假如我们有一块<code>内存</code>，专门用来缓存我们<code>最近访问</code>的网页，访问一个<code>新网页</code>，我们就会往内存中添加一个<code>网页地址</code>，随着网页的不断增加，内存存满了，这个时候我们就需要考虑删除一些网页了。这个时候我们找到内存中<code>最早访问</code>的那个网页地址，然后把它<code>删掉</code>。
-这一整个过程就可以称之为 L<code>RU</code> 算法。</p>
-<p>虽然上面的解释比较好懂了，但是我们还有很多地方没有考虑到，比如如下几点：</p>
-<ul>
-<li>当我们访问内存中<code>已经存在</code>的<code>网址</code>，那么该网址是否需要<code>更新</code>在内存中的<code>存储顺序</code>。</li>
-<li>当我们内存中还没有数据的时候，是否需要执行删除操作。</li>
-</ul>
-<h2> 使用场景</h2>
-<p><code>LRU</code> 算法使用的场景非常多，这里简单举几个例子即可：</p>
-<ol>
-<li>操作系统底层的内存管理，其中就包括有 LRU 算法</li>
-<li>我们常见的缓存服务，比如 redis 等等</li>
-<li>浏览器的最近浏览记录存储，如下图：</li>
-</ol>
-<p>总之 LRU 算法的运用场景还是蛮多的，所以我们很有必要掌握它。</p>
-<h2> 梳理 LRU 思路</h2>
-<h3> 特点</h3>
-<ol>
-<li>需要一块<code>有限</code>的<code>存储空间</code>，因为无限的化就没必要使用 <code>LRU</code> 算法<code>删除数据</code>了。</li>
-<li><code>存储空间</code>里面存储的数据需要是<code>有序的</code>，因为必须要<code>顺序</code>来<code>删除数据</code>，所以可以考虑使用 <code>Array</code>、<code>Map</code> 数据结构来存储。</li>
-<li>能够<code>删除</code>或者<code>添加</code>以及<code>获取</code>到这块存储空间中的<code>指定数据</code>。</li>
-<li>存储空间<code>存满</code>之后，在添加数据时，会自动删除时间<code>最久远</code>的那条数据。</li>
-</ol>
-<h3> 实现需求</h3>
-<ol>
-<li>实现一个 <code>LRUCache</code> 类型，用来充当<code>存储空间</code></li>
-<li>采用 <code>Map</code> 数据结构<code>存储数据</code>，因为它的存取时间复杂度为 <code>O(1)</code>，数组为 <code>O(n)</code></li>
-<li>实现 <code>get</code> 和 <code>set</code> 方法，用来<code>获取</code>和<code>添加</code>数据</li>
-<li>存储空间有<code>长度限制</code>，所以<code>无需</code>提供<code>删除方法</code>，存储满之后，自动删除最久远的那条数据</li>
-<li>当使用 <code>get</code> 获取数据后，该条数据需要<code>更新</code>到<code>最前面</code></li>
-</ol>
-<p>现在已经把 <code>LRU</code> 算法的特点以及实现思路列了出来，那么接下来就去实现它吧！</p>
-<h2> 实现</h2>
-<p>首先我们定义一个 <code>LRUCache</code> 类，封装所有的方法和变量。</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上段代码只是最简单的一个架子，我们需要去实现具体的 <code>get</code> 和 <code>set</code> 方法。</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上段代码中实现实现了 <code>get</code> 和 <code>set</code> 方法，下面说一下这两个方法的<code>实现思路</code>：</p>
-<p><code>set</code> 方法：往 <code>map</code> 里面<code>添加</code>新数据，如果添加的数据<code>存在</code>了，则<code>先删除</code>该条数据，然后<code>再添加</code>。如果添加数据后<code>超长</code>了，则需要删除<code>最久远</code>的一条数据。<code>data.keys().next().value</code> 便是获取最后一条数据的意思。
-<code>get</code> 方法：首先从 <code>map</code> 对象中<code>拿出</code>该条数据，然后<code>删除</code>该条数据，最后再重新<code>插入</code>该条数据，确保将该条数据移动到<code>最前面</code>。</p>
-<h2> 测试</h2>
-<p>存储数据 set：</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>继续插入数据，此时会超长，代码如下：</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时我们发现存储时间最久的 name 已经被移除了，新插入的数据变为了最前面的一个。</p>
-<p>我们使用 <code>get</code> 获取数据，代码如下：</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们发现此时 sex 字段已经跑到最前面去了。</p>
-<h2> 总结</h2>
-<p><code>LRU</code> 算法其实逻辑非常的简单，明白了原理之后实现起来非常的简单。</p>
-<p>最主要的是需要使用什么<code>数据结构</code>来<code>存储数据</code>，因为 <code>map</code> 的存取非常快，所以采用了它，当然数组其实也可以实现的。还有一些小伙伴使用链表来实现 <code>LRU</code>，这当然也是可以的。</p>
-]]></content:encoded>
-    </item>
-    <item>
       <title>dependencies和devDependencies区分</title>
       <link>https://jin-shaohui.gitee.io/Configuration/Dependencies/</link>
       <guid>https://jin-shaohui.gitee.io/Configuration/Dependencies/</guid>
@@ -4723,6 +4828,75 @@ d</p>
       <enclosure url="https://jin-shaohui.gitee.io/background/black-001.jpg" type="image/jpeg"/>
     </item>
     <item>
+      <title>Storage</title>
+      <link>https://jin-shaohui.gitee.io/Package/Storage/</link>
+      <guid>https://jin-shaohui.gitee.io/Package/Storage/</guid>
+      <source url="https://jin-shaohui.gitee.io/rss.xml">Storage</source>
+      <description>很多人在用 localStorage 或 sessionStorage 的时候喜欢直接用明文存储，直接将信息暴露在浏览器中， 虽然一般场景下都能应付得了且简单粗暴，但特殊需求情况下，比如设置定时功能，就不能实现。 就需要对其进行二次封装，为了在使用上增加些安全感，那加密也必然是少不了的了。 为方便项目使用，特对常规操作进行封装。</description>
+      <category>Storage</category>
+      <pubDate>Mon, 13 Jun 2022 15:07:14 GMT</pubDate>
+      <content:encoded><![CDATA[<p>很多人在用 localStorage 或 sessionStorage 的时候喜欢直接用明文存储，直接将信息暴露在浏览器中，</p>
+<p>虽然一般场景下都能应付得了且简单粗暴，但特殊需求情况下，比如设置定时功能，就不能实现。</p>
+<p>就需要对其进行二次封装，为了在使用上增加些安全感，那加密也必然是少不了的了。</p>
+<p>为方便项目使用，特对常规操作进行封装。</p>
+<!-- more -->
+<h2> 设计</h2>
+<div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>封装之前先梳理下所需功能，并要做成什么样，采用什么样的规范，部分主要代码片段是以 localStorage作为示例。</p>
+</div>
+<ul>
+<li>区分存储类型 type</li>
+<li>自定义名称前缀 prefix</li>
+<li>支持设置过期时间 expire</li>
+<li>支持加密可选，开发环境下未方便调试可关闭加密</li>
+<li>支持数据加密 这里采用 crypto-js 加密 也可使用其他方式</li>
+<li>判断是否支持 Storage isSupportStorage</li>
+<li>设置 setStorage</li>
+<li>获取 getStorage</li>
+<li>是否存在 hasStorage</li>
+<li>获取所有key getStorageKeys</li>
+<li>根据索引获取key getStorageForIndex</li>
+<li>获取localStorage长度 getStorageLength</li>
+<li>获取全部 getAllStorage</li>
+<li>删除 removeStorage</li>
+<li>清空 clearStorage</li>
+</ul>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 设置 setStorage</h3>
+<div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>Storage 本身是不支持过期时间设置的，要支持设置过期时间，可以效仿 Cookie 的做法，setStorage(key,value,expire) 方法，接收三个参数，第三个参数就是设置过期时间的，用相对时间，单位秒，要对所传参数进行类型检查。</p>
+<p>可以设置统一的过期时间，也可以对单个值得过期时间进行单独配置。两种方式按需配置。</p>
+</div>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 获取 getStorage</h3>
+<div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>首先要对 key 是否存在进行判断，防止获取不存在的值而报错。对获取方法进一步扩展，只要在有效期内获取 Storage 值，就对过期时间进行续期，如果过期则直接删除该值。并返回 null</p>
+</div>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 获取所有值</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 删除 removeStorage</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 清空 clearStorage</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 加密、解密</h3>
+<div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>加密采用的是 crypto-js</p>
+</div>
+<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>对 crypto-js 设置密钥和密钥偏移量，可以采用将一个私钥经 MD5 加密生成16位密钥获得。</p>
+</div>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">Tips</p>
+<p>对加密方法进行封装</p>
+</div>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在存储数据及获取数据中进行使用：</p>
+<p>这里我们主要看下进行加密和解密部分，部分方法在下面代码段中并未展示，<code>请注意，不能直接运行</code>。</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 使用</h3>
+<p>使用的时候你可以通过 import 按需引入，也可以挂载到全局上使用，一般建议少用全局方式或全局变量，为后来接手项目继续开发维护的人，追查代码留条便捷之路！不要为了封装而封装，尽可能基于项目需求和后续的通用，以及使用上的便捷。比如获取全部存储变量，如果你项目上都未曾用到过，倒不如删减掉，留着过年也不见得有多香，不如为减小体积做点贡献！</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3> 完整代码</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content:encoded>
+    </item>
+    <item>
       <title>浅谈12个Hooks</title>
       <link>https://jin-shaohui.gitee.io/React/Hooks/</link>
       <guid>https://jin-shaohui.gitee.io/React/Hooks/</guid>
@@ -4930,164 +5104,6 @@ d</p>
       <enclosure url="https://jin-shaohui.gitee.io/assets/knowledge/frontEnd/react/hooks/reactHooks.jpg" type="image/jpeg"/>
     </item>
     <item>
-      <title>Storage</title>
-      <link>https://jin-shaohui.gitee.io/Package/Storage/</link>
-      <guid>https://jin-shaohui.gitee.io/Package/Storage/</guid>
-      <source url="https://jin-shaohui.gitee.io/rss.xml">Storage</source>
-      <description>很多人在用 localStorage 或 sessionStorage 的时候喜欢直接用明文存储，直接将信息暴露在浏览器中， 虽然一般场景下都能应付得了且简单粗暴，但特殊需求情况下，比如设置定时功能，就不能实现。 就需要对其进行二次封装，为了在使用上增加些安全感，那加密也必然是少不了的了。 为方便项目使用，特对常规操作进行封装。</description>
-      <category>Storage</category>
-      <pubDate>Mon, 13 Jun 2022 15:07:14 GMT</pubDate>
-      <content:encoded><![CDATA[<p>很多人在用 localStorage 或 sessionStorage 的时候喜欢直接用明文存储，直接将信息暴露在浏览器中，</p>
-<p>虽然一般场景下都能应付得了且简单粗暴，但特殊需求情况下，比如设置定时功能，就不能实现。</p>
-<p>就需要对其进行二次封装，为了在使用上增加些安全感，那加密也必然是少不了的了。</p>
-<p>为方便项目使用，特对常规操作进行封装。</p>
-<!-- more -->
-<h2> 设计</h2>
-<div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>封装之前先梳理下所需功能，并要做成什么样，采用什么样的规范，部分主要代码片段是以 localStorage作为示例。</p>
-</div>
-<ul>
-<li>区分存储类型 type</li>
-<li>自定义名称前缀 prefix</li>
-<li>支持设置过期时间 expire</li>
-<li>支持加密可选，开发环境下未方便调试可关闭加密</li>
-<li>支持数据加密 这里采用 crypto-js 加密 也可使用其他方式</li>
-<li>判断是否支持 Storage isSupportStorage</li>
-<li>设置 setStorage</li>
-<li>获取 getStorage</li>
-<li>是否存在 hasStorage</li>
-<li>获取所有key getStorageKeys</li>
-<li>根据索引获取key getStorageForIndex</li>
-<li>获取localStorage长度 getStorageLength</li>
-<li>获取全部 getAllStorage</li>
-<li>删除 removeStorage</li>
-<li>清空 clearStorage</li>
-</ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 设置 setStorage</h3>
-<div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>Storage 本身是不支持过期时间设置的，要支持设置过期时间，可以效仿 Cookie 的做法，setStorage(key,value,expire) 方法，接收三个参数，第三个参数就是设置过期时间的，用相对时间，单位秒，要对所传参数进行类型检查。</p>
-<p>可以设置统一的过期时间，也可以对单个值得过期时间进行单独配置。两种方式按需配置。</p>
-</div>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 获取 getStorage</h3>
-<div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>首先要对 key 是否存在进行判断，防止获取不存在的值而报错。对获取方法进一步扩展，只要在有效期内获取 Storage 值，就对过期时间进行续期，如果过期则直接删除该值。并返回 null</p>
-</div>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 获取所有值</h3>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 删除 removeStorage</h3>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 清空 clearStorage</h3>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 加密、解密</h3>
-<div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>加密采用的是 crypto-js</p>
-</div>
-<div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>对 crypto-js 设置密钥和密钥偏移量，可以采用将一个私钥经 MD5 加密生成16位密钥获得。</p>
-</div>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
-<p class="hint-container-title">Tips</p>
-<p>对加密方法进行封装</p>
-</div>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在存储数据及获取数据中进行使用：</p>
-<p>这里我们主要看下进行加密和解密部分，部分方法在下面代码段中并未展示，<code>请注意，不能直接运行</code>。</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3> 使用</h3>
-<p>使用的时候你可以通过 import 按需引入，也可以挂载到全局上使用，一般建议少用全局方式或全局变量，为后来接手项目继续开发维护的人，追查代码留条便捷之路！不要为了封装而封装，尽可能基于项目需求和后续的通用，以及使用上的便捷。比如获取全部存储变量，如果你项目上都未曾用到过，倒不如删减掉，留着过年也不见得有多香，不如为减小体积做点贡献！</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3> 完整代码</h3>
-<div class="language-javascript line-numbers-mode" data-ext="js"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content:encoded>
-    </item>
-    <item>
-      <title>跨域</title>
-      <link>https://jin-shaohui.gitee.io/Network/CrossDomain/</link>
-      <guid>https://jin-shaohui.gitee.io/Network/CrossDomain/</guid>
-      <source url="https://jin-shaohui.gitee.io/rss.xml">跨域</source>
-      <description>白话解释：所谓跨域其实就是浏览器对我们发送的接口请求进行拦截，不允许我们直接访问，浏览器就像是一个中间桥梁，它说让我们通过就让通过，它说不让通过那就通过不了。 发生跨域的三个必要条件： 一般情况，我们己的项目地址和接口地址的域名不同时，如：https://localhost:9527，也许会不假思索的就能回答出：不同协议，不同域名，不同端口。没有问题，但并不准确，我更倾向于把这三个叫 跨域的三要素 ，那什么是跨域形成的必要条件呢？ 浏览器限制： 即浏览器对跨域行为进行检测和阻止 触发跨域的三要素之一： 即协议、域名和端口三个条件满足其一 发起的是xhr请求： 即发起的是 XMLHttpRequest 类型的请求。</description>
-      <category>Network</category>
-      <pubDate>Wed, 01 Jun 2022 15:28:16 GMT</pubDate>
-      <content:encoded><![CDATA[<p>白话解释：所谓跨域其实就是浏览器对我们发送的接口请求进行拦截，不允许我们直接访问，浏览器就像是一个中间桥梁，它说让我们通过就让通过，它说不让通过那就通过不了。</p>
-<h2> 发生跨域的三个必要条件：</h2>
-<p>一般情况，我们己的项目地址和接口地址的域名不同时，如：<a href="https://localhost:9527" target="_blank" rel="noopener noreferrer">https://localhost:9527</a>，也许会不假思索的就能回答出：<strong>不同协议，不同域名，不同端口</strong>。没有问题，但并不准确，我更倾向于把这三个叫 <strong>跨域的三要素</strong> ，那什么是跨域形成的必要条件呢？</p>
-<blockquote>
-<p>浏览器限制： 即浏览器对跨域行为进行检测和阻止</p>
-<p>触发跨域的三要素之一： 即协议、域名和端口三个条件满足其一</p>
-<p>发起的是xhr请求： 即发起的是 XMLHttpRequest 类型的请求。</p>
-</blockquote>
-<!-- more -->
-<h2> 如何解决跨域？</h2>
-<p>为了更好的理解这个知识点，我们先回顾一下一个普通项目的交互关系。客户端有各种各样的请求发送给中间服务器Apache / Nginx，中间服务器在接收到请求之后，判断如果是静态资源（img，js插件等）则直接返回客户端，如果是交互资源（例如访问@RequestMapping里的方法）则转发至应用服务器上。</p>
-<p>现在大部分公司项目采用前后端分离的开发模式，使得客户端和服务器端通常都在不同服务器上，这种模式解决跨域主要有两种思路：</p>
-<ul>
-<li>第一种就是<strong>被调用方（即后端）解决</strong>：调用方在浏览器直接将请求发送至被调用方，被调用方处理完成后，在请求响应中添加基于http协议关于跨域请求的一些规定，就是在http响应头中添加Access-Control-Allow-Origin等一些配置允许跨域访问。这种解决方法是基于解决跨域的思路，修改的是被调用方的HTTP服务器，我们在浏览器中能看到有调用方的url，也有被调用方的url。</li>
-</ul>
-<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
-<li>第二种就是<strong>调用方（即前端）解决</strong>：这是基于隐藏跨域的解决办法。调用方通过一个代理服务器（Nginx）转发请求到被调用方的中间服务器，浏览器看到请求都是来自同一个域，就不会报跨域问题了。这种方式是基于隐藏跨域的思路，修改的是调用方的HTTP服务器(调用方的请求url是经过调用方的 Nginx 做反向代理转换转换的，目的就是为了和‘’被调用方”的域名端口一致)，在浏览器中也就只能看到调用方的url。</li>
-</ul>
-<h3> 补充后端解决跨域问题</h3>
-<p>如果是在被调用方解决跨域问题，被调用方解决支持跨域办法如下：</p>
-<ol>
-<li>在应用服务器端实现</li>
-<li>在Ngnix上配置</li>
-<li>在Apache上配置</li>
-<li>Spring框架解决</li>
-</ol>
-<p>虽然有4种方案，但是这4种方案的本质都是一样的，最终的目的是在响应头增加字段。浏览器在执行跨域请求时，如果遇到是简单请求，则先执行后判断；如果是非简单请求，则先使用OPTION向服务器发起一个预检请求 <strong>preflight request</strong> ，从而获知服务器是否允许该跨域访问，如果允许，就在此发起带真实数据的请求，否则不发起。这就实现了对被调用方的数据安全保护，也是跨域问题设计所在的目的之一。</p>
-<blockquote>
-<p>在介绍简单/非简单请求前，我们要了解什么是 Content-Type，<strong>Content-Type是指http/https发送信息至服务器时的内容编码类型</strong></p>
-</blockquote>
-<p><strong>【常见简单请求】</strong></p>
-<ol>
-<li>
-<p>GET</p>
-</li>
-<li>
-<p>HEAD</p>
-</li>
-<li>
-<p>POST</p>
-</li>
-</ol>
-<p>且它的Content-Type为text/plain（普通文本类型）或multipart/form-data（多媒体数据/表单数据）或application/x-www-form-urlencoded中的一种</p>
-<p><strong>【常见非简单请求】</strong></p>
-<ol>
-<li>PUT</li>
-<li>DELETE</li>
-<li>OPTIONS</li>
-<li>发送Json格式的Ajax请求[常为post]</li>
-<li>带自定义Header信息的Ajax请求</li>
-<li>CONNECT</li>
-<li>TRACE</li>
-<li>PATCH</li>
-</ol>
-<p>当浏览器发现发起的是一个跨域的请求时，它会向请求头里增加一个Origin字段，当请求被响应时，浏览器会检查响应头里有没有设置允许跨域的信息，如果没有，它就会报错。同理，如果给请求增加头信息，那么加入的信息也会作为跨域检查的信息。</p>
-<ul>
-<li><strong>举个例子</strong></li>
-</ul>
-<p>我们在本地搭起来了一个后端项目，端口号为8080；同时搭建了一个前端项目，端口号为9527。那这个时候我们直接调用后端接口的时候，前后端分离的原因导致我们需要跨域请求 。因此，在应用服务器端的响应头需要添加允许跨域的设置，即如下：</p>
-<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这时候，我们就可以在响应头Response Headers里观察到 <strong>Access-Control-Allow-Origin</strong> 和 <strong>Access-Control-Allow-Methods</strong> 信息，这代表跨域就被成功允许了。</p>
-<ul>
-<li><strong>还有一种特殊情况</strong></li>
-</ul>
-<p>带有Cookie的请求还需要注意一下两点才能实现跨域：</p>
-<ol>
-<li>Access-Control-Allow-Origin的值不能为 <strong>'*'</strong> 而是必须是精准匹配，因此需要添上具体的域名</li>
-<li>打开允许Cookie的设置，即Access-Control-Allow-Credentials: true</li>
-</ol>
-<p>但是这又带出了另一个问题，就是只能支持一个域名的跨域，怎么办？其实该变量可以通过调用方的请求头信息获取，解决办法如下：</p>
-<div class="language-java line-numbers-mode" data-ext="java"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>对于需要增加请求头信息解决方案与此类似</p>
-<p><strong>调用方解决跨域：反向代理</strong></p>
-<p>当被调用方无法帮助解决处理跨域问题时，调用方也可以自己解决处理。其实现的办法就是利用反向代理</p>
-<blockquote>
-<p><strong>正向代理：</strong> 利用代理客户端去请求服务器，从而隐藏了真实的客户端，服务器并不知道客户端是谁，这种代理方式称作正向代理，其代理的对象是客户端</p>
-<p><strong>反向代理:</strong> 反向代理隐藏了真正的服务端。举个例子，我们只知道敲下www.baidu.com时就能访问百度搜索页面，然而背后成千上万的服务器到底是哪一台正在为我们服务我们并不知道，这种隐藏了服务器端的代理方式称作反向代理，其代理的是服务器端。软件层面上常用Ngnix来做反向代理服务器，他的性能很好，用来做负载均衡。</p>
-</blockquote>
-<p>为了实现反向代理，我们需要在 Ngnix中配置一个代理域名，<a href="http://xn--demo-k84fui0dy35fh5wuq8c4mmu4b.com" target="_blank" rel="noopener noreferrer">或者称为一个网址demo.com</a>，就像百度成千上万的服务器使用用一个代理网址www.baidu.com一样。ngnix的配置信息如下</p>
-<div class="language-nginx line-numbers-mode" data-ext="nginx"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> 总结</h2>
-<p>跨域是由浏览器安全限制造成的，解决跨域的办法有三种，一是 <strong>Jsonp</strong> 绕过浏览器安全检测策略，二是从被调用方配置支持跨域的请求头信息，三是从调用方利用反向代理，在 Ngnix 或 Apache 中配置代理域名隐藏跨域。</p>
-]]></content:encoded>
-    </item>
-    <item>
       <title>服务器</title>
       <link>https://jin-shaohui.gitee.io/Server/</link>
       <guid>https://jin-shaohui.gitee.io/Server/</guid>
@@ -5109,19 +5125,6 @@ d</p>
 <div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2> 配置</h2>
 <div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2> 配置文件</h2>
 <div class="language-bash line-numbers-mode" data-ext="sh"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>]]></content:encoded>
-    </item>
-    <item>
-      <title>服务相关问题</title>
-      <link>https://jin-shaohui.gitee.io/Network/Question/</link>
-      <guid>https://jin-shaohui.gitee.io/Network/Question/</guid>
-      <source url="https://jin-shaohui.gitee.io/rss.xml">服务相关问题</source>
-      <description>常问问题 一个完整的http请求发生了什么 从浏览器输入url到回车页面渲染出来 这中间发生了什么</description>
-      <category>Question</category>
-      <pubDate>Mon, 16 May 2022 11:26:43 GMT</pubDate>
-      <content:encoded><![CDATA[<h2> 常问问题</h2>
-<h3> 一个完整的http请求发生了什么</h3>
-<h3> 从浏览器输入url到回车页面渲染出来 这中间发生了什么</h3>
-]]></content:encoded>
     </item>
     <item>
       <title>Git</title>

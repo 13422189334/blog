@@ -17,3 +17,7 @@ editLink: true # 不显示编辑按钮
 
 ### 跨域
 - [x] [Jsonp](/JavaScript/Jsonp/)
+
+
+### 代码题
+- [x] [请使用JS完成一个LRU缓存](/JavaScript/LRU/)

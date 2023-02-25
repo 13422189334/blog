@@ -1,11 +1,11 @@
 ---
 title: 请使用JS完成一个LRU缓存
-date: 2022-08-18 16:16:37
-permalink: /InterviewQuestion/FrontEnd/LRU/
+date: 2023-02-25 14:57:37
+permalink: /JavaScript/LRU/
 category:
-  - JS代码题
+  - JavaScript
 tag:
-  - 蹩脚的面试题
+  - JavaScript
 ---
 
 ## 什么是 LRU？
