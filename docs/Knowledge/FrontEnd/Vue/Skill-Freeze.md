@@ -1,7 +1,7 @@
 ---
 title: 数据冻结
 date: 2023-02-23 09:59:01
-permalink: /Vue/Skill/Freeze/
+permalink: /FrontEnd/Vue/Skill/Freeze/
 category:
   - VUE
 tag:

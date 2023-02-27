@@ -2,7 +2,7 @@
 title: 生命周期
 lang: zh-CN
 date: 2023-2-22 15:55:13
-permalink: /Vue2/LifeCycle/
+permalink: /FrontEnd/Vue/LifeCycle/
 category: 
   - VUE
 tag: 

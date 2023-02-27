@@ -2,7 +2,7 @@
 title: 打钩动画
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /CssComponent/Checked/
+permalink: /FrontEnd/CssComponent/Checked/
 category: 
   - CSS
 tag: 

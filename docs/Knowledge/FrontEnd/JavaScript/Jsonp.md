@@ -2,12 +2,8 @@
 title: Jsonp
 lang: zh-CN
 date: 2023-02-23 16:54:02
-permalink: /JavaScript/Jsonp/
+permalink: /FrontEnd/JavaScript/Jsonp/
 icon: jsonp
-sidebar: true # 不显示侧边栏
-article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
-comment: true # 不显示评论栏
-editLink: true # 不显示编辑按钮
 category: 
   - JavaScript
 tag: 

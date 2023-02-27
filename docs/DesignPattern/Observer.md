@@ -6,7 +6,7 @@ permalink: /DesignPattern/Observer/
 category: 
   - 设计模式
 tag: 
-  - 很菜的设计模式
+  - 设计模式
 ---
 
 # 观察者模式

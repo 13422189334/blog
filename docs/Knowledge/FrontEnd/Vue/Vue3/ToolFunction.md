@@ -1,7 +1,7 @@
 ---
 title: VUE3工具函数源码解析
 date: 2022-07-11 13:41:55
-permalink: /Vue3/ToolFunction/
+permalink: /FrontEnd/Vue3/ToolFunction/
 category:
   - VUE
   - VUE3

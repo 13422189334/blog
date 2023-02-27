@@ -1,11 +1,11 @@
 ---
 title: Storage
 date: 2022-06-13 15:07:14
-permalink: /Package/Storage/
+permalink: /FrontEnd/JavaScript/Storage/
 category:
-  - Storage
+  - JavaScript
 tag:
-  - 缓存
+  - JavaScript
 ---
 
 

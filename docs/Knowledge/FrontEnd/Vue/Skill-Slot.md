@@ -1,7 +1,7 @@
 ---
 title: 插槽
 date: 2023-02-23 09:59:47
-permalink: /Vue/Skill/Slot/
+permalink: /FrontEnd/Vue/Skill/Slot/
 category:
   - VUE
 tag:

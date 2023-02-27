@@ -2,11 +2,11 @@
 title: 百叶窗
 lang: zh-CN
 date: 2022-05-16 11:21:30
-permalink: /CssComponent/shutters/
+permalink: /FrontEnd/CssComponent/Shutters/
 category: 
   - CSS
 tag: 
-  - 很烂的CSS
+  - CSS
 ---
 
 ::: vue-demo

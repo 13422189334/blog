@@ -2,7 +2,7 @@
 title: JS篇
 lang: zh-CN
 date: 2023-02-23 16:20:10
-permalink: /JavaScript/
+permalink: /FrontEnd/JavaScript/
 icon: javascript
 sidebar: true # 不显示侧边栏
 article: true # 不是文章页 (不显示面包屑栏、最近更新栏等)
@@ -11,13 +11,14 @@ editLink: true # 不显示编辑按钮
 ---
 
 ### 知识点模块
-- [x] [JavaScript 执行机制](/JavaScript/EventLoop/)
-- [ ] [待整理问题](/JavaScript/Question/)
+- [x] [JavaScript 执行机制](/FrontEnd/JavaScript/EventLoop/)
+- [ ] [待整理问题](/FrontEnd/JavaScript/Question/)
 
 
 ### 跨域
-- [x] [Jsonp](/JavaScript/Jsonp/)
+- [x] [Jsonp](/FrontEnd/JavaScript/Jsonp/)
 
 
 ### 代码题
-- [x] [请使用JS完成一个LRU缓存](/JavaScript/LRU/)
+- [x] [请使用JS完成一个LRU缓存](/FrontEnd/JavaScript/LRU/)
+- [x] [请使用JS完成一个Storage封装](/FrontEnd/JavaScript/Storage/)

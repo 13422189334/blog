@@ -1,7 +1,8 @@
 ---
 title:  HTML规范指南
 date: 2022-06-22 10:28:05
-permalink: /Standard/HTML/
+permalink: /FrontEnd/Standard/HTML/
+icon: html
 category:
   - 前端规范
 tag:
