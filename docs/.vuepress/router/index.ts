@@ -8,7 +8,7 @@ export const nav: AutoLinkOptions[] = [
   { text: '首页', link: '/' },
   { text: '前端知识库', link: '/Knowledge/FrontEnd/', activeMatch: '/FrontEnd/(.*)$', },
   { text: '后端知识库', link: '/Java/Stream/', activeMatch: '/Java/(.*)$', icon: 'iconfont icon-java' },
-  { text: '设计模式', link: '/DesignPattern/Observer/', activeMatch: '/DesignPattern/(.*)$', icon: 'iconfont icon-note' },
+  { text: '设计模式', link: '/DesignPattern/Info/', activeMatch: '/DesignPattern/(.*)$', icon: 'iconfont icon-note' },
   { text: '常用算法', link: '/Algorithm/Dichotomy/', activeMatch: '/Algorithm/(.*)$', icon: 'iconfont icon-function' },
   { text: 'Git', link: '/Git/', icon: 'iconfont icon-git' },
   { text: '服务器', link: '/Server/', icon: 'iconfont icon-linux' },

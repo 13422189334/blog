@@ -14,10 +14,10 @@ tag:
 - VUE
 ---
 
-#### 指令
+### 指令
 - [x] [指令 - 点击外部](/FrontEnd/Vue/Directive/ClickOutside/)
 
-#### 知识点模块
+### 知识点模块
 - [ ] [Vue生命周期](/FrontEnd/Vue/LifeCycle/)
 - [x] [Vue组件通讯方式](/FrontEnd/Vue/Communicate/)
 - [ ] [待整理问题](/FrontEnd/Vue/Question/)

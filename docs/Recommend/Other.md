@@ -73,3 +73,8 @@ tag:
 - [中高级前端工程师都需要熟悉的技能--前端缓存](https://mp.weixin.qq.com/s/u589UJ8zhZiocFxVEzrfpg) 
 - [一文彻底深入搞懂JS事件循环机制（Event Loop）、同步异步、宏任务、微任务、调用堆栈](https://mp.weixin.qq.com/s/R_alNKqlH4yBKrKb-ChEVA)  
 - [这么多年你还在怕正则吗？](https://mp.weixin.qq.com/s/-g2W_yrslumyYSBdRk7EPQ)
+
+- [【设计模式】面试中被问的最频繁的「策略模式」](https://mp.weixin.qq.com/s/d73fuX4Wve2WHxoR4v4tkA)
+- [前端性能优化——包体积压缩82%、打包速度提升65%](https://mp.weixin.qq.com/s/pWoyPMadDw51BaJFECMoBQ)
+- [一起玩转Vue中的JSX：让你一次性掌握它的特性!](https://mp.weixin.qq.com/s/Ear2yeHfbNdnJnP8S2xTIQ)
+- [30 个 Javascript 知识点总结，总有你不会的！](https://mp.weixin.qq.com/s/z3K3P07dzugTtTCw7FZRYQ)

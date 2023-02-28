@@ -326,52 +326,52 @@ console.log('c' in p, p.c); // false, 37
 
 ```ts
 class EventEmitter {
-constructor() {
-this.cache = {}
-}
+  constructor() {
+    this.cache = {}
+  }
 
-    on(name, fn) {
-        const tasks = this.cache[name]
-        if (tasks) {
-            this.cache[name].push(fn)
-        } else {
-            this.cache[name] = [fn]
-        }
+  on(name, fn) {
+    const tasks = this.cache[name]
+    if (tasks) {
+      this.cache[name].push(fn)
+    } else {
+      this.cache[name] = [fn]
     }
+  }
 
-    off(name, fn) {
-        const tasks = this.cache[name]
-        if (task) {
-            const index = tasks.findIndex(item => item === fn)
-            if (index >= 0) {
-                this.cache[name].splice(index, 1)
-            }
-        }
+  off(name, fn) {
+    const tasks = this.cache[name]
+    if (tasks) {
+      const index = tasks.findIndex(item => item === fn)
+      if (index >= 0) {
+        this.cache[name].splice(index, 1)
+      }
     }
+  }
 
-    emit(name, ...args) {
-        // 复制一份。防止回调里继续on，导致死循环
-        const tasks = this.cache[name].slice()
-        if (tasks) {
-            for (let fn of tasks) {
-                fn(...args)
-            }
-        }
+  emit(name, ...args) {
+    // 复制一份。防止回调里继续on，导致死循环
+    const tasks = this.cache[name].slice()
+    if (tasks) {
+      for (let fn of tasks) {
+        fn(...args)
+      }
     }
+  }
 
-    once(name, cb) {
-        function fn(...args) {
-            cb(args)
-            this.off(name, fn)
-        }
-        this.on(name, fn)
+  once(name, cb) {
+    function fn(...args) {
+      cb(args)
+      this.off(name, fn)
     }
+    this.on(name, fn)
+  }
 }
 
 const eventBus = new EventEmitter()
 // 组件一
 eventBus.on('event', (val) => {
-console.log(val)
+  console.log(val)
 })
 // 组件二
 eventBus.emit('event', 'params')
