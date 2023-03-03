@@ -1,7 +1,7 @@
 {
   "name": "sla-blog",
   "version": "1.0.0",
-  "description": "sla的播客",
+  "description": "sla的博客",
   "author": "JSH",
   "license": "MIT",
   "scripts": {
