@@ -26,3 +26,4 @@ editLink: true # 不显示编辑按钮
 ### 代码题
 - [x] [请使用JS完成一个LRU缓存](/FrontEnd/JavaScript/LRU/)
 - [x] [请使用JS完成一个Storage封装](/FrontEnd/JavaScript/Storage/)
+- [x] [请使用JS完成一个JSON扁平化](/FrontEnd/JavaScript/FlatJson/)
